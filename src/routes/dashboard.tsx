@@ -1,14 +1,16 @@
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/')({
-  beforeLoad({
+import DashboardLayout from '@/components/Layouts/DashboardLayout';
+
+export const Route = createFileRoute('/dashboard')({
+  beforeLoad: ({
     context: {
       auth: { isAuthenticated },
     },
-  }) {
+  }) => {
     if (!isAuthenticated) {
       throw redirect({ to: '/login' });
     }
-    throw redirect({ to: '/dashboard' });
   },
+  component: DashboardLayout,
 });

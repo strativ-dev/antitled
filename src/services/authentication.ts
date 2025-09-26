@@ -1,11 +1,10 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { useNavigate } from '@tanstack/react-router';
 import { message } from 'antd';
-import { useNavigate } from 'react-router-dom';
 
 import { authenticatedAxiosInstance, publicAxiosInstance } from './api';
 import useErrorNotification from '@/hooks/useErrorNotification';
 import { endpoints } from '@/lib/config/endpoints';
-import { ROUTES } from '@/routes/paths';
 import { useAuthStore } from '@/stores/useAuthStore';
 
 type UseLoginMutationPayload = {
@@ -37,7 +36,7 @@ export const useLoginMutation = () => {
       setRefreshToken(data.data.refresh_token);
 
       message.success('Logged in successfully!');
-      navigate(ROUTES.DASHBOARD);
+      navigate({ to: '/' });
     },
     onError: (error: Error) => {
       message.error(error.message || 'Invalid credentials');

@@ -1,21 +1,21 @@
+import { useNavigate } from '@tanstack/react-router';
 import { Button, Result } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 
 const NotFound = () => {
-  const navigate = useNavigate();
-
   const { t } = useTranslation('translation', {
     keyPrefix: 'common',
   });
 
+  const navigate = useNavigate();
+
   return (
     <Result
-      status="404"
-      title="404"
+      status='404'
+      title='404'
       subTitle={t('not_found_page_title')}
       extra={
-        <Button type="primary" onClick={() => navigate('/')}>
+        <Button type='primary' onClick={() => navigate({ to: '/' })}>
           {t('back_home')}
         </Button>
       }

@@ -3,10 +3,6 @@ import { MenuProps } from 'antd';
 import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 
-import { PRIVATE_ROUTES } from '@/routes/paths';
-
-const { DASHBOARD } = PRIVATE_ROUTES;
-
 type ITEM_GROUP = {
   type: 'group';
   label: string;
@@ -30,7 +26,7 @@ const MenuItems = () => {
 
   const ITEMS: (ITEM | ITEM_GROUP)[] = [
     {
-      key: DASHBOARD,
+      key: 'dashboard',
       icon: <HomeOutlined />,
       label: t('dashboard'),
     },
