@@ -1,7 +1,7 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Outlet, useLocation, useNavigate } from '@tanstack/react-router';
 import { Button, Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { HeaderUserNav } from './HeaderUserNav';
 import MenuItems from './MenuItems';
@@ -41,8 +41,7 @@ const DashboardLayout = withAuth(() => {
 
   const handleMenuClick = ({ keyPath }: { keyPath: string[] }) => {
     const updatedKeyPath = keyPath?.reverse().join('/');
-
-    return navigate(updatedKeyPath);
+    return navigate({ to: `/${updatedKeyPath}` });
   };
 
   const handleOpenChange = (keys: string[]) => {
@@ -59,14 +58,13 @@ const DashboardLayout = withAuth(() => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ height: '100vh' }}
-      >
-        <Flex justify="center" align="center">
+        style={{ height: '100vh' }}>
+        <Flex justify='center' align='center'>
           <StrativLogo height={40} width={40} />
         </Flex>
         <Menu
-          theme="dark"
-          mode="inline"
+          theme='dark'
+          mode='inline'
           selectedKeys={selectedKeys}
           openKeys={openKeys}
           onClick={handleMenuClick}
@@ -77,13 +75,13 @@ const DashboardLayout = withAuth(() => {
       <Layout>
         <StyledHeader style={{ background: colorBgContainer }}>
           <Button
-            type="text"
+            type='text'
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
-            size="large"
+            size='large'
           />
 
-          <Flex align="center" justify='end' gap={16}>
+          <Flex align='center' justify='end' gap={16}>
             <LangPicker />
             <HeaderUserNav />
           </Flex>
@@ -94,8 +92,7 @@ const DashboardLayout = withAuth(() => {
             padding: 24,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
-          }}
-        >
+          }}>
           <Outlet />
         </Content>
       </Layout>
