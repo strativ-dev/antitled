@@ -7,4 +7,5 @@ export const StyledHeader = styled(Layout.Header)`
   gap: 16px;
   align-items: center;
   padding: 0 16px;
+  background-color: ${({ theme }) => theme.colorBgContainer};
 `;

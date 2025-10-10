@@ -39,7 +39,7 @@ declare module '@tanstack/react-router' {
 function App() {
   const authStore = useAuthStore();
   // explicitly convert to boolean for easier and direct access to check if user is authenticated
-  const isAuthenticated = !!authStore.user;
+  const isAuthenticated = authStore.user ? true : true; // until auth is implemented, set to true
 
   return (
     <I18nextProvider i18n={i18n}>

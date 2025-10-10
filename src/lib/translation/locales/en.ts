@@ -11,6 +11,7 @@ export const en = {
         password: 'Password',
         please_input_your_email: 'Please input your email',
         please_input_your_password: 'Please input your password',
+        logout: 'Logout',
       },
     },
     pages: {
@@ -30,6 +31,9 @@ export const en = {
       no_response_received_from_the_server:
         'No response received from the server',
       choose_language: 'Choose Language',
+      light: 'Light',
+      dark: 'Dark',
+      system: 'System',
     },
   },
 };

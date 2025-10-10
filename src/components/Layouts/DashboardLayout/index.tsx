@@ -1,6 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Outlet, useLocation, useNavigate } from '@tanstack/react-router';
-import { Button, Flex, Layout, Menu, theme } from 'antd';
+import { Button, Flex, Layout, Menu } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { HeaderUserNav } from './HeaderUserNav';
@@ -10,6 +10,8 @@ import StrativLogo from '@/assets/logo.svg?react';
 
 import { LangPicker } from '@/components/Atoms/LangPicker';
 import { withAuth } from '@/components/Hoc/withAuth';
+import CompactModeToggle from '@/components/Layouts/DashboardLayout/CompactModeToggle';
+import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
 const { Sider, Content } = Layout;
 
@@ -19,10 +21,6 @@ const DashboardLayout = withAuth(() => {
 
   const [collapsed, setCollapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
-
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
 
   const selectedKeys = useMemo(() => {
     const paths = location.pathname.split('/');
@@ -73,7 +71,7 @@ const DashboardLayout = withAuth(() => {
         />
       </Sider>
       <Layout>
-        <StyledHeader style={{ background: colorBgContainer }}>
+        <StyledHeader>
           <Button
             type='text'
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -82,6 +80,8 @@ const DashboardLayout = withAuth(() => {
           />
 
           <Flex align='center' justify='end' gap={16}>
+            <CompactModeToggle />
+            <ThemeToggle />
             <LangPicker />
             <HeaderUserNav />
           </Flex>
@@ -90,8 +90,6 @@ const DashboardLayout = withAuth(() => {
           style={{
             margin: '24px 16px',
             padding: 24,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
           }}>
           <Outlet />
         </Content>
