@@ -3,7 +3,7 @@ import React from 'react';
 import { CardSection, StyledCard, Wrapper } from '../../StyledWrappers';
 import ButtonsDemo from '../ButtonDemo/ButtonsDemo';
 import RadioButtonDemo from '../ButtonDemo/RadioButtonDemo';
-import DeletePopconfirm from '../DeletePopconfirm';
+import DeletePopConfirm from '../DeletePopConfirm';
 import MenuDemo from '../MenuDemo';
 import PaginationDemo from '../PaginationDemo';
 import StepsDemo from '../StepsDemo';
@@ -44,7 +44,7 @@ const MainCard: React.FC = () => {
               flexWrap: 'wrap',
               justifyContent: 'space-between',
             }}>
-            <DeletePopconfirm />
+            <DeletePopConfirm />
             <TimelineDemo />
           </CardSection>
         </div>

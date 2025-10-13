@@ -27,7 +27,7 @@ const fileList: UploadFile[] = [
     status: 'error',
   },
 ];
-const UplodeDemo: React.FC = () => (
+const UploadDemo: React.FC = () => (
   <div style={{ width: '50%' }}>
     <Upload {...props}>
       <Button icon={<UploadOutlined />}>Upload</Button>
@@ -44,4 +44,4 @@ const UplodeDemo: React.FC = () => (
   </div>
 );
 
-export default UplodeDemo;
+export default UploadDemo;

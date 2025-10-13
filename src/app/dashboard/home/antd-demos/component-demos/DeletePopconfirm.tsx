@@ -9,7 +9,7 @@ const cancel = () => {
   message.error('Click on No');
 };
 
-const DeletePopconfirm: React.FC = () => (
+const DeletePopConfirm: React.FC = () => (
   <Popconfirm
     title='Are you sure to delete this task?'
     onConfirm={confirm}
@@ -20,4 +20,4 @@ const DeletePopconfirm: React.FC = () => (
   </Popconfirm>
 );
 
-export default DeletePopconfirm;
+export default DeletePopConfirm;

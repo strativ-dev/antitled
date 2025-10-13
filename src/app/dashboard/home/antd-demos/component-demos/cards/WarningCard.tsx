@@ -5,7 +5,7 @@ import AlertSectionDemo from '../AlertSectionDemo';
 import BadgeDot from '../BadgeDemo/BadgeDot';
 import NotificationButton from '../ButtonDemo/NotificationButton';
 import ConfirmModalDemo from '../ConfirmModalDemo';
-import DeletePopconfirm from '../DeletePopconfirm';
+import DeletePopConfirm from '../DeletePopConfirm';
 import InputDemo from '../InputDemo';
 import MessageButton from '../MessageDemo';
 import ResultWarningDemo from '../ResultDemo/ResultWarningDemo';
@@ -39,7 +39,7 @@ const WarningCard: React.FC = () => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <AlertSectionDemo type='warning' /> <DeletePopconfirm />
+        <AlertSectionDemo type='warning' /> <DeletePopConfirm />
         <BadgeDot />
         <StatusTag type='warning' />
         <TypographyDemo text='Warning Text' useTitle level={5} />
