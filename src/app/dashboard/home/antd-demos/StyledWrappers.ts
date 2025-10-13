@@ -4,7 +4,6 @@ export const MainWrapper = styled.div`
   height: calc(100vh - 115px);
   overflow-y: auto;
   padding: 8px;
-  background: #f0f2f5;
   overflow-x: hidden;
 `;
 

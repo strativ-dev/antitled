@@ -42,9 +42,7 @@ const WarningCard: React.FC = () => {
         </Flex>
       </CardSection>
 
-      <Flex style={{ marginTop: 20 }}>
-        <ResultWarningDemo />
-      </Flex>
+      <ResultWarningDemo />
     </StyledCard>
   );
 };
