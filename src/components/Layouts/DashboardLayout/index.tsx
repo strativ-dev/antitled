@@ -11,7 +11,6 @@ import StrativLogo from '@/assets/logo.svg?react';
 import { Button } from '@/components/Atoms';
 import { LangPicker } from '@/components/Atoms/LangPicker';
 import { withAuth } from '@/components/Hoc/withAuth';
-import CompactModeToggle from '@/components/Layouts/DashboardLayout/CompactModeToggle';
 import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
 const { Sider, Content } = Layout;
@@ -96,7 +95,6 @@ const DashboardLayout = withAuth(() => {
                 Components
               </Button>
             </Link>
-            <CompactModeToggle />
             <ThemeToggle />
             <LangPicker />
             <HeaderUserNav />
