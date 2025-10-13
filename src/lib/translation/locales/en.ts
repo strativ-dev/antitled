@@ -34,6 +34,11 @@ export const en = {
       light: 'Light',
       dark: 'Dark',
       system: 'System',
+      General: 'General',
+      'Component Overview': 'Component Overview',
+      Component: 'Component',
+      Components: 'Components',
+      Button: 'Button',
     },
   },
 };

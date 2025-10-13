@@ -6,11 +6,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-    width: 100%;
-    height: 100%;
-    display: block;
-
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     color-scheme: light dark;
 
     font-synthesis: none;

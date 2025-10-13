@@ -9,8 +9,8 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-			"@/*": ["src/*"]
-		},
+      "@/*": ["src/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
@@ -25,7 +25,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
 }

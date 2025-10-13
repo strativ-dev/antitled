@@ -73,12 +73,44 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
     algorithm: getThemeAlgorithm(),
 
     token: {
+      fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
+
       // Colors
       colorPrimary: colorPalette.Brand['600'],
       colorSuccess: colorPalette.Success['600'],
       colorWarning: colorPalette.Warning['600'],
       colorError: colorPalette.Error['600'],
       colorInfo: colorPalette.Blue['600'],
+
+      green1: colorPalette['Green light']['100'],
+      green2: colorPalette['Green light']['200'],
+      green3: colorPalette['Green light']['300'],
+      green4: colorPalette['Green light']['400'],
+      green5: colorPalette['Green light']['500'],
+      green6: colorPalette['Green light']['600'],
+      green7: colorPalette['Green light']['700'],
+      green8: colorPalette['Green light']['800'],
+      green9: colorPalette['Green light']['900'],
+
+      blue1: colorPalette['Blue light']['100'],
+      blue2: colorPalette['Blue light']['200'],
+      blue3: colorPalette['Blue light']['300'],
+      blue4: colorPalette['Blue light']['400'],
+      blue5: colorPalette['Blue light']['500'],
+      blue6: colorPalette['Blue light']['600'],
+      blue7: colorPalette['Blue light']['700'],
+      blue8: colorPalette['Blue light']['800'],
+      blue9: colorPalette['Blue light']['900'],
+
+      orange1: colorPalette['Orange']['100'],
+      orange2: colorPalette['Orange']['200'],
+      orange3: colorPalette['Orange']['300'],
+      orange4: colorPalette['Orange']['400'],
+      orange5: colorPalette['Orange']['500'],
+      orange6: colorPalette['Orange']['600'],
+      orange7: colorPalette['Orange']['700'],
+      orange8: colorPalette['Orange']['800'],
+      orange9: colorPalette['Orange']['900'],
 
       // Text colors
       colorText: colorPalette.texts.textPrimary900,
@@ -204,10 +236,10 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       },
       Menu: {
         borderRadius: RADIUS.md,
-        itemBorderRadius: RADIUS.sm,
-        itemPaddingInline: isCompactMode ? SPACING.md : SPACING.lg,
-        itemHeight: isCompactMode ? 36 : 40,
-        subMenuItemBorderRadius: RADIUS.sm,
+        itemBorderRadius: RADIUS.md,
+        itemPaddingInline: SPACING.lg,
+        itemHeight: 40,
+        subMenuItemBorderRadius: RADIUS.md,
       },
       Notification: {
         borderRadius: RADIUS.lg,
