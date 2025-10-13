@@ -30,6 +30,10 @@ const MenuItems = () => {
       icon: <HomeOutlined />,
       label: t('dashboard'),
     },
+    {
+      key: 'dashboard/antd-demos',
+      label: t('Overview'),
+    },
   ];
 
   const transform = (items: typeof ITEMS) => {
