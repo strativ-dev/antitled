@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
-  height: calc(100vh - 115px);
+  height: calc(100vh - 130px);
   overflow-y: auto;
   padding: 8px;
   overflow-x: hidden;
