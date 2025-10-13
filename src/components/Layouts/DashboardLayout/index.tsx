@@ -10,6 +10,8 @@ import StrativLogo from '@/assets/logo.svg?react';
 
 import { LangPicker } from '@/components/Atoms/LangPicker';
 import { withAuth } from '@/components/Hoc/withAuth';
+import CompactModeToggle from '@/components/Layouts/DashboardLayout/CompactModeToggle';
+import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
 const { Sider, Content } = Layout;
 
@@ -74,7 +76,7 @@ const DashboardLayout = withAuth(() => {
         />
       </Sider>
       <Layout>
-        <StyledHeader style={{ background: colorBgContainer }}>
+        <StyledHeader>
           <Button
             type='text'
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -83,6 +85,8 @@ const DashboardLayout = withAuth(() => {
           />
 
           <Flex align='center' justify='end' gap={16}>
+            <CompactModeToggle />
+            <ThemeToggle />
             <LangPicker />
             <HeaderUserNav />
           </Flex>

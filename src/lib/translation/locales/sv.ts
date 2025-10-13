@@ -30,6 +30,9 @@ export const sv = {
       back_home: 'Tillbaka Hem',
       no_response_received_from_the_server: 'Inget svar mottaget från servern',
       choose_language: 'Välj Språk',
+      light: 'Ljus',
+      dark: 'Mörker',
+      system: 'System',
     },
   },
 };
