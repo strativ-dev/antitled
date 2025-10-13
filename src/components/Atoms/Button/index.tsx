@@ -205,10 +205,6 @@ const ButtonWrapper = styled.div<{
   }
 
   .ant-btn-default {
-    &:not(:disabled):hover {
-    }
-    &:not(:disabled):active {
-    }
     &:not(:disabled):focus-visible {
       outline: 2px solid
         var(--focus-ring-color, ${({ theme }) => theme.colors['Brand']['300']});
@@ -219,14 +215,7 @@ const ButtonWrapper = styled.div<{
   .ant-btn-variant-solid {
     color: ${({ theme }) => theme.colors['texts']['textWhite']};
 
-    &:not(:disabled):hover {
-    }
-
-    &:not(:disabled):active {
-    }
-
-    &:disabled {
-    }
+    //TODO: Add special border/shadows
 
     &.ant-btn-color-default {
       color: ${({ theme }) =>
@@ -295,14 +284,16 @@ const ButtonWrapper = styled.div<{
     }
   }
 
-  .ant-btn-variant-outlined {
+  .ant-btn-color-default.ant-btn-variant-outlined {
     box-shadow:
       0px 1px 2px 0px rgba(10, 13, 18, 0.05),
       0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset,
       0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset;
 
     border-width: ${({ theme }) => (theme.mode === 'dark' ? '1px' : '0')};
+  }
 
+  .ant-btn-variant-outlined {
     &:disabled,
     &.ant-btn-disabled {
       color: ${({ theme }) => theme.colors['foregrounds']['fgDisabled']};
