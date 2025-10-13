@@ -12,7 +12,6 @@ import {
 } from '@/config/styles';
 
 declare module 'styled-components' {
-   
   export interface DefaultTheme extends GlobalToken {
     mode?: 'dark' | 'light' | 'system';
     colors: ColorPalette;

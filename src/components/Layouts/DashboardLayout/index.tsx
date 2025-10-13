@@ -1,6 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Link, Outlet, useLocation, useNavigate } from '@tanstack/react-router';
-import { Flex, Layout, Menu } from 'antd';
+import { Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
@@ -19,13 +19,18 @@ const { Sider, Content } = Layout;
 const DashboardLayout = withAuth(() => {
   const location = useLocation();
   const navigate = useNavigate();
+  const noPaddingBgPaths = ['/dashboard/antd-demos'];
+  const hasNoPaddingBg = noPaddingBgPaths.includes(location.pathname);
 
   const [collapsed, setCollapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
 
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+
   const selectedKeys = useMemo(() => {
-    const paths = location.pathname.split('/');
-    return paths?.length > 1 ? paths?.filter(Boolean) : paths;
+    return [location.pathname.replace(/^\//, '')];
   }, [location.pathname]);
 
   const getOpenedKey = useCallback(() => {
@@ -100,7 +105,9 @@ const DashboardLayout = withAuth(() => {
         <Content
           style={{
             margin: '24px 16px',
-            padding: 24,
+            padding: hasNoPaddingBg ? 0 : 24,
+            background: hasNoPaddingBg ? 'transparent' : colorBgContainer,
+            borderRadius: borderRadiusLG,
           }}>
           <Outlet />
         </Content>
