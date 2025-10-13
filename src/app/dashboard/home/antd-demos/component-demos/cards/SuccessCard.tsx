@@ -1,4 +1,5 @@
 import { CheckCircleOutlined } from '@ant-design/icons';
+import { Flex } from 'antd';
 import React from 'react';
 
 import { CardSection, StyledCard, Wrapper } from '../../StyledWrappers';
@@ -14,12 +15,7 @@ import TimelineDemo from '../TimelineDemo';
 const SuccessCard: React.FC = () => {
   return (
     <StyledCard>
-      <div
-        style={{
-          display: 'flex',
-          gap: 16,
-          marginBottom: 16,
-        }}>
+      <Flex gap={16} style={{ marginBottom: 16 }}>
         <StatusTag type='success' />
         <InputDemo
           value="I'm the content"
@@ -27,27 +23,20 @@ const SuccessCard: React.FC = () => {
           color='#52c41a'
         />
         <MessageButton type='success' content='这是一条成功消息，会主动消失' />
-      </div>
-
+      </Flex>
       <Wrapper>
         <AlertSectionDemo type='success' /> <ProgressSuccessDemo />
       </Wrapper>
 
       <CardSection>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 16,
-          }}>
+        <Flex justify='space-between' wrap gap={16}>
           <NotificationButton type='success' />
           <TimelineDemo type='success' />
-        </div>
+        </Flex>
 
-        <div style={{ marginTop: 20 }}>
+        <Flex style={{ marginTop: 20 }}>
           <ResultSuccessDemo />
-        </div>
+        </Flex>
       </CardSection>
     </StyledCard>
   );

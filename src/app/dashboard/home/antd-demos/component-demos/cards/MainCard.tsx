@@ -1,9 +1,10 @@
+import { Flex } from 'antd';
 import React from 'react';
 
 import { CardSection, StyledCard, Wrapper } from '../../StyledWrappers';
 import ButtonsDemo from '../ButtonDemo/ButtonsDemo';
 import RadioButtonDemo from '../ButtonDemo/RadioButtonDemo';
-import DeletePopConfirm from '../DeletePopConfirm';
+import DeletePopConfirm from '../DeletePopconfirm';
 import MenuDemo from '../MenuDemo';
 import PaginationDemo from '../PaginationDemo';
 import StepsDemo from '../StepsDemo';
@@ -16,38 +17,29 @@ const MainCard: React.FC = () => {
   return (
     <StyledCard>
       <Wrapper>
-        <div>
+        <Flex gap='middle'>
           <MenuDemo />
-        </div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <ButtonsDemo />
-          <div style={{ marginTop: 18 }}>
-            <ToggleControlsDemo />
-          </div>
-          <div style={{ marginTop: 18 }}>
+          <Flex vertical gap='middle' style={{ flex: 1, minWidth: 0 }}>
+            <ButtonsDemo />
+            <Flex>
+              <ToggleControlsDemo />
+            </Flex>
             <RadioButtonDemo />
-          </div>
-          <div style={{ marginTop: 18 }}>
             <TabsDemo />
-          </div>
-          <CardSection>
-            <PaginationDemo />
-          </CardSection>
-          <CardSection>
-            <StepsDemo current={1} />
-          </CardSection>
-          <CardSection
-            style={{
-              display: 'flex',
-              gap: 16,
-              marginTop: 38,
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-            }}>
-            <DeletePopConfirm />
-            <TimelineDemo />
-          </CardSection>
-        </div>
+            <CardSection>
+              <PaginationDemo />
+            </CardSection>
+            <CardSection>
+              <StepsDemo current={1} />
+            </CardSection>
+            <CardSection style={{ marginTop: 38 }}>
+              <Flex gap={16} wrap justify='space-between'>
+                <DeletePopConfirm />
+                <TimelineDemo />
+              </Flex>
+            </CardSection>
+          </Flex>
+        </Flex>
       </Wrapper>
       <TableDemo />
     </StyledCard>

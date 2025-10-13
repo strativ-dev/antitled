@@ -1,3 +1,4 @@
+import { Flex } from 'antd';
 import React from 'react';
 
 import { CardSection, StyledCard, Wrapper } from '../../StyledWrappers';
@@ -14,46 +15,28 @@ import UploadDemo from '../UploadDemo';
 const ErrorCard: React.FC = () => {
   return (
     <StyledCard>
-      <div
-        style={{
-          display: 'flex',
-          gap: 16,
-          flexWrap: 'wrap',
-          marginBottom: 16,
-        }}>
+      <Flex gap={16} wrap style={{ marginBottom: 16 }}>
         <DangerButtonDemo />
         <StatusTag type='error' />
         <MessageButton type='error' content='这是一条异常消息，会主动消失' />
-      </div>
+      </Flex>
 
       <Wrapper>
         <AlertSectionDemo type='error' /> <ProgressErrorDemo />
       </Wrapper>
 
       <CardSection>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: 16,
-          }}>
+        <Flex justify='space-between' wrap align='center' gap={16}>
           <NotificationButton type='error' />
           <DropdownDemo />
-        </div>
+        </Flex>
       </CardSection>
 
       <CardSection>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-          }}>
+        <Flex justify='space-between' wrap>
           <UploadDemo />
           <TimelineDemo type='error' />
-        </div>
+        </Flex>
       </CardSection>
     </StyledCard>
   );

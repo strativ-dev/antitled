@@ -1,3 +1,4 @@
+import { Flex } from 'antd';
 import React from 'react';
 
 import { CardSection, StyledCard } from '../../StyledWrappers';
@@ -5,7 +6,7 @@ import AlertSectionDemo from '../AlertSectionDemo';
 import BadgeDot from '../BadgeDemo/BadgeDot';
 import NotificationButton from '../ButtonDemo/NotificationButton';
 import ConfirmModalDemo from '../ConfirmModalDemo';
-import DeletePopConfirm from '../DeletePopConfirm';
+import DeletePopConfirm from '../DeletePopconfirm';
 import InputDemo from '../InputDemo';
 import MessageButton from '../MessageDemo';
 import ResultWarningDemo from '../ResultDemo/ResultWarningDemo';
@@ -15,12 +16,7 @@ import TypographyDemo from '../TypographyDemo';
 const WarningCard: React.FC = () => {
   return (
     <StyledCard>
-      <div
-        style={{
-          display: 'flex',
-          gap: 16,
-          marginBottom: 16,
-        }}>
+      <Flex gap={16} style={{ marginBottom: 16 }}>
         <TypographyDemo
           text='Warning Text'
           useTitle
@@ -30,35 +26,25 @@ const WarningCard: React.FC = () => {
         />
         <InputDemo value='3' />
         <MessageButton type='warning' content='这是一条警告消息，会主动消失' />
-      </div>
+      </Flex>
 
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
+      <Flex wrap justify='space-between' align='center'>
         <AlertSectionDemo type='warning' /> <DeletePopConfirm />
         <BadgeDot />
         <StatusTag type='warning' />
         <TypographyDemo text='Warning Text' useTitle level={5} />
-      </div>
+      </Flex>
 
       <CardSection>
-        <div
-          style={{
-            display: 'flex',
-            gap: 16,
-          }}>
+        <Flex gap={16}>
           <NotificationButton type='warning' />
           <ConfirmModalDemo />
-        </div>
+        </Flex>
       </CardSection>
 
-      <div style={{ marginTop: 20 }}>
+      <Flex style={{ marginTop: 20 }}>
         <ResultWarningDemo />
-      </div>
+      </Flex>
     </StyledCard>
   );
 };
