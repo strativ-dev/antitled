@@ -22,7 +22,7 @@ const CustomSelect: React.FC = () => (
       allowClear
       style={{ width: '100%' }}
       placeholder='Please select'
-      defaultValue={['a10', 'c12', 'e14']}
+      defaultValue={['a10', 'c12']}
       onChange={handleChange}
       options={options}
     />
