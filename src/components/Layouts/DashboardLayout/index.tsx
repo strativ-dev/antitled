@@ -17,7 +17,7 @@ const DashboardLayout = withAuth(() => {
   const location = useLocation();
   const navigate = useNavigate();
   const noPaddingBgPaths = ['/dashboard/antd-demos'];
-  const isNoPaddingBg = noPaddingBgPaths.includes(location.pathname);
+  const hasNoPaddingBg = noPaddingBgPaths.includes(location.pathname);
 
   const [collapsed, setCollapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
@@ -90,8 +90,8 @@ const DashboardLayout = withAuth(() => {
         <Content
           style={{
             margin: '24px 16px',
-            padding: isNoPaddingBg ? 0 : 24,
-            background: isNoPaddingBg ? 'transparent' : colorBgContainer,
+            padding: hasNoPaddingBg ? 0 : 24,
+            background: hasNoPaddingBg ? 'transparent' : colorBgContainer,
             borderRadius: borderRadiusLG,
           }}>
           <Outlet />
