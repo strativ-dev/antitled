@@ -2,6 +2,7 @@ export const en = {
   translation: {
     sidebar: {
       dashboard: 'Dashboard',
+      Overview: 'Ant Design Demo',
     },
     features: {
       authentication: {

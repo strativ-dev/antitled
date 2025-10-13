@@ -16,6 +16,8 @@ const { Sider, Content } = Layout;
 const DashboardLayout = withAuth(() => {
   const location = useLocation();
   const navigate = useNavigate();
+  const noPaddingBgPaths = ['/dashboard/antd-demos'];
+  const isNoPaddingBg = noPaddingBgPaths.includes(location.pathname);
 
   const [collapsed, setCollapsed] = useState(false);
   const [openKeys, setOpenKeys] = useState<string[]>([]);
@@ -25,8 +27,7 @@ const DashboardLayout = withAuth(() => {
   } = theme.useToken();
 
   const selectedKeys = useMemo(() => {
-    const paths = location.pathname.split('/');
-    return paths?.length > 1 ? paths?.filter(Boolean) : paths;
+    return [location.pathname.replace(/^\//, '')];
   }, [location.pathname]);
 
   const getOpenedKey = useCallback(() => {
@@ -89,8 +90,8 @@ const DashboardLayout = withAuth(() => {
         <Content
           style={{
             margin: '24px 16px',
-            padding: 24,
-            background: colorBgContainer,
+            padding: isNoPaddingBg ? 0 : 24,
+            background: isNoPaddingBg ? 'transparent' : colorBgContainer,
             borderRadius: borderRadiusLG,
           }}>
           <Outlet />

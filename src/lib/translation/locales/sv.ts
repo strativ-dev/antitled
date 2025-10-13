@@ -2,6 +2,7 @@ export const sv = {
   translation: {
     sidebar: {
       dashboard: 'Instrumentpanel',
+      Overview: 'Ant Design-demo',
     },
     features: {
       authentication: {

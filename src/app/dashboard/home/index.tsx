@@ -35,7 +35,7 @@ const DashboardHome = () => {
           <StatCard
             title={t('revenue')}
             value={dashboardStats.revenue}
-            prefix="$"
+            prefix='$'
           />
         </Col>
 
