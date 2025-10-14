@@ -39,5 +39,6 @@
     "**/node_modules": true,
     "**/dist": true,
     "**/.git": true
-  }
+  },
+  "cSpell.words": ["antitled"]
 }

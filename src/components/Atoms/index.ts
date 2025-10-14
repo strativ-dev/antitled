@@ -1,2 +1,3 @@
 export { Button } from './Button';
-export { StyledSimpleBar } from './StyledSimpleBar';
+export { StyledSimpleBar } from './StyledSimplebar';
+export { Text } from './Text';

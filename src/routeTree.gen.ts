@@ -16,6 +16,7 @@ import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as ComponentsIndexRouteImport } from './routes/components/index'
 import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-demos'
 import { Route as PublicLoginRouteImport } from './routes/_public/login'
+import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index'
 
 const DashboardRoute = DashboardRouteImport.update({
@@ -53,6 +54,11 @@ const PublicLoginRoute = PublicLoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
+  id: '/text/',
+  path: '/text/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 const ComponentsButtonIndexRoute = ComponentsButtonIndexRouteImport.update({
   id: '/button/',
   path: '/button/',
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
+  '/components/text': typeof ComponentsTextIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/components': typeof ComponentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
+  '/components/text': typeof ComponentsTextIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/components/button/': typeof ComponentsButtonIndexRoute
+  '/components/text/': typeof ComponentsTextIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/components/'
     | '/dashboard/'
     | '/components/button'
+    | '/components/text'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/components'
     | '/dashboard'
     | '/components/button'
+    | '/components/text'
   id:
     | '__root__'
     | '/'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/components/'
     | '/dashboard/'
     | '/components/button/'
+    | '/components/text/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -177,6 +189,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/components/text/': {
+      id: '/components/text/'
+      path: '/text'
+      fullPath: '/components/text'
+      preLoaderRoute: typeof ComponentsTextIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
     '/components/button/': {
       id: '/components/button/'
       path: '/button'
@@ -190,11 +209,13 @@ declare module '@tanstack/react-router' {
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute
+  ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
 }
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
+  ComponentsTextIndexRoute: ComponentsTextIndexRoute,
 }
 
 const ComponentsRouteWithChildren = ComponentsRoute._addFileChildren(
