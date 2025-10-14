@@ -18,12 +18,7 @@ interface ThemeProviderWrapperProps {
 }
 
 const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
-  const {
-    colorPalette,
-    theme: themeMode,
-    setTheme,
-    isCompactMode,
-  } = useAppStore();
+  const { colorPalette, theme: themeMode, setTheme } = useAppStore();
 
   // Handle initial system theme detection
   useEffect(() => {
@@ -61,11 +56,6 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       algorithms.push(theme.defaultAlgorithm);
     }
 
-    // Add compact algorithm if enabled
-    if (isCompactMode) {
-      algorithms.push(theme.compactAlgorithm);
-    }
-
     return algorithms;
   };
 
@@ -73,12 +63,44 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
     algorithm: getThemeAlgorithm(),
 
     token: {
+      fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
+
       // Colors
       colorPrimary: colorPalette.Brand['600'],
       colorSuccess: colorPalette.Success['600'],
       colorWarning: colorPalette.Warning['600'],
       colorError: colorPalette.Error['600'],
       colorInfo: colorPalette.Blue['600'],
+
+      green1: colorPalette['Green light']['100'],
+      green2: colorPalette['Green light']['200'],
+      green3: colorPalette['Green light']['300'],
+      green4: colorPalette['Green light']['400'],
+      green5: colorPalette['Green light']['500'],
+      green6: colorPalette['Green light']['600'],
+      green7: colorPalette['Green light']['700'],
+      green8: colorPalette['Green light']['800'],
+      green9: colorPalette['Green light']['900'],
+
+      blue1: colorPalette['Blue light']['100'],
+      blue2: colorPalette['Blue light']['200'],
+      blue3: colorPalette['Blue light']['300'],
+      blue4: colorPalette['Blue light']['400'],
+      blue5: colorPalette['Blue light']['500'],
+      blue6: colorPalette['Blue light']['600'],
+      blue7: colorPalette['Blue light']['700'],
+      blue8: colorPalette['Blue light']['800'],
+      blue9: colorPalette['Blue light']['900'],
+
+      orange1: colorPalette['Orange']['100'],
+      orange2: colorPalette['Orange']['200'],
+      orange3: colorPalette['Orange']['300'],
+      orange4: colorPalette['Orange']['400'],
+      orange5: colorPalette['Orange']['500'],
+      orange6: colorPalette['Orange']['600'],
+      orange7: colorPalette['Orange']['700'],
+      orange8: colorPalette['Orange']['800'],
+      orange9: colorPalette['Orange']['900'],
 
       // Text colors
       colorText: colorPalette.texts.textPrimary900,
@@ -115,26 +137,25 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       borderRadiusXS: RADIUS.xs,
 
       // Spacing - adjust for compact mode
-      padding: isCompactMode ? SPACING.lg : SPACING.xl,
-      paddingSM: isCompactMode ? SPACING.md : SPACING.lg,
-      paddingLG: isCompactMode ? SPACING.xl : SPACING['2xl'],
-      paddingXS: isCompactMode ? SPACING.sm : SPACING.md,
+      padding: SPACING.xl,
+      paddingSM: SPACING.lg,
+      paddingLG: SPACING['2xl'],
+      paddingXS: SPACING.md,
 
-      margin: isCompactMode ? SPACING.lg : SPACING.xl,
-      marginSM: isCompactMode ? SPACING.md : SPACING.lg,
-      marginLG: isCompactMode ? SPACING.xl : SPACING['2xl'],
-      marginXS: isCompactMode ? SPACING.sm : SPACING.md,
+      margin: SPACING.xl,
+      marginSM: SPACING.lg,
+      marginLG: SPACING['2xl'],
+      marginXS: SPACING.md,
 
       // Shadows
       boxShadow: SHADOWS.sm,
       boxShadowSecondary: SHADOWS.xs,
       boxShadowTertiary: SHADOWS.md,
 
-      // Control components - adjust heights for compact mode
-      controlHeightXS: isCompactMode ? 20 : 24,
-      controlHeightSM: isCompactMode ? 28 : 32,
-      controlHeight: isCompactMode ? 36 : 40,
-      controlHeightLG: isCompactMode ? 44 : 48,
+      controlHeightXS: 24,
+      controlHeightSM: 36,
+      controlHeight: 40,
+      controlHeightLG: 44,
 
       // Links
       colorLink: colorPalette.Brand[600],
@@ -144,36 +165,24 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
     components: {
       Button: {
         borderRadius: RADIUS.md,
-        controlHeightXS: isCompactMode ? 28 : 32,
-        controlHeightSM: isCompactMode ? 32 : 36,
-        controlHeight: isCompactMode ? 36 : 40,
-        controlHeightLG: isCompactMode ? 40 : 44,
-        paddingContentHorizontalSM: isCompactMode ? SPACING.md : SPACING.lg,
-        paddingContentHorizontal: isCompactMode ? SPACING.lg : 14,
-        paddingContentHorizontalLG: SPACING.xl,
       },
       Input: {
         borderRadius: RADIUS.md,
-        controlHeightXS: isCompactMode ? 28 : 32,
-        controlHeightSM: isCompactMode ? 32 : 36,
-        controlHeight: isCompactMode ? 36 : 40,
-        controlHeightLG: isCompactMode ? 40 : 44,
-        paddingInline: isCompactMode ? SPACING.md : SPACING.lg,
         colorBorder: colorPalette.borders.borderPrimary,
         activeBorderColor: colorPalette.Brand[600],
       },
       Select: {
         borderRadius: RADIUS.md,
-        controlHeightXS: isCompactMode ? 28 : 32,
-        controlHeightSM: isCompactMode ? 32 : 36,
-        controlHeight: isCompactMode ? 36 : 40,
-        controlHeightLG: isCompactMode ? 40 : 44,
+        controlHeightXS: 32,
+        controlHeightSM: 36,
+        controlHeight: 40,
+        controlHeightLG: 44,
         colorBorder: colorPalette.borders.borderPrimary,
         activeBorderColor: colorPalette.Brand[600],
       },
       Card: {
         borderRadius: RADIUS.lg,
-        paddingLG: isCompactMode ? SPACING['2xl'] : SPACING['3xl'],
+        paddingLG: SPACING['3xl'],
         colorBorderSecondary: colorPalette.borders.borderSecondary,
         boxShadow: SHADOWS.sm,
       },
@@ -182,50 +191,45 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         colorBorderSecondary: colorPalette.borders.borderSecondary,
         headerBg: colorPalette.backgrounds.bgSecondary,
         headerColor: colorPalette.texts.textSecondary700,
-        // Compact mode adjustments
-        ...(isCompactMode && {
-          cellPaddingBlock: 8,
-          cellPaddingInline: 12,
-        }),
       },
       Modal: {
         borderRadius: RADIUS.xl,
-        paddingLG: isCompactMode ? SPACING['3xl'] : SPACING['4xl'],
+        paddingLG: SPACING['4xl'],
         boxShadow: SHADOWS.xl,
       },
       Drawer: {
-        paddingLG: isCompactMode ? SPACING['2xl'] : SPACING['3xl'],
+        paddingLG: SPACING['3xl'],
         boxShadow: SHADOWS.xl,
       },
       Dropdown: {
         borderRadius: RADIUS.md,
-        paddingBlock: isCompactMode ? SPACING.xs : SPACING.sm,
+        paddingBlock: SPACING.sm,
         boxShadow: SHADOWS.lg,
       },
       Menu: {
         borderRadius: RADIUS.md,
-        itemBorderRadius: RADIUS.sm,
-        itemPaddingInline: isCompactMode ? SPACING.md : SPACING.lg,
-        itemHeight: isCompactMode ? 36 : 40,
-        subMenuItemBorderRadius: RADIUS.sm,
+        itemBorderRadius: RADIUS.md,
+        itemPaddingInline: SPACING.lg,
+        itemHeight: 40,
+        subMenuItemBorderRadius: RADIUS.md,
       },
       Notification: {
         borderRadius: RADIUS.lg,
-        paddingMD: isCompactMode ? SPACING.lg : SPACING.xl,
+        paddingMD: SPACING.xl,
         boxShadow: SHADOWS.lg,
       },
       Message: {
         borderRadius: RADIUS.md,
-        paddingMD: isCompactMode ? SPACING.md : SPACING.lg,
+        paddingMD: SPACING.lg,
         boxShadow: SHADOWS.md,
       },
       Typography: {
-        titleMarginBottom: isCompactMode ? SPACING.md : SPACING.lg,
-        titleMarginTop: isCompactMode ? SPACING.md : SPACING.lg,
+        titleMarginBottom: SPACING.lg,
+        titleMarginTop: SPACING.lg,
       },
       Form: {
-        itemMarginBottom: isCompactMode ? SPACING.lg : SPACING.xl,
-        verticalLabelPadding: `0 0 ${isCompactMode ? SPACING.xs : SPACING.sm}px`,
+        itemMarginBottom: SPACING.xl,
+        verticalLabelPadding: `0 0 ${SPACING.sm}px`,
       },
     },
   };
@@ -243,7 +247,7 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
     shadows: SHADOWS,
     spacing: SPACING,
     mode: themeMode,
-    isCompact: isCompactMode,
+    isCompact: false,
   };
 
   return (

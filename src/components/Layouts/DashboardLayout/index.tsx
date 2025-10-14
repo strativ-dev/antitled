@@ -1,16 +1,16 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { Outlet, useLocation, useNavigate } from '@tanstack/react-router';
-import { Button, Flex, Layout, Menu, theme } from 'antd';
+import { Link, Outlet, useLocation, useNavigate } from '@tanstack/react-router';
+import { Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import styled from 'styled-components';
 
 import { HeaderUserNav } from './HeaderUserNav';
 import MenuItems from './MenuItems';
-import { StyledHeader } from './styles';
 import StrativLogo from '@/assets/logo.svg?react';
 
+import { Button } from '@/components/Atoms';
 import { LangPicker } from '@/components/Atoms/LangPicker';
 import { withAuth } from '@/components/Hoc/withAuth';
-import CompactModeToggle from '@/components/Layouts/DashboardLayout/CompactModeToggle';
 import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
 const { Sider, Content } = Layout;
@@ -75,17 +75,26 @@ const DashboardLayout = withAuth(() => {
           items={MenuItems()}
         />
       </Sider>
-      <Layout>
+      <StyledLayout>
         <StyledHeader>
           <Button
-            type='text'
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            variant='tertiary'
+            color='default'
+            icon={
+              collapsed ? (
+                <MenuUnfoldOutlined style={{ fontSize: '20px' }} />
+              ) : (
+                <MenuFoldOutlined style={{ fontSize: '20px' }} />
+              )
+            }
             onClick={() => setCollapsed(!collapsed)}
-            size='large'
           />
-
           <Flex align='center' justify='end' gap={16}>
-            <CompactModeToggle />
+            <Link to='/components'>
+              <Button variant='tertiary' size='lg' color='primary'>
+                Components
+              </Button>
+            </Link>
             <ThemeToggle />
             <LangPicker />
             <HeaderUserNav />
@@ -100,9 +109,21 @@ const DashboardLayout = withAuth(() => {
           }}>
           <Outlet />
         </Content>
-      </Layout>
+      </StyledLayout>
     </Layout>
   );
 });
 
 export default DashboardLayout;
+
+const StyledLayout = styled(Layout)`
+  background-color: ${({ theme }) => theme.colors.backgrounds['bgPrimary']};
+`;
+export const StyledHeader = styled(Layout.Header)`
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 0 16px;
+  background-color: ${({ theme }) => theme.colors.backgrounds['bgSecondary']};
+`;

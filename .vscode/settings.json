@@ -2,13 +2,13 @@
   // Editor-specific settings for TypeScript and TypeScript React files
   "[typescriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.removeUnusedImports": "explicit"
+      "source.removeUnusedImports": "never"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.removeUnusedImports": "explicit"
+      "source.removeUnusedImports": "never"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -34,5 +34,11 @@
   },
   "search.exclude": {
     "**/routeTree.gen.ts": true
-  }
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+  "cSpell.words": ["antitled"]
 }

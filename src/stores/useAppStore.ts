@@ -42,8 +42,6 @@ interface AppState {
   setLanguage: (language: AppState['language']) => void;
   setColorPalette: (colorPalette: Partial<ColorPalette>) => void;
   resetColorPalette: () => void;
-  isCompactMode: boolean;
-  toggleCompactMode: () => void;
 }
 
 const useAppStore = create<AppState>()(
@@ -52,7 +50,6 @@ const useAppStore = create<AppState>()(
       (set, get) => ({
         language: LANGUAGE_OPTIONS.en,
         colorPalette: COLOR_PALLETTE,
-        isCompactMode: false,
         setLanguage: (language) => set({ language }),
         setColorPalette: (partialColorPalette: Partial<ColorPalette>) =>
           set((state) => ({
@@ -109,12 +106,6 @@ const useAppStore = create<AppState>()(
             colorPalette: getThemeColorPalette(theme, state.colorPalette),
           }));
         },
-        setCompactMode: (isCompact: boolean) =>
-          set({ isCompactMode: isCompact }),
-        toggleCompactMode: () =>
-          set((state) => ({
-            isCompactMode: !state.isCompactMode,
-          })),
       }),
       { name: 'appStore' }
     ),

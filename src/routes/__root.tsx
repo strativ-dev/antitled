@@ -1,6 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import NotFound from '@/app/not-found';
 import { AuthStoreType } from '@/stores/useAuthStore';
