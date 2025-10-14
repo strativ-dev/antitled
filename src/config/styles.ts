@@ -737,6 +737,12 @@ export type Shadow = typeof SHADOWS;
 export type Spacing = typeof SPACING;
 export type FontWeight = typeof FONT_WEIGHT;
 
+export type TextVariant = keyof typeof FONT_SIZE;
+export type WeightVariant = keyof typeof FONT_WEIGHT;
+export type LineHeightVariant = keyof typeof LINE_HEIGHT;
+
+export type TextColorVariant = keyof typeof LIGHT_THEME_COLORS.texts;
+
 export const SmallMobileBreakpoint = 480;
 export const MobileBreakpoint = 768;
 export const TabletBreakpoint = 992;

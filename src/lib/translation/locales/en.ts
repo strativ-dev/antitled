@@ -40,6 +40,7 @@ export const en = {
       Component: 'Component',
       Components: 'Components',
       Button: 'Button',
+      Text: 'Text',
     },
   },
 };
