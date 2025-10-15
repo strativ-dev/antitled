@@ -1,12 +1,12 @@
 import { HelpCircle } from '@untitledui/icons';
 import { Col, Flex, Row } from 'antd';
-
-import { COLORS } from '@/config/styles';
+import { useTheme } from 'styled-components';
 
 import { Button } from '@/components/Atoms/Button';
 import { Tooltip } from '@/components/Atoms/Tooltip';
 
 export default function Tooltips() {
+  const theme = useTheme();
   return (
     <>
       <h2>Tooltips</h2>
@@ -28,7 +28,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -50,7 +50,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -70,7 +70,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -91,7 +91,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -114,7 +114,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -134,7 +134,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -154,7 +154,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -184,7 +184,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -212,7 +212,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
             />
@@ -235,7 +235,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
               subtitle='Tooltips are used to describe or identify an  element. In most scenarios, tooltips help the user understand meaning, function or alt-text.'
@@ -262,7 +262,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
               placement='topRight'
@@ -293,7 +293,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
               subtitle='Tooltips are used to describe or identify an  element. In most scenarios, tooltips help the user understand meaning, function or alt-text.'
@@ -319,7 +319,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
               subtitle='Tooltips are used to describe or identify an  element. In most scenarios, tooltips help the user understand meaning, function or alt-text.'
@@ -345,7 +345,7 @@ export default function Tooltips() {
                 <HelpCircle
                   width={16}
                   height={16}
-                  color={COLORS['Gray (light mode)'][400]}
+                  color={theme.colors.Gray['400']}
                 />
               }
               subtitle='Tooltips are used to describe or identify an  element. In most scenarios, tooltips help the user understand meaning, function or alt-text.'

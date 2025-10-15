@@ -4,40 +4,27 @@ import type { TooltipProps as AntdTooltipProps } from 'antd';
 import React, { ReactNode } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import {
-  TextVariant,
-  LineHeightVariant,
-  TextColorVariant,
-  WeightVariant,
-} from '@/config/styles';
+import { TextVariant, TextColorVariant } from '@/config/styles';
 
 export type TooltipType = 'default' | 'with-subtitle';
 
-export type TooltipAtomProps = {
+export type TooltipProps = {
   title: ReactNode;
   subtitle?: ReactNode;
   size?: TextVariant;
-  weight?: WeightVariant;
-  lineHeight?: LineHeightVariant;
   color?: TextColorVariant;
-  padding?: string;
-  borderRadius?: string;
   children?: ReactNode;
   arrow?: 'Show' | 'Hide' | 'Center';
   type?: TooltipType;
   helperIcon?: ReactNode;
 } & Omit<AntdTooltipProps, 'title'>;
 
-export const Tooltip: React.FC<TooltipAtomProps> = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   title,
   subtitle,
   size = 'text-xs',
-  weight = 'regular',
-  lineHeight,
   color,
-  padding = '4px 8px',
   arrow = 'Show',
-  borderRadius,
   children,
   type = 'default',
   helperIcon,
@@ -52,23 +39,10 @@ export const Tooltip: React.FC<TooltipAtomProps> = ({
         ? { pointAtCenter: true }
         : true;
 
-  const tooltipTrigger = children || helperIcon || (
-    <InfoCircleOutlined
-      style={{
-        color: theme.colors.texts.textPrimary900,
-        cursor: 'pointer',
-      }}
-    />
-  );
+  const tooltipTrigger = children || helperIcon || <StyledHelperIcon />;
 
   const tooltipContent = (
-    <StyledTooltipContent
-      $size={size}
-      $weight={weight}
-      $lineHeight={lineHeight}
-      $color={color}
-      $padding={padding}
-      $hasSubtitle={!!subtitle}>
+    <StyledTooltipContent $size={size} $color={color} $hasSubtitle={!!subtitle}>
       <div className='tooltip-title'>{title}</div>
       {subtitle && <div className='tooltip-subtitle'>{subtitle}</div>}
     </StyledTooltipContent>
@@ -77,42 +51,40 @@ export const Tooltip: React.FC<TooltipAtomProps> = ({
   return (
     <AntdTooltip
       arrow={mergedArrow}
+      color={theme.colors.backgrounds.bgPrimarySolid}
+      title={tooltipContent}
       styles={{
         body: {
-          borderRadius: borderRadius || theme.radius['md'],
+          borderRadius: theme.radius['md'],
           minHeight: type === 'with-subtitle' ? 'auto' : '2.375rem',
           width: type === 'with-subtitle' ? '320px' : 'auto',
         },
       }}
-      color={theme.colors.backgrounds.bgPrimarySolid}
-      title={tooltipContent}
       {...props}>
       {tooltipTrigger}
     </AntdTooltip>
   );
 };
 
+const StyledHelperIcon = styled(InfoCircleOutlined)`
+  color: ${({ theme }) => theme.colors.texts.textPrimary900};
+  cursor: pointer;
+`;
+
 const StyledTooltipContent = styled.span<{
   $size: TextVariant;
-  $weight: WeightVariant;
-  $lineHeight?: LineHeightVariant;
   $color?: TextColorVariant;
-  $padding: string;
   $hasSubtitle: boolean;
 }>`
   display: inline-block;
   font-size: ${({ $size, theme }) => theme.fontSize[$size]}px;
-  font-weight: ${({ $weight, $hasSubtitle, theme }) =>
-    $hasSubtitle ? theme.fontWeight.medium : theme.fontWeight[$weight]};
+  padding: 0.25rem 0.5rem;
   color: ${({ $color, theme }) =>
     $color
       ? theme.colors.texts[$color]
       : theme.mode === 'dark'
         ? theme.colors.Base.black
         : theme.colors.texts.textWhite};
-  padding: ${({ $padding }) => $padding};
-  line-height: ${({ $lineHeight, $size, theme }) =>
-    $lineHeight ? theme.lineHeight[$lineHeight] : theme.lineHeight[$size]}px;
 
   .tooltip-title {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
@@ -127,8 +99,7 @@ const StyledTooltipContent = styled.span<{
           ? theme.colors.Base.black
           : theme.colors.Gray['300']};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
-    line-height: 18px;
-    font-size: ${({ theme }) => theme.fontSize['text-xs']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-xs']}px;
   }
 `;
 
