@@ -33,6 +33,7 @@ export const sv = {
       light: 'Ljus',
       dark: 'Mörker',
       system: 'System',
+      Tooltip: 'Verktygstips',
     },
   },
 };
