@@ -49,6 +49,7 @@ export const en = {
       Components: 'Components',
       Button: 'Button',
       Text: 'Text',
+      Tooltip: 'Tooltip',
     },
   },
 };
