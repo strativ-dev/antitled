@@ -1,12 +1,17 @@
 import { HomeOutlined } from '@ant-design/icons';
 import { Flex } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/ComponentPageTitle';
 
 export default function Buttons() {
+  const { t } = useTranslation();
+
   return (
     <>
-      <h2>Buttons</h2>
+      <ComponentPageTitle title={t('common.Button')} />
+
       <Flex vertical gap='large'>
         <Flex gap='small' wrap align='center'>
           <Button size='sm'>SM</Button>

@@ -49,6 +49,13 @@ export const en = {
       Components: 'Components',
       Button: 'Button',
       Text: 'Text',
+      Input: 'Input',
+      'Copy Text': 'Copy Text',
+      Copy: 'Copy',
+      Copied: 'Copied',
+      'Input Number': 'Input Number',
+      Select: 'Select',
+      'Input Copy Text': 'Input Copy Text',
     },
   },
 };

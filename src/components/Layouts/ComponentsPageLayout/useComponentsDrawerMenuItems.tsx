@@ -29,6 +29,26 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             key: 'text',
             label: <Link to='/components/text'>{t('common.Text')}</Link>,
           },
+          {
+            key: 'input',
+            label: <Link to='/components/input'>{t('common.Input')}</Link>,
+          },
+          {
+            key: 'input-number',
+            label: (
+              <Link to='/components/input-number'>
+                {t('common.Input Number')}
+              </Link>
+            ),
+          },
+          {
+            key: 'input-copy-text',
+            label: (
+              <Link to='/components/input-copy-text'>
+                {t('common.Input Copy Text')}
+              </Link>
+            ),
+          },
         ],
       },
     ];
