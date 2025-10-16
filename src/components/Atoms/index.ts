@@ -4,3 +4,4 @@ export { InputCopyText } from './InputCopyText';
 export { InputNumber } from './InputNumber';
 export { StyledSimpleBar } from './StyledSimplebar';
 export { Text } from './Text';
+export { Tooltip } from './Tooltip';

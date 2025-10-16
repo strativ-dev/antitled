@@ -13,6 +13,7 @@ import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/compo
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index';
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
+import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index';
 import { Route as DashboardRouteImport } from './routes/dashboard';
 import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-demos';
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index';
@@ -52,6 +53,11 @@ const PublicLoginRoute = PublicLoginRouteImport.update({
   id: '/_public/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
+} as any);
+const ComponentsTooltipIndexRoute = ComponentsTooltipIndexRouteImport.update({
+  id: '/tooltip/',
+  path: '/tooltip/',
+  getParentRoute: () => ComponentsRoute,
 } as any);
 const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
   id: '/text/',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
+  '/components/tooltip': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute;
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
+  '/components/tooltip': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport;
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute;
   '/components/input/': typeof ComponentsInputIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
+  '/components/tooltip/': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
@@ -136,7 +145,8 @@ export interface FileRouteTypes {
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input'
-    | '/components/text';
+    | '/components/text'
+    | '/components/tooltip';
   fileRoutesByTo: FileRoutesByTo;
   to:
     | '/'
@@ -148,7 +158,8 @@ export interface FileRouteTypes {
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input'
-    | '/components/text';
+    | '/components/text'
+    | '/components/tooltip';
   id:
     | '__root__'
     | '/'
@@ -162,7 +173,8 @@ export interface FileRouteTypes {
     | '/components/input-copy-text/'
     | '/components/input-number/'
     | '/components/input/'
-    | '/components/text/';
+    | '/components/text/'
+    | '/components/tooltip/';
   fileRoutesById: FileRoutesById;
 }
 export interface RootRouteChildren {
@@ -223,6 +235,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicLoginRouteImport;
       parentRoute: typeof rootRouteImport;
     };
+    '/components/tooltip/': {
+      id: '/components/tooltip/';
+      path: '/tooltip';
+      fullPath: '/components/tooltip';
+      preLoaderRoute: typeof ComponentsTooltipIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
     '/components/text/': {
       id: '/components/text/';
       path: '/text';
@@ -268,6 +287,7 @@ interface ComponentsRouteChildren {
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute;
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
+  ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute;
 }
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
@@ -277,6 +297,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
+  ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,
 };
 
 const ComponentsRouteWithChildren = ComponentsRoute._addFileChildren(
