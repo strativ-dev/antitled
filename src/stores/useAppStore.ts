@@ -1,11 +1,7 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-import {
-  COLOR_PALLETTE,
-  DARK_THEME_COLORS,
-  ColorPalette,
-} from '@/config/styles';
+import { COLOR_MODES, COLOR_PALLETTE, ColorPalette } from '@/config/styles';
 import { LANGUAGE_OPTIONS } from '@/lib/utils/constants';
 
 // Helper function to get theme-appropriate color palette
@@ -16,21 +12,21 @@ const getThemeColorPalette = (
   if (theme === 'dark') {
     return {
       ...baseColorPalette,
-      texts: DARK_THEME_COLORS.texts,
-      borders: DARK_THEME_COLORS.borders,
-      foregrounds: DARK_THEME_COLORS.foregrounds,
-      backgrounds: DARK_THEME_COLORS.backgrounds,
-      shadows: DARK_THEME_COLORS.shadows,
+      texts: COLOR_MODES.dark.texts,
+      borders: COLOR_MODES.dark.borders,
+      foregrounds: COLOR_MODES.dark.foregrounds,
+      backgrounds: COLOR_MODES.dark.backgrounds,
+      shadows: COLOR_MODES.dark.shadows,
     };
   }
 
   return {
     ...baseColorPalette,
-    texts: COLOR_PALLETTE.texts,
-    borders: COLOR_PALLETTE.borders,
-    foregrounds: COLOR_PALLETTE.foregrounds,
-    backgrounds: COLOR_PALLETTE.backgrounds,
-    shadows: COLOR_PALLETTE.shadows,
+    texts: COLOR_MODES.light.texts,
+    borders: COLOR_MODES.light.borders,
+    foregrounds: COLOR_MODES.light.foregrounds,
+    backgrounds: COLOR_MODES.light.backgrounds,
+    shadows: COLOR_MODES.light.shadows,
   };
 };
 
@@ -40,65 +36,15 @@ interface AppState {
   colorPalette: ColorPalette;
   setTheme: (theme: 'light' | 'dark') => void;
   setLanguage: (language: AppState['language']) => void;
-  setColorPalette: (colorPalette: Partial<ColorPalette>) => void;
-  resetColorPalette: () => void;
 }
 
 const useAppStore = create<AppState>()(
   devtools(
     persist(
-      (set, get) => ({
+      (set) => ({
         language: LANGUAGE_OPTIONS.en,
         colorPalette: COLOR_PALLETTE,
         setLanguage: (language) => set({ language }),
-        setColorPalette: (partialColorPalette: Partial<ColorPalette>) =>
-          set((state) => ({
-            colorPalette: {
-              ...state.colorPalette,
-              ...partialColorPalette,
-              // Deep merge for nested objects
-              ...(partialColorPalette.texts && {
-                texts: {
-                  ...state.colorPalette.texts,
-                  ...partialColorPalette.texts,
-                },
-              }),
-              ...(partialColorPalette.borders && {
-                borders: {
-                  ...state.colorPalette.borders,
-                  ...partialColorPalette.borders,
-                },
-              }),
-              ...(partialColorPalette.foregrounds && {
-                foregrounds: {
-                  ...state.colorPalette.foregrounds,
-                  ...partialColorPalette.foregrounds,
-                },
-              }),
-              ...(partialColorPalette.backgrounds && {
-                backgrounds: {
-                  ...state.colorPalette.backgrounds,
-                  ...partialColorPalette.backgrounds,
-                },
-              }),
-              ...(partialColorPalette.shadows && {
-                shadows: {
-                  ...state.colorPalette.shadows,
-                  ...partialColorPalette.shadows,
-                },
-              }),
-            },
-          })),
-        resetColorPalette: () => {
-          const currentTheme = get().theme;
-          const newPalette = getThemeColorPalette(
-            currentTheme === 'system'
-              ? 'light'
-              : (currentTheme as 'light' | 'dark'),
-            COLOR_PALLETTE
-          );
-          set({ colorPalette: newPalette });
-        },
         theme: 'system',
         setTheme: (theme: 'light' | 'dark') => {
           set((state) => ({
