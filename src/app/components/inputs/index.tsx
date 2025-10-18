@@ -1,8 +1,8 @@
 import { Mail01 } from '@untitledui/icons';
-import { Col, Flex, Row } from 'antd';
+import { Col, Flex, Row, Select } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { Input, InputCopyText } from '@/components/Atoms';
+import { Input } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/ComponentPageTitle';
 
 export default function Inputs() {
@@ -27,6 +27,15 @@ export default function Inputs() {
   //     </Select>
   //   );
   // }, [selectedCountry]);
+
+  const domains = (
+    <Select defaultValue='.com'>
+      <Select.Option value='.com'>.com</Select.Option>
+      <Select.Option value='.jp'>.jp</Select.Option>
+      <Select.Option value='.cn'>.cn</Select.Option>
+      <Select.Option value='.org'>.org</Select.Option>
+    </Select>
+  );
 
   return (
     <>
@@ -82,6 +91,30 @@ export default function Inputs() {
         </Row>
         <Row gutter={[24, 24]} align='middle'>
           <Col span={6}>
+            <Input size='sm' addonBefore='https://' addonAfter={domains} />
+          </Col>
+          <Col span={6}>
+            <Input size='md' addonBefore='https://' addonAfter={domains} />
+          </Col>
+          <Col span={6}>
+            <Input
+              size='lg'
+              addonBefore='https://'
+              disabled
+              addonAfter={domains}
+            />
+          </Col>
+          <Col span={6}>
+            <Input
+              size='lg'
+              addonBefore='http://'
+              status='error'
+              addonAfter={domains}
+            />
+          </Col>
+        </Row>
+        <Row gutter={[24, 24]} align='middle'>
+          <Col span={6}>
             <Input size='sm' addonBefore='https://' addonAfter='.com' />
           </Col>
           <Col span={6}>
@@ -116,21 +149,6 @@ export default function Inputs() {
           </Col>
           <Col span={6}>
             <Input size='lg' addonAfter='@gmail.com' status='error' />
-          </Col>
-        </Row>
-
-        <Row gutter={[24, 24]} align='middle'>
-          <Col span={6}>
-            <InputCopyText size='sm' value='+1 234 567 8901' />
-          </Col>
-          <Col span={6}>
-            <InputCopyText size='md' value='johndoe@email.com' />
-          </Col>
-          <Col span={6}>
-            <InputCopyText size='lg' value='johndoe@email.com' />
-          </Col>
-          <Col span={6}>
-            <InputCopyText size='lg' value='johndoe@email.com' />
           </Col>
         </Row>
       </Flex>

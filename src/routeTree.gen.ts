@@ -18,6 +18,7 @@ import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-
 import { Route as PublicLoginRouteImport } from './routes/_public/login'
 import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index'
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
+import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index'
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index'
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index'
 import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/components/input-copy-text/index'
@@ -68,6 +69,11 @@ const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
   path: '/text/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
+  id: '/select/',
+  path: '/select/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 const ComponentsInputIndexRoute = ComponentsInputIndexRouteImport.update({
   id: '/input/',
   path: '/input/',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
+  '/components/select': typeof ComponentsSelectIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
   '/components/tooltip': typeof ComponentsTooltipIndexRoute
 }
@@ -116,6 +123,7 @@ export interface FileRoutesByTo {
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
+  '/components/select': typeof ComponentsSelectIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
   '/components/tooltip': typeof ComponentsTooltipIndexRoute
 }
@@ -132,6 +140,7 @@ export interface FileRoutesById {
   '/components/input-copy-text/': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute
   '/components/input/': typeof ComponentsInputIndexRoute
+  '/components/select/': typeof ComponentsSelectIndexRoute
   '/components/text/': typeof ComponentsTextIndexRoute
   '/components/tooltip/': typeof ComponentsTooltipIndexRoute
 }
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input'
+    | '/components/select'
     | '/components/text'
     | '/components/tooltip'
   fileRoutesByTo: FileRoutesByTo
@@ -162,6 +172,7 @@ export interface FileRouteTypes {
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input'
+    | '/components/select'
     | '/components/text'
     | '/components/tooltip'
   id:
@@ -177,6 +188,7 @@ export interface FileRouteTypes {
     | '/components/input-copy-text/'
     | '/components/input-number/'
     | '/components/input/'
+    | '/components/select/'
     | '/components/text/'
     | '/components/tooltip/'
   fileRoutesById: FileRoutesById
@@ -253,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsTextIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/select/': {
+      id: '/components/select/'
+      path: '/select'
+      fullPath: '/components/select'
+      preLoaderRoute: typeof ComponentsSelectIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
     '/components/input/': {
       id: '/components/input/'
       path: '/input'
@@ -290,6 +309,7 @@ interface ComponentsRouteChildren {
   ComponentsInputCopyTextIndexRoute: typeof ComponentsInputCopyTextIndexRoute
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute
+  ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
   ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute
 }
@@ -300,6 +320,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputCopyTextIndexRoute: ComponentsInputCopyTextIndexRoute,
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
+  ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
   ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,
 }

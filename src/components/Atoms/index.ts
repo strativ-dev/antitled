@@ -5,3 +5,5 @@ export { InputNumber } from './InputNumber';
 export { StyledSimpleBar } from './StyledSimplebar';
 export { Text } from './Text';
 export { Tooltip } from './Tooltip';
+export { Select } from './Select';
+export { CircleSpinner } from './CircleSpinner';

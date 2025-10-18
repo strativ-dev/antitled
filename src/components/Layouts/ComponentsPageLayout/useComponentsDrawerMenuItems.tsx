@@ -53,6 +53,10 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             key: 'tooltip',
             label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
           },
+          {
+            key: 'select',
+            label: <Link to='/components/select'>{t('common.Select')}</Link>,
+          },
         ],
       },
     ];
