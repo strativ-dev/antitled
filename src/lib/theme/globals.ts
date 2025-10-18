@@ -31,6 +31,11 @@ const GlobalStyles = createGlobalStyle`
     border-radius: ${({ theme }) => theme.radius.md};
     border: 1px solid ${({ theme }) => theme.colors.borders.borderPrimary};
   }
+
+  /* Tooltip */
+  .ant-tooltip {
+    max-width: 320px !important;
+  }
 `;
 
 export default GlobalStyles;
