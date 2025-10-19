@@ -169,6 +169,9 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
     components: {
       Input: {
         borderRadius: RADIUS.md,
+        borderRadiusSM: RADIUS.md,
+        borderRadiusLG: RADIUS.md,
+        borderRadiusXS: RADIUS.xs,
         activeBorderColor: colorPalette.borders.borderBrand,
         boxShadow: colorPalette.shadows.xs,
         colorTextPlaceholder: colorPalette.texts.textPlaceholder,
@@ -186,6 +189,10 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         colorBgContainerDisabled: colorPalette.backgrounds.bgDisabledSubtle,
       },
       Select: {
+        borderRadius: RADIUS.md,
+        borderRadiusSM: RADIUS.md,
+        borderRadiusLG: RADIUS.md,
+        borderRadiusXS: RADIUS.xs,
         boxShadowSecondary: SHADOWS['xl'],
         activeBorderColor: colorPalette.borders.borderBrand,
         boxShadow: colorPalette.shadows.xs,
@@ -199,6 +206,9 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         optionFontSize: FONT_SIZE['text-md'],
         controlPaddingHorizontalSM: SPACING.lg,
         fontSizeLG: FONT_SIZE['text-md'],
+        multipleItemBorderColor: colorPalette.borders.borderPrimary,
+        multipleItemBg: 'transparent',
+        multipleItemBorderColorDisabled: colorPalette.borders.borderDisabled,
       },
       Card: {
         borderRadius: RADIUS.lg,

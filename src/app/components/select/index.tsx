@@ -24,6 +24,61 @@ const OPTIONS = [
   },
 ];
 
+const avatarOptions = [
+  {
+    label: (
+      <Flex align='center' gap={8}>
+        <img
+          src='https://avatar.iran.liara.run/public'
+          height={16}
+          width={16}
+        />
+        <span>Avatar 1</span>
+      </Flex>
+    ),
+    value: 'option1',
+  },
+  {
+    label: (
+      <Flex align='center' gap={8}>
+        <img
+          src='https://avatar.iran.liara.run/public'
+          height={16}
+          width={16}
+        />
+        <span>Avatar 2</span>
+      </Flex>
+    ),
+    value: 'option2',
+  },
+  {
+    label: (
+      <Flex align='center' gap={8}>
+        <img
+          src='https://avatar.iran.liara.run/public'
+          height={16}
+          width={16}
+        />
+        <span>Avatar 3</span>
+      </Flex>
+    ),
+    value: 'option3',
+  },
+  {
+    label: (
+      <Flex align='center' gap={8}>
+        <img
+          src='https://avatar.iran.liara.run/public'
+          height={16}
+          width={16}
+        />
+        <span>Avatar 4</span>
+      </Flex>
+    ),
+    value: 'option4',
+  },
+];
+
 export default function SelectPage() {
   const { t } = useTranslation();
 
@@ -39,15 +94,16 @@ export default function SelectPage() {
               defaultValue='option1'
               size='sm'
               options={OPTIONS}
+              placeholder='Search'
             />
           </Col>
           <Col span={6}>
             <Select
               id='select'
               fullWidth
-              defaultValue='option2'
               options={OPTIONS}
               loading
+              defaultValue='option2'
             />
           </Col>
           <Col span={6}>
@@ -80,7 +136,7 @@ export default function SelectPage() {
               size='sm'
               options={OPTIONS}
               mode='multiple'
-              allowClear
+              placeholder='Search'
             />
           </Col>
           <Col span={6}>
@@ -89,8 +145,9 @@ export default function SelectPage() {
               fullWidth
               defaultValue='option2'
               options={OPTIONS}
-              mode='tags'
               allowClear
+              placeholder='Search'
+              mode='tags'
             />
           </Col>
           <Col span={6}>
@@ -112,6 +169,54 @@ export default function SelectPage() {
               defaultValue='option4'
               size='lg'
               options={OPTIONS}
+              status='error'
+              mode='multiple'
+              allowClear
+            />
+          </Col>
+        </Row>
+        <Row gutter={[24, 24]} align='middle'>
+          <Col span={6}>
+            <Select
+              id='select'
+              fullWidth
+              defaultValue='option1'
+              size='sm'
+              options={avatarOptions}
+              mode='multiple'
+              placeholder='Search'
+            />
+          </Col>
+          <Col span={6}>
+            <Select
+              id='select'
+              fullWidth
+              defaultValue={['option1', 'option2']}
+              options={avatarOptions}
+              allowClear
+              placeholder='Search'
+              mode='tags'
+            />
+          </Col>
+          <Col span={6}>
+            <Select
+              id='select'
+              fullWidth
+              defaultValue='option3'
+              size='lg'
+              options={avatarOptions}
+              disabled
+              mode='multiple'
+              allowClear
+            />
+          </Col>
+          <Col span={6}>
+            <Select
+              id='select'
+              fullWidth
+              defaultValue='option4'
+              size='lg'
+              options={avatarOptions}
               status='error'
               mode='multiple'
               allowClear

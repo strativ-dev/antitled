@@ -1,8 +1,8 @@
 import { Mail01 } from '@untitledui/icons';
-import { Col, Flex, Row, Select } from 'antd';
+import { Col, Flex, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { Input } from '@/components/Atoms';
+import { Input, Select } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/ComponentPageTitle';
 
 export default function Inputs() {
@@ -29,12 +29,13 @@ export default function Inputs() {
   // }, [selectedCountry]);
 
   const domains = (
-    <Select defaultValue='.com'>
-      <Select.Option value='.com'>.com</Select.Option>
-      <Select.Option value='.jp'>.jp</Select.Option>
-      <Select.Option value='.cn'>.cn</Select.Option>
-      <Select.Option value='.org'>.org</Select.Option>
-    </Select>
+    <Select
+      defaultValue='.com'
+      options={[
+        { label: '.com', value: '.com' },
+        { label: '.org', value: '.org' },
+        { label: '.net', value: '.net' },
+      ]}></Select>
   );
 
   return (

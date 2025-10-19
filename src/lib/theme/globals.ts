@@ -22,6 +22,22 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .ant-input-group-addon, .ant-input-number-group-addon {
+    .ant-select-selector {
+      color: ${({ theme }) => theme.colors.texts.textTertiary600};
+    }
+  }
+
+  .ant-select-selection-item-content {
+    align-content: center;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-weight: 500;
+  }
+
+  .ant-select.ant-select-multiple:not(.ant-select-disabled) .ant-select-selection-item {
+    color: ${({ theme }) => theme.colors.texts.textSecondary700};
+  }
+
   // make the sm variant dropdown items font-size smaller
   .ant-select-dropdown .ant-select-item-option {
     font-size: ${({ theme }) => theme.fontSize['text-md']}px;

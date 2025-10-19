@@ -1,4 +1,4 @@
-import { ChevronDown } from '@untitledui/icons';
+import { CheckCircle, ChevronDown } from '@untitledui/icons';
 import { SelectProps } from 'antd';
 import { Select as AntdSelect } from 'antd';
 import { useMemo } from 'react';
@@ -28,6 +28,7 @@ export const Select = ({
   fullWidth = false,
   suffixIcon,
   loading,
+  menuItemSelectedIcon,
   ...props
 }: Props) => {
   const _suffixIcon = useMemo(() => {
@@ -36,14 +37,20 @@ export const Select = ({
     return <ChevronDown size={18} />;
   }, [loading, suffixIcon]);
 
+  const _menuItemSelectedIcon = useMemo(() => {
+    if (menuItemSelectedIcon) return menuItemSelectedIcon;
+    return <CheckCircle size={16} />;
+  }, []);
+
   return (
     <>
       <StyledSelect
+        {...props}
         $fullWidth={fullWidth}
         size={getSizeProp(size)}
         suffixIcon={_suffixIcon}
         loading={loading}
-        {...props}
+        menuItemSelectedIcon={_menuItemSelectedIcon}
       />
     </>
   );
