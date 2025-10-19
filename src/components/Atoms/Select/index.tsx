@@ -1,4 +1,4 @@
-import { CheckCircle, ChevronDown } from '@untitledui/icons';
+import { Check, ChevronDown } from '@untitledui/icons';
 import { SelectProps } from 'antd';
 import { Select as AntdSelect } from 'antd';
 import { useMemo } from 'react';
@@ -39,7 +39,7 @@ export const Select = ({
 
   const _menuItemSelectedIcon = useMemo(() => {
     if (menuItemSelectedIcon) return menuItemSelectedIcon;
-    return <CheckCircle size={16} />;
+    return <Check size={16} />;
   }, []);
 
   return (

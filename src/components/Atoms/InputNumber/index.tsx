@@ -30,9 +30,6 @@ export const InputNumber = memo<Props>(({ size, fullWidth, ...props }) => {
 export const StyledInput = styled(AntdInputNumber)<{ $fullWidth?: boolean }>`
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
 
-  .ant-input-group-addon {
-    color: ${({ theme }) => theme.colors['texts']['textTertiary600']};
-  }
   .ant-input-number-prefix {
     margin-right: 0.5rem;
     color: ${({ theme }) => theme.colors['texts']['textTertiary600']};

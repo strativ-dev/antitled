@@ -1,10 +1,10 @@
-import { Col, Row, Select } from 'antd';
+import { Col, Row } from 'antd';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CURRENCY_CODES } from '@/lib/utils/constants';
 
-import { InputNumber } from '@/components/Atoms';
+import { InputNumber, Select } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/ComponentPageTitle';
 
 export default function InputNumberPage() {
@@ -14,6 +14,7 @@ export default function InputNumberPage() {
   const selectCurrencyAfter = useMemo(() => {
     return (
       <Select
+        style={{ width: '90px' }}
         value={selectedCurrency.code}
         onChange={(value) => {
           const currency = CURRENCY_CODES.find(
@@ -22,13 +23,14 @@ export default function InputNumberPage() {
           if (currency) {
             setSelectedCurrency(currency);
           }
-        }}>
-        {CURRENCY_CODES.map((currency) => (
-          <Select.Option key={currency.name} value={currency.code}>
-            {currency.symbol} ({currency.code})
-          </Select.Option>
-        ))}
-      </Select>
+        }}
+        options={CURRENCY_CODES.map((currency) => {
+          return {
+            label: currency.code,
+            value: currency.code,
+          };
+        })}
+      />
     );
   }, [selectedCurrency]);
 
@@ -65,6 +67,7 @@ export default function InputNumberPage() {
             prefix={selectedCurrency.symbol}
             type='number'
             fullWidth
+            status='error'
           />
         </Col>
       </Row>
