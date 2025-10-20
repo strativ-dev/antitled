@@ -34,6 +34,7 @@ export const sv = {
       dark: 'Mörker',
       system: 'System',
       Tooltip: 'Verktygstips',
+      Badge: 'Märke',
     },
   },
 };

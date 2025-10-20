@@ -58,6 +58,10 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             ),
           },
           {
+            key: 'badge',
+            label: <Link to='/components/badge'>{t('common.Badge')}</Link>,
+          },
+          {
             key: 'tooltip',
             label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
           },

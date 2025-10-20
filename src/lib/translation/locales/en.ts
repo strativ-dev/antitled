@@ -58,6 +58,7 @@ export const en = {
       'Input Copy Text': 'Input Copy Text',
       Tooltip: 'Tooltip',
       'Input Phone Number': 'Input Phone Number',
+      Badge: 'Badge',
     },
   },
 };

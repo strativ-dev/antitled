@@ -24,6 +24,7 @@ import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/co
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index'
 import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/components/input-copy-text/index'
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index'
+import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -103,6 +104,11 @@ const ComponentsButtonIndexRoute = ComponentsButtonIndexRouteImport.update({
   path: '/button/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsBadgeIndexRoute = ComponentsBadgeIndexRouteImport.update({
+  id: '/badge/',
+  path: '/badge/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -112,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components': typeof ComponentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/badge/': typeof ComponentsBadgeIndexRoute
   '/components/button/': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text/': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/badge'
     | '/components/button'
     | '/components/input-copy-text'
     | '/components/input-number'
@@ -179,6 +189,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
+    | '/components/badge'
     | '/components/button'
     | '/components/input-copy-text'
     | '/components/input-number'
@@ -196,6 +207,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/badge/'
     | '/components/button/'
     | '/components/input-copy-text/'
     | '/components/input-number/'
@@ -320,11 +332,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsButtonIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/badge/': {
+      id: '/components/badge/'
+      path: '/badge'
+      fullPath: '/components/badge'
+      preLoaderRoute: typeof ComponentsBadgeIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
   }
 }
 
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute
+  ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute
   ComponentsInputCopyTextIndexRoute: typeof ComponentsInputCopyTextIndexRoute
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute
@@ -337,6 +357,7 @@ interface ComponentsRouteChildren {
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
   ComponentsInputCopyTextIndexRoute: ComponentsInputCopyTextIndexRoute,
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
