@@ -39,8 +39,9 @@ export const Select = ({
 
   const _menuItemSelectedIcon = useMemo(() => {
     if (menuItemSelectedIcon) return menuItemSelectedIcon;
+    if (menuItemSelectedIcon === null) return null;
     return <Check size={16} />;
-  }, []);
+  }, [menuItemSelectedIcon]);
 
   return (
     <>

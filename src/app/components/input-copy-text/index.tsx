@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { InputCopyText } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Shared/ComponentPageTitle';
 
 export default function InputCopyTextPage() {
   const { t } = useTranslation();

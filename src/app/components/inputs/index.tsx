@@ -3,30 +3,10 @@ import { Col, Flex, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { Input, Select } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Shared/ComponentPageTitle';
 
 export default function Inputs() {
   const { t } = useTranslation();
-  //   const [selectedCountry, setSelectedCountry] = useState(COUNTRY_CODES[0]);
-  // const countrySelect = useMemo(() => {
-  //   return (
-  //     <Select
-  //       suffixIcon={<ChevronDown size={18} />}
-  //       value={selectedCountry.phone}
-  //       onChange={(value) => {
-  //         const country = COUNTRY_CODES.find((c) => c.phone === value);
-  //         if (country) {
-  //           setSelectedCountry(country);
-  //         }
-  //       }}>
-  //       {COUNTRY_CODES.map((country) => (
-  //         <Select.Option key={country.code} value={country.phone}>
-  //           {country.code}
-  //         </Select.Option>
-  //       ))}
-  //     </Select>
-  //   );
-  // }, [selectedCountry]);
 
   const domains = (
     <Select

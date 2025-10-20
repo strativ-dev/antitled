@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { CURRENCY_CODES } from '@/lib/utils/constants';
 
 import { InputNumber, Select } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Shared/ComponentPageTitle';
 
 export default function InputNumberPage() {
   const { t } = useTranslation();
@@ -46,6 +46,7 @@ export default function InputNumberPage() {
           <InputNumber
             size='md'
             addonAfter={selectCurrencyAfter}
+            removeAffixRightBorder={true}
             prefix={selectedCurrency.symbol}
             fullWidth
             defaultValue={34}
@@ -55,15 +56,18 @@ export default function InputNumberPage() {
           <InputNumber
             size='lg'
             addonAfter={selectCurrencyAfter}
+            removeAffixRightBorder={true}
             prefix={selectedCurrency.symbol}
             type='number'
             fullWidth
+            disabled
           />
         </Col>
         <Col span={6}>
           <InputNumber
             size='lg'
             addonAfter={selectCurrencyAfter}
+            removeAffixRightBorder={true}
             prefix={selectedCurrency.symbol}
             type='number'
             fullWidth

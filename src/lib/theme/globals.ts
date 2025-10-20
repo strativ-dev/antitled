@@ -22,6 +22,20 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /* make border radius of multiple select items to 6px */
+  .ant-select-multiple,
+  .ant-select-multiple.ant-select-sm,
+  .ant-select-multiple.ant-select-lg {
+    .ant-select-selection-overflow .ant-select-selection-item {
+    border-radius: ${({ theme }) => theme.radius.sm}px;
+  }
+  }
+
+  /* Make the InputNumber component addons background transparent */
+  .ant-input-number-group-wrapper-outlined .ant-input-number-group-addon {
+    background: transparent;
+  }
+
   .ant-input-group-addon, .ant-input-number-group-addon {
     .ant-select-selector {
       color: ${({ theme }) => theme.colors.texts.textTertiary600};

@@ -50,6 +50,14 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             ),
           },
           {
+            key: 'input-phone-number',
+            label: (
+              <Link to='/components/input-phone-number'>
+                {t('common.Input Phone Number')}
+              </Link>
+            ),
+          },
+          {
             key: 'tooltip',
             label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
           },

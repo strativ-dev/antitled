@@ -57,6 +57,7 @@ export const en = {
       Select: 'Select',
       'Input Copy Text': 'Input Copy Text',
       Tooltip: 'Tooltip',
+      'Input Phone Number': 'Input Phone Number',
     },
   },
 };

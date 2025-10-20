@@ -20,6 +20,7 @@ import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index'
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index'
+import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/components/input-phone-number/index'
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index'
 import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/components/input-copy-text/index'
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index'
@@ -79,6 +80,12 @@ const ComponentsInputIndexRoute = ComponentsInputIndexRouteImport.update({
   path: '/input/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsInputPhoneNumberIndexRoute =
+  ComponentsInputPhoneNumberIndexRouteImport.update({
+    id: '/input-phone-number/',
+    path: '/input-phone-number/',
+    getParentRoute: () => ComponentsRoute,
+  } as any)
 const ComponentsInputNumberIndexRoute =
   ComponentsInputNumberIndexRouteImport.update({
     id: '/input-number/',
@@ -108,6 +115,7 @@ export interface FileRoutesByFullPath {
   '/components/button': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
+  '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesByTo {
   '/components/button': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
+  '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
@@ -139,6 +148,7 @@ export interface FileRoutesById {
   '/components/button/': typeof ComponentsButtonIndexRoute
   '/components/input-copy-text/': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute
+  '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input/': typeof ComponentsInputIndexRoute
   '/components/select/': typeof ComponentsSelectIndexRoute
   '/components/text/': typeof ComponentsTextIndexRoute
@@ -157,6 +167,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/input-copy-text'
     | '/components/input-number'
+    | '/components/input-phone-number'
     | '/components/input'
     | '/components/select'
     | '/components/text'
@@ -171,6 +182,7 @@ export interface FileRouteTypes {
     | '/components/button'
     | '/components/input-copy-text'
     | '/components/input-number'
+    | '/components/input-phone-number'
     | '/components/input'
     | '/components/select'
     | '/components/text'
@@ -187,6 +199,7 @@ export interface FileRouteTypes {
     | '/components/button/'
     | '/components/input-copy-text/'
     | '/components/input-number/'
+    | '/components/input-phone-number/'
     | '/components/input/'
     | '/components/select/'
     | '/components/text/'
@@ -279,6 +292,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsInputIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/input-phone-number/': {
+      id: '/components/input-phone-number/'
+      path: '/input-phone-number'
+      fullPath: '/components/input-phone-number'
+      preLoaderRoute: typeof ComponentsInputPhoneNumberIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
     '/components/input-number/': {
       id: '/components/input-number/'
       path: '/input-number'
@@ -308,6 +328,7 @@ interface ComponentsRouteChildren {
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute
   ComponentsInputCopyTextIndexRoute: typeof ComponentsInputCopyTextIndexRoute
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute
+  ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
@@ -319,6 +340,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
   ComponentsInputCopyTextIndexRoute: ComponentsInputCopyTextIndexRoute,
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
+  ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
