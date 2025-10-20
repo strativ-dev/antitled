@@ -1,6 +1,6 @@
 import { Tag as AntTag, ConfigProvider } from 'antd';
 import clsx from 'clsx';
-import { ComponentProps, memo, useContext } from 'react';
+import { ComponentProps, useContext } from 'react';
 
 import { TagWrapper } from './styles';
 
@@ -33,40 +33,38 @@ export type TagProps = Omit<
   bordered?: boolean;
 };
 
-export const Tag = memo<TagProps>(
-  ({
-    className,
-    children,
-    size = 'md',
-    color = 'gray',
-    radius = 'full',
-    variant = 'solid',
-    bordered = true,
-    icon,
-    ...rest
-  }) => {
-    const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('tag');
+export const Tag = ({
+  className,
+  children,
+  size = 'md',
+  color = 'gray',
+  radius = 'full',
+  variant = 'solid',
+  bordered = true,
+  icon,
+  ...rest
+}: TagProps) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('tag');
 
-    const iconOnly = !children && !!icon;
+  const iconOnly = !children && !!icon;
 
-    return (
-      <TagWrapper
-        $size={size}
-        $color={color}
-        $radius={radius}
-        $variant={variant}
-        $bordered={bordered}
-        $iconOnly={iconOnly}>
-        <AntTag
-          {...rest}
-          icon={icon}
-          className={clsx({ [`${prefixCls}-${size}`]: size }, className)}>
-          {children}
-        </AntTag>
-      </TagWrapper>
-    );
-  }
-);
+  return (
+    <TagWrapper
+      $size={size}
+      $color={color}
+      $radius={radius}
+      $variant={variant}
+      $bordered={bordered}
+      $iconOnly={iconOnly}>
+      <AntTag
+        {...rest}
+        icon={icon}
+        className={clsx({ [`${prefixCls}-${size}`]: size }, className)}>
+        {children}
+      </AntTag>
+    </TagWrapper>
+  );
+};
 
 Tag.displayName = 'Tag';
