@@ -21,12 +21,13 @@ export type ExtendedColor =
   | 'orange';
 
 export type TagRadius = 'sm' | 'md' | 'full';
+export type TagSize = 'sm' | 'md' | 'lg';
 
 export type TagProps = Omit<
   ComponentProps<typeof AntTag>,
   'size' | 'color' | 'variant'
 > & {
-  size?: 'sm' | 'md' | 'lg';
+  size?: TagSize;
   color?: ExtendedColor;
   radius?: TagRadius;
   variant?: ExtendedVariant;
