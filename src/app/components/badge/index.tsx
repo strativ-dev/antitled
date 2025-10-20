@@ -67,20 +67,20 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag color='primary' size='sm'>
+            <Tag color='brand' size='sm'>
               Label
             </Tag>
-            <Tag color='primary' size='md'>
+            <Tag color='brand' size='md'>
               Label
             </Tag>
-            <Tag color='primary' size='lg'>
+            <Tag color='brand' size='lg'>
               Label
             </Tag>
           </Col>
 
           <Col span={6}>
             <Tag
-              color='primary'
+              color='brand'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -88,7 +88,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='primary'
+              color='brand'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -96,7 +96,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='primary'
+              color='brand'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -105,29 +105,29 @@ export default function Badges() {
             </Tag>
           </Col>
           <Col span={6}>
-            <Tag color='primary' size='sm'>
+            <Tag color='brand' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='primary' size='md'>
+            <Tag color='brand' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='primary' size='lg'>
+            <Tag color='brand' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
           </Col>
           <Col span={4}>
             <Tag
-              color='primary'
+              color='brand'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='primary'
+              color='brand'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='primary'
+              color='brand'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
@@ -135,20 +135,20 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='danger' size='sm'>
+            <Tag color='error' size='sm'>
               Label
             </Tag>
-            <Tag color='danger' size='md'>
+            <Tag color='error' size='md'>
               Label
             </Tag>
-            <Tag color='danger' size='lg'>
+            <Tag color='error' size='lg'>
               Label
             </Tag>
           </Col>
 
           <Col span={6}>
             <Tag
-              color='danger'
+              color='error'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -156,7 +156,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='danger'
+              color='error'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -164,7 +164,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='danger'
+              color='error'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -173,29 +173,29 @@ export default function Badges() {
             </Tag>
           </Col>
           <Col span={6}>
-            <Tag color='danger' size='sm'>
+            <Tag color='error' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='danger' size='md'>
+            <Tag color='error' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='danger' size='lg'>
+            <Tag color='error' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
           </Col>
           <Col span={4}>
             <Tag
-              color='danger'
+              color='error'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='danger'
+              color='error'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='danger'
+              color='error'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
@@ -688,13 +688,13 @@ export default function Badges() {
       <Flex vertical gap='large' style={{ marginTop: 70 }}>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag size='sm' radius='sm'>
+            <Tag size='sm' radius='sm' color='primary'>
               SM
             </Tag>
-            <Tag size='md' radius='sm'>
+            <Tag size='md' radius='sm' color='primary'>
               MD
             </Tag>
-            <Tag size='lg' radius='md'>
+            <Tag size='lg' radius='md' color='primary'>
               LG
             </Tag>
           </Col>
@@ -703,6 +703,7 @@ export default function Badges() {
             <Tag
               size='sm'
               radius='sm'
+              color='primary'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
@@ -711,6 +712,7 @@ export default function Badges() {
             <Tag
               size='md'
               radius='sm'
+              color='primary'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
@@ -718,6 +720,7 @@ export default function Badges() {
             </Tag>
             <Tag
               size='lg'
+              color='primary'
               radius='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
@@ -729,18 +732,21 @@ export default function Badges() {
             <Tag
               size='sm'
               radius='sm'
+              color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
             </Tag>
             <Tag
               size='md'
               radius='sm'
+              color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
             </Tag>
             <Tag
               size='lg'
               radius='md'
+              color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
             </Tag>
@@ -748,16 +754,19 @@ export default function Badges() {
           <Col span={4}>
             <Tag
               size='sm'
+              color='primary'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
               size='md'
+              color='primary'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
               size='lg'
+              color='primary'
               radius='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
@@ -765,20 +774,20 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag color='primary' size='sm' radius='sm'>
+            <Tag color='brand' size='sm' radius='sm'>
               Label
             </Tag>
-            <Tag color='primary' size='md' radius='sm'>
+            <Tag color='brand' size='md' radius='sm'>
               Label
             </Tag>
-            <Tag color='primary' size='lg' radius='md'>
+            <Tag color='brand' size='lg' radius='md'>
               Label
             </Tag>
           </Col>
 
           <Col span={6}>
             <Tag
-              color='primary'
+              color='brand'
               size='sm'
               radius='sm'
               icon={
@@ -787,7 +796,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='primary'
+              color='brand'
               size='md'
               radius='sm'
               icon={
@@ -796,7 +805,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='primary'
+              color='brand'
               size='lg'
               radius='md'
               icon={
@@ -806,34 +815,34 @@ export default function Badges() {
             </Tag>
           </Col>
           <Col span={6}>
-            <Tag color='primary' size='sm' radius='sm'>
+            <Tag color='brand' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='primary' size='md' radius='sm'>
+            <Tag color='brand' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='primary' size='lg' radius='md'>
+            <Tag color='brand' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
           </Col>
           <Col span={4}>
             <Tag
-              color='primary'
+              color='brand'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='primary'
+              color='brand'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='primary'
+              color='brand'
               size='lg'
               radius='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -842,20 +851,20 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='danger' size='sm' radius='sm'>
+            <Tag color='error' size='sm' radius='sm'>
               Label
             </Tag>
-            <Tag color='danger' size='md' radius='sm'>
+            <Tag color='error' size='md' radius='sm'>
               Label
             </Tag>
-            <Tag color='danger' size='lg' radius='md'>
+            <Tag color='error' size='lg' radius='md'>
               Label
             </Tag>
           </Col>
 
           <Col span={6}>
             <Tag
-              color='danger'
+              color='error'
               size='sm'
               radius='sm'
               icon={
@@ -864,7 +873,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='danger'
+              color='error'
               size='md'
               radius='sm'
               icon={
@@ -873,7 +882,7 @@ export default function Badges() {
               Label
             </Tag>
             <Tag
-              color='danger'
+              color='error'
               size='lg'
               radius='md'
               icon={
@@ -883,34 +892,34 @@ export default function Badges() {
             </Tag>
           </Col>
           <Col span={6}>
-            <Tag color='danger' size='sm' radius='sm'>
+            <Tag color='error' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='danger' size='md' radius='sm'>
+            <Tag color='error' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
-            <Tag color='danger' size='lg' radius='md'>
+            <Tag color='error' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
             </Tag>
           </Col>
           <Col span={4}>
             <Tag
-              color='danger'
+              color='error'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='danger'
+              color='error'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
             <Tag
-              color='danger'
+              color='error'
               size='lg'
               radius='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}

@@ -7,20 +7,18 @@ import { TagWrapper } from './styles';
 export type ExtendedVariant = 'solid' | 'outlined';
 export type ExtendedColor =
   | 'primary'
-  | 'destructive'
-  | 'danger'
-  | 'gray'
-  | 'green'
-  | 'info'
+  | 'brand'
   | 'success'
   | 'warning'
-  | 'pink'
-  | 'orange'
-  | 'purple'
+  | 'error'
+  | 'gray'
+  | 'gray-blue'
+  | 'blue-light'
+  | 'blue'
   | 'indigo'
-  | 'grayBlue'
-  | 'blueLight'
-  | 'blue';
+  | 'purple'
+  | 'pink'
+  | 'orange';
 
 export type TagRadius = 'sm' | 'md' | 'full';
 

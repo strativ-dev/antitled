@@ -2,23 +2,24 @@ import styled, { DefaultTheme } from 'styled-components';
 
 import { ExtendedColor, TagRadius, ExtendedVariant, TagProps } from './index';
 
-export const getTagColor = (theme: DefaultTheme, color?: ExtendedColor) => {
+export const getTagColor = (
+  theme: DefaultTheme,
+  color?: ExtendedColor
+): { bg: string; text: string; border: string } => {
   switch (color) {
     case 'primary':
+      return {
+        bg: theme.colors.Base.white,
+        text: theme.colors['Gray (light mode)']['700'],
+        border: theme.colors['Gray (light mode)']['300'],
+      };
+    case 'brand':
       return {
         bg: theme.colors.Brand['50'],
         text: theme.colors.Brand['700'],
         border: theme.colors.Brand['200'],
       };
-    case 'destructive':
-    case 'danger':
-      return {
-        bg: theme.colors.Error['50'],
-        text: theme.colors.Error['700'],
-        border: theme.colors.Error['200'],
-      };
     case 'success':
-    case 'green':
       return {
         bg: theme.colors.Success['50'],
         text: theme.colors.Success['700'],
@@ -30,12 +31,47 @@ export const getTagColor = (theme: DefaultTheme, color?: ExtendedColor) => {
         text: theme.colors.Warning['700'],
         border: theme.colors.Warning['200'],
       };
-    case 'info':
+    case 'error':
+      return {
+        bg: theme.colors.Error['50'],
+        text: theme.colors.Error['700'],
+        border: theme.colors.Error['200'],
+      };
+    case 'gray':
+      return {
+        bg: theme.colors['Gray (light mode)']['50'],
+        text: theme.colors['Gray (light mode)']['700'],
+        border: theme.colors['Gray (light mode)']['200'],
+      };
+    case 'gray-blue':
+      return {
+        bg: theme.colors['Gray blue']['50'],
+        text: theme.colors['Gray blue']['700'],
+        border: theme.colors['Gray blue']['200'],
+      };
+    case 'blue-light':
+      return {
+        bg: theme.colors['Blue light']['50'],
+        text: theme.colors['Blue light']['700'],
+        border: theme.colors['Blue light']['200'],
+      };
     case 'blue':
       return {
         bg: theme.colors.Blue['50'],
         text: theme.colors.Blue['700'],
         border: theme.colors.Blue['200'],
+      };
+    case 'indigo':
+      return {
+        bg: theme.colors.Indigo['50'],
+        text: theme.colors.Indigo['700'],
+        border: theme.colors.Indigo['200'],
+      };
+    case 'purple':
+      return {
+        bg: theme.colors.Purple['50'],
+        text: theme.colors.Purple['700'],
+        border: theme.colors.Purple['200'],
       };
     case 'pink':
       return {
@@ -49,36 +85,8 @@ export const getTagColor = (theme: DefaultTheme, color?: ExtendedColor) => {
         text: theme.colors.Orange['700'],
         border: theme.colors.Orange['200'],
       };
-    case 'purple':
-      return {
-        bg: theme.colors.Purple['50'],
-        text: theme.colors.Purple['700'],
-        border: theme.colors.Purple['200'],
-      };
-    case 'indigo':
-      return {
-        bg: theme.colors.Indigo['50'],
-        text: theme.colors.Indigo['700'],
-        border: theme.colors.Indigo['200'],
-      };
-    case 'grayBlue':
-      return {
-        bg: theme.colors['Gray blue']['50'],
-        text: theme.colors['Gray blue']['700'],
-        border: theme.colors['Gray blue']['200'],
-      };
-    case 'blueLight':
-      return {
-        bg: theme.colors['Blue light']['50'],
-        text: theme.colors['Blue light']['700'],
-        border: theme.colors['Blue light']['200'],
-      };
     default:
-      return {
-        bg: theme.colors['Gray (light mode)']['50'],
-        text: theme.colors['Gray (light mode)']['700'],
-        border: theme.colors['Gray (light mode)']['200'],
-      };
+      return getTagColor(theme, 'gray');
   }
 };
 
