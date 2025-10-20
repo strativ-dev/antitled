@@ -110,25 +110,21 @@ export const Button = memo<ButtonProps>(
       }
     }
 
-    const ButtonComponent = () => (
-      <AntButton
-        {...rest}
-        block={block}
-        color={getButtonColor(color)}
-        variant={getButtonVariant(variant)}
-        loading={loading}
-        className={clsx(
-          {
-            [`${prefixCls}-${size}`]: size,
-          },
-          className
-        )}
-      />
-    );
-
     return (
       <ButtonWrapper $size={size} $block={block} $isIconButton={!rest.children}>
-        <ButtonComponent />
+        <AntButton
+          {...rest}
+          block={block}
+          color={getButtonColor(color)}
+          variant={getButtonVariant(variant)}
+          loading={loading}
+          className={clsx(
+            {
+              [`${prefixCls}-${size}`]: size,
+            },
+            className
+          )}
+        />
       </ButtonWrapper>
     );
   }

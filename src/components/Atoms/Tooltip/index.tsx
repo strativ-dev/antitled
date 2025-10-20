@@ -1,50 +1,62 @@
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { HelpCircle } from '@untitledui/icons';
 import { Tooltip as AntdTooltip } from 'antd';
 import type { TooltipProps as AntdTooltipProps } from 'antd';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import styled, { useTheme } from 'styled-components';
 
 import { TextVariant, TextColorVariant } from '@/config/styles';
 
-export type TooltipType = 'default' | 'with-subtitle';
-
 export type TooltipProps = {
   title: ReactNode;
   subtitle?: ReactNode;
-  size?: TextVariant;
+  fontSize?: TextVariant;
   color?: TextColorVariant;
   children?: ReactNode;
-  arrow?: 'Show' | 'Hide' | 'Center';
-  type?: TooltipType;
+  arrow?: 'show' | 'hide' | 'center';
   helperIcon?: ReactNode;
-} & Omit<AntdTooltipProps, 'title'>;
+} & Omit<AntdTooltipProps, 'title' | 'arrow'>;
 
 export const Tooltip: React.FC<TooltipProps> = ({
   title,
   subtitle,
-  size = 'text-xs',
+  fontSize = 'text-xs',
   color,
-  arrow = 'Show',
+  arrow,
   children,
-  type = 'default',
   helperIcon,
   ...props
 }) => {
   const theme = useTheme();
 
-  const mergedArrow: AntdTooltipProps['arrow'] =
-    arrow === 'Hide'
-      ? false
-      : arrow === 'Center'
-        ? { pointAtCenter: true }
-        : true;
+  const hasSubtitle = Boolean(subtitle);
 
-  const tooltipTrigger = children || helperIcon || <StyledHelperIcon />;
+  const showCenteredArrow = !children && !helperIcon;
+
+  const mergedArrow = useMemo<AntdTooltipProps['arrow']>(() => {
+    if (arrow === 'show') {
+      return true;
+    }
+
+    if (arrow === 'hide') {
+      return false;
+    }
+
+    return {
+      pointAtCenter: true,
+    };
+  }, [arrow, showCenteredArrow]);
+
+  const tooltipTrigger = children || helperIcon || (
+    <HelpCircle size={16} color={theme.colors.foregrounds.fgQuaternary400} />
+  );
 
   const tooltipContent = (
-    <StyledTooltipContent $size={size} $color={color} $hasSubtitle={!!subtitle}>
+    <StyledTooltipContent
+      $fontSize={fontSize}
+      $color={color}
+      $hasSubtitle={hasSubtitle}>
       <div className='tooltip-title'>{title}</div>
-      {subtitle && <div className='tooltip-subtitle'>{subtitle}</div>}
+      {hasSubtitle && <div className='tooltip-subtitle'>{subtitle}</div>}
     </StyledTooltipContent>
   );
 
@@ -56,8 +68,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       styles={{
         body: {
           borderRadius: theme.radius['md'],
-          minHeight: type === 'with-subtitle' ? 'auto' : '2.375rem',
-          width: type === 'with-subtitle' ? '320px' : 'auto',
+          minHeight: hasSubtitle ? 'auto' : '2.375rem',
         },
       }}
       {...props}>
@@ -66,25 +77,16 @@ export const Tooltip: React.FC<TooltipProps> = ({
   );
 };
 
-const StyledHelperIcon = styled(InfoCircleOutlined)`
-  color: ${({ theme }) => theme.colors.texts.textPrimary900};
-  cursor: pointer;
-`;
-
 const StyledTooltipContent = styled.span<{
-  $size: TextVariant;
+  $fontSize: TextVariant;
   $color?: TextColorVariant;
   $hasSubtitle: boolean;
 }>`
   display: inline-block;
-  font-size: ${({ $size, theme }) => theme.fontSize[$size]}px;
+  font-size: ${({ $fontSize, theme }) => theme.fontSize[$fontSize]}px;
   padding: 0.25rem 0.5rem;
   color: ${({ $color, theme }) =>
-    $color
-      ? theme.colors.texts[$color]
-      : theme.mode === 'dark'
-        ? theme.colors.Base.black
-        : theme.colors.texts.textWhite};
+    $color ? theme.colors.texts[$color] : theme.colors.texts.textWhite};
 
   .tooltip-title {
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
@@ -95,11 +97,8 @@ const StyledTooltipContent = styled.span<{
     color: ${({ $color, theme }) =>
       $color
         ? theme.colors.texts[$color]
-        : theme.mode === 'dark'
-          ? theme.colors.Base.black
-          : theme.colors.Gray['300']};
+        : theme.colors.components.tooltipSupportingText};
     font-weight: ${({ theme }) => theme.fontWeight.medium};
-    line-height: ${({ theme }) => theme.lineHeight['text-xs']}px;
   }
 `;
 

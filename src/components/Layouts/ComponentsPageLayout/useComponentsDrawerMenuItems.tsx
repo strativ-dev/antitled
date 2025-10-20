@@ -30,12 +30,44 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             label: <Link to='/components/text'>{t('common.Text')}</Link>,
           },
           {
+            key: 'input',
+            label: <Link to='/components/input'>{t('common.Input')}</Link>,
+          },
+          {
+            key: 'input-number',
+            label: (
+              <Link to='/components/input-number'>
+                {t('common.Input Number')}
+              </Link>
+            ),
+          },
+          {
+            key: 'input-copy-text',
+            label: (
+              <Link to='/components/input-copy-text'>
+                {t('common.Input Copy Text')}
+              </Link>
+            ),
+          },
+          {
+            key: 'input-phone-number',
+            label: (
+              <Link to='/components/input-phone-number'>
+                {t('common.Input Phone Number')}
+              </Link>
+            ),
+          },
+          {
             key: 'badge',
             label: <Link to='/components/badge'>{t('common.Badge')}</Link>,
           },
           {
             key: 'tooltip',
             label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
+          },
+          {
+            key: 'select',
+            label: <Link to='/components/select'>{t('common.Select')}</Link>,
           },
         ],
       },

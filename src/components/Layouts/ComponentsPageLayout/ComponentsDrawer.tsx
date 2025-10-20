@@ -1,6 +1,5 @@
 import { useLocation } from '@tanstack/react-router';
-import { Menu } from 'antd';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -36,7 +35,7 @@ const ComponentsDrawer: FC = () => {
       return;
     }
     const selectedKey = componentsMenuItemKeys.find((key: string) =>
-      path.includes(key)
+      path.split('/').includes(key)
     );
     if (selectedKey) {
       setSelectedKey(selectedKey);
