@@ -7,6 +7,7 @@
 import { Route as rootRouteImport } from './routes/__root';
 import { Route as PublicLoginRouteImport } from './routes/_public/login';
 import { Route as ComponentsRouteImport } from './routes/components';
+import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index';
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index';
 import { Route as ComponentsIndexRouteImport } from './routes/components/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
@@ -66,6 +67,11 @@ const ComponentsButtonIndexRoute = ComponentsButtonIndexRouteImport.update({
   path: '/button/',
   getParentRoute: () => ComponentsRoute,
 } as any);
+const ComponentsBadgeIndexRoute = ComponentsBadgeIndexRouteImport.update({
+  id: '/badge/',
+  path: '/badge/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute;
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
+  '/components/badge': typeof ComponentsBadgeIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components': typeof ComponentsIndexRoute;
   '/dashboard': typeof DashboardIndexRoute;
+  '/components/badge': typeof ComponentsBadgeIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
@@ -98,6 +106,7 @@ export interface FileRoutesById {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
+  '/components/badge/': typeof ComponentsBadgeIndexRoute;
   '/components/button/': typeof ComponentsButtonIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
   '/components/tooltip/': typeof ComponentsTooltipIndexRoute;
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/badge'
     | '/components/button'
     | '/components/text'
     | '/components/tooltip';
@@ -122,6 +132,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
+    | '/components/badge'
     | '/components/button'
     | '/components/text'
     | '/components/tooltip';
@@ -134,6 +145,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/badge/'
     | '/components/button/'
     | '/components/text/'
     | '/components/tooltip/';
@@ -218,11 +230,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsButtonIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/badge/': {
+      id: '/components/badge/';
+      path: '/badge';
+      fullPath: '/components/badge';
+      preLoaderRoute: typeof ComponentsBadgeIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
   }
 }
 
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute;
+  ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute;
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
   ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute;
@@ -230,6 +250,7 @@ interface ComponentsRouteChildren {
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
   ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,

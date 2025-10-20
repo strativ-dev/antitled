@@ -50,6 +50,7 @@ export const en = {
       Button: 'Button',
       Text: 'Text',
       Tooltip: 'Tooltip',
+      Badge: 'Badge',
     },
   },
 };
