@@ -1,6 +1,7 @@
 import styled, { DefaultTheme } from 'styled-components';
 
 import { ExtendedColor, TagRadius, ExtendedVariant, TagProps } from './index';
+import { FONT_SIZE } from '@/config/styles';
 
 export const getTagColor = (
   theme: DefaultTheme,
@@ -122,10 +123,10 @@ export const TagWrapper = styled.div<{
 
       const sizeStyles =
         {
-          sm: `height: 22px; padding: ${$iconOnly ? '0.125rem' : '0.125rem 0.5625rem'}; font-size: 0.75rem;`,
-          md: `height: 24px; padding: ${$iconOnly ? '0.25rem' : '0.125rem 0.7937rem'}; font-size: 0.875rem;`,
-          lg: `height: 28px; padding: ${$iconOnly ? '0.375rem' : '0.25rem 0.875rem'}; font-size: 0.875rem;`,
-        }[$size] || '';
+          sm: `height: 1.375rem; padding: ${$iconOnly ? '0.125rem' : '0.125rem 0.5625rem'}; font-size: ${FONT_SIZE['text-xs']}px;`,
+          md: `height: 1.5rem; padding: ${$iconOnly ? '0.25rem' : '0.125rem 0.7937rem'}; font-size: ${FONT_SIZE['text-sm']}px;`,
+          lg: `height: 1.75rem; padding: ${$iconOnly ? '0.375rem' : '0.25rem 0.875rem'}; font-size: ${FONT_SIZE['text-sm']}px;`,
+        }[$size] || 'md';
 
       return `
          ${getVariantStyles()}
