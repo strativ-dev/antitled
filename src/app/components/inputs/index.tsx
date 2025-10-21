@@ -3,7 +3,13 @@ import { App, Col, Flex, Form, Row, Space } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { useTranslation } from 'react-i18next';
 
-import { Input, Select, InputNumber, Button } from '@/components/Atoms';
+import {
+  Input,
+  Select,
+  InputNumber,
+  Button,
+  TextArea,
+} from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
 import InputPhoneNumber from '@/components/Molecules/InputPhoneNumber';
 
@@ -55,7 +61,7 @@ export default function Inputs() {
               id='email'
               type='email'
               autoComplete='email'
-              placeholder='john@emial.com'
+              placeholder='zoro@strawhat.com'
               prefix={<Mail01 size={20} />}
               size='sm'
             />
@@ -65,9 +71,9 @@ export default function Inputs() {
               id='email'
               type='email'
               autoComplete='email'
-              placeholder='john@emial.com'
+              placeholder='sanji@strawhat.com'
               prefix={<Mail01 size={20} />}
-              value={'john@email.com'}
+              value={'sanji@strawhat.com'}
               allowClear
             />
           </Col>
@@ -76,11 +82,11 @@ export default function Inputs() {
               id='email'
               type='email'
               autoComplete='email'
-              placeholder='john@emial.com'
+              placeholder='usopp@strawhat.com'
               prefix={<Mail01 size={20} />}
               size='lg'
               disabled
-              value={'john@disabled.com'}
+              value={'usopp@strawhat.com'}
             />
           </Col>
           <Col span={6}>
@@ -88,20 +94,29 @@ export default function Inputs() {
               id='email'
               type='email'
               autoComplete='email'
-              placeholder='john@emial.com'
+              placeholder='luffy@strawhat.com'
               prefix={<Mail01 size={20} />}
               size='lg'
-              value={'johndoe'}
               status='error'
             />
           </Col>
         </Row>
         <Row gutter={[24, 24]} align='middle'>
           <Col span={6}>
-            <Input size='sm' addonBefore='https://' addonAfter={domains} />
+            <Input
+              size='sm'
+              addonBefore='https://'
+              addonAfter={domains}
+              placeholder='strawhatpirates'
+            />
           </Col>
           <Col span={6}>
-            <Input size='md' addonBefore='https://' addonAfter={domains} />
+            <Input
+              size='md'
+              addonBefore='https://'
+              addonAfter={domains}
+              placeholder='strawhatpirates'
+            />
           </Col>
           <Col span={6}>
             <Input
@@ -109,6 +124,7 @@ export default function Inputs() {
               addonBefore='https://'
               disabled
               addonAfter={domains}
+              placeholder='strawhatpirates'
             />
           </Col>
           <Col span={6}>
@@ -117,15 +133,26 @@ export default function Inputs() {
               addonBefore='http://'
               status='error'
               addonAfter={domains}
+              placeholder='strawhatpirates'
             />
           </Col>
         </Row>
         <Row gutter={[24, 24]} align='middle'>
           <Col span={6}>
-            <Input size='sm' addonBefore='https://' addonAfter='.com' />
+            <Input
+              size='sm'
+              addonBefore='https://'
+              addonAfter='.com'
+              placeholder='strawhatpirates'
+            />
           </Col>
           <Col span={6}>
-            <Input size='md' addonBefore='https://' addonAfter='.com' />
+            <Input
+              size='md'
+              addonBefore='https://'
+              addonAfter='.com'
+              placeholder='strawhatpirates'
+            />
           </Col>
           <Col span={6}>
             <Input
@@ -133,6 +160,7 @@ export default function Inputs() {
               addonBefore='https://'
               disabled
               addonAfter='.com'
+              placeholder='strawhatpirates'
             />
           </Col>
           <Col span={6}>
@@ -141,21 +169,32 @@ export default function Inputs() {
               addonBefore='http://'
               status='error'
               addonAfter='.com'
+              placeholder='strawhatpirates'
             />
           </Col>
         </Row>
         <Row gutter={[24, 24]} align='middle'>
           <Col span={6}>
-            <Input size='sm' addonAfter='@gmail.com' />
+            <Input size='sm' addonAfter='@gmail.com' placeholder='buggy' />
           </Col>
           <Col span={6}>
-            <Input size='md' addonAfter='@gmail.com' />
+            <Input size='md' addonAfter='@gmail.com' placeholder='buggy' />
           </Col>
           <Col span={6}>
-            <Input size='lg' addonAfter='@gmail.com' disabled />
+            <Input
+              size='lg'
+              addonAfter='@gmail.com'
+              disabled
+              placeholder='buggy'
+            />
           </Col>
           <Col span={6}>
-            <Input size='lg' addonAfter='@gmail.com' status='error' />
+            <Input
+              size='lg'
+              addonAfter='@gmail.com'
+              status='error'
+              placeholder='buggy'
+            />
           </Col>
         </Row>
       </Flex>
@@ -176,22 +215,25 @@ export default function Inputs() {
         <Row gutter={[24, 24]}>
           <Col span={12}>
             <FormItem
+              required
+              extra='Hint: Your given name'
               label='First Name'
               name='firstName'
               rules={[
                 { required: true, message: 'Please enter your first name' },
               ]}>
-              <Input placeholder='John' />
+              <Input placeholder='Roronoa' size='sm' />
             </FormItem>
           </Col>
           <Col span={12}>
             <FormItem
               label='Last Name'
               name='lastName'
+              extra='Hint: Your family name'
               rules={[
                 { required: true, message: 'Please enter your last name' },
               ]}>
-              <Input placeholder='Doe' />
+              <Input placeholder='Zoro' />
             </FormItem>
           </Col>
         </Row>
@@ -203,13 +245,14 @@ export default function Inputs() {
               name='email'
               rules={[{ required: true, message: 'Please enter your email' }]}>
               <Input
-                placeholder='john'
+                placeholder='roronoa'
+                prefix={<Mail01 size={20} />}
                 addonAfter={
                   <FormItem noStyle name='emailDomain'>
                     <Select
                       defaultValue='@gmail.com'
                       options={[
-                        { label: '@gmail.com', value: '@gmail.com' },
+                        { label: '@strawhat.com', value: '@strawhat.com' },
                         { label: '@outlook.com', value: '@outlook.com' },
                       ]}
                     />
@@ -246,7 +289,7 @@ export default function Inputs() {
                 },
               ]}>
               <Input
-                placeholder='example.com'
+                placeholder='strawhatpirates.com'
                 addonBefore={
                   <FormItem noStyle name='urlPrefix'>
                     <Select
@@ -276,10 +319,17 @@ export default function Inputs() {
               ]}>
               <InputNumber
                 type='number'
-                placeholder='25'
+                placeholder='21'
                 min={1}
                 max={120}
                 fullWidth
+              />
+            </FormItem>
+          </Col>
+          <Col span={12}>
+            <FormItem name={'bio'}>
+              <TextArea
+                placeholder={`Roronoa Zoro is a key character from the anime and manga series One Piece, known as the swordsman of the Straw Hat Pirates and a master of the Three-Sword Style. His biodata includes his dream of becoming the world's greatest swordsman, his origins as a bounty hunter in the East Blue, and his strong loyalty to Captain Luffy.`}
               />
             </FormItem>
           </Col>
@@ -287,14 +337,12 @@ export default function Inputs() {
 
         <Row>
           <Col span={24}>
-            <FormItem>
-              <Space>
-                <Button htmlType='submit'>Submit</Button>
-                <Button variant='secondary' onClick={() => form.resetFields()}>
-                  Reset
-                </Button>
-              </Space>
-            </FormItem>
+            <Space>
+              <Button htmlType='submit'>Submit</Button>
+              <Button variant='secondary' onClick={() => form.resetFields()}>
+                Reset
+              </Button>
+            </Space>
           </Col>
         </Row>
       </Form>

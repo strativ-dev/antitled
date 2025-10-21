@@ -7,3 +7,4 @@ export { Text } from './Text';
 export { Tooltip } from './Tooltip';
 export { Select } from './Select';
 export { CircleSpinner } from './CircleSpinner';
+export { TextArea } from './TextArea';

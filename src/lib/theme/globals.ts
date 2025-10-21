@@ -42,6 +42,23 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  /* Hint/Extra text of inputs */
+  .ant-form-item .ant-form-item-extra,
+  .ant-form-item .ant-form-item-explain-error
+  {
+    margin-top: 4px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+  }
+
+  /* Add inputs shadows, Inconsistent, better not to add shadow to inputs */
+/*
+  .ant-input-affix-wrapper,
+  .ant-input-group-wrapper,
+  .ant-form-item-control-input-content,
+  .ant-input-number-wrapper {
+    box-shadow: ${({ theme }) => theme.shadows.xs};
+  } */
+
   .ant-select-selection-item-content {
     align-content: center;
     font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
@@ -52,7 +69,6 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.texts.textSecondary700};
   }
 
-  // make the sm variant dropdown items font-size smaller
   .ant-select-dropdown .ant-select-item-option {
     font-size: ${({ theme }) => theme.fontSize['text-md']}px;
   }
