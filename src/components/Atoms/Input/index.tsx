@@ -1,6 +1,6 @@
 import { Input as AntdInput, InputProps } from 'antd';
 import { memo } from 'react';
-import styled from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
 
 const sizeMap = {
   sm: 'small',
@@ -8,25 +8,27 @@ const sizeMap = {
   lg: 'large',
 } as const;
 
-type Props = Omit<InputProps, 'size'> & {
+export type AntitledInputProps = Omit<InputProps, 'size'> & {
   size?: keyof typeof sizeMap;
   removeAffixLeftBorder?: boolean;
   removeAffixRightBorder?: boolean;
   removeGroupAddonBG?: boolean;
+  cssProp?: CSSProp;
 };
 
-const getSizeProp = (size?: Props['size']): InputProps['size'] => {
+const getSizeProp = (size?: AntitledInputProps['size']): InputProps['size'] => {
   if (!size) return 'middle';
   if (size in sizeMap) return sizeMap[size as keyof typeof sizeMap];
   return size as InputProps['size'];
 };
 
-export const Input = memo<Props>(
+export const Input = memo<AntitledInputProps>(
   ({
     size,
     removeAffixLeftBorder = false,
     removeAffixRightBorder = false,
     removeGroupAddonBG = false,
+    cssProp,
     ...props
   }) => {
     return (
@@ -37,6 +39,7 @@ export const Input = memo<Props>(
           $removeAffixLeftBorder={removeAffixLeftBorder}
           $removeAffixRightBorder={removeAffixRightBorder}
           $removeGroupAddonBG={removeGroupAddonBG}
+          $cssProp={cssProp}
         />
       </>
     );
@@ -47,6 +50,7 @@ export const StyledInput = styled(AntdInput)<{
   $removeAffixLeftBorder?: boolean;
   $removeAffixRightBorder?: boolean;
   $removeGroupAddonBG?: boolean;
+  $cssProp?: CSSProp;
 }>`
   ${({ $removeAffixLeftBorder }) =>
     $removeAffixLeftBorder &&
@@ -81,4 +85,5 @@ export const StyledInput = styled(AntdInput)<{
     margin-right: 0.5rem;
     color: ${({ theme }) => theme.colors['foregrounds']['fgQuaternary400']};
   }
+  ${({ $cssProp }) => $cssProp}
 `;

@@ -12,12 +12,12 @@ const sizeMap = {
   lg: 'large',
 } as const;
 
-type Props = Omit<SelectProps, 'size'> & {
+export type AntitledSelectProps = Omit<SelectProps, 'size'> & {
   size?: keyof typeof sizeMap;
   fullWidth?: boolean;
 };
 
-const getSizeProp = (size?: Props['size']) => {
+const getSizeProp = (size?: AntitledSelectProps['size']) => {
   if (!size) return 'middle';
   if (size in sizeMap) return sizeMap[size];
   return size as SelectProps['size'];
@@ -30,7 +30,7 @@ export const Select = ({
   loading,
   menuItemSelectedIcon,
   ...props
-}: Props) => {
+}: AntitledSelectProps) => {
   const _suffixIcon = useMemo(() => {
     if (suffixIcon) return suffixIcon;
     if (loading) return <CircleSpinner size={16} />;
