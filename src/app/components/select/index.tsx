@@ -3,7 +3,7 @@ import Row from 'antd/es/row';
 import { useTranslation } from 'react-i18next';
 
 import { Select } from '@/components/Atoms/Select';
-import ComponentPageTitle from '@/components/Shared/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
 
 const OPTIONS = [
   {

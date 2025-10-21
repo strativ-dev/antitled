@@ -1,6 +1,6 @@
 export { Button } from './Button';
 export { Input } from './Input';
-export { InputCopyText } from '../Shared/InputCopyText';
+export { InputCopyText } from '../Molecules/InputCopyText';
 export { InputNumber } from './InputNumber';
 export { StyledSimpleBar } from './StyledSimplebar';
 export { Text } from './Text';

@@ -21,6 +21,23 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      // Disallow explicit any, but allow opting out inline if truly needed
+      '@typescript-eslint/no-explicit-any': [
+        'warn',
+        {
+          fixToUnknown: true,
+          ignoreRestArgs: true,
+        },
+      ],
+      // Ignore unused variables/params if they start with an underscore
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

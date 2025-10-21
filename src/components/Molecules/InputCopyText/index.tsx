@@ -55,7 +55,7 @@ export const InputCopyText = ({ size, value }: Props) => {
         </Text>
       </StyledCopyButton>
     );
-  }, [isCopied, theme]);
+  }, [t, size, isCopied, theme, value]);
 
   useEffect(() => {
     // after 3 seconds set isCopied to false
