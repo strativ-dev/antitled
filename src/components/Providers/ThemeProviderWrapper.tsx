@@ -113,7 +113,7 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       colorBgContainer: colorPalette.backgrounds.bgPrimary,
       colorBgElevated: colorPalette.backgrounds.bgPrimaryAlt,
       colorBgLayout: colorPalette.backgrounds.bgSecondary,
-      colorBgSpotlight: colorPalette.backgrounds.bgSecondarySubtle,
+      colorBgSpotlight: colorPalette.backgrounds.bgPrimarySolid,
       colorBgMask: colorPalette.backgrounds.bgOverlay,
 
       // Border colors
@@ -260,7 +260,11 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       Form: {
         itemMarginBottom: SPACING.xl,
         verticalLabelPadding: `0 0 ${SPACING.sm}px`,
+        labelRequiredMarkColor: colorPalette.texts.textBrandTertiary600,
+        labelFontSize: FONT_SIZE['text-sm'],
+        labelColor: colorPalette.texts.textSecondary700,
       },
+      Tooltip: {},
     },
   };
 

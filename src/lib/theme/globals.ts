@@ -42,14 +42,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  /* Hint/Extra text of inputs */
-  .ant-form-item .ant-form-item-extra,
-  .ant-form-item .ant-form-item-explain-error
-  {
-    margin-top: 4px;
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
-  }
-
   /* Add inputs shadows, Inconsistent, better not to add shadow to inputs */
 /*
   .ant-input-affix-wrapper,
@@ -81,6 +73,38 @@ const GlobalStyles = createGlobalStyle`
   /* Tooltip */
   .ant-tooltip {
     max-width: 320px !important;
+  }
+
+  /* Form */
+  /* Hint/Extra text of inputs */
+  .ant-form-item .ant-form-item-extra,
+  .ant-form-item .ant-form-item-explain-error
+  {
+    margin-top: 4px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+  }
+
+  .ant-form-item .ant-form-item-extra {
+    color: ${({ theme }) => theme.colors.texts.textTertiary600};
+  }
+
+  .ant-form-item-label {
+    font-weight: ${({ theme }) => theme.fontWeight.medium};
+  }
+
+  .ant-form-vertical {
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+      display: none !important;
+    }
+
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
+      display: inline-block;
+      margin-inline-start: 4px;
+      color: ${({ theme }) => theme.colors.texts.textBrandSecondary700};
+      font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+      content: '*';
+      visibility: visible;
+    }
   }
 `;
 

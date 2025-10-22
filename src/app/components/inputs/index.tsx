@@ -222,7 +222,7 @@ export default function Inputs() {
               rules={[
                 { required: true, message: 'Please enter your first name' },
               ]}>
-              <Input placeholder='Roronoa' size='sm' />
+              <Input placeholder='Roronoa' />
             </FormItem>
           </Col>
           <Col span={12}>
@@ -326,8 +326,8 @@ export default function Inputs() {
               />
             </FormItem>
           </Col>
-          <Col span={12}>
-            <FormItem name={'bio'}>
+          <Col span={24}>
+            <FormItem name={'bio'} label='Bio'>
               <TextArea
                 placeholder={`Roronoa Zoro is a key character from the anime and manga series One Piece, known as the swordsman of the Straw Hat Pirates and a master of the Three-Sword Style. His biodata includes his dream of becoming the world's greatest swordsman, his origins as a bounty hunter in the East Blue, and his strong loyalty to Captain Luffy.`}
               />
