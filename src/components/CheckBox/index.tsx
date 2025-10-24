@@ -35,9 +35,9 @@ const getCheckboxColor = (theme: DefaultTheme, color?: ExtendedColor) => {
 };
 
 const getCheckboxSize = (size?: CheckboxSize) => {
-  const map: Record<CheckboxSize, { size: string; fontSize: string }> = {
-    sm: { size: '1rem', fontSize: '0.875rem' },
-    md: { size: '1.25rem', fontSize: '1rem' },
+  const map: Record<CheckboxSize, { size: string }> = {
+    sm: { size: '1rem' },
+    md: { size: '1.25rem' },
   };
   return size ? map[size] : map.md;
 };
@@ -52,15 +52,14 @@ const getCheckboxVariables = (
 
   return css`
     --checkbox-size: ${sizes.size};
-    --checkbox-font-size: ${sizes.fontSize};
     --checkbox-color: ${primaryColor};
     --checkbox-border-color: ${theme.colors['Gray (light mode)']['300']};
     --checkbox-disabled-bg: ${theme.colors['Gray (dark mode)']['25']};
     --checkbox-disabled-border: ${theme.colors['Gray (light mode)']['300']};
     --focus-ring-color: ${primaryColor}40;
     --text-primary: ${theme.colors['Gray (light mode)']['700']};
-    --text-secondary: ${theme.colors['Gray (light mode)']['600']};
-    --text-disabled: ${theme.colors['Gray (light mode)']['600']};
+    --text-secondary: ${theme.colors['Gray (light mode)']['700']};
+    --text-tertiary: ${theme.colors['Gray (light mode)']['600']};
   `;
 };
 
@@ -239,18 +238,23 @@ const CheckboxWrapper = styled.label<{
         gap: 0.25rem;
         flex: 1;
         padding-top: 0.0625rem;
+        color: var(--text-secondary);
       }
 
       .checkbox-label {
-        font-size: var(--checkbox-font-size);
-        font-weight: 500;
-        line-height: 1.5;
+        font-size: ${$size === 'sm'
+          ? theme.fontSize['text-sm']
+          : theme.fontSize['text-md']}px;
+        font-weight: ${({ theme }) => theme.fontWeight['medium']};
       }
 
       .checkbox-supporting-text {
-        font-size: ${$size === 'sm' ? '0.75rem' : '0.875rem'};
-        font-weight: 400;
-        line-height: 1.43;
+        font-size: ${$size === 'sm'
+          ? theme.fontSize['text-xs']
+          : theme.fontSize['text-sm']}px;
+
+        font-weight: ${({ theme }) => theme.fontWeight['regular']};
+        color: var(--text-tertiary);
       }
     `;
   }}
