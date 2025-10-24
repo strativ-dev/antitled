@@ -35,6 +35,7 @@ export const sv = {
       system: 'System',
       Tooltip: 'Verktygstips',
       Badge: 'Märke',
+      Checkbox: 'kryssrutor',
     },
   },
 };

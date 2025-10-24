@@ -1,0 +1,313 @@
+import { Checkbox as AntCheckbox, ConfigProvider } from 'antd';
+import type { CheckboxProps as AntdCheckboxProps } from 'antd/es/checkbox';
+import type { CheckboxGroupProps as AntdCheckboxGroupProps } from 'antd/es/checkbox/Group';
+import clsx from 'clsx';
+import { useContext, ReactNode } from 'react';
+import styled, { DefaultTheme, css } from 'styled-components';
+
+type ExtendedColor = 'brand' | 'gray';
+export type CheckboxSize = 'sm' | 'md';
+export type CheckboxType = 'checkbox' | 'radio';
+
+export type CheckboxProps = Omit<AntdCheckboxProps, 'size'> & {
+  size?: CheckboxSize;
+  color?: ExtendedColor;
+  type?: CheckboxType;
+  supportingText?: ReactNode;
+  children?: ReactNode;
+};
+
+export type CheckboxGroupProps = Omit<AntdCheckboxGroupProps, 'size'> & {
+  size?: CheckboxSize;
+  color?: ExtendedColor;
+  children?: ReactNode;
+};
+
+const getCheckboxColor = (theme: DefaultTheme, color?: ExtendedColor) => {
+  switch (color) {
+    case 'brand':
+      return theme.colors.Brand['600'];
+    case 'gray':
+      return theme.colors['Gray (light mode)']['300'];
+    default:
+      return theme.colors.Brand['600'];
+  }
+};
+
+const getCheckboxSize = (size?: CheckboxSize) => {
+  const map: Record<CheckboxSize, { size: string; fontSize: string }> = {
+    sm: { size: '1rem', fontSize: '0.875rem' },
+    md: { size: '1.25rem', fontSize: '1rem' },
+  };
+  return size ? map[size] : map.md;
+};
+
+const getCheckboxVariables = (
+  theme: DefaultTheme,
+  size?: CheckboxSize,
+  color?: ExtendedColor
+) => {
+  const sizes = getCheckboxSize(size);
+  const primaryColor = getCheckboxColor(theme, color);
+
+  return css`
+    --checkbox-size: ${sizes.size};
+    --checkbox-font-size: ${sizes.fontSize};
+    --checkbox-color: ${primaryColor};
+    --checkbox-border-color: ${theme.colors['Gray (light mode)']['300']};
+    --checkbox-disabled-bg: ${theme.colors['Gray (dark mode)']['25']};
+    --checkbox-disabled-border: ${theme.colors['Gray (light mode)']['300']};
+    --focus-ring-color: ${primaryColor}40;
+    --text-primary: ${theme.colors['Gray (light mode)']['700']};
+    --text-secondary: ${theme.colors['Gray (light mode)']['600']};
+    --text-disabled: ${theme.colors['Gray (light mode)']['600']};
+  `;
+};
+
+export function CheckboxBase(props: CheckboxProps) {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('checkbox');
+
+  const {
+    className,
+    size = 'md',
+    color = 'brand',
+    type = 'checkbox',
+    children,
+    indeterminate,
+    disabled,
+    supportingText,
+    ...rest
+  } = props;
+
+  const wrapperClass =
+    type === 'radio'
+      ? `${getPrefixCls('radio')}-wrapper`
+      : `${prefixCls}-wrapper`;
+
+  return (
+    <CheckboxWrapper
+      $size={size}
+      $color={color}
+      $type={type}
+      $disabled={disabled}
+      className={clsx(wrapperClass, className)}>
+      <AntCheckbox
+        {...rest}
+        indeterminate={type === 'checkbox' ? indeterminate : undefined}
+        disabled={disabled}
+      />
+      {(children || supportingText) && (
+        <span className='checkbox-content'>
+          {children && <span className='checkbox-label'>{children}</span>}
+          {supportingText && (
+            <span className='checkbox-supporting-text'>{supportingText}</span>
+          )}
+        </span>
+      )}
+    </CheckboxWrapper>
+  );
+}
+
+export function CheckboxGroupBase(props: CheckboxGroupProps) {
+  const { size = 'md', color = 'brand', className, ...rest } = props;
+
+  return (
+    <CheckboxGroupWrapper $size={size} $color={color} className={className}>
+      <AntCheckbox.Group {...rest} />
+    </CheckboxGroupWrapper>
+  );
+}
+
+const CheckboxWrapper = styled.label<{
+  $size?: CheckboxSize;
+  $color?: ExtendedColor;
+  $type?: CheckboxType;
+  $disabled?: boolean;
+}>`
+  ${({ $size, $color, $type, $disabled, theme }) => {
+    return css`
+      ${getCheckboxVariables(theme, $size, $color)}
+
+      display: inline-flex;
+      align-items: flex-start;
+      cursor: ${$disabled ? 'not-allowed' : 'pointer'};
+      gap: 0.75rem;
+      user-select: none;
+      position: relative;
+      padding: 0;
+      margin: 0;
+
+      .ant-checkbox-input {
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+      }
+
+      .ant-checkbox-inner {
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+      }
+
+      ${$type === 'checkbox' &&
+      css`
+        .ant-checkbox-inner {
+          top: ${$size === 'sm' ? '0.1875rem' : '0.21875rem'};
+          left: ${$size === 'sm' ? '0.125rem' : '0.145625rem'};
+          border-radius: ${$size === 'sm' ? '0.25rem' : '0.375rem'};
+        }
+
+        .ant-checkbox-inner::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
+          height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
+          border: ${$size === 'sm'
+            ? `0.104375rem solid ${theme.colors.Base.white}`
+            : `0.125rem solid ${theme.colors.Base.white}`};
+          border-top: 0;
+          border-left: 0;
+          transform: translate(-50%, -60%) rotate(45deg) scale(1);
+        }
+
+        .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+          width: ${$size === 'sm' ? '0.5rem' : '0.625rem'};
+          height: 0.125rem;
+          border: none;
+          background-color: ${({ theme }) => theme.colors.Base.white};
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          top: 50%;
+        }
+      `}
+
+      ${$type === 'radio' &&
+      css`
+        .ant-checkbox-inner {
+          border-radius: 50%;
+          width: ${$size === 'sm' ? '1rem' : '1.25rem'};
+          height: ${$size === 'sm' ? '1rem' : '1.25rem'};
+          position: relative;
+          transition: all 0.2s ease;
+        }
+
+        .ant-checkbox-inner::after {
+          position: absolute;
+          content: '';
+          width: ${$size === 'sm' ? '0.375rem' : '0.5rem'};
+          height: ${$size === 'sm' ? '0.375rem' : '0.5rem'};
+          border-radius: 50%;
+          background-color: ${({ theme }) => theme.colors.Base.white};
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(0);
+          transition: all 0.2s ease;
+        }
+
+        .ant-checkbox-checked .ant-checkbox-inner::after {
+          transform: translate(-50%, -50%) scale(1);
+        }
+
+        .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+          background-color: var(--checkbox-disabled-border);
+          transform: translate(-50%, -50%) scale(1);
+        }
+      `}
+
+  
+
+      .ant-checkbox-indeterminate .ant-checkbox-inner {
+        background-color: var(--checkbox-color);
+        border-color: var(--checkbox-color);
+      }
+      .ant-checkbox-disabled.ant-checkbox-indeterminate
+        .ant-checkbox-inner::after {
+        background-color: var(--checkbox-border-color);
+      }
+      .ant-checkbox-disabled .ant-checkbox-inner {
+        background-color: var(--checkbox-disabled-bg);
+        border-color: var(--checkbox-disabled-border);
+      }
+
+      .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+        border-color: var(--checkbox-disabled-border);
+      }
+
+      .checkbox-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        flex: 1;
+        padding-top: 0.0625rem;
+      }
+
+      .checkbox-label {
+        font-size: var(--checkbox-font-size);
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      .checkbox-supporting-text {
+        font-size: ${$size === 'sm' ? '0.75rem' : '0.875rem'};
+        font-weight: 400;
+        line-height: 1.43;
+      }
+    `;
+  }}
+`;
+
+const CheckboxGroupWrapper = styled.div<{
+  $size?: CheckboxSize;
+  $color?: ExtendedColor;
+}>`
+  ${({ $size, $color, theme }) => {
+    return css`
+      ${getCheckboxVariables(theme, $size, $color)}
+
+      .ant-checkbox-inner {
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        border: 1px solid var(--checkbox-border-color);
+        background-color: ${({ theme }) => theme.colors.Base.white};
+        transition: all 0.2s ease;
+        border-radius: ${$size === 'sm' ? '0.25rem' : '0.375rem'};
+      }
+
+      .ant-checkbox-inner::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
+        height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
+        border: ${$size === 'sm'
+          ? `0.1044rem solid ${theme.colors.Base.white}`
+          : `0.125rem solid ${theme.colors.Base.white}`};
+        border-top: 0;
+        border-left: 0;
+      }
+
+      .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: var(--checkbox-color);
+        border-color: var(--checkbox-color);
+      }
+
+      .ant-checkbox-checked .ant-checkbox-inner::after {
+        transform: translate(-50%, -60%) rotate(45deg) scale(1);
+        opacity: 1;
+      }
+
+      .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner {
+        background-color: var(--checkbox-disabled-bg);
+        border-color: var(--checkbox-disabled-border);
+      }
+
+      .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+        border-color: var(--checkbox-disabled-border);
+      }
+    `;
+  }}
+`;
+
+export const Checkbox = Object.assign(CheckboxBase, {
+  Group: CheckboxGroupBase,
+});
