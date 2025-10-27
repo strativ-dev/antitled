@@ -247,6 +247,13 @@ const CheckboxWrapper = styled.label<{
           : theme.fontSize['text-md']}px;
         font-weight: ${({ theme }) => theme.fontWeight['medium']};
       }
+      .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
+        border: 1px solid var(--checkbox-color);
+        box-shadow:
+          0 0 0 2px ${theme.colors.Base.white},
+          0 0 0 4px ${theme.colors.Brand[500]};
+        outline: none;
+      }
 
       .checkbox-supporting-text {
         font-size: ${$size === 'sm'
