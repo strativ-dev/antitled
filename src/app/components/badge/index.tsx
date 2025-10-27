@@ -1,7 +1,7 @@
 import { BellPlus, MessageTextCircle02, Plus } from '@untitledui/icons';
 import { Col, Row, Flex } from 'antd';
 
-import { Tag } from '@/components/Badge';
+import { Tag } from '@/components/Atoms/Badge';
 
 export default function Badges() {
   return (
