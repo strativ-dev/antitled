@@ -26,11 +26,11 @@ export type CheckboxGroupProps = Omit<AntdCheckboxGroupProps, 'size'> & {
 const getCheckboxColor = (theme: DefaultTheme, color?: ExtendedColor) => {
   switch (color) {
     case 'brand':
-      return theme.colors.Brand['600'];
+      return theme.colors.backgrounds.bgBrandSolid;
     case 'gray':
-      return theme.colors['Gray (light mode)']['300'];
+      return theme.colors.borders.borderDisabled;
     default:
-      return theme.colors.Brand['600'];
+      return theme.colors.backgrounds.bgBrandSolid;
   }
 };
 
@@ -53,13 +53,15 @@ const getCheckboxVariables = (
   return css`
     --checkbox-size: ${sizes.size};
     --checkbox-color: ${primaryColor};
-    --checkbox-border-color: ${theme.colors['Gray (light mode)']['300']};
-    --checkbox-disabled-bg: ${theme.colors['Gray (dark mode)']['25']};
-    --checkbox-disabled-border: ${theme.colors['Gray (light mode)']['300']};
-    --focus-ring-color: ${primaryColor}40;
-    --text-primary: ${theme.colors['Gray (light mode)']['700']};
-    --text-secondary: ${theme.colors['Gray (light mode)']['700']};
-    --text-tertiary: ${theme.colors['Gray (light mode)']['600']};
+    --checkbox-border-color: ${theme.colors.borders.borderPrimary};
+    --checkbox-disabled-bg: ${theme.colors.backgrounds.bgDisabledSubtle};
+    --checkbox-disabled-border: ${theme.colors.borders.borderDisabled};
+    --focus-ring-color: ${theme.colors.effects.focusRing};
+    --text-secondary: ${theme.colors.texts.textSecondary700};
+    --text-tertiary: ${theme.colors.texts.textTertiary600};
+    --checkbox-checked-bg: ${theme.colors.foregrounds.fgWhite};
+    --checkbox-inner-shadow: 0 0 0 2px var(--checkbox-checked-bg);
+    --checkbox-outer-shadow: 0 0 0 4px var(--focus-ring-color);
   `;
 };
 
@@ -152,7 +154,9 @@ const CheckboxWrapper = styled.label<{
         .ant-checkbox-inner {
           top: ${$size === 'sm' ? '0.1875rem' : '0.21875rem'};
           left: ${$size === 'sm' ? '0.125rem' : '0.145625rem'};
-          border-radius: ${$size === 'sm' ? '0.25rem' : '0.375rem'};
+          border-radius: ${$size === 'sm'
+            ? `${theme.radius['xs']}px`
+            : `${theme.radius['sm']}px`};
         }
 
         .ant-checkbox-inner::after {
@@ -162,8 +166,8 @@ const CheckboxWrapper = styled.label<{
           width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
           height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
           border: ${$size === 'sm'
-            ? `0.104375rem solid ${theme.colors.Base.white}`
-            : `0.125rem solid ${theme.colors.Base.white}`};
+            ? `0.104375rem solid var(--checkbox-checked-bg)`
+            : `0.125rem solid var(--checkbox-checked-bg)`};
           border-top: 0;
           border-left: 0;
           transform: translate(-50%, -60%) rotate(45deg) scale(1);
@@ -173,7 +177,7 @@ const CheckboxWrapper = styled.label<{
           width: ${$size === 'sm' ? '0.5rem' : '0.625rem'};
           height: 0.125rem;
           border: none;
-          background-color: ${({ theme }) => theme.colors.Base.white};
+          background-color: var(--checkbox-checked-bg);
           transform: translate(-50%, -50%) scale(1);
           opacity: 1;
           top: 50%;
@@ -196,7 +200,7 @@ const CheckboxWrapper = styled.label<{
           width: ${$size === 'sm' ? '0.375rem' : '0.5rem'};
           height: ${$size === 'sm' ? '0.375rem' : '0.5rem'};
           border-radius: 50%;
-          background-color: ${({ theme }) => theme.colors.Base.white};
+          background-color: var(--checkbox-checked-bg);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) scale(0);
@@ -249,9 +253,7 @@ const CheckboxWrapper = styled.label<{
       }
       .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
         border: 1px solid var(--checkbox-color);
-        box-shadow:
-          0 0 0 2px ${theme.colors.Base.white},
-          0 0 0 4px ${theme.colors.Brand[500]};
+        box-shadow: var(--checkbox-inner-shadow), var(--checkbox-outer-shadow);
         outline: none;
       }
 
@@ -279,9 +281,11 @@ const CheckboxGroupWrapper = styled.div<{
         width: var(--checkbox-size);
         height: var(--checkbox-size);
         border: 1px solid var(--checkbox-border-color);
-        background-color: ${({ theme }) => theme.colors.Base.white};
+        background-color: var(--checkbox-checked-bg);
         transition: all 0.2s ease;
-        border-radius: ${$size === 'sm' ? '0.25rem' : '0.375rem'};
+        border-radius: ${$size === 'sm'
+          ? `${theme.radius['xs']}px`
+          : `${theme.radius['sm']}px`};
       }
 
       .ant-checkbox-inner::after {
@@ -291,8 +295,8 @@ const CheckboxGroupWrapper = styled.div<{
         width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
         height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
         border: ${$size === 'sm'
-          ? `0.1044rem solid ${theme.colors.Base.white}`
-          : `0.125rem solid ${theme.colors.Base.white}`};
+          ? `0.1044rem solid var(--checkbox-checked-bg)`
+          : `0.125rem solid var(--checkbox-checked-bg)`};
         border-top: 0;
         border-left: 0;
       }
@@ -305,6 +309,11 @@ const CheckboxGroupWrapper = styled.div<{
       .ant-checkbox-checked .ant-checkbox-inner::after {
         transform: translate(-50%, -60%) rotate(45deg) scale(1);
         opacity: 1;
+      }
+      .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
+        border: 1px solid var(--checkbox-color);
+        box-shadow: var(--checkbox-inner-shadow), var(--checkbox-outer-shadow);
+        outline: none;
       }
 
       .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner {
