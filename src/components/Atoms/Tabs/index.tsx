@@ -17,7 +17,7 @@ type TabVariant =
 export type TabItem = {
   key: string;
   label: React.ReactNode;
-  content: React.ReactNode;
+  content?: React.ReactNode;
   icon?: React.ReactNode;
   disabled?: boolean;
 };
@@ -211,7 +211,7 @@ const StyledTabsList = styled.div<{
     css`
       ${$orientation === 'horizontal'
         ? `border-bottom: 1px solid ${theme.colors.borders.borderSecondary};`
-        : `border-right: 1px solid ${theme.colors.borders.borderSecondary};`}
+        : `border-left: 0px solid ${theme.colors.borders.borderSecondary};`}
     `}
 `;
 
@@ -282,7 +282,9 @@ const getTabButtonStyles = (
     if (disabled) return 'transparent';
     switch (variant) {
       case 'button-brand':
-        return theme.colors.backgrounds.bgBrandPrimaryAlt;
+        return isActive
+          ? theme.colors.backgrounds.bgBrandPrimaryAlt
+          : `${theme.colors.backgrounds.bgBrandPrimaryAlt}90`;
       case 'button-gray':
         return isActive
           ? theme.colors.backgrounds.bgActive
@@ -379,7 +381,7 @@ const StyledTabButton = styled.button<{
               width: 100%;
             `
           : css`
-              right: 0;
+              left: 0;
               top: 0;
               bottom: 0;
               width: 2px;
@@ -410,9 +412,7 @@ const TabIcon = styled.span`
 
 const TabLabel = styled.span`
   display: inline-block;
-  font-size: ${({ theme }) => theme.fontSize['text-sm']};
   font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-  line-height: ${({ theme }) => theme.lineHeight['text-sm']}px;
 `;
 
 const StyledTabContent = styled.div`
