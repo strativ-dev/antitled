@@ -69,6 +69,10 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             key: 'select',
             label: <Link to='/components/select'>{t('common.Select')}</Link>,
           },
+          {
+            key: 'tabs',
+            label: <Link to='/components/tabs'>{t('common.Tabs')}</Link>,
+          },
         ],
       },
     ];

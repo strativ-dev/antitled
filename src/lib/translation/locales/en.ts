@@ -59,6 +59,8 @@ export const en = {
       Tooltip: 'Tooltip',
       'Input Phone Number': 'Input Phone Number',
       Badge: 'Badge',
+      Checkbox: 'Checkbox',
+      Tabs: 'Tabs',
     },
   },
 };
