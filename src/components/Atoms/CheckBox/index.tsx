@@ -5,6 +5,11 @@ import clsx from 'clsx';
 import { useContext, ReactNode } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components';
 
+import CheckIcon from '@/assets/images/check-icon.svg';
+import DisabledCheckIcon from '@/assets/images/disabled-check.svg';
+import DisabledMinusIcon from '@/assets/images/disabled-minus.svg';
+import MinusIcon from '@/assets/images/minus-icon.svg';
+
 type ExtendedColor = 'brand' | 'gray';
 export type CheckboxSize = 'sm' | 'md';
 export type CheckboxType = 'checkbox' | 'radio';
@@ -62,6 +67,10 @@ const getCheckboxVariables = (
     --checkbox-checked-bg: ${theme.colors.foregrounds.fgWhite};
     --checkbox-inner-shadow: 0 0 0 2px var(--checkbox-checked-bg);
     --checkbox-outer-shadow: 0 0 0 4px var(--focus-ring-color);
+    --checkbox-checked-icon: url(${CheckIcon});
+    --checkbox-disabled-checked-icon: url(${DisabledCheckIcon});
+    --checkbox-indeterminate-icon: url(${MinusIcon});
+    --checkbox-disabled-indeterminate-icon: url(${DisabledMinusIcon});
   `;
 };
 
@@ -159,28 +168,51 @@ const CheckboxWrapper = styled.label<{
             : `${theme.radius['sm']}px`};
         }
 
-        .ant-checkbox-inner::after {
+        .ant-checkbox-checked .ant-checkbox-inner::after {
+          display: none;
+        }
+        .ant-checkbox-checked .ant-checkbox-inner::before {
+          content: '';
           position: absolute;
           top: 50%;
           left: 50%;
-          width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
-          height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
-          border: ${$size === 'sm'
-            ? `0.104375rem solid var(--checkbox-checked-bg)`
-            : `0.125rem solid var(--checkbox-checked-bg)`};
-          border-top: 0;
-          border-left: 0;
-          transform: translate(-50%, -60%) rotate(45deg) scale(1);
+          transform: translate(-50%, -50%);
+          width: ${$size === 'sm' ? '12px' : '14px'};
+          height: ${$size === 'sm' ? '12px' : '14px'};
+          background-image: var(--checkbox-checked-icon);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
         }
 
         .ant-checkbox-indeterminate .ant-checkbox-inner::after {
-          width: ${$size === 'sm' ? '0.5rem' : '0.625rem'};
-          height: 0.125rem;
-          border: none;
-          background-color: var(--checkbox-checked-bg);
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
+          display: none;
+        }
+
+        .ant-checkbox-indeterminate .ant-checkbox-inner::before {
+          content: '';
+          position: absolute;
           top: 50%;
+          left: 50%;
+          width: ${$size === 'sm' ? '12px' : '14px'};
+          height: ${$size === 'sm' ? '12px' : '14px'};
+          background-image: var(--checkbox-indeterminate-icon);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: translate(-50%, -50%);
+        }
+        .ant-checkbox-disabled.ant-checkbox-checked
+          .ant-checkbox-inner::before {
+          background-image: var(--checkbox-disabled-checked-icon);
+          width: ${$size === 'sm' ? '12px' : '14px'};
+          height: ${$size === 'sm' ? '12px' : '14px'};
+        }
+        .ant-checkbox-disabled.ant-checkbox-indeterminate
+          .ant-checkbox-inner::before {
+          background-image: var(--checkbox-disabled-indeterminate-icon);
+          width: ${$size === 'sm' ? '12px' : '14px'};
+          height: ${$size === 'sm' ? '12px' : '14px'};
         }
       `}
 
@@ -288,17 +320,22 @@ const CheckboxGroupWrapper = styled.div<{
           : `${theme.radius['sm']}px`};
       }
 
-      .ant-checkbox-inner::after {
+      .ant-checkbox-checked .ant-checkbox-inner::after {
+        display: none;
+      }
+
+      .ant-checkbox-checked .ant-checkbox-inner::before {
+        content: '';
         position: absolute;
         top: 50%;
         left: 50%;
-        width: ${$size === 'sm' ? '0.25rem' : '0.3125rem'};
-        height: ${$size === 'sm' ? '0.5rem' : '0.5625rem'};
-        border: ${$size === 'sm'
-          ? `0.1044rem solid var(--checkbox-checked-bg)`
-          : `0.125rem solid var(--checkbox-checked-bg)`};
-        border-top: 0;
-        border-left: 0;
+        transform: translate(-50%, -50%);
+        width: ${$size === 'sm' ? '12px' : '14px'};
+        height: ${$size === 'sm' ? '12px' : '14px'};
+        background-image: var(--checkbox-checked-icon);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
       }
 
       .ant-checkbox-checked .ant-checkbox-inner {
@@ -323,6 +360,11 @@ const CheckboxGroupWrapper = styled.div<{
 
       .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
         border-color: var(--checkbox-disabled-border);
+      }
+      .ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::before {
+        background-image: var(--checkbox-disabled-checked-icon);
+        width: ${$size === 'sm' ? '12px' : '14px'};
+        height: ${$size === 'sm' ? '12px' : '14px'};
       }
     `;
   }}
