@@ -24,6 +24,7 @@ import { Route as ComponentsInputIndexRouteImport } from './routes/components/in
 import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/components/input-phone-number/index'
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index'
 import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/components/input-copy-text/index'
+import { Route as ComponentsCheckboxIndexRouteImport } from './routes/components/checkbox/index'
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index'
 import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index'
 
@@ -105,6 +106,11 @@ const ComponentsInputCopyTextIndexRoute =
     path: '/input-copy-text/',
     getParentRoute: () => ComponentsRoute,
   } as any)
+const ComponentsCheckboxIndexRoute = ComponentsCheckboxIndexRouteImport.update({
+  id: '/checkbox/',
+  path: '/checkbox/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 const ComponentsButtonIndexRoute = ComponentsButtonIndexRouteImport.update({
   id: '/button/',
   path: '/button/',
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof DashboardIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
+  '/components/checkbox': typeof ComponentsCheckboxIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
@@ -143,6 +150,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
+  '/components/checkbox': typeof ComponentsCheckboxIndexRoute
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
@@ -163,6 +171,7 @@ export interface FileRoutesById {
   '/dashboard/': typeof DashboardIndexRoute
   '/components/badge/': typeof ComponentsBadgeIndexRoute
   '/components/button/': typeof ComponentsButtonIndexRoute
+  '/components/checkbox/': typeof ComponentsCheckboxIndexRoute
   '/components/input-copy-text/': typeof ComponentsInputCopyTextIndexRoute
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute
@@ -184,6 +193,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/components/badge'
     | '/components/button'
+    | '/components/checkbox'
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input-phone-number'
@@ -201,6 +211,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/components/badge'
     | '/components/button'
+    | '/components/checkbox'
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input-phone-number'
@@ -220,6 +231,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/components/badge/'
     | '/components/button/'
+    | '/components/checkbox/'
     | '/components/input-copy-text/'
     | '/components/input-number/'
     | '/components/input-phone-number/'
@@ -344,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsInputCopyTextIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/checkbox/': {
+      id: '/components/checkbox/'
+      path: '/checkbox'
+      fullPath: '/components/checkbox'
+      preLoaderRoute: typeof ComponentsCheckboxIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
     '/components/button/': {
       id: '/components/button/'
       path: '/button'
@@ -365,6 +384,7 @@ interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute
   ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute
+  ComponentsCheckboxIndexRoute: typeof ComponentsCheckboxIndexRoute
   ComponentsInputCopyTextIndexRoute: typeof ComponentsInputCopyTextIndexRoute
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute
   ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute
@@ -379,6 +399,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
   ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
+  ComponentsCheckboxIndexRoute: ComponentsCheckboxIndexRoute,
   ComponentsInputCopyTextIndexRoute: ComponentsInputCopyTextIndexRoute,
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
