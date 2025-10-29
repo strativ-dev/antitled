@@ -15,21 +15,21 @@ export interface SwitchProps extends Omit<AntSwitchProps, 'size'> {
 
 const trackSizeMap = {
   default: {
-    xs: { width: 28, height: 16 },
-    sm: { width: 36, height: 20 },
-    md: { width: 44, height: 24 },
+    xs: { width: 1.75, height: 1 },
+    sm: { width: 2.25, height: 1.25 },
+    md: { width: 2.75, height: 1.5 },
   },
   slim: {
-    xs: { width: 24, height: 12 },
-    sm: { width: 32, height: 16 },
-    md: { width: 40, height: 20 },
+    xs: { width: 1.5, height: 0.75 },
+    sm: { width: 2, height: 1 },
+    md: { width: 2.5, height: 1.25 },
   },
 } as const;
 
 const innerSizeMap = {
-  xs: { width: 12, height: 12 },
-  sm: { width: 16, height: 16 },
-  md: { width: 20, height: 20 },
+  xs: { width: 0.75, height: 0.75 },
+  sm: { width: 1, height: 1 },
+  md: { width: 1.25, height: 1.25 },
 } as const;
 
 const getSwitchVariables = (
@@ -41,11 +41,11 @@ const getSwitchVariables = (
   const { width: innerWidth, height: innerHeight } = innerSizeMap[size];
 
   return css`
-    --switch-width: ${width}px;
-    --switch-height: ${height}px;
-    --switch-handle-size: ${height - 4}px;
-    --switch-inner-width: ${innerWidth}px;
-    --switch-inner-height: ${innerHeight}px;
+    --switch-width: ${width}rem;
+    --switch-height: ${height}rem;
+    --switch-handle-size: ${height - 0.25}rem;
+    --switch-inner-width: ${innerWidth}rem;
+    --switch-inner-height: ${innerHeight}rem;
     --switch-bg: ${theme.colors.backgrounds.bgTertiary};
     --switch-disabled-bg: ${theme.colors.backgrounds.bgDisabled};
     --switch-checked-bg: ${theme.colors.backgrounds.bgBrandSolid};
@@ -157,7 +157,6 @@ const StyledSwitch = styled(AntSwitch)<{
         inset-inline-start: 0;
       `}
       border-radius: 50%;
-      inset-inline-start: 0.125rem;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
