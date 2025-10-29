@@ -17,6 +17,7 @@ import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/co
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
+import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index';
 import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index';
 import { Route as DashboardRouteImport } from './routes/dashboard';
 import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-demos';
@@ -61,6 +62,11 @@ const PublicLoginRoute = PublicLoginRouteImport.update({
 const ComponentsTooltipIndexRoute = ComponentsTooltipIndexRouteImport.update({
   id: '/tooltip/',
   path: '/tooltip/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
+const ComponentsToggleIndexRoute = ComponentsToggleIndexRouteImport.update({
+  id: '/toggle/',
+  path: '/toggle/',
   getParentRoute: () => ComponentsRoute,
 } as any);
 const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
@@ -129,6 +135,7 @@ export interface FileRoutesByFullPath {
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
+  '/components/toggle': typeof ComponentsToggleIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRoutesByTo {
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
+  '/components/toggle': typeof ComponentsToggleIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRoutesById {
@@ -166,6 +174,7 @@ export interface FileRoutesById {
   '/components/input/': typeof ComponentsInputIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
+  '/components/toggle/': typeof ComponentsToggleIndexRoute;
   '/components/tooltip/': typeof ComponentsTooltipIndexRoute;
 }
 export interface FileRouteTypes {
@@ -187,6 +196,7 @@ export interface FileRouteTypes {
     | '/components/input'
     | '/components/select'
     | '/components/text'
+    | '/components/toggle'
     | '/components/tooltip';
   fileRoutesByTo: FileRoutesByTo;
   to:
@@ -204,6 +214,7 @@ export interface FileRouteTypes {
     | '/components/input'
     | '/components/select'
     | '/components/text'
+    | '/components/toggle'
     | '/components/tooltip';
   id:
     | '__root__'
@@ -223,6 +234,7 @@ export interface FileRouteTypes {
     | '/components/input/'
     | '/components/select/'
     | '/components/text/'
+    | '/components/toggle/'
     | '/components/tooltip/';
   fileRoutesById: FileRoutesById;
 }
@@ -289,6 +301,13 @@ declare module '@tanstack/react-router' {
       path: '/tooltip';
       fullPath: '/components/tooltip';
       preLoaderRoute: typeof ComponentsTooltipIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
+    '/components/toggle/': {
+      id: '/components/toggle/';
+      path: '/toggle';
+      fullPath: '/components/toggle';
+      preLoaderRoute: typeof ComponentsToggleIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
     '/components/text/': {
@@ -368,6 +387,7 @@ interface ComponentsRouteChildren {
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
+  ComponentsToggleIndexRoute: typeof ComponentsToggleIndexRoute;
   ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute;
 }
 
@@ -382,6 +402,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
+  ComponentsToggleIndexRoute: ComponentsToggleIndexRoute,
   ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,
 };
 
