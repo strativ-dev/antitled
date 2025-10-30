@@ -61,6 +61,7 @@ export const en = {
       Badge: 'Badge',
       Checkbox: 'Checkbox',
       Tabs: 'Tabs',
+      Toggle: 'Toggle',
     },
   },
 };

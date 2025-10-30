@@ -58,6 +58,10 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             ),
           },
           {
+            key: 'select',
+            label: <Link to='/components/select'>{t('common.Select')}</Link>,
+          },
+          {
             key: 'badge',
             label: <Link to='/components/badge'>{t('common.Badge')}</Link>,
           },
@@ -68,12 +72,12 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             ),
           },
           {
-            key: 'tooltip',
-            label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
+            key: 'toggle',
+            label: <Link to='/components/toggle'>{t('common.Toggle')}</Link>,
           },
           {
-            key: 'select',
-            label: <Link to='/components/select'>{t('common.Select')}</Link>,
+            key: 'tooltip',
+            label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
           },
           {
             key: 'tabs',

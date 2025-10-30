@@ -17,6 +17,7 @@ import { Route as ComponentsIndexRouteImport } from './routes/components/index'
 import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-demos'
 import { Route as PublicLoginRouteImport } from './routes/_public/login'
 import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index'
+import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index'
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index'
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index'
@@ -66,6 +67,11 @@ const PublicLoginRoute = PublicLoginRouteImport.update({
 const ComponentsTooltipIndexRoute = ComponentsTooltipIndexRouteImport.update({
   id: '/tooltip/',
   path: '/tooltip/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
+const ComponentsToggleIndexRoute = ComponentsToggleIndexRouteImport.update({
+  id: '/toggle/',
+  path: '/toggle/',
   getParentRoute: () => ComponentsRoute,
 } as any)
 const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
+  '/components/toggle': typeof ComponentsToggleIndexRoute
   '/components/tooltip': typeof ComponentsTooltipIndexRoute
 }
 export interface FileRoutesByTo {
@@ -158,6 +165,7 @@ export interface FileRoutesByTo {
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
+  '/components/toggle': typeof ComponentsToggleIndexRoute
   '/components/tooltip': typeof ComponentsTooltipIndexRoute
 }
 export interface FileRoutesById {
@@ -179,6 +187,7 @@ export interface FileRoutesById {
   '/components/select/': typeof ComponentsSelectIndexRoute
   '/components/tabs/': typeof ComponentsTabsIndexRoute
   '/components/text/': typeof ComponentsTextIndexRoute
+  '/components/toggle/': typeof ComponentsToggleIndexRoute
   '/components/tooltip/': typeof ComponentsTooltipIndexRoute
 }
 export interface FileRouteTypes {
@@ -201,6 +210,7 @@ export interface FileRouteTypes {
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
+    | '/components/toggle'
     | '/components/tooltip'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -219,6 +229,7 @@ export interface FileRouteTypes {
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
+    | '/components/toggle'
     | '/components/tooltip'
   id:
     | '__root__'
@@ -239,6 +250,7 @@ export interface FileRouteTypes {
     | '/components/select/'
     | '/components/tabs/'
     | '/components/text/'
+    | '/components/toggle/'
     | '/components/tooltip/'
   fileRoutesById: FileRoutesById
 }
@@ -305,6 +317,13 @@ declare module '@tanstack/react-router' {
       path: '/tooltip'
       fullPath: '/components/tooltip'
       preLoaderRoute: typeof ComponentsTooltipIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
+    '/components/toggle/': {
+      id: '/components/toggle/'
+      path: '/toggle'
+      fullPath: '/components/toggle'
+      preLoaderRoute: typeof ComponentsToggleIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
     '/components/text/': {
@@ -392,6 +411,7 @@ interface ComponentsRouteChildren {
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
+  ComponentsToggleIndexRoute: typeof ComponentsToggleIndexRoute
   ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute
 }
 
@@ -407,6 +427,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
+  ComponentsToggleIndexRoute: ComponentsToggleIndexRoute,
   ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,
 }
 
