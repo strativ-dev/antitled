@@ -147,6 +147,8 @@ const ButtonWrapper = styled.div<{
     justify-content: center;
     border-radius: ${({ theme }) => theme.radius['md']}px;
     width: ${({ $block }) => ($block ? '100%' : 'auto')};
+    position: relative;
+    border: none;
   }
 
   .ant-btn-icon {
@@ -211,7 +213,14 @@ const ButtonWrapper = styled.div<{
   .ant-btn-variant-solid {
     color: ${({ theme }) => theme.colors['texts']['textWhite']};
 
-    //TODO: Add special border/shadows
+    box-shadow:
+      0px 1px 2px 0px ${({ theme }) => theme.colors['effects']['shadowXs']},
+      0px -2px 0px 0px ${({ theme }) =>
+          theme.colors['effects']['shadowSkeumorphicInner']} inset,
+      0px 0px 0px 1px
+        ${({ theme }) =>
+          theme.colors['effects']['shadowSkeumorphicInnerBorder']}
+        inset;
 
     &.ant-btn-color-default {
       color: ${({ theme }) =>
@@ -266,6 +275,28 @@ const ButtonWrapper = styled.div<{
       opacity: 1;
       background-color: ${({ theme }) =>
         theme.colors.backgrounds['bgErrorSolidHover']};
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
     }
   }
 
