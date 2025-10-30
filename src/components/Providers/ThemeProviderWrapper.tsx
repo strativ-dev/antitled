@@ -114,7 +114,7 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
       colorBgElevated: colorPalette.backgrounds.bgPrimaryAlt,
       colorBgLayout: colorPalette.backgrounds.bgSecondary,
       colorBgSpotlight: colorPalette.backgrounds.bgPrimarySolid,
-      colorBgMask: colorPalette.backgrounds.bgOverlay,
+      colorBgMask: colorPalette.alpha.alphaBlack50,
 
       // Border colors
       colorBorder: colorPalette.borders.borderPrimary,
@@ -221,11 +221,6 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         colorBorderSecondary: colorPalette.borders.borderSecondary,
         headerBg: colorPalette.backgrounds.bgSecondary,
         headerColor: colorPalette.texts.textSecondary700,
-      },
-      Modal: {
-        borderRadius: RADIUS.xl,
-        paddingLG: SPACING['4xl'],
-        boxShadow: SHADOWS.xl,
       },
       Drawer: {
         paddingLG: SPACING['3xl'],

@@ -21,6 +21,7 @@ import { Route as ComponentsToggleIndexRouteImport } from './routes/components/t
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index'
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index'
+import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index'
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index'
 import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/components/input-phone-number/index'
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index'
@@ -89,6 +90,11 @@ const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
   path: '/select/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsModalsIndexRoute = ComponentsModalsIndexRouteImport.update({
+  id: '/modals/',
+  path: '/modals/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 const ComponentsInputIndexRoute = ComponentsInputIndexRouteImport.update({
   id: '/input/',
   path: '/input/',
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
+  '/components/modals': typeof ComponentsModalsIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
@@ -162,6 +169,7 @@ export interface FileRoutesByTo {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input': typeof ComponentsInputIndexRoute
+  '/components/modals': typeof ComponentsModalsIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute
   '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute
   '/components/input/': typeof ComponentsInputIndexRoute
+  '/components/modals/': typeof ComponentsModalsIndexRoute
   '/components/select/': typeof ComponentsSelectIndexRoute
   '/components/tabs/': typeof ComponentsTabsIndexRoute
   '/components/text/': typeof ComponentsTextIndexRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/components/input-number'
     | '/components/input-phone-number'
     | '/components/input'
+    | '/components/modals'
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
@@ -226,6 +236,7 @@ export interface FileRouteTypes {
     | '/components/input-number'
     | '/components/input-phone-number'
     | '/components/input'
+    | '/components/modals'
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
     | '/components/input-number/'
     | '/components/input-phone-number/'
     | '/components/input/'
+    | '/components/modals/'
     | '/components/select/'
     | '/components/tabs/'
     | '/components/text/'
@@ -347,6 +359,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsSelectIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/modals/': {
+      id: '/components/modals/'
+      path: '/modals'
+      fullPath: '/components/modals'
+      preLoaderRoute: typeof ComponentsModalsIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
     '/components/input/': {
       id: '/components/input/'
       path: '/input'
@@ -408,6 +427,7 @@ interface ComponentsRouteChildren {
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute
   ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute
+  ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
@@ -424,6 +444,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
+  ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
