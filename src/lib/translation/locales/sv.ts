@@ -36,6 +36,7 @@ export const sv = {
       Tooltip: 'Verktygstips',
       Badge: 'Märke',
       Checkbox: 'kryssrutor',
+      Toggle: 'Växla',
     },
   },
 };

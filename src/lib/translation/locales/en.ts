@@ -60,6 +60,7 @@ export const en = {
       'Input Phone Number': 'Input Phone Number',
       Badge: 'Badge',
       Checkbox: 'Checkbox',
+      Toggle: 'Toggle',
     },
   },
 };
