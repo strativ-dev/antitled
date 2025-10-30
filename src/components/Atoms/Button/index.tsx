@@ -148,7 +148,6 @@ const ButtonWrapper = styled.div<{
     border-radius: ${({ theme }) => theme.radius['md']}px;
     width: ${({ $block }) => ($block ? '100%' : 'auto')};
     position: relative;
-    border: none;
   }
 
   .ant-btn-icon {
@@ -211,6 +210,8 @@ const ButtonWrapper = styled.div<{
   }
 
   .ant-btn-variant-solid {
+    border: none;
+
     color: ${({ theme }) => theme.colors['texts']['textWhite']};
 
     box-shadow:
