@@ -1,9 +1,6 @@
-import { useState, useCallback, memo } from 'react';
-import styled, { css, DefaultTheme } from 'styled-components';
-
-// ============================================================================
-// TYPES - Single Responsibility: Define clear interfaces
-// ============================================================================
+import { Tabs as AntTabs, TabsProps as AntTabProps } from 'antd';
+import { memo } from 'react';
+import styled, { css } from 'styled-components';
 
 type TabSize = 'sm' | 'md';
 type TabOrientation = 'horizontal' | 'vertical';
@@ -14,419 +11,315 @@ type TabVariant =
   | 'button-bordered'
   | 'button-minimal';
 
-export type TabItem = {
-  key: string;
-  label: React.ReactNode;
-  content?: React.ReactNode;
-  icon?: React.ReactNode;
-  disabled?: boolean;
-};
-
-export type TabsProps = {
-  items: TabItem[];
-  defaultActiveKey?: string;
-  activeKey?: string; // Controlled mode
-  onChange?: (key: string) => void;
+export type TabsProps = Omit<AntTabProps, 'size'> & {
   size?: TabSize;
-  orientation?: TabOrientation;
   variant?: TabVariant;
-  fullWidth?: boolean;
   className?: string;
 };
 
-type TabButtonProps = {
-  item: TabItem;
-  isActive: boolean;
-  onClick: (key: string) => void;
-  size: TabSize;
-  variant: TabVariant;
-  orientation: TabOrientation;
-};
+export type TabItem = NonNullable<AntTabProps['items']>[number];
 
-// ============================================================================
-// SUB-COMPONENTS - Separation of Concerns
-// ============================================================================
-
-/**
- * TabButton - Single Responsibility: Render individual tab button
- * Open/Closed: Extend via props, closed for modification
- */
-const TabButton = memo<TabButtonProps>(
-  ({
-    item,
-    isActive,
-    onClick,
-    size = 'sm',
-    variant = 'underline',
-    orientation = 'horizontal',
-  }) => {
-    const handleClick = useCallback(() => {
-      if (!item.disabled) {
-        onClick(item.key);
-      }
-    }, [item.key, item.disabled, onClick]);
-
-    return (
-      <StyledTabButton
-        $isActive={isActive}
-        $size={size}
-        $variant={variant}
-        $orientation={orientation}
-        $disabled={item.disabled}
-        onClick={handleClick}
-        role='tab'
-        aria-selected={isActive}
-        aria-disabled={item.disabled}>
-        {item.icon && <TabIcon>{item.icon}</TabIcon>}
-        <TabLabel>{item.label}</TabLabel>
-      </StyledTabButton>
-    );
-  }
-);
-
-TabButton.displayName = 'TabButton';
-
-/**
- * TabContent - Single Responsibility: Render tab content panel
- */
-const TabContent = memo<{ children: React.ReactNode }>(({ children }) => (
-  <StyledTabContent role='tabpanel'>{children}</StyledTabContent>
-));
-
-TabContent.displayName = 'TabContent';
-
-// ============================================================================
-// MAIN COMPONENT - Interface Segregation: Clean public API
-// ============================================================================
-
-/**
- * Tabs Component
- *
- * SOLID Principles Applied:
- * - Single Responsibility: Each sub-component handles one concern
- * - Open/Closed: Extensible via props, variants can be added without changing core logic
- * - Liskov Substitution: Can work in controlled/uncontrolled mode
- * - Interface Segregation: Clean props interface, consumers only use what they need
- * - Dependency Inversion: Depends on abstractions (TabItem type), not concrete implementations
- */
 export const Tabs = memo<TabsProps>(
-  ({
-    items,
-    defaultActiveKey,
-    activeKey: controlledActiveKey,
-    onChange,
-    size = 'md',
-    orientation = 'horizontal',
-    variant = 'underline',
-    fullWidth = false,
-    className,
-  }) => {
-    // State management: Support both controlled and uncontrolled modes
-    const [internalActiveKey, setInternalActiveKey] = useState<string>(
-      defaultActiveKey || items[0]?.key || ''
-    );
-
-    const activeKey = controlledActiveKey ?? internalActiveKey;
-
-    const handleTabChange = useCallback(
-      (key: string) => {
-        if (!controlledActiveKey) {
-          setInternalActiveKey(key);
-        }
-        onChange?.(key);
-      },
-      [controlledActiveKey, onChange]
-    );
-
-    const activeContent = items.find((item) => item.key === activeKey)?.content;
+  ({ size = 'md', variant = 'underline', tabPosition, ...props }) => {
+    const orientation =
+      tabPosition === 'left' || tabPosition === 'right'
+        ? 'vertical'
+        : 'horizontal';
 
     return (
-      <StyledTabsContainer className={className} $orientation={orientation}>
-        <StyledTabsList
-          $orientation={orientation}
-          $variant={variant}
-          $fullWidth={fullWidth}
-          role='tablist'
-          aria-orientation={orientation}>
-          {items.map((item) => (
-            <TabButton
-              key={item.key}
-              item={item}
-              isActive={activeKey === item.key}
-              onClick={handleTabChange}
-              size={size}
-              variant={variant}
-              orientation={orientation}
-            />
-          ))}
-        </StyledTabsList>
-        {activeContent && <TabContent>{activeContent}</TabContent>}
-      </StyledTabsContainer>
+      <StyledTabsWrapper
+        $variant={variant}
+        $size={size}
+        $orientation={orientation}>
+        <AntTabs
+          {...props}
+          tabPosition={tabPosition}
+          type={variant === 'underline' ? 'line' : 'card'}
+        />
+      </StyledTabsWrapper>
     );
   }
 );
 
 Tabs.displayName = 'Tabs';
 
-// ============================================================================
-// STYLED COMPONENTS - Presentation Logic Separated
-// ============================================================================
-
-const StyledTabsContainer = styled.div<{
-  $orientation: TabOrientation;
-}>`
-  display: flex;
-  flex-direction: ${({ $orientation }) =>
-    $orientation === 'vertical' ? 'row' : 'column'};
-  gap: ${({ $orientation }) => ($orientation === 'vertical' ? '24px' : '16px')};
-  width: 100%;
-`;
-
-const StyledTabsList = styled.div<{
-  $orientation: TabOrientation;
-  $variant: TabVariant;
-  $fullWidth: boolean;
-}>`
-  display: flex;
-  flex-direction: ${({ $orientation }) =>
-    $orientation === 'vertical' ? 'column' : 'row'};
-  gap: ${({ $variant }) => ($variant === 'underline' ? '0' : '4px')};
-  width: ${({ $fullWidth, $orientation }) =>
-    $fullWidth && $orientation === 'horizontal' ? '100%' : 'auto'};
-
-  padding: ${({ $variant }) => ($variant === 'button-bordered' ? '2px' : '0')};
-  background-color: ${({ theme, $variant }) =>
-    ['button-bordered', 'button-minimal'].includes($variant)
-      ? theme.colors.backgrounds.bgSecondaryAlt
-      : 'transparent'};
-  border-radius: ${({ theme }) => theme.radius.lg}px;
-  border: 1px solid
-    ${({ theme, $variant }) =>
-      ['button-bordered', 'button-minimal'].includes($variant)
-        ? theme.colors.borders.borderSecondary
-        : 'transparent'};
-
-  ${({ $variant, $orientation, theme }) =>
-    $variant === 'underline' &&
-    css`
-      ${$orientation === 'horizontal'
-        ? `border-bottom: 1px solid ${theme.colors.borders.borderSecondary};`
-        : `border-left: 0px solid ${theme.colors.borders.borderSecondary};`}
-    `}
-`;
-
-const getTabButtonStyles = (
+const getVariantStyles = (
   variant: TabVariant,
-  isActive: boolean,
-  disabled?: boolean,
-  size?: TabSize
+  size: TabSize,
+  orientation: TabOrientation
 ) => {
-  const getColor = (theme: DefaultTheme) => {
-    if (disabled) return theme.colors.texts.textDisabled;
-    if (isActive) {
-      switch (variant) {
-        case 'button-brand':
-          return theme.colors.texts.textBrandSecondary700;
-        case 'button-gray':
-          return theme.colors.texts.textSecondary700;
-        case 'underline':
-          return theme.colors.texts.textBrandSecondary700;
-        default:
-          return theme.colors.texts.textSecondary700;
+  const isVertical = orientation === 'vertical';
+  const padding = size === 'sm' ? '8px 12px' : '10px 16px';
+  const height = size === 'sm' ? '36px' : '44px';
+
+  const baseTabStyles = css`
+    .ant-tabs-tab {
+      padding: ${padding} !important;
+      height: ${height};
+      margin: 0 !important;
+      font-size: ${({ theme }) =>
+        size === 'sm'
+          ? theme.fontSize['text-sm']
+          : theme.fontSize['text-md']}px !important;
+      font-weight: ${({ theme }) => theme.fontWeight.semibold} !important;
+      transition: all 0.2s ease;
+      border: none !important;
+      background: transparent !important;
+      color: ${({ theme }) => theme.colors.texts.textQuaternary500} !important;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.texts.textSecondary700} !important;
+      }
+
+      &-disabled {
+        opacity: 0.5;
+        cursor: not-allowed !important;
+      }
+
+      .ant-tabs-tab-btn {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .ant-tabs-tab-icon {
+        margin-inline-end: 6px;
+        display: inline-flex;
+        align-items: center;
       }
     }
-    return theme.colors.texts.textQuaternary500;
-  };
-
-  const getBackground = (theme: DefaultTheme) => {
-    if (disabled) return 'transparent';
-    if (isActive) {
-      switch (variant) {
-        case 'button-brand':
-          return theme.colors.backgrounds.bgBrandPrimaryAlt;
-        case 'button-gray':
-          return theme.colors.backgrounds.bgActive;
-        case 'button-bordered':
-        case 'button-minimal':
-          return theme.colors.backgrounds.bgPrimaryAlt;
-        default:
-          return 'transparent';
-      }
-    }
-    return 'transparent';
-  };
-
-  const getBorder = (theme: DefaultTheme) => {
-    if (isActive) {
-      switch (variant) {
-        case 'button-bordered':
-          return `1px solid ${theme.colors.borders.borderSecondary}`;
-        case 'button-minimal':
-          return `1px solid ${theme.colors.borders.borderPrimary}`;
-        default:
-          return 'none';
-      }
-    } else {
-      switch (variant) {
-        case 'button-bordered':
-          return `1px solid transparent`;
-        case 'button-minimal':
-          return `1px solid transparent`;
-        default:
-          return 'none';
-      }
-    }
-  };
-
-  const getHoverBackground = (theme: DefaultTheme) => {
-    if (disabled) return 'transparent';
-    switch (variant) {
-      case 'button-brand':
-        return isActive
-          ? theme.colors.backgrounds.bgBrandPrimaryAlt
-          : `${theme.colors.backgrounds.bgBrandPrimaryAlt}90`;
-      case 'button-gray':
-        return isActive
-          ? theme.colors.backgrounds.bgActive
-          : theme.colors.backgrounds.bgPrimaryAlt;
-      case 'button-minimal':
-      case 'button-bordered':
-        return theme.colors.backgrounds.bgPrimaryAlt;
-      default:
-        return 'transparent';
-    }
-  };
-
-  const getHeight = () => {
-    switch (size) {
-      case 'sm':
-        return '36px';
-      case 'md':
-        return '44px';
-      default:
-        return '36px';
-    }
-  };
-
-  return css`
-    color: ${({ theme }) => getColor(theme)};
-    background: ${({ theme }) => getBackground(theme)};
-    border: ${({ theme }) => getBorder(theme)};
-    height: ${getHeight()};
-
-    &:hover {
-      background: ${({ theme }) => getHoverBackground(theme)};
-      color: ${({ theme }) =>
-        disabled
-          ? theme.colors.texts.textDisabled
-          : isActive
-            ? getColor(theme)
-            : theme.colors.texts.textSecondary700};
+    /* remove the vertical border */
+    .ant-tabs-content-holder {
+      border-left: none !important;
     }
   `;
+
+  switch (variant) {
+    case 'underline':
+      return css`
+        ${baseTabStyles}
+
+        .ant-tabs-nav {
+          &::before {
+            border-bottom: 1px solid
+              ${({ theme }) => theme.colors.borders.borderSecondary} !important;
+          }
+        }
+
+        ${isVertical &&
+        css`
+          .ant-tabs-nav {
+            &::before {
+              border-bottom: none !important;
+              border-right: 1px solid
+                ${({ theme }) => theme.colors.borders.borderSecondary} !important;
+            }
+          }
+        `}
+
+        .ant-tabs-tab {
+          border-radius: 0 !important;
+
+          &:hover {
+            color: ${({ theme }) =>
+              theme.colors.texts.textBrandSecondary700} !important;
+          }
+
+          &-active {
+            color: ${({ theme }) =>
+              theme.colors.texts.textBrandSecondary700} !important;
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          /* move this ink bar to left instead of right */
+          ${isVertical &&
+          css`
+            left: 0 !important;
+            right: auto !important;
+          `}
+        }
+      `;
+
+    case 'button-brand':
+      return css`
+        ${baseTabStyles}
+
+        .ant-tabs-nav {
+          &::before {
+            border: none !important;
+          }
+        }
+
+        .ant-tabs-tab {
+          border-radius: ${({ theme }) => theme.radius.sm}px !important;
+
+          &:hover {
+            background: ${({ theme }) =>
+              `${theme.colors.backgrounds.bgBrandPrimaryAlt}`} !important;
+            color: ${({ theme }) =>
+              theme.colors.texts.textBrandSecondary700} !important;
+          }
+
+          &-active {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgBrandPrimaryAlt} !important;
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          display: none;
+        }
+      `;
+
+    case 'button-gray':
+      return css`
+        ${baseTabStyles}
+
+        .ant-tabs-nav {
+          &::before {
+            border: none !important;
+          }
+        }
+
+        .ant-tabs-tab {
+          border-radius: ${({ theme }) => theme.radius.sm}px !important;
+
+          &:hover {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgActive} !important;
+          }
+
+          &-active {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgActive} !important;
+            .ant-tabs-tab-btn {
+              color: ${({ theme }) =>
+                theme.colors.texts.textSecondary700} !important;
+            }
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          display: none;
+        }
+      `;
+
+    case 'button-bordered':
+      return css`
+        ${baseTabStyles}
+
+        .ant-tabs-nav {
+          padding: 2px;
+          background-color: ${({ theme }) =>
+            theme.colors.backgrounds.bgSecondaryAlt};
+          border-radius: ${({ theme }) => theme.radius.lg}px;
+          border: 1px solid
+            ${({ theme }) => theme.colors.borders.borderSecondary};
+
+          &::before {
+            border: none !important;
+          }
+        }
+
+        .ant-tabs-tab {
+          border-radius: ${({ theme }) => theme.radius.md}px !important;
+          border: 1px solid transparent !important;
+
+          &:hover {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgPrimaryAlt} !important;
+            border-color: ${({ theme }) =>
+              theme.colors.borders.borderSecondary} !important;
+          }
+
+          &-active {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgPrimaryAlt} !important;
+            border-color: ${({ theme }) =>
+              theme.colors.borders.borderSecondary} !important;
+            .ant-tabs-tab-btn {
+              color: ${({ theme }) =>
+                theme.colors.texts.textSecondary700} !important;
+            }
+            box-shadow:
+              0px 1px 2px -1px ${({ theme }) => theme.colors.effects.shadowSm01},
+              0px 1px 3px 0px ${({ theme }) => theme.colors.effects.shadowSm02};
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          display: none;
+        }
+      `;
+    case 'button-minimal':
+      return css`
+        ${baseTabStyles}
+
+        .ant-tabs-nav {
+          background-color: ${({ theme }) =>
+            theme.colors.backgrounds.bgSecondaryAlt};
+          border-radius: ${({ theme }) => theme.radius.md}px;
+          border: 1px solid ${({ theme }) => theme.colors.borders.borderPrimary};
+
+          &::before {
+            border: none !important;
+          }
+        }
+
+        .ant-tabs-tab {
+          border-radius: ${({ theme }) => theme.radius.md - 1}px !important;
+          border: 1px solid transparent !important;
+
+          &:hover {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgPrimaryAlt} !important;
+            border-color: ${({ theme }) =>
+              theme.colors.borders.borderPrimary} !important;
+          }
+
+          &-active {
+            background: ${({ theme }) =>
+              theme.colors.backgrounds.bgPrimaryAlt} !important;
+            border-color: ${({ theme }) =>
+              theme.colors.borders.borderPrimary} !important;
+            .ant-tabs-tab-btn {
+              color: ${({ theme }) =>
+                theme.colors.texts.textSecondary700} !important;
+            }
+          }
+        }
+
+        .ant-tabs-ink-bar {
+          display: none;
+        }
+      `;
+
+    default:
+      return baseTabStyles;
+  }
 };
 
-const StyledTabButton = styled.button<{
-  $isActive: boolean;
-  $size: TabSize;
+const StyledTabsWrapper = styled.div<{
   $variant: TabVariant;
+  $size: TabSize;
   $orientation: TabOrientation;
-  $disabled?: boolean;
 }>`
-  display: flex;
-  align-items: center;
-  justify-content: ${({ $orientation }) =>
-    $orientation === 'vertical' ? 'flex-start' : 'center'};
-  gap: 4px;
-  padding: ${({ $size }) => ($size === 'sm' ? '8px 12px' : '10px 16px')};
-  font-size: ${({ $size, theme }) =>
-    $size === 'sm' ? theme.fontSize['text-sm'] : theme.fontSize['text-md']}px;
-  font-weight: ${({ $isActive }) => ($isActive ? '600' : '500')};
-  border-radius: ${({ theme }) => theme.radius.sm}px;
-  cursor: ${({ $disabled }) => ($disabled ? 'not-allowed' : 'pointer')};
-  opacity: ${({ $disabled }) => ($disabled ? 0.5 : 1)};
-  transition: all 0.2s ease;
-  position: relative;
-  white-space: nowrap;
-  border: none;
-  outline: none;
-  user-select: none;
+  width: 100%;
 
-  ${({ $variant, $isActive, $disabled }) =>
-    getTabButtonStyles($variant, $isActive, $disabled)}
-
-  ${({ $variant, $isActive, $orientation }) =>
-    $variant === 'underline' &&
-    css`
-      border-radius: 0;
-      ${$orientation === 'horizontal'
-        ? css`
-            padding-bottom: 12px;
-            margin-bottom: -1px;
-          `
-        : css`
-            padding-right: 12px;
-            margin-right: -1px;
-          `}
-
-      &::after {
-        content: '';
-        position: absolute;
-        ${$orientation === 'horizontal'
-          ? css`
-              bottom: 0;
-              left: 0;
-              right: 0;
-              height: 2px;
-              width: 100%;
-            `
-          : css`
-              left: 0;
-              top: 0;
-              bottom: 0;
-              width: 2px;
-              height: 100%;
-            `}
-        background: ${({ theme }) =>
-          $isActive ? theme.colors.borders.borderBrand : 'transparent'};
-        transition: background 0.2s ease;
-      }
-    `}
-
-  &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.borders.borderBrand};
-    outline-offset: 2px;
+  .ant-tabs {
+    ${({ $variant, $size, $orientation }) =>
+      getVariantStyles($variant, $size, $orientation)}
   }
-`;
 
-const TabIcon = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  .ant-tabs-nav {
+    margin: 0 !important;
 
-  svg {
-    width: 20px;
-    height: 20px;
+    &-list {
+      gap: ${({ $variant }) => ($variant === 'underline' ? '0' : '4px')};
+    }
   }
-`;
 
-const TabLabel = styled.span`
-  display: inline-block;
-  font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-`;
-
-const StyledTabContent = styled.div`
-  padding: 16px 0;
-  animation: fadeIn 0.2s ease-in;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .ant-tabs-content {
+    padding: 16px 0;
   }
 `;
