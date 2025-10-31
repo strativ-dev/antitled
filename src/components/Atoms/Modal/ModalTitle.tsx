@@ -8,7 +8,7 @@ type Props = {
   subtitle?: string;
 };
 
-export default function ModalTitle({ icon, title, subtitle }: Props) {
+export const ModalTitle = ({ icon, title, subtitle }: Props) => {
   return (
     <Flex gap={16} align='center'>
       {icon}
@@ -24,4 +24,4 @@ export default function ModalTitle({ icon, title, subtitle }: Props) {
       </Flex>
     </Flex>
   );
-}
+};

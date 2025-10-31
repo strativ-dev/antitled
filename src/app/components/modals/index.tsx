@@ -3,9 +3,8 @@ import { Flex } from 'antd';
 import { useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { Button, Modal, Text } from '@/components/Atoms';
+import { Button, Modal, ModalTitle, Text } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
-import ModalTitle from '@/components/Molecules/Modals/ModalTitle';
 
 export default function ModalsPage() {
   const [open, setOpen] = useState(false);

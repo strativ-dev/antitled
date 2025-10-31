@@ -11,3 +11,4 @@ export { TextArea } from './TextArea';
 export { Tabs } from './Tabs';
 export type { TabsProps, TabItem } from './Tabs';
 export { Modal } from './Modal';
+export { ModalTitle } from './Modal/ModalTitle';
