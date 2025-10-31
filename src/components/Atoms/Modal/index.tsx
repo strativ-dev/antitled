@@ -55,24 +55,23 @@ export const Modal = ({
 
   const customFooter = hideFooter
     ? null
-    : footer !== undefined
-      ? footer
-      : [
-          !hideCancelButton && (
-            <Button
-              key='cancel'
-              variant='secondary'
-              onClick={onCancel}
-              {...cancelButtonProps}>
-              {_cancelText}
-            </Button>
-          ),
-          !hideOkButton && (
-            <Button key='ok' onClick={onOk} {...okButtonProps}>
-              {_okText}
-            </Button>
-          ),
-        ].filter(Boolean);
+    : (footer ??
+      [
+        !hideCancelButton && (
+          <Button
+            key='cancel'
+            variant='secondary'
+            onClick={onCancel}
+            {...cancelButtonProps}>
+            {_cancelText}
+          </Button>
+        ),
+        !hideOkButton && (
+          <Button key='ok' onClick={onOk} {...okButtonProps}>
+            {_okText}
+          </Button>
+        ),
+      ].filter(Boolean));
 
   const _closeIcon = closeIcon !== undefined ? closeIcon : <X />;
 
