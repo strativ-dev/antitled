@@ -16,7 +16,9 @@ import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/compo
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index';
 import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/components/input-phone-number/index';
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index';
+import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
+import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
 import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index';
 import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index';
@@ -75,9 +77,19 @@ const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
   path: '/text/',
   getParentRoute: () => ComponentsRoute,
 } as any);
+const ComponentsTabsIndexRoute = ComponentsTabsIndexRouteImport.update({
+  id: '/tabs/',
+  path: '/tabs/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
 const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
   id: '/select/',
   path: '/select/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
+const ComponentsModalsIndexRoute = ComponentsModalsIndexRouteImport.update({
+  id: '/modals/',
+  path: '/modals/',
   getParentRoute: () => ComponentsRoute,
 } as any);
 const ComponentsInputIndexRoute = ComponentsInputIndexRouteImport.update({
@@ -141,7 +153,9 @@ export interface FileRoutesByFullPath {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
+  '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/toggle': typeof ComponentsToggleIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
@@ -160,7 +174,9 @@ export interface FileRoutesByTo {
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
+  '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/toggle': typeof ComponentsToggleIndexRoute;
   '/components/tooltip': typeof ComponentsTooltipIndexRoute;
@@ -182,7 +198,9 @@ export interface FileRoutesById {
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input/': typeof ComponentsInputIndexRoute;
+  '/components/modals/': typeof ComponentsModalsIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
+  '/components/tabs/': typeof ComponentsTabsIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
   '/components/toggle/': typeof ComponentsToggleIndexRoute;
   '/components/tooltip/': typeof ComponentsTooltipIndexRoute;
@@ -205,7 +223,9 @@ export interface FileRouteTypes {
     | '/components/input-number'
     | '/components/input-phone-number'
     | '/components/input'
+    | '/components/modals'
     | '/components/select'
+    | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
     | '/components/tooltip';
@@ -224,7 +244,9 @@ export interface FileRouteTypes {
     | '/components/input-number'
     | '/components/input-phone-number'
     | '/components/input'
+    | '/components/modals'
     | '/components/select'
+    | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
     | '/components/tooltip';
@@ -245,7 +267,9 @@ export interface FileRouteTypes {
     | '/components/input-number/'
     | '/components/input-phone-number/'
     | '/components/input/'
+    | '/components/modals/'
     | '/components/select/'
+    | '/components/tabs/'
     | '/components/text/'
     | '/components/toggle/'
     | '/components/tooltip/';
@@ -330,11 +354,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsTextIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/tabs/': {
+      id: '/components/tabs/';
+      path: '/tabs';
+      fullPath: '/components/tabs';
+      preLoaderRoute: typeof ComponentsTabsIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
     '/components/select/': {
       id: '/components/select/';
       path: '/select';
       fullPath: '/components/select';
       preLoaderRoute: typeof ComponentsSelectIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
+    '/components/modals/': {
+      id: '/components/modals/';
+      path: '/modals';
+      fullPath: '/components/modals';
+      preLoaderRoute: typeof ComponentsModalsIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
     '/components/input/': {
@@ -406,7 +444,9 @@ interface ComponentsRouteChildren {
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute;
   ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute;
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute;
+  ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
+  ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
   ComponentsToggleIndexRoute: typeof ComponentsToggleIndexRoute;
   ComponentsTooltipIndexRoute: typeof ComponentsTooltipIndexRoute;
@@ -422,7 +462,9 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
+  ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
+  ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
   ComponentsToggleIndexRoute: ComponentsToggleIndexRoute,
   ComponentsTooltipIndexRoute: ComponentsTooltipIndexRoute,
