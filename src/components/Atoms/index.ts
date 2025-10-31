@@ -8,3 +8,7 @@ export { Tooltip } from './Tooltip';
 export { Select } from './Select';
 export { CircleSpinner } from './CircleSpinner';
 export { TextArea } from './TextArea';
+export { Tabs } from './Tabs';
+export type { TabsProps, TabItem } from './Tabs';
+export { Modal } from './Modal';
+export { ModalTitle } from './Modal/ModalTitle';

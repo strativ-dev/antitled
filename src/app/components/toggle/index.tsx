@@ -1,7 +1,7 @@
 import { Flex } from 'antd';
 import { useState } from 'react';
 
-import { AtomSwitch } from '@/components/Atoms/Toggle';
+import { Switch } from '@/components/Atoms/Toggle';
 
 export default function Toggles() {
   const [globalChecked, setGlobalChecked] = useState(true);
@@ -13,150 +13,150 @@ export default function Toggles() {
     <>
       <h2>Toggles</h2>
       <Flex align='center' gap='small' style={{ marginBottom: 24 }}>
-        <AtomSwitch checked={globalChecked} onChange={setGlobalChecked}>
+        <Switch checked={globalChecked} onChange={setGlobalChecked}>
           Toggle All
-        </AtomSwitch>
+        </Switch>
       </Flex>
 
       <Flex gap='large' align='flex-start' wrap>
         <Flex vertical gap='large' style={{ flex: 1 }}>
           <h4>Default Variant</h4>
           <Flex gap='small' wrap align='center'>
-            <AtomSwitch defaultChecked onChange={onChange} size='xs' />
-            <AtomSwitch defaultChecked onChange={onChange} size='sm' />
-            <AtomSwitch defaultChecked onChange={onChange} size='md' />
+            <Switch defaultChecked onChange={onChange} size='xs' />
+            <Switch defaultChecked onChange={onChange} size='sm' />
+            <Switch defaultChecked onChange={onChange} size='md' />
           </Flex>
 
           <Flex gap='small' wrap align='center'>
-            <AtomSwitch checked size='xs' disabled />
-            <AtomSwitch checked={false} size='sm' disabled />
-            <AtomSwitch checked size='md' disabled />
+            <Switch checked size='xs' disabled />
+            <Switch checked={false} size='sm' disabled />
+            <Switch checked size='md' disabled />
           </Flex>
 
           <Flex vertical gap='small'>
-            <AtomSwitch
+            <Switch
               size='xs'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
+            </Switch>
+            <Switch
               size='sm'
               checked={!globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
+            </Switch>
+            <Switch
               size='md'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
+            </Switch>
           </Flex>
 
           <Flex vertical gap='small'>
-            <AtomSwitch
+            <Switch
               size='xs'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
+            </Switch>
+            <Switch
               size='sm'
               checked={false}
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
+            </Switch>
+            <Switch
               size='md'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
+            </Switch>
           </Flex>
         </Flex>
 
         <Flex vertical gap='large' style={{ flex: 2 }}>
-          <h4>Slim Variant</h4>
+          <h4>slim Variant</h4>
           <Flex gap='small' wrap align='center'>
-            <AtomSwitch
+            <Switch
               defaultChecked
               onChange={onChange}
               size='xs'
-              variant='Slim'
+              variant='slim'
             />
-            <AtomSwitch
+            <Switch
               defaultChecked
               onChange={onChange}
               size='sm'
-              variant='Slim'
+              variant='slim'
             />
-            <AtomSwitch
+            <Switch
               defaultChecked
               onChange={onChange}
               size='md'
-              variant='Slim'
+              variant='slim'
             />
           </Flex>
 
           <Flex gap='small' wrap align='center'>
-            <AtomSwitch checked variant='Slim' size='xs' disabled />
-            <AtomSwitch checked={false} variant='Slim' size='sm' disabled />
-            <AtomSwitch checked variant='Slim' size='md' disabled />
+            <Switch checked variant='slim' size='xs' disabled />
+            <Switch checked={false} variant='slim' size='sm' disabled />
+            <Switch checked variant='slim' size='md' disabled />
           </Flex>
 
           <Flex vertical gap='small'>
-            <AtomSwitch
-              variant='Slim'
+            <Switch
+              variant='slim'
               size='xs'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
-              variant='Slim'
+            </Switch>
+            <Switch
+              variant='slim'
               size='sm'
               checked={!globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
-              variant='Slim'
+            </Switch>
+            <Switch
+              variant='slim'
               size='md'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
+            </Switch>
           </Flex>
 
           <Flex vertical gap='small'>
-            <AtomSwitch
-              variant='Slim'
+            <Switch
+              variant='slim'
               size='xs'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
-              variant='Slim'
+            </Switch>
+            <Switch
+              variant='slim'
               size='sm'
               checked={false}
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
-            <AtomSwitch
-              variant='Slim'
+            </Switch>
+            <Switch
+              variant='slim'
               size='md'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </AtomSwitch>
+            </Switch>
           </Flex>
         </Flex>
       </Flex>

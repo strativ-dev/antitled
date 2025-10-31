@@ -4,9 +4,9 @@ import { ReactNode } from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 
 export type SwitchSize = 'xs' | 'sm' | 'md';
-export type SwitchVariant = 'Default' | 'Slim';
+export type SwitchVariant = 'default' | 'slim';
 
-export interface AtomSwitchProps extends Omit<AntSwitchProps, 'size'> {
+export interface SwitchProps extends Omit<AntSwitchProps, 'size'> {
   size?: SwitchSize;
   variant?: SwitchVariant;
   children?: ReactNode;
@@ -14,22 +14,22 @@ export interface AtomSwitchProps extends Omit<AntSwitchProps, 'size'> {
 }
 
 const trackSizeMap = {
-  Default: {
-    xs: { width: 28, height: 16 },
-    sm: { width: 36, height: 20 },
-    md: { width: 44, height: 24 },
+  default: {
+    xs: { width: 1.75, height: 1 },
+    sm: { width: 2.25, height: 1.25 },
+    md: { width: 2.75, height: 1.5 },
   },
-  Slim: {
-    xs: { width: 24, height: 12 },
-    sm: { width: 32, height: 16 },
-    md: { width: 40, height: 20 },
+  slim: {
+    xs: { width: 1.5, height: 0.75 },
+    sm: { width: 2, height: 1 },
+    md: { width: 2.5, height: 1.25 },
   },
 } as const;
 
 const innerSizeMap = {
-  xs: { width: 12, height: 12 },
-  sm: { width: 16, height: 16 },
-  md: { width: 20, height: 20 },
+  xs: { width: 0.75, height: 0.75 },
+  sm: { width: 1, height: 1 },
+  md: { width: 1.25, height: 1.25 },
 } as const;
 
 const getSwitchVariables = (
@@ -41,11 +41,11 @@ const getSwitchVariables = (
   const { width: innerWidth, height: innerHeight } = innerSizeMap[size];
 
   return css`
-    --switch-width: ${width}px;
-    --switch-height: ${height}px;
-    --switch-handle-size: ${height - 4}px;
-    --switch-inner-width: ${innerWidth}px;
-    --switch-inner-height: ${innerHeight}px;
+    --switch-width: ${width}rem;
+    --switch-height: ${height}rem;
+    --switch-handle-size: ${height - 0.25}rem;
+    --switch-inner-width: ${innerWidth}rem;
+    --switch-inner-height: ${innerHeight}rem;
     --switch-bg: ${theme.colors.backgrounds.bgTertiary};
     --switch-disabled-bg: ${theme.colors.backgrounds.bgDisabled};
     --switch-checked-bg: ${theme.colors.backgrounds.bgBrandSolid};
@@ -58,15 +58,15 @@ const getSwitchVariables = (
   `;
 };
 
-export function AtomSwitch({
-  variant = 'Default',
+export function Switch({
+  variant = 'default',
   size = 'md',
   children,
   supportingText,
   disabled,
   className,
   ...rest
-}: AtomSwitchProps) {
+}: SwitchProps) {
   return (
     <SwitchWrapper
       $variant={variant}
@@ -143,24 +143,20 @@ const StyledSwitch = styled(AntSwitch)<{
     border-radius: ${({ theme }) => theme.radius.full};
     background-color: var(--switch-bg);
 
-    ${$variant === 'Slim' &&
+    ${$variant === 'slim' &&
     css`
       border: 0.0625rem solid var(--switch-border-color);
     `}
     .ant-switch-handle {
       width: var(--switch-handle-size);
       height: var(--switch-handle-size);
-      ${$variant === 'Slim' &&
+      ${$variant === 'slim' &&
       css`
         width: var(--switch-height);
         height: var(--switch-height);
-      `}
-      border-radius: 50%;
-      inset-inline-start: 0.125rem;
-      ${$variant === 'Slim' &&
-      css`
         inset-inline-start: 0;
       `}
+      border-radius: 50%;
       top: 50%;
       transform: translateY(-50%);
       display: flex;
@@ -173,7 +169,7 @@ const StyledSwitch = styled(AntSwitch)<{
       height: 100%;
       background-color: ${({ theme }) => theme.colors.foregrounds.fgWhite};
       border-radius: 50%;
-      ${$variant === 'Slim' &&
+      ${$variant === 'slim' &&
       css`
         border: 0.0625rem solid var(--switch-handle-border-color);
       `}
@@ -190,21 +186,21 @@ const StyledSwitch = styled(AntSwitch)<{
     &.ant-switch-checked {
       background-color: var(--switch-checked-bg);
 
-      ${$variant === 'Slim' &&
+      ${$variant === 'slim' &&
       css`
         border: transparent;
       `}
 
       .ant-switch-handle {
         inset-inline-start: calc(100% - var(--switch-handle-size) - 0.125rem);
-        ${$variant === 'Slim' &&
+        ${$variant === 'slim' &&
         css`
           inset-inline-start: calc(100% - var(--switch-height));
         `}
       }
 
       .ant-switch-handle::before {
-        ${$variant === 'Slim' &&
+        ${$variant === 'slim' &&
         css`
           border: 0.0625rem solid var(--switch-checked-border);
         `}
@@ -223,12 +219,12 @@ const StyledSwitch = styled(AntSwitch)<{
 
     &.ant-switch-disabled {
       background-color: var(--switch-disabled-bg);
-      ${$variant === 'Slim' &&
+      ${$variant === 'slim' &&
       css`
         border: 0.0625rem solid var(--switch-disabled-border);
       `}
       .ant-switch-handle::before {
-        ${$variant === 'Slim' &&
+        ${$variant === 'slim' &&
         css`
           border-color: var(--switch-handle-border-color);
         `}
