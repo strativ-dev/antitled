@@ -37,6 +37,7 @@ export const sv = {
       Badge: 'Märke',
       Checkbox: 'kryssrutor',
       Toggle: 'Växla',
+      button_group: 'Knappgrupp',
     },
   },
 };

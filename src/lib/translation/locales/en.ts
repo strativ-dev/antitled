@@ -61,6 +61,7 @@ export const en = {
       Badge: 'Badge',
       Checkbox: 'Checkbox',
       Toggle: 'Toggle',
+      button_group: 'Button group',
     },
   },
 };
