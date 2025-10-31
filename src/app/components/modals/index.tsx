@@ -1,9 +1,9 @@
 import { CheckCircle, Flag05, Trash01 } from '@untitledui/icons';
 import { Flex } from 'antd';
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
-import { Button, Modal } from '@/components/Atoms';
+import { Button, Modal, Text } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
 import ModalTitle from '@/components/Molecules/Modals/ModalTitle';
 
@@ -11,6 +11,8 @@ export default function ModalsPage() {
   const [open, setOpen] = useState(false);
   const [openConfirmModal, setOpenConfirmModal] = useState(false);
   const [openDestructiveModal, setOpenDestructiveModal] = useState(false);
+
+  const { colors } = useTheme();
   const onOpen = () => {
     setOpen(true);
   };
@@ -60,7 +62,58 @@ export default function ModalsPage() {
         onCancel={onClose}
         onOk={onClose}
         bordered>
-        <div>This is the modal content.</div>
+        <>
+          <Text size='display-lg'>Modal Content</Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here. Additional
+            information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+          <Text size='text-lg' color='textTertiary600'>
+            Additional information about the modal can go here.
+          </Text>
+        </>
       </Modal>
       <Modal
         title={
@@ -68,7 +121,10 @@ export default function ModalsPage() {
             title=''
             icon={
               <StyledIconContainer>
-                <CheckCircle size={24} />
+                <CheckCircle
+                  size={24}
+                  color={colors.foregrounds.fgSecondary700}
+                />
               </StyledIconContainer>
             }
           />
@@ -76,10 +132,15 @@ export default function ModalsPage() {
         open={openConfirmModal}
         onCancel={onCloseConfirm}
         onOk={onCloseConfirm}
-        width={400}
+        width={420}
         okButtonProps={{ block: true }}
         cancelButtonProps={{ block: true }}>
-        <div>Are you sure you want to proceed with this action?</div>
+        <Text weight='semibold'>Blog post published</Text>
+
+        <Text color='textTertiary600' size='text-sm'>
+          This blog post has been published. Team members will be able to edit
+          this post and republish changes.
+        </Text>
       </Modal>
       <Modal
         title={
@@ -87,7 +148,7 @@ export default function ModalsPage() {
             title=''
             icon={
               <StyledIconContainer>
-                <Trash01 color='red' size={24} />
+                <Trash01 color={colors.foregrounds.fgErrorPrimary} size={24} />
               </StyledIconContainer>
             }
           />
@@ -98,9 +159,11 @@ export default function ModalsPage() {
         width={400}
         okButtonProps={{ block: true, color: 'destructive' }}
         cancelButtonProps={{ block: true }}>
-        <div>
-          This action cannot be undone. Are you sure you want to proceed?
-        </div>
+        <Text weight='semibold'>Delete blog post</Text>
+        <Text color='textTertiary600' size='text-sm'>
+          Are you sure you want to delete this post? This action cannot be
+          undone.
+        </Text>
       </Modal>
     </>
   );
@@ -112,7 +175,7 @@ const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.625rem;
+  border-radius: ${({ theme }) => theme.radius.lg}px;
   background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
   border: 2px solid ${({ theme }) => theme.colors.borders.borderPrimary};
 `;

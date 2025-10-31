@@ -2,10 +2,11 @@ import { X } from '@untitledui/icons';
 import { Modal as AntModal, ModalProps } from 'antd';
 import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import SimpleBar from 'simplebar-react';
 import styled, { CSSProperties } from 'styled-components';
 
 import { Button, ButtonProps } from '../Button';
+
+import { StyledSimpleBar } from '@/components/Atoms/StyledSimplebar';
 
 type Props = Omit<
   ModalProps,
@@ -88,9 +89,14 @@ export const Modal = ({
         footer={customFooter}
         closeIcon={_closeIcon}
         {...props}>
-        <SimpleBar style={{ maxHeight: maxContentHeight }}>
+        <StyledSimpleBar
+          style={{
+            maxHeight: maxContentHeight,
+            paddingRight: 'var(--simplebar-padding-right)',
+            paddingBlock: 'var(--simplebar-padding-block)',
+          }}>
           {children}
-        </SimpleBar>
+        </StyledSimpleBar>
       </StyledModal>
     </>
   );
@@ -102,6 +108,10 @@ const StyledModal = styled(AntModal)<{
   $maxContentHeight?: number;
   $bordered?: boolean;
 }>`
+  --simplebar-padding-right: 1.125rem;
+  --simplebar-padding-block: ${({ $bordered }) =>
+    $bordered ? '1.25' : '0'}rem;
+
   .ant-modal-content {
     border-radius: ${({ theme }) => theme.radius['2xl']}px;
     padding: 0;
@@ -120,16 +130,18 @@ const StyledModal = styled(AntModal)<{
   .ant-modal-title {
     padding-right: 1.5rem; // to accommodate close button
   }
+
   .ant-modal-body {
-    padding-inline: 1.5rem;
-    padding-block: ${({ $bordered }) => ($bordered ? '1.25rem' : '0')};
+    padding-inline-start: 1.5rem;
+    padding-inline-end: 0.375rem;
     color: ${({ theme }) => theme.colors.texts.textTertiary600};
   }
 
   .ant-modal-footer {
     margin: 0;
     padding-inline: 1.5rem;
-    padding-block: 1.25rem;
+    padding-top: ${({ $bordered }) => ($bordered ? '1.5rem' : '2rem')};
+    padding-bottom: 1.5rem;
     display: flex;
     gap: 0.75rem;
     border-top: ${({ $bordered, theme }) =>
@@ -139,6 +151,9 @@ const StyledModal = styled(AntModal)<{
   }
 
   @media screen and (max-width: 768px) {
+    --simplebar-padding-right: 0.625rem;
+    --simplebar-padding-block: ${({ $bordered }) => ($bordered ? '1rem' : '0')};
+
     .ant-modal-header {
       padding-inline: 1rem;
       padding-block: 1rem;
@@ -146,13 +161,14 @@ const StyledModal = styled(AntModal)<{
     }
 
     .ant-modal-body {
-      padding-inline: 1rem;
-      padding-block: 1rem;
+      padding-inline-start: 1rem;
+      padding-inline-end: 0.375rem;
     }
 
     .ant-modal-footer {
       padding-inline: 1rem;
-      padding-block: 1rem;
+      padding-top: ${({ $bordered }) => ($bordered ? '1rem' : '1.5rem')};
+      padding-bottom: 1rem;
     }
   }
 `;
