@@ -62,6 +62,11 @@ export const en = {
       Checkbox: 'Checkbox',
       Tabs: 'Tabs',
       Toggle: 'Toggle',
+      Modals: 'Modals',
+      Cancel: 'Cancel',
+      Confirm: 'Confirm',
+      Save: 'Save',
+      Close: 'Close',
     },
   },
 };

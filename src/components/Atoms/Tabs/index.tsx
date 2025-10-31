@@ -49,8 +49,8 @@ const getVariantStyles = (
   orientation: TabOrientation
 ) => {
   const isVertical = orientation === 'vertical';
-  const padding = size === 'sm' ? '8px 12px' : '10px 16px';
-  const height = size === 'sm' ? '36px' : '44px';
+  const padding = size === 'sm' ? '0.5rem 0.75rem' : '0.625rem 1rem';
+  const height = size === 'sm' ? '2.25rem' : '2.75rem';
 
   const baseTabStyles = css`
     .ant-tabs-tab {
@@ -82,7 +82,7 @@ const getVariantStyles = (
       }
 
       .ant-tabs-tab-icon {
-        margin-inline-end: 6px;
+        margin-inline-end: 0.375rem;
         display: inline-flex;
         align-items: center;
       }
@@ -209,7 +209,7 @@ const getVariantStyles = (
         ${baseTabStyles}
 
         .ant-tabs-nav {
-          padding: 2px;
+          padding: 0.125rem;
           background-color: ${({ theme }) =>
             theme.colors.backgrounds.bgSecondaryAlt};
           border-radius: ${({ theme }) => theme.radius.lg}px;
@@ -315,11 +315,11 @@ const StyledTabsWrapper = styled.div<{
     margin: 0 !important;
 
     &-list {
-      gap: ${({ $variant }) => ($variant === 'underline' ? '0' : '4px')};
+      gap: ${({ $variant }) => ($variant === 'underline' ? '0' : '0.25rem')};
     }
   }
 
   .ant-tabs-content {
-    padding: 16px 0;
+    padding: 1rem 0;
   }
 `;
