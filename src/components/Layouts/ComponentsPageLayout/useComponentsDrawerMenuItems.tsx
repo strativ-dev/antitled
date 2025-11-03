@@ -26,6 +26,14 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             label: <Link to='/components/button'>{t('common.Button')}</Link>,
           },
           {
+            key: 'button-group',
+            label: (
+              <Link to='/components/button-group'>
+                {t('common.button_group')}
+              </Link>
+            ),
+          },
+          {
             key: 'text',
             label: <Link to='/components/text'>{t('common.Text')}</Link>,
           },
@@ -62,6 +70,14 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
             label: <Link to='/components/select'>{t('common.Select')}</Link>,
           },
           {
+            key: 'tab',
+            label: <Link to='/components/tabs'>{t('common.Tabs')}</Link>,
+          },
+          {
+            key: 'modal',
+            label: <Link to='/components/modals'>{t('common.Modals')}</Link>,
+          },
+          {
             key: 'badge',
             label: <Link to='/components/badge'>{t('common.Badge')}</Link>,
           },
@@ -78,14 +94,6 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
           {
             key: 'tooltip',
             label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
-          },
-          {
-            key: 'tabs',
-            label: <Link to='/components/tabs'>{t('common.Tabs')}</Link>,
-          },
-          {
-            key: 'modals',
-            label: <Link to='/components/modals'>{t('common.Modals')}</Link>,
           },
         ],
       },

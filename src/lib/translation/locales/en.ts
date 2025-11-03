@@ -62,6 +62,7 @@ export const en = {
       Checkbox: 'Checkbox',
       Tabs: 'Tabs',
       Toggle: 'Toggle',
+      button_group: 'Button group',
       Modals: 'Modals',
       Cancel: 'Cancel',
       Confirm: 'Confirm',
