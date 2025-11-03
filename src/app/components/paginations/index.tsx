@@ -14,10 +14,94 @@ export default function PaginationPage() {
     <>
       <ComponentPageTitle title='Pagination Component' />
       <Flex vertical gap={48}>
+        {/* Minimal Variant - Medium */}
+        <PaginationWrapper>
+          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+            Variant: Minimal - Medium
+          </Text>
+          <Flex vertical gap={24}>
+            <div>
+              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+                Basic (10 total pages)
+              </Text>
+              <Pagination
+                variant='minimal'
+                size='md'
+                defaultCurrent={1}
+                total={100}
+                pageSize={10}
+                hideNextPrevText
+              />
+            </div>
+            <div>
+              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+                With many pages (50 pages)
+              </Text>
+              <Pagination
+                variant='minimal'
+                size='md'
+                defaultCurrent={25}
+                total={500}
+                pageSize={10}
+                nextPrevType='bordered'
+                nextButtonText='Next Page'
+                prevButtonText='Previous Page'
+              />
+            </div>
+            <div>
+              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+                Disabled state
+              </Text>
+              <Pagination
+                variant='minimal'
+                size='md'
+                current={5}
+                total={100}
+                pageSize={10}
+                disabled
+                buttonType='rounded'
+              />
+            </div>
+          </Flex>
+        </PaginationWrapper>
+
+        {/* Minimal Variant - Small */}
+        <PaginationWrapper>
+          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+            Variant: Minimal - Small
+          </Text>
+          <Flex vertical gap={24}>
+            <div>
+              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+                Basic (10 total pages)
+              </Text>
+              <Pagination
+                variant='minimal'
+                size='sm'
+                defaultCurrent={1}
+                total={100}
+                pageSize={10}
+              />
+            </div>
+            <div>
+              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+                With many pages (50 pages)
+              </Text>
+              <Pagination
+                variant='minimal'
+                size='sm'
+                defaultCurrent={25}
+                total={500}
+                pageSize={10}
+              />
+            </div>
+          </Flex>
+        </PaginationWrapper>
+
         {/* Button Group Variant - Medium */}
         <PaginationWrapper>
           <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
-            Button Group Variant - Medium (Default)
+            Variant: Button Group - Size: Medium (Default)
           </Text>
           <Flex vertical gap={24}>
             <div>
@@ -31,6 +115,7 @@ export default function PaginationPage() {
                 total={100}
                 pageSize={10}
                 onChange={setCurrent}
+                hideNextPrevText
               />
             </div>
             <div>
@@ -64,13 +149,25 @@ export default function PaginationPage() {
         {/* Button Group Variant - Small */}
         <PaginationWrapper>
           <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
-            Button Group Variant - Small
+            Variant: Button Group - Small
           </Text>
           <Flex vertical gap={24}>
-            <Pagination size='sm' total={50} />
-            <Pagination size='sm' total={50} showSizeChanger showQuickJumper />
-            <Pagination size='sm' total={50} showTotal={showTotal} />
+            <Pagination variant='button-group' size='sm' total={50} />
             <Pagination
+              variant='button-group'
+              size='sm'
+              total={50}
+              showSizeChanger
+              showQuickJumper
+            />
+            <Pagination
+              variant='button-group'
+              size='sm'
+              total={50}
+              showTotal={showTotal}
+            />
+            <Pagination
+              variant='button-group'
               size='sm'
               total={50}
               disabled
@@ -78,85 +175,6 @@ export default function PaginationPage() {
               showSizeChanger
               showQuickJumper
             />
-          </Flex>
-        </PaginationWrapper>
-
-        {/* Minimal Variant - Medium */}
-        <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
-            Minimal Variant - Medium
-          </Text>
-          <Flex vertical gap={24}>
-            <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
-                Basic (10 total pages)
-              </Text>
-              <Pagination
-                variant='minimal'
-                size='md'
-                defaultCurrent={1}
-                total={100}
-                pageSize={10}
-              />
-            </div>
-            <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
-                With many pages (50 pages)
-              </Text>
-              <Pagination
-                variant='minimal'
-                size='md'
-                defaultCurrent={25}
-                total={500}
-                pageSize={10}
-              />
-            </div>
-            <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
-                Disabled state
-              </Text>
-              <Pagination
-                variant='minimal'
-                size='md'
-                current={5}
-                total={100}
-                pageSize={10}
-                disabled
-              />
-            </div>
-          </Flex>
-        </PaginationWrapper>
-
-        {/* Minimal Variant - Small */}
-        <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
-            Minimal Variant - Small
-          </Text>
-          <Flex vertical gap={24}>
-            <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
-                Basic (10 total pages)
-              </Text>
-              <Pagination
-                variant='minimal'
-                size='sm'
-                defaultCurrent={1}
-                total={100}
-                pageSize={10}
-              />
-            </div>
-            <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
-                With many pages (50 pages)
-              </Text>
-              <Pagination
-                variant='minimal'
-                size='sm'
-                defaultCurrent={25}
-                total={500}
-                pageSize={10}
-              />
-            </div>
           </Flex>
         </PaginationWrapper>
 
