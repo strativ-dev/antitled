@@ -63,6 +63,12 @@ export const en = {
       Tabs: 'Tabs',
       Toggle: 'Toggle',
       Pagination: 'Pagination',
+      button_group: 'Button group',
+      Modals: 'Modals',
+      Cancel: 'Cancel',
+      Confirm: 'Confirm',
+      Save: 'Save',
+      Close: 'Close',
     },
   },
 };
