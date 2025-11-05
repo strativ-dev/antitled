@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { Text, Tabs } from '@/components/Atoms';
 import { TabItem } from '@/components/Atoms/Tabs';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const basicItems: TabItem[] = [
   {

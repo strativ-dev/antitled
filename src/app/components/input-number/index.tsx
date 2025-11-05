@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { CURRENCY_CODES } from '@/lib/utils/constants';
 
 import { InputNumber, Select } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function InputNumberPage() {
   const { t } = useTranslation();

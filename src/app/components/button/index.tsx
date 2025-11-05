@@ -3,7 +3,7 @@ import { Flex } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function Buttons() {
   const { t } = useTranslation();
