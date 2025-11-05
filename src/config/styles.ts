@@ -505,7 +505,7 @@ export const COLOR_MODES = {
     backgrounds: {
       bgPrimary: COLORS['Base']['white'],
       bgPrimaryAlt: COLORS['Base']['white'],
-      bgPrimaryHover: COLORS['Gray (light mode)']['50'],
+      bgPrimaryHover: COLORS['Gray (light mode)']['100'],
       bgPrimarySolid: COLORS['Gray (light mode)']['950'],
       bgSecondary: COLORS['Gray (light mode)']['50'],
       bgSecondaryAlt: COLORS['Gray (light mode)']['50'],
@@ -1149,6 +1149,7 @@ export const COLOR_MODES = {
 export const COLOR_PALLETTE = { ...COLORS, ...COLOR_MODES.light } as const;
 
 export const FONT_SIZE = {
+  'text-xxs': 10,
   'text-xs': 12,
   'text-sm': 14,
   'text-md': 16,

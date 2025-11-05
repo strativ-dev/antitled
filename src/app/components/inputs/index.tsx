@@ -10,7 +10,7 @@ import {
   Button,
   TextArea,
 } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 import InputPhoneNumber from '@/components/Molecules/InputPhoneNumber';
 
 type InputsFormValues = {

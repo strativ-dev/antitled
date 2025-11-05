@@ -10,5 +10,7 @@ export { CircleSpinner } from './CircleSpinner';
 export { TextArea } from './TextArea';
 export { Tabs } from './Tabs';
 export type { TabsProps, TabItem } from './Tabs';
+export { Pagination } from './Pagination';
+export type { PaginationProps } from './Pagination';
 export { Modal } from './Modal';
 export { ModalTitle } from './Modal/ModalTitle';

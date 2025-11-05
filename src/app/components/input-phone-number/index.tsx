@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 import InputPhoneNumber from '@/components/Molecules/InputPhoneNumber';
 
 export default function InputPhoneNumberPage() {
