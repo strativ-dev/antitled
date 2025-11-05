@@ -39,6 +39,7 @@ export const sv = {
       Toggle: 'Växla',
       button_group: 'Knappgrupp',
       Dropdown: 'Dropdown',
+      Pagination: 'Pagination',
     },
   },
 };

@@ -18,6 +18,7 @@ import { Route as ComponentsInputNumberIndexRouteImport } from './routes/compone
 import { Route as ComponentsInputPhoneNumberIndexRouteImport } from './routes/components/input-phone-number/index';
 import { Route as ComponentsInputIndexRouteImport } from './routes/components/input/index';
 import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index';
+import { Route as ComponentsPaginationsIndexRouteImport } from './routes/components/paginations/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
@@ -88,6 +89,12 @@ const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
   path: '/select/',
   getParentRoute: () => ComponentsRoute,
 } as any);
+const ComponentsPaginationsIndexRoute =
+  ComponentsPaginationsIndexRouteImport.update({
+    id: '/paginations/',
+    path: '/paginations/',
+    getParentRoute: () => ComponentsRoute,
+  } as any);
 const ComponentsModalsIndexRoute = ComponentsModalsIndexRouteImport.update({
   id: '/modals/',
   path: '/modals/',
@@ -161,6 +168,7 @@ export interface FileRoutesByFullPath {
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/modals': typeof ComponentsModalsIndexRoute;
+  '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
@@ -183,6 +191,7 @@ export interface FileRoutesByTo {
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input': typeof ComponentsInputIndexRoute;
   '/components/modals': typeof ComponentsModalsIndexRoute;
+  '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
@@ -208,6 +217,7 @@ export interface FileRoutesById {
   '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute;
   '/components/input/': typeof ComponentsInputIndexRoute;
   '/components/modals/': typeof ComponentsModalsIndexRoute;
+  '/components/paginations/': typeof ComponentsPaginationsIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
   '/components/tabs/': typeof ComponentsTabsIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
@@ -234,6 +244,7 @@ export interface FileRouteTypes {
     | '/components/input-phone-number'
     | '/components/input'
     | '/components/modals'
+    | '/components/paginations'
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
@@ -256,6 +267,7 @@ export interface FileRouteTypes {
     | '/components/input-phone-number'
     | '/components/input'
     | '/components/modals'
+    | '/components/paginations'
     | '/components/select'
     | '/components/tabs'
     | '/components/text'
@@ -280,6 +292,7 @@ export interface FileRouteTypes {
     | '/components/input-phone-number/'
     | '/components/input/'
     | '/components/modals/'
+    | '/components/paginations/'
     | '/components/select/'
     | '/components/tabs/'
     | '/components/text/'
@@ -380,6 +393,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsSelectIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/paginations/': {
+      id: '/components/paginations/';
+      path: '/paginations';
+      fullPath: '/components/paginations';
+      preLoaderRoute: typeof ComponentsPaginationsIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
     '/components/modals/': {
       id: '/components/modals/';
       path: '/modals';
@@ -465,6 +485,7 @@ interface ComponentsRouteChildren {
   ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute;
   ComponentsInputIndexRoute: typeof ComponentsInputIndexRoute;
   ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute;
+  ComponentsPaginationsIndexRoute: typeof ComponentsPaginationsIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
@@ -484,6 +505,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
   ComponentsInputIndexRoute: ComponentsInputIndexRoute,
   ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
+  ComponentsPaginationsIndexRoute: ComponentsPaginationsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
