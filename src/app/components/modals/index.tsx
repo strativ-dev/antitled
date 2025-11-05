@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 
 import { Button, Modal, ModalTitle, Text } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function ModalsPage() {
   const [open, setOpen] = useState(false);

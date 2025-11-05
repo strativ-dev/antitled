@@ -3,7 +3,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { Pagination, PaginationProps, Text } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function PaginationPage() {
   const [current, setCurrent] = useState(1);

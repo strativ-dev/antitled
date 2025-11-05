@@ -1,5 +1,5 @@
 import { TextArea } from '@/components/Atoms';
-import ComponentPageTitle from '@/components/Molecules/ComponentPageTitle';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const TextAreaPage = () => {
   return (
