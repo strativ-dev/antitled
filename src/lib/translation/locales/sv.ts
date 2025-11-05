@@ -38,6 +38,7 @@ export const sv = {
       Checkbox: 'kryssrutor',
       Toggle: 'Växla',
       button_group: 'Knappgrupp',
+      Dropdown: 'Dropdown',
     },
   },
 };

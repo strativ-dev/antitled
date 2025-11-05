@@ -11,6 +11,7 @@ import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/ba
 import { Route as ComponentsButtonGroupIndexRouteImport } from './routes/components/button-group/index';
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index';
 import { Route as ComponentsCheckboxIndexRouteImport } from './routes/components/checkbox/index';
+import { Route as ComponentsDropdownIndexRouteImport } from './routes/components/dropdown/index';
 import { Route as ComponentsIndexRouteImport } from './routes/components/index';
 import { Route as ComponentsInputCopyTextIndexRouteImport } from './routes/components/input-copy-text/index';
 import { Route as ComponentsInputNumberIndexRouteImport } from './routes/components/input-number/index';
@@ -115,6 +116,11 @@ const ComponentsInputCopyTextIndexRoute =
     path: '/input-copy-text/',
     getParentRoute: () => ComponentsRoute,
   } as any);
+const ComponentsDropdownIndexRoute = ComponentsDropdownIndexRouteImport.update({
+  id: '/dropdown/',
+  path: '/dropdown/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
 const ComponentsCheckboxIndexRoute = ComponentsCheckboxIndexRouteImport.update({
   id: '/checkbox/',
   path: '/checkbox/',
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
   '/components/checkbox': typeof ComponentsCheckboxIndexRoute;
+  '/components/dropdown': typeof ComponentsDropdownIndexRoute;
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute;
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
@@ -170,6 +177,7 @@ export interface FileRoutesByTo {
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
   '/components/checkbox': typeof ComponentsCheckboxIndexRoute;
+  '/components/dropdown': typeof ComponentsDropdownIndexRoute;
   '/components/input-copy-text': typeof ComponentsInputCopyTextIndexRoute;
   '/components/input-number': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number': typeof ComponentsInputPhoneNumberIndexRoute;
@@ -194,6 +202,7 @@ export interface FileRoutesById {
   '/components/button-group/': typeof ComponentsButtonGroupIndexRoute;
   '/components/button/': typeof ComponentsButtonIndexRoute;
   '/components/checkbox/': typeof ComponentsCheckboxIndexRoute;
+  '/components/dropdown/': typeof ComponentsDropdownIndexRoute;
   '/components/input-copy-text/': typeof ComponentsInputCopyTextIndexRoute;
   '/components/input-number/': typeof ComponentsInputNumberIndexRoute;
   '/components/input-phone-number/': typeof ComponentsInputPhoneNumberIndexRoute;
@@ -219,6 +228,7 @@ export interface FileRouteTypes {
     | '/components/button-group'
     | '/components/button'
     | '/components/checkbox'
+    | '/components/dropdown'
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input-phone-number'
@@ -240,6 +250,7 @@ export interface FileRouteTypes {
     | '/components/button-group'
     | '/components/button'
     | '/components/checkbox'
+    | '/components/dropdown'
     | '/components/input-copy-text'
     | '/components/input-number'
     | '/components/input-phone-number'
@@ -263,6 +274,7 @@ export interface FileRouteTypes {
     | '/components/button-group/'
     | '/components/button/'
     | '/components/checkbox/'
+    | '/components/dropdown/'
     | '/components/input-copy-text/'
     | '/components/input-number/'
     | '/components/input-phone-number/'
@@ -403,6 +415,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsInputCopyTextIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/dropdown/': {
+      id: '/components/dropdown/';
+      path: '/dropdown';
+      fullPath: '/components/dropdown';
+      preLoaderRoute: typeof ComponentsDropdownIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
     '/components/checkbox/': {
       id: '/components/checkbox/';
       path: '/checkbox';
@@ -440,6 +459,7 @@ interface ComponentsRouteChildren {
   ComponentsButtonGroupIndexRoute: typeof ComponentsButtonGroupIndexRoute;
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute;
   ComponentsCheckboxIndexRoute: typeof ComponentsCheckboxIndexRoute;
+  ComponentsDropdownIndexRoute: typeof ComponentsDropdownIndexRoute;
   ComponentsInputCopyTextIndexRoute: typeof ComponentsInputCopyTextIndexRoute;
   ComponentsInputNumberIndexRoute: typeof ComponentsInputNumberIndexRoute;
   ComponentsInputPhoneNumberIndexRoute: typeof ComponentsInputPhoneNumberIndexRoute;
@@ -458,6 +478,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsButtonGroupIndexRoute: ComponentsButtonGroupIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
   ComponentsCheckboxIndexRoute: ComponentsCheckboxIndexRoute,
+  ComponentsDropdownIndexRoute: ComponentsDropdownIndexRoute,
   ComponentsInputCopyTextIndexRoute: ComponentsInputCopyTextIndexRoute,
   ComponentsInputNumberIndexRoute: ComponentsInputNumberIndexRoute,
   ComponentsInputPhoneNumberIndexRoute: ComponentsInputPhoneNumberIndexRoute,
