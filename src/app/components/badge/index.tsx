@@ -1,7 +1,7 @@
 import { BellPlus, MessageTextCircle02, Plus } from '@untitledui/icons';
 import { Col, Row, Flex } from 'antd';
 
-import { Tag } from '@/components/Atoms/Badge';
+import { Badge } from '@/components/Atoms';
 
 export default function Badges() {
   return (
@@ -10,56 +10,56 @@ export default function Badges() {
       <Flex vertical gap='large'>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag size='sm'>SM</Tag>
-            <Tag size='md'>MD</Tag>
-            <Tag size='lg'>LG</Tag>
+            <Badge size='sm'>SM</Badge>
+            <Badge size='md'>MD</Badge>
+            <Badge size='lg'>LG</Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag size='sm'>
+            <Badge size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag size='md'>
+            </Badge>
+            <Badge size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag size='lg'>
+            </Badge>
+            <Badge size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
@@ -67,66 +67,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag color='brand' size='sm'>
+            <Badge color='brand' size='sm'>
               Label
-            </Tag>
-            <Tag color='brand' size='md'>
+            </Badge>
+            <Badge color='brand' size='md'>
               Label
-            </Tag>
-            <Tag color='brand' size='lg'>
+            </Badge>
+            <Badge color='brand' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='brand'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='brand'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='brand'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='brand' size='sm'>
+            <Badge color='brand' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='brand' size='md'>
+            </Badge>
+            <Badge color='brand' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='brand' size='lg'>
+            </Badge>
+            <Badge color='brand' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='brand'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='brand'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='brand'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -135,66 +135,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='error' size='sm'>
+            <Badge color='error' size='sm'>
               Label
-            </Tag>
-            <Tag color='error' size='md'>
+            </Badge>
+            <Badge color='error' size='md'>
               Label
-            </Tag>
-            <Tag color='error' size='lg'>
+            </Badge>
+            <Badge color='error' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='error'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='error'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='error'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='error' size='sm'>
+            <Badge color='error' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='error' size='md'>
+            </Badge>
+            <Badge color='error' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='error' size='lg'>
+            </Badge>
+            <Badge color='error' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='error'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='error'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='error'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -203,66 +203,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='warning' size='sm'>
+            <Badge color='warning' size='sm'>
               Label
-            </Tag>
-            <Tag color='warning' size='md'>
+            </Badge>
+            <Badge color='warning' size='md'>
               Label
-            </Tag>
-            <Tag color='warning' size='lg'>
+            </Badge>
+            <Badge color='warning' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='warning'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='warning'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='warning'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='warning' size='sm'>
+            <Badge color='warning' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='warning' size='md'>
+            </Badge>
+            <Badge color='warning' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='warning' size='lg'>
+            </Badge>
+            <Badge color='warning' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='warning'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='warning'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='warning'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -271,68 +271,68 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='success' size='sm'>
+            <Badge color='success' size='sm'>
               Label
-            </Tag>
-            <Tag color='success' size='md'>
+            </Badge>
+            <Badge color='success' size='md'>
               Label
-            </Tag>
-            <Tag color='success' size='lg'>
+            </Badge>
+            <Badge color='success' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='success'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='success'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='success'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='success' size='sm'>
+            <Badge color='success' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='success' size='md'>
+            </Badge>
+            <Badge color='success' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='success' size='lg'>
+            </Badge>
+            <Badge color='success' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='success'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
 
-            <Tag
+            <Badge
               color='success'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
 
-            <Tag
+            <Badge
               color='success'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -343,67 +343,67 @@ export default function Badges() {
       <Flex vertical gap='large' style={{ marginTop: 20 }}>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag size='sm' color='blue'>
+            <Badge size='sm' color='blue'>
               Label
-            </Tag>
-            <Tag size='md' color='blue'>
+            </Badge>
+            <Badge size='md' color='blue'>
               Label
-            </Tag>
-            <Tag size='lg' color='blue'>
+            </Badge>
+            <Badge size='lg' color='blue'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               size='sm'
               color='blue'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='md'
               color='blue'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='lg'
               color='blue'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag size='sm' color='blue'>
+            <Badge size='sm' color='blue'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag size='md' color='blue'>
+            </Badge>
+            <Badge size='md' color='blue'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag size='lg' color='blue'>
+            </Badge>
+            <Badge size='lg' color='blue'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               size='sm'
               color='blue'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='md'
               color='blue'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='lg'
               color='blue'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -412,66 +412,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag color='indigo' size='sm'>
+            <Badge color='indigo' size='sm'>
               Label
-            </Tag>
-            <Tag color='indigo' size='md'>
+            </Badge>
+            <Badge color='indigo' size='md'>
               Label
-            </Tag>
-            <Tag color='indigo' size='lg'>
+            </Badge>
+            <Badge color='indigo' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='indigo'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='indigo'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='indigo'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='indigo' size='sm'>
+            <Badge color='indigo' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='indigo' size='md'>
+            </Badge>
+            <Badge color='indigo' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='indigo' size='lg'>
+            </Badge>
+            <Badge color='indigo' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='indigo'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='indigo'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='indigo'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -480,66 +480,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='purple' size='sm'>
+            <Badge color='purple' size='sm'>
               Label
-            </Tag>
-            <Tag color='purple' size='md'>
+            </Badge>
+            <Badge color='purple' size='md'>
               Label
-            </Tag>
-            <Tag color='purple' size='lg'>
+            </Badge>
+            <Badge color='purple' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='purple'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='purple'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='purple'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='purple' size='sm'>
+            <Badge color='purple' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='purple' size='md'>
+            </Badge>
+            <Badge color='purple' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='purple' size='lg'>
+            </Badge>
+            <Badge color='purple' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='purple'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='purple'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='purple'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -548,66 +548,66 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='pink' size='sm'>
+            <Badge color='pink' size='sm'>
               Label
-            </Tag>
-            <Tag color='pink' size='md'>
+            </Badge>
+            <Badge color='pink' size='md'>
               Label
-            </Tag>
-            <Tag color='pink' size='lg'>
+            </Badge>
+            <Badge color='pink' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='pink'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='pink'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='pink'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='pink' size='sm'>
+            <Badge color='pink' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='pink' size='md'>
+            </Badge>
+            <Badge color='pink' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='pink' size='lg'>
+            </Badge>
+            <Badge color='pink' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='pink'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='pink'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='pink'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -616,68 +616,68 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='orange' size='sm'>
+            <Badge color='orange' size='sm'>
               Label
-            </Tag>
-            <Tag color='orange' size='md'>
+            </Badge>
+            <Badge color='orange' size='md'>
               Label
-            </Tag>
-            <Tag color='orange' size='lg'>
+            </Badge>
+            <Badge color='orange' size='lg'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='orange'
               size='sm'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='orange'
               size='md'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='orange'
               size='lg'
               icon={
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='orange' size='sm'>
+            <Badge color='orange' size='sm'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='orange' size='md'>
+            </Badge>
+            <Badge color='orange' size='md'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='orange' size='lg'>
+            </Badge>
+            <Badge color='orange' size='lg'>
               Label <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='orange'
               size='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
 
-            <Tag
+            <Badge
               color='orange'
               size='md'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
 
-            <Tag
+            <Badge
               color='orange'
               size='lg'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
@@ -688,19 +688,19 @@ export default function Badges() {
       <Flex vertical gap='large' style={{ marginTop: 70 }}>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag size='sm' radius='sm' color='primary'>
+            <Badge size='sm' radius='sm' color='primary'>
               SM
-            </Tag>
-            <Tag size='md' radius='sm' color='primary'>
+            </Badge>
+            <Badge size='md' radius='sm' color='primary'>
               MD
-            </Tag>
-            <Tag size='lg' radius='md' color='primary'>
+            </Badge>
+            <Badge size='lg' radius='md' color='primary'>
               LG
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               size='sm'
               radius='sm'
               color='primary'
@@ -708,8 +708,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='md'
               radius='sm'
               color='primary'
@@ -717,8 +717,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='lg'
               color='primary'
               radius='md'
@@ -726,45 +726,45 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag
+            <Badge
               size='sm'
               radius='sm'
               color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='md'
               radius='sm'
               color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               size='lg'
               radius='md'
               color='primary'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               size='sm'
               color='primary'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='md'
               color='primary'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               size='lg'
               color='primary'
               radius='md'
@@ -774,19 +774,19 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 12]}>
           <Col span={6}>
-            <Tag color='brand' size='sm' radius='sm'>
+            <Badge color='brand' size='sm' radius='sm'>
               Label
-            </Tag>
-            <Tag color='brand' size='md' radius='sm'>
+            </Badge>
+            <Badge color='brand' size='md' radius='sm'>
               Label
-            </Tag>
-            <Tag color='brand' size='lg' radius='md'>
+            </Badge>
+            <Badge color='brand' size='lg' radius='md'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='brand'
               size='sm'
               radius='sm'
@@ -794,8 +794,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='brand'
               size='md'
               radius='sm'
@@ -803,8 +803,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='brand'
               size='lg'
               radius='md'
@@ -812,36 +812,36 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='brand' size='sm' radius='sm'>
+            <Badge color='brand' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='brand' size='md' radius='sm'>
+            </Badge>
+            <Badge color='brand' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='brand' size='lg' radius='md'>
+            </Badge>
+            <Badge color='brand' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='brand'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='brand'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='brand'
               size='lg'
               radius='md'
@@ -851,19 +851,19 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='error' size='sm' radius='sm'>
+            <Badge color='error' size='sm' radius='sm'>
               Label
-            </Tag>
-            <Tag color='error' size='md' radius='sm'>
+            </Badge>
+            <Badge color='error' size='md' radius='sm'>
               Label
-            </Tag>
-            <Tag color='error' size='lg' radius='md'>
+            </Badge>
+            <Badge color='error' size='lg' radius='md'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='error'
               size='sm'
               radius='sm'
@@ -871,8 +871,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='error'
               size='md'
               radius='sm'
@@ -880,8 +880,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='error'
               size='lg'
               radius='md'
@@ -889,36 +889,36 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='error' size='sm' radius='sm'>
+            <Badge color='error' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='error' size='md' radius='sm'>
+            </Badge>
+            <Badge color='error' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='error' size='lg' radius='md'>
+            </Badge>
+            <Badge color='error' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='error'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='error'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='error'
               size='lg'
               radius='md'
@@ -928,68 +928,68 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='warning' size='sm' radius='sm'>
+            <Badge color='warning' size='sm' radius='sm'>
               Label
-            </Tag>
-            <Tag color='warning' size='md' radius='sm'>
+            </Badge>
+            <Badge color='warning' size='md' radius='sm'>
               Label
-            </Tag>
-            <Tag color='warning' size='lg' radius='md'>
+            </Badge>
+            <Badge color='warning' size='lg' radius='md'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='warning'
               size='sm'
               radius='sm'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='warning'
               size='md'
               radius='sm'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='warning'
               size='lg'
               radius='md'
               icon={<BellPlus width={12} height={12} strokeWidth={2.5} />}>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='warning' size='sm' radius='sm'>
+            <Badge color='warning' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='warning' size='md' radius='sm'>
+            </Badge>
+            <Badge color='warning' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='warning' size='lg' radius='md'>
+            </Badge>
+            <Badge color='warning' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='warning'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='warning'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='warning'
               size='lg'
               radius='md'
@@ -999,19 +999,19 @@ export default function Badges() {
         </Row>
         <Row gutter={[24, 24]}>
           <Col span={6}>
-            <Tag color='success' size='sm' radius='sm'>
+            <Badge color='success' size='sm' radius='sm'>
               Label
-            </Tag>
-            <Tag color='success' size='md' radius='sm'>
+            </Badge>
+            <Badge color='success' size='md' radius='sm'>
               Label
-            </Tag>
-            <Tag color='success' size='lg' radius='md'>
+            </Badge>
+            <Badge color='success' size='lg' radius='md'>
               Label
-            </Tag>
+            </Badge>
           </Col>
 
           <Col span={6}>
-            <Tag
+            <Badge
               color='success'
               size='sm'
               radius='sm'
@@ -1019,8 +1019,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='success'
               size='md'
               radius='sm'
@@ -1028,8 +1028,8 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
-            <Tag
+            </Badge>
+            <Badge
               color='success'
               size='lg'
               radius='md'
@@ -1037,36 +1037,36 @@ export default function Badges() {
                 <MessageTextCircle02 width={12} height={12} strokeWidth={2.5} />
               }>
               Label
-            </Tag>
+            </Badge>
           </Col>
           <Col span={6}>
-            <Tag color='success' size='sm' radius='sm'>
+            <Badge color='success' size='sm' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='success' size='md' radius='sm'>
+            </Badge>
+            <Badge color='success' size='md' radius='sm'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
-            <Tag color='success' size='lg' radius='md'>
+            </Badge>
+            <Badge color='success' size='lg' radius='md'>
               Label
               <BellPlus width={12} height={12} strokeWidth={2.5} />
-            </Tag>
+            </Badge>
           </Col>
           <Col span={4}>
-            <Tag
+            <Badge
               color='success'
               size='sm'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='success'
               size='md'
               radius='sm'
               icon={<Plus width={16} height={16} strokeWidth={2.5} />}
             />
-            <Tag
+            <Badge
               color='success'
               size='lg'
               radius='md'
