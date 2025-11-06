@@ -105,6 +105,10 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
               <Link to='/components/paginations'>{t('common.Pagination')}</Link>
             ),
           },
+          {
+            key: 'table',
+            label: <Link to='/components/table'>{t('common.Table')}</Link>,
+          },
         ],
       },
     ];

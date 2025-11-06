@@ -217,10 +217,15 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         boxShadow: SHADOWS.sm,
       },
       Table: {
-        borderRadius: RADIUS.md,
-        colorBorderSecondary: colorPalette.borders.borderSecondary,
+        colorText: colorPalette.texts.textTertiary600,
+        borderColor: colorPalette.borders.borderSecondary,
+        cellFontSize: FONT_SIZE['text-sm'],
+        headerColor: colorPalette.texts.textQuaternary500,
+        cellPaddingInline: 24,
+        cellPaddingInlineSM: 16,
+        cellPaddingInlineMD: 20,
         headerBg: colorPalette.backgrounds.bgSecondary,
-        headerColor: colorPalette.texts.textSecondary700,
+        footerBg: colorPalette.backgrounds.bgPrimary,
       },
       Drawer: {
         paddingLG: SPACING['3xl'],
@@ -259,7 +264,6 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         labelFontSize: FONT_SIZE['text-sm'],
         labelColor: colorPalette.texts.textSecondary700,
       },
-      Tooltip: {},
     },
   };
 

@@ -20,6 +20,7 @@ import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/
 import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index'
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index'
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index'
+import { Route as ComponentsTableIndexRouteImport } from './routes/components/table/index'
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index'
 import { Route as ComponentsPaginationsIndexRouteImport } from './routes/components/paginations/index'
 import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index'
@@ -85,6 +86,11 @@ const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
 const ComponentsTabsIndexRoute = ComponentsTabsIndexRouteImport.update({
   id: '/tabs/',
   path: '/tabs/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
+const ComponentsTableIndexRoute = ComponentsTableIndexRouteImport.update({
+  id: '/table/',
+  path: '/table/',
   getParentRoute: () => ComponentsRoute,
 } as any)
 const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/components/modals': typeof ComponentsModalsIndexRoute
   '/components/paginations': typeof ComponentsPaginationsIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
+  '/components/table': typeof ComponentsTableIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
   '/components/toggle': typeof ComponentsToggleIndexRoute
@@ -189,6 +196,7 @@ export interface FileRoutesByTo {
   '/components/modals': typeof ComponentsModalsIndexRoute
   '/components/paginations': typeof ComponentsPaginationsIndexRoute
   '/components/select': typeof ComponentsSelectIndexRoute
+  '/components/table': typeof ComponentsTableIndexRoute
   '/components/tabs': typeof ComponentsTabsIndexRoute
   '/components/text': typeof ComponentsTextIndexRoute
   '/components/toggle': typeof ComponentsToggleIndexRoute
@@ -214,6 +222,7 @@ export interface FileRoutesById {
   '/components/modals/': typeof ComponentsModalsIndexRoute
   '/components/paginations/': typeof ComponentsPaginationsIndexRoute
   '/components/select/': typeof ComponentsSelectIndexRoute
+  '/components/table/': typeof ComponentsTableIndexRoute
   '/components/tabs/': typeof ComponentsTabsIndexRoute
   '/components/text/': typeof ComponentsTextIndexRoute
   '/components/toggle/': typeof ComponentsToggleIndexRoute
@@ -240,6 +249,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/table'
     | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
@@ -262,6 +272,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/table'
     | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
@@ -286,6 +297,7 @@ export interface FileRouteTypes {
     | '/components/modals/'
     | '/components/paginations/'
     | '/components/select/'
+    | '/components/table/'
     | '/components/tabs/'
     | '/components/text/'
     | '/components/toggle/'
@@ -376,6 +388,13 @@ declare module '@tanstack/react-router' {
       path: '/tabs'
       fullPath: '/components/tabs'
       preLoaderRoute: typeof ComponentsTabsIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
+    '/components/table/': {
+      id: '/components/table/'
+      path: '/table'
+      fullPath: '/components/table'
+      preLoaderRoute: typeof ComponentsTableIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
     '/components/select/': {
@@ -471,6 +490,7 @@ interface ComponentsRouteChildren {
   ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute
   ComponentsPaginationsIndexRoute: typeof ComponentsPaginationsIndexRoute
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute
+  ComponentsTableIndexRoute: typeof ComponentsTableIndexRoute
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute
   ComponentsToggleIndexRoute: typeof ComponentsToggleIndexRoute
@@ -490,6 +510,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
   ComponentsPaginationsIndexRoute: ComponentsPaginationsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
+  ComponentsTableIndexRoute: ComponentsTableIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
   ComponentsToggleIndexRoute: ComponentsToggleIndexRoute,
