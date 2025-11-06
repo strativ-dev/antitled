@@ -12,8 +12,7 @@ import {
 import { Flex, RadioChangeEvent } from 'antd';
 import { useState } from 'react';
 
-import { Button } from '@/components/Atoms';
-import { ButtonGroup } from '@/components/Atoms/ButtonGroup';
+import { Button, ButtonGroup } from '@/components/Atoms';
 
 export default function ButtonGroups() {
   const [defaultSize, setDefaultSize] = useState<'sm' | 'md' | 'lg' | 'xl'>(

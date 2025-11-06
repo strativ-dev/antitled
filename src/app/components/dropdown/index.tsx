@@ -25,8 +25,7 @@ import {
   StyledIcon,
 } from '@/app/components/dropdown/styles';
 
-import { Button } from '@/components/Atoms';
-import { Dropdown } from '@/components/Atoms/Dropdown';
+import { Button, Dropdown } from '@/components/Atoms';
 
 import AvatarIcon from '@/assets/images/avatar-icon.svg';
 

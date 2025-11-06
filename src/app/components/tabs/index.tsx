@@ -3,8 +3,7 @@ import { Flex } from 'antd';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { Text, Tabs } from '@/components/Atoms';
-import { TabItem } from '@/components/Atoms/Tabs';
+import { Text, Tabs, TabItem } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const basicItems: TabItem[] = [

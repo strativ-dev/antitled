@@ -3,9 +3,7 @@ import { Flex, Radio, RadioChangeEvent } from 'antd';
 import { useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Text } from '@/components/Atoms';
-import { Button } from '@/components/Atoms/Button';
-import { Tooltip } from '@/components/Atoms/Tooltip';
+import { Button, Text, Tooltip } from '@/components/Atoms';
 
 export default function Tooltips() {
   const theme = useTheme();

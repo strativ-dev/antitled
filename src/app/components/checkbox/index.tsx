@@ -1,8 +1,7 @@
 import { Row, Col, Divider, Flex } from 'antd';
 import { useState } from 'react';
 
-import { Button } from '@/components/Atoms';
-import { Checkbox } from '@/components/Atoms/CheckBox';
+import { Button, Checkbox } from '@/components/Atoms';
 
 const groupOptions = ['Checkbox', 'Group Checkbox'];
 
