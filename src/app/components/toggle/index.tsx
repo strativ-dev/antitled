@@ -1,100 +1,100 @@
 import { Flex } from 'antd';
 import { useState } from 'react';
 
-import { Switch } from '@/components/Atoms/Toggle';
+import { Toggle } from '@/components/Atoms';
 
 export default function Toggles() {
   const [globalChecked, setGlobalChecked] = useState(true);
 
   const onChange = (checked: boolean) => {
-    console.log(`switch to ${checked}`);
+    console.log(`Toggle to ${checked}`);
   };
   return (
     <>
       <h2>Toggles</h2>
       <Flex align='center' gap='small' style={{ marginBottom: 24 }}>
-        <Switch checked={globalChecked} onChange={setGlobalChecked}>
+        <Toggle checked={globalChecked} onChange={setGlobalChecked}>
           Toggle All
-        </Switch>
+        </Toggle>
       </Flex>
 
       <Flex gap='large' align='flex-start' wrap>
         <Flex vertical gap='large' style={{ flex: 1 }}>
           <h4>Default Variant</h4>
           <Flex gap='small' wrap align='center'>
-            <Switch defaultChecked onChange={onChange} size='xs' />
-            <Switch defaultChecked onChange={onChange} size='sm' />
-            <Switch defaultChecked onChange={onChange} size='md' />
+            <Toggle defaultChecked onChange={onChange} size='xs' />
+            <Toggle defaultChecked onChange={onChange} size='sm' />
+            <Toggle defaultChecked onChange={onChange} size='md' />
           </Flex>
 
           <Flex gap='small' wrap align='center'>
-            <Switch checked size='xs' disabled />
-            <Switch checked={false} size='sm' disabled />
-            <Switch checked size='md' disabled />
+            <Toggle checked size='xs' disabled />
+            <Toggle checked={false} size='sm' disabled />
+            <Toggle checked size='md' disabled />
           </Flex>
 
           <Flex vertical gap='small'>
-            <Switch
+            <Toggle
               size='xs'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               size='sm'
               checked={!globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               size='md'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
+            </Toggle>
           </Flex>
 
           <Flex vertical gap='small'>
-            <Switch
+            <Toggle
               size='xs'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               size='sm'
               checked={false}
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               size='md'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
+            </Toggle>
           </Flex>
         </Flex>
 
         <Flex vertical gap='large' style={{ flex: 2 }}>
           <h4>slim Variant</h4>
           <Flex gap='small' wrap align='center'>
-            <Switch
+            <Toggle
               defaultChecked
               onChange={onChange}
               size='xs'
               variant='slim'
             />
-            <Switch
+            <Toggle
               defaultChecked
               onChange={onChange}
               size='sm'
               variant='slim'
             />
-            <Switch
+            <Toggle
               defaultChecked
               onChange={onChange}
               size='md'
@@ -103,60 +103,60 @@ export default function Toggles() {
           </Flex>
 
           <Flex gap='small' wrap align='center'>
-            <Switch checked variant='slim' size='xs' disabled />
-            <Switch checked={false} variant='slim' size='sm' disabled />
-            <Switch checked variant='slim' size='md' disabled />
+            <Toggle checked variant='slim' size='xs' disabled />
+            <Toggle checked={false} variant='slim' size='sm' disabled />
+            <Toggle checked variant='slim' size='md' disabled />
           </Flex>
 
           <Flex vertical gap='small'>
-            <Switch
+            <Toggle
               variant='slim'
               size='xs'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               variant='slim'
               size='sm'
               checked={!globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               variant='slim'
               size='md'
               checked={globalChecked}
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
+            </Toggle>
           </Flex>
 
           <Flex vertical gap='small'>
-            <Switch
+            <Toggle
               variant='slim'
               size='xs'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               variant='slim'
               size='sm'
               checked={false}
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
-            <Switch
+            </Toggle>
+            <Toggle
               variant='slim'
               size='md'
               checked
               disabled
               supportingText='Save my login details for next time.'>
               Remember me
-            </Switch>
+            </Toggle>
           </Flex>
         </Flex>
       </Flex>
