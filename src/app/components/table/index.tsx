@@ -4,11 +4,12 @@ import { ColumnsType } from 'antd/es/table';
 import { useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Button, Pagination, Text } from '@/components/Atoms';
+import { Button, Pagination, Text, Tooltip } from '@/components/Atoms';
 import { Tag } from '@/components/Atoms/Badge';
 import { Table, TableProps } from '@/components/Atoms/Table';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 import Dot from '@/components/Common/Dot';
+import InfoCard from '@/components/Common/InfoCard';
 
 type DataType = {
   id: string;
@@ -96,7 +97,7 @@ const data: DataType[] = [
     id: '8',
     name: 'Brook',
     username: 'soul_king',
-    status: 'Active',
+    status: 'Inactive',
     role: 'Musician',
     email: 'brook@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
@@ -148,6 +149,16 @@ export default function TablePage() {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        render: (name: string, record: DataType) => {
+          return (
+            <InfoCard
+              avatar={record.avatar}
+              name={name}
+              username={`@${record.username}`}
+            />
+          );
+        },
+        sorter: (a, b) => a.name.localeCompare(b.name),
       },
       {
         width: 109,
@@ -158,6 +169,7 @@ export default function TablePage() {
           return (
             <Tag
               color='primary'
+              variant='outlined'
               radius='sm'
               size='sm'
               icon={<Dot color={colors.utility['success-500']} />}>
@@ -165,10 +177,18 @@ export default function TablePage() {
             </Tag>
           );
         },
+        sorter: (a, b) => a.status.localeCompare(b.status),
       },
       {
         width: 180,
-        title: 'Role',
+        title: () => {
+          return (
+            <Flex align='center' gap={4}>
+              <span>Role</span>
+              <Tooltip title='This is role tooltip content' />
+            </Flex>
+          );
+        },
         dataIndex: 'role',
         key: 'role',
       },
@@ -188,6 +208,7 @@ export default function TablePage() {
             <Flex gap={2} wrap>
               {teams.map((team) => (
                 <Tag
+                  variant='outlined'
                   size='sm'
                   key={team}
                   color={
@@ -317,7 +338,7 @@ export default function TablePage() {
             footer={() => (
               <Pagination
                 size='sm'
-                variant='button-group'
+                variant='minimal'
                 current={currentPage}
                 pageSize={pageSize}
                 total={data.length}
@@ -325,8 +346,7 @@ export default function TablePage() {
                   setCurrentPage(page);
                   setPageSize(size || pageSize);
                 }}
-                showSizeChanger={{ suffixIcon: <ChevronDown /> }}
-                align='end'
+                align='center'
               />
             )}
           />

@@ -1,3 +1,4 @@
+import { ChevronDown, ChevronUp } from '@untitledui/icons';
 import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
 import styled from 'styled-components';
 
@@ -5,18 +6,53 @@ export type TableProps<T = unknown> = AntdTableProps<T> & {
   // Add custom props here if needed
 };
 
-export const Table = <T extends object = unknown>(props: TableProps<T>) => {
+export const Table = <T extends object = object>(props: TableProps<T>) => {
   const hasTableHeader = !!props.title;
   const hasTableFooter = !!props.footer;
 
   return (
     <StyledTable
-      {...(props as unknown)}
+      {...(props as unknown as unknown)}
       $hasTableHeader={hasTableHeader}
       $hasTableFooter={hasTableFooter}
+      sortIcon={({
+        sortOrder,
+      }: {
+        sortOrder: 'ascend' | 'descend' | null | undefined;
+      }) => {
+        return (
+          <SorterIconWrapper className='ant-table-column-sorter-custom'>
+            <ChevronUp
+              size={12}
+              className={sortOrder === 'ascend' ? 'active' : ''}
+            />
+            <ChevronDown
+              size={12}
+              className={sortOrder === 'descend' ? 'active' : ''}
+            />
+          </SorterIconWrapper>
+        );
+      }}
     />
   );
 };
+
+const SorterIconWrapper = styled.span`
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0.25rem;
+  gap: -0.25rem;
+
+  svg {
+    color: ${({ theme }) => theme.colors.foregrounds.fgQuaternary400};
+    transition: color 0.2s ease;
+
+    &.active {
+      color: ${({ theme }) => theme.colors.Brand['500']};
+    }
+  }
+`;
 
 const StyledTable = styled(AntdTable)<{
   $hasTableHeader?: boolean;
@@ -32,6 +68,10 @@ const StyledTable = styled(AntdTable)<{
       padding-right: 0;
       text-align: right;
     }
+
+    &::before {
+      display: none;
+    }
   }
 
   thead > tr:first-child > *:last-child {
@@ -41,7 +81,6 @@ const StyledTable = styled(AntdTable)<{
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
 
-  // add border top of the header cells
   thead > tr > th {
     border-top: 1px solid ${({ theme }) => theme.colors.borders.borderSecondary};
   }
@@ -62,7 +101,6 @@ const StyledTable = styled(AntdTable)<{
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
 
-  /* Body border radius when no header */
   ${({ $hasTableHeader }) =>
     !$hasTableHeader &&
     `
@@ -74,7 +112,6 @@ const StyledTable = styled(AntdTable)<{
     }
   `}
 
-  /* Body border radius when no footer */
   ${({ $hasTableFooter }) =>
     !$hasTableFooter &&
     `
@@ -97,26 +134,6 @@ const StyledTable = styled(AntdTable)<{
   .ant-table-thead > tr > th {
   }
 
-  /* .ant-checkbox-inner,
-  .ant-checkbox-input {
-    height: 1.25rem;
-    width: 1.25rem;
-    border-radius: 0.4rem;
-  }
-
-  .ant-checkbox-inner::after {
-    width: 6.72px;
-    height: 11.2px;
-    top: 47%;
-  }
-
-  .ant-checkbox-indeterminate .ant-checkbox-inner::after {
-    width: 9px;
-    height: 9px;
-    top: 52%;
-    border-radius: 0.125rem;
-  } */
-
   .ant-table-title {
     border-top: 1px solid;
     border-inline: 1px solid;
@@ -130,5 +147,20 @@ const StyledTable = styled(AntdTable)<{
     border-color: ${({ theme }) => theme.colors.borders.borderSecondary};
     border-bottom-left-radius: ${({ theme }) => theme.radius.xl}px !important;
     border-bottom-right-radius: ${({ theme }) => theme.radius.xl}px !important;
+  }
+
+  .ant-table-column-sorters {
+    justify-content: flex-start;
+    align-items: center;
+    .ant-table-column-title {
+      flex: none;
+    }
+    .ant-table-column-sorter {
+      margin-top: 0.125rem;
+    }
+    .ant-table-column-sorter-up,
+    .ant-table-column-sorter-down {
+      font-size: ${({ theme }) => theme.fontSize['text-xs']}px;
+    }
   }
 `;
