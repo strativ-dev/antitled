@@ -34,7 +34,7 @@ export type TagProps = Omit<
   bordered?: boolean;
 };
 
-export const Tag = ({
+export const Badge = ({
   className,
   children,
   size = 'md',
@@ -68,4 +68,4 @@ export const Tag = ({
   );
 };
 
-Tag.displayName = 'Tag';
+Badge.displayName = 'Badge';

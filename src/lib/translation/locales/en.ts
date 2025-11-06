@@ -70,6 +70,7 @@ export const en = {
       Save: 'Save',
       Close: 'Close',
       Table: 'Table',
+      Dropdown: 'Dropdown',
     },
   },
 };

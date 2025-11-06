@@ -3,12 +3,12 @@ import type { SwitchProps as AntSwitchProps } from 'antd/es/switch';
 import { ReactNode } from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 
-export type SwitchSize = 'xs' | 'sm' | 'md';
-export type SwitchVariant = 'default' | 'slim';
+export type ToggleSize = 'xs' | 'sm' | 'md';
+export type ToggleVariant = 'default' | 'slim';
 
-export interface SwitchProps extends Omit<AntSwitchProps, 'size'> {
-  size?: SwitchSize;
-  variant?: SwitchVariant;
+export interface ToggleProps extends Omit<AntSwitchProps, 'size'> {
+  size?: ToggleSize;
+  variant?: ToggleVariant;
   children?: ReactNode;
   supportingText?: ReactNode;
 }
@@ -32,33 +32,33 @@ const innerSizeMap = {
   md: { width: 1.25, height: 1.25 },
 } as const;
 
-const getSwitchVariables = (
+const getToggleVariables = (
   theme: DefaultTheme,
-  variant: SwitchVariant,
-  size: SwitchSize
+  variant: ToggleVariant,
+  size: ToggleSize
 ) => {
   const { width, height } = trackSizeMap[variant][size];
   const { width: innerWidth, height: innerHeight } = innerSizeMap[size];
 
   return css`
-    --switch-width: ${width}rem;
-    --switch-height: ${height}rem;
-    --switch-handle-size: ${height - 0.25}rem;
-    --switch-inner-width: ${innerWidth}rem;
-    --switch-inner-height: ${innerHeight}rem;
-    --switch-bg: ${theme.colors.backgrounds.bgTertiary};
-    --switch-disabled-bg: ${theme.colors.backgrounds.bgDisabled};
-    --switch-checked-bg: ${theme.colors.backgrounds.bgBrandSolid};
-    --switch-inner-shadow: 0 0 0 0.125rem ${theme.colors.foregrounds.fgWhite};
-    --switch-outer-shadow: 0 0 0 0.25rem ${theme.colors.effects.focusRing};
-    --switch-handle-border-color: ${theme.colors.components.toggleBorder};
-    --switch-border-color: ${theme.colors.borders.borderSecondary};
-    --switch-checked-border: ${theme.colors.components.toggleSlimBorderPressed};
-    --switch-disabled-border: ${theme.colors.borders.borderDisabledSubtle};
+    --toggle-width: ${width}rem;
+    --toggle-height: ${height}rem;
+    --toggle-handle-size: ${height - 0.25}rem;
+    --toggle-inner-width: ${innerWidth}rem;
+    --toggle-inner-height: ${innerHeight}rem;
+    --toggle-bg: ${theme.colors.backgrounds.bgTertiary};
+    --toggle-disabled-bg: ${theme.colors.backgrounds.bgDisabled};
+    --toggle-checked-bg: ${theme.colors.backgrounds.bgBrandSolid};
+    --toggle-inner-shadow: 0 0 0 0.125rem ${theme.colors.foregrounds.fgWhite};
+    --toggle-outer-shadow: 0 0 0 0.25rem ${theme.colors.effects.focusRing};
+    --toggle-handle-border-color: ${theme.colors.components.toggleBorder};
+    --toggle-border-color: ${theme.colors.borders.borderSecondary};
+    --toggle-checked-border: ${theme.colors.components.toggleSlimBorderPressed};
+    --toggle-disabled-border: ${theme.colors.borders.borderDisabledSubtle};
   `;
 };
 
-export function Switch({
+export function Toggle({
   variant = 'default',
   size = 'md',
   children,
@@ -66,14 +66,14 @@ export function Switch({
   disabled,
   className,
   ...rest
-}: SwitchProps) {
+}: ToggleProps) {
   return (
-    <SwitchWrapper
+    <ToggleWrapper
       $variant={variant}
       $size={size}
       $disabled={disabled}
       className={className}>
-      <StyledSwitch
+      <StyledToggle
         {...rest}
         disabled={disabled}
         $variant={variant}
@@ -87,17 +87,17 @@ export function Switch({
           )}
         </span>
       )}
-    </SwitchWrapper>
+    </ToggleWrapper>
   );
 }
 
-const SwitchWrapper = styled.label<{
-  $variant: SwitchVariant;
-  $size: SwitchSize;
+const ToggleWrapper = styled.label<{
+  $variant: ToggleVariant;
+  $size: ToggleSize;
   $disabled?: boolean;
 }>`
   ${({ $variant, $size, $disabled, theme }) => css`
-    ${getSwitchVariables(theme, $variant, $size)}
+    ${getToggleVariables(theme, $variant, $size)}
 
     display: inline-flex;
     align-items: flex-start;
@@ -132,28 +132,28 @@ const SwitchWrapper = styled.label<{
   `}
 `;
 
-const StyledSwitch = styled(AntSwitch)<{
-  $variant: SwitchVariant;
-  $size: SwitchSize;
+const StyledToggle = styled(AntSwitch)<{
+  $variant: ToggleVariant;
+  $size: ToggleSize;
 }>`
   ${({ $variant }) => css`
-    width: var(--switch-width);
-    height: var(--switch-height);
-    min-width: var(--switch-width);
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    min-width: var(--toggle-width);
     border-radius: ${({ theme }) => theme.radius.full};
-    background-color: var(--switch-bg);
+    background-color: var(--toggle-bg);
 
     ${$variant === 'slim' &&
     css`
-      border: 0.0625rem solid var(--switch-border-color);
+      border: 0.0625rem solid var(--toggle-border-color);
     `}
     .ant-switch-handle {
-      width: var(--switch-handle-size);
-      height: var(--switch-handle-size);
+      width: var(--toggle-handle-size);
+      height: var(--toggle-handle-size);
       ${$variant === 'slim' &&
       css`
-        width: var(--switch-height);
-        height: var(--switch-height);
+        width: var(--toggle-height);
+        height: var(--toggle-height);
         inset-inline-start: 0;
       `}
       border-radius: 50%;
@@ -171,20 +171,20 @@ const StyledSwitch = styled(AntSwitch)<{
       border-radius: 50%;
       ${$variant === 'slim' &&
       css`
-        border: 0.0625rem solid var(--switch-handle-border-color);
+        border: 0.0625rem solid var(--toggle-handle-border-color);
       `}
     }
 
     .ant-switch-inner {
-      width: var(--switch-inner-width);
-      height: var(--switch-inner-height);
+      width: var(--toggle-inner-width);
+      height: var(--toggle-inner-height);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     &.ant-switch-checked {
-      background-color: var(--switch-checked-bg);
+      background-color: var(--toggle-checked-bg);
 
       ${$variant === 'slim' &&
       css`
@@ -192,17 +192,17 @@ const StyledSwitch = styled(AntSwitch)<{
       `}
 
       .ant-switch-handle {
-        inset-inline-start: calc(100% - var(--switch-handle-size) - 0.125rem);
+        inset-inline-start: calc(100% - var(--toggle-handle-size) - 0.125rem);
         ${$variant === 'slim' &&
         css`
-          inset-inline-start: calc(100% - var(--switch-height));
+          inset-inline-start: calc(100% - var(--toggle-height));
         `}
       }
 
       .ant-switch-handle::before {
         ${$variant === 'slim' &&
         css`
-          border: 0.0625rem solid var(--switch-checked-border);
+          border: 0.0625rem solid var(--toggle-checked-border);
         `}
       }
     }
@@ -211,22 +211,22 @@ const StyledSwitch = styled(AntSwitch)<{
         theme.colors.backgrounds.bgBrandSolidHover};
     }
     &:not(.ant-switch-checked):not(.ant-switch-disabled):hover {
-      background-color: var(--switch-bg);
+      background-color: var(--toggle-bg);
     }
     &:focus-visible {
-      box-shadow: var(--switch-inner-shadow), var(--switch-outer-shadow);
+      box-shadow: var(--toggle-inner-shadow), var(--toggle-outer-shadow);
     }
 
     &.ant-switch-disabled {
-      background-color: var(--switch-disabled-bg);
+      background-color: var(--toggle-disabled-bg);
       ${$variant === 'slim' &&
       css`
-        border: 0.0625rem solid var(--switch-disabled-border);
+        border: 0.0625rem solid var(--toggle-disabled-border);
       `}
       .ant-switch-handle::before {
         ${$variant === 'slim' &&
         css`
-          border-color: var(--switch-handle-border-color);
+          border-color: var(--toggle-handle-border-color);
         `}
       }
     }

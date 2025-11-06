@@ -4,8 +4,7 @@ import { ColumnsType } from 'antd/es/table';
 import { useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Button, Pagination, Text, Tooltip } from '@/components/Atoms';
-import { Tag } from '@/components/Atoms/Badge';
+import { Badge, Button, Pagination, Text, Tooltip } from '@/components/Atoms';
 import { Table, TableProps } from '@/components/Atoms/Table';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 import Dot from '@/components/Common/Dot';
@@ -167,14 +166,14 @@ export default function TablePage() {
         key: 'status',
         render: (status: string) => {
           return (
-            <Tag
+            <Badge
               color='primary'
               variant='outlined'
               radius='sm'
               size='sm'
               icon={<Dot color={colors.utility['success-500']} />}>
               {status}
-            </Tag>
+            </Badge>
           );
         },
         sorter: (a, b) => a.status.localeCompare(b.status),
@@ -207,7 +206,7 @@ export default function TablePage() {
           return (
             <Flex gap={2} wrap>
               {teams.map((team) => (
-                <Tag
+                <Badge
                   variant='outlined'
                   size='sm'
                   key={team}
@@ -215,7 +214,7 @@ export default function TablePage() {
                     tagVariants[Math.floor(Math.random() * tagVariants.length)]
                   }>
                   {team}
-                </Tag>
+                </Badge>
               ))}
             </Flex>
           );
@@ -280,9 +279,9 @@ export default function TablePage() {
       <Flex align='center' gap={24} justify='space-between'>
         <Text size='text-md' weight='semibold'>
           Strawhat Crew{' '}
-          <Tag color='brand' size='sm' style={{ marginLeft: '.375rem' }}>
+          <Badge color='brand' size='sm' style={{ marginLeft: '.375rem' }}>
             10 members
-          </Tag>
+          </Badge>
         </Text>
         <Button
           variant='tertiary'

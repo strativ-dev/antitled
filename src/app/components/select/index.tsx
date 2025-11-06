@@ -2,7 +2,7 @@ import { Col, Flex } from 'antd';
 import Row from 'antd/es/row';
 import { useTranslation } from 'react-i18next';
 
-import { Select } from '@/components/Atoms/Select';
+import { Select } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const OPTIONS = [
