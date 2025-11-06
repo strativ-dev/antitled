@@ -1,4 +1,3 @@
-import { ChevronDown, ChevronUp } from '@untitledui/icons';
 import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
 import styled from 'styled-components';
 
@@ -12,47 +11,14 @@ export const Table = <T extends object = object>(props: TableProps<T>) => {
 
   return (
     <StyledTable
-      {...(props as unknown as unknown)}
+      {...(props as AntdTableProps<unknown>)}
+      columns={props.columns as AntdTableProps<unknown>['columns']}
+      dataSource={props.dataSource as AntdTableProps<unknown>['dataSource']}
       $hasTableHeader={hasTableHeader}
       $hasTableFooter={hasTableFooter}
-      sortIcon={({
-        sortOrder,
-      }: {
-        sortOrder: 'ascend' | 'descend' | null | undefined;
-      }) => {
-        return (
-          <SorterIconWrapper className='ant-table-column-sorter-custom'>
-            <ChevronUp
-              size={12}
-              className={sortOrder === 'ascend' ? 'active' : ''}
-            />
-            <ChevronDown
-              size={12}
-              className={sortOrder === 'descend' ? 'active' : ''}
-            />
-          </SorterIconWrapper>
-        );
-      }}
     />
   );
 };
-
-const SorterIconWrapper = styled.span`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 0.25rem;
-  gap: -0.25rem;
-
-  svg {
-    color: ${({ theme }) => theme.colors.foregrounds.fgQuaternary400};
-    transition: color 0.2s ease;
-
-    &.active {
-      color: ${({ theme }) => theme.colors.Brand['500']};
-    }
-  }
-`;
 
 const StyledTable = styled(AntdTable)<{
   $hasTableHeader?: boolean;
