@@ -30,7 +30,7 @@ const data: DataType[] = [
     role: 'Captain',
     email: 'luffy@strawhatpirates.com',
     teams: ['Straw Hat Pirates', 'Worst Generation'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/luffy-dp.png',
   },
   {
     id: '2',
@@ -40,7 +40,7 @@ const data: DataType[] = [
     role: 'Swordsman',
     email: 'zoro@strawhatpirates.com',
     teams: ['Straw Hat Pirates', 'Worst Generation'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/zoro-dp.webp',
   },
   {
     id: '3',
@@ -50,7 +50,7 @@ const data: DataType[] = [
     role: 'Navigator',
     email: 'nami@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/nami-dp.webp',
   },
   {
     id: '4',
@@ -60,7 +60,7 @@ const data: DataType[] = [
     role: 'Cook',
     email: 'sanji@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/sanji-dp.webp',
   },
   {
     id: '5',
@@ -70,7 +70,7 @@ const data: DataType[] = [
     role: 'Doctor',
     email: 'chopper@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/chopper-dp.webp',
   },
   {
     id: '6',
@@ -80,7 +80,7 @@ const data: DataType[] = [
     role: 'Archaeologist',
     email: 'robin@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/robin-dp.webp',
   },
   {
     id: '7',
@@ -90,7 +90,7 @@ const data: DataType[] = [
     role: 'Shipwright',
     email: 'franky@strawhatpirates.com',
     teams: ['Straw Hat Pirates', 'Franky Family'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/franky-dp.webp',
   },
   {
     id: '8',
@@ -100,7 +100,7 @@ const data: DataType[] = [
     role: 'Musician',
     email: 'brook@strawhatpirates.com',
     teams: ['Straw Hat Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/brook-dp.png',
   },
   {
     id: '9',
@@ -110,7 +110,7 @@ const data: DataType[] = [
     role: 'Helmsman',
     email: 'jinbe@strawhatpirates.com',
     teams: ['Straw Hat Pirates', 'Sun Pirates'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/jinbe-dp.webp',
   },
   {
     id: '10',
@@ -120,7 +120,7 @@ const data: DataType[] = [
     role: 'Captain',
     email: 'law@heartpirates.com',
     teams: ['Heart Pirates', 'Worst Generation'],
-    avatar: 'https://via.placeholder.com/150',
+    avatar: '/assets/dummy/images/law-dp.webp',
   },
 ];
 
