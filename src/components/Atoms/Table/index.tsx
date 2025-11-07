@@ -12,8 +12,6 @@ export const Table = <T extends object = object>(props: TableProps<T>) => {
   return (
     <StyledTable
       {...(props as AntdTableProps<unknown>)}
-      columns={props.columns as AntdTableProps<unknown>['columns']}
-      dataSource={props.dataSource as AntdTableProps<unknown>['dataSource']}
       $hasTableHeader={hasTableHeader}
       $hasTableFooter={hasTableFooter}
     />
@@ -121,12 +119,77 @@ const StyledTable = styled(AntdTable)<{
     .ant-table-column-title {
       flex: none;
     }
-    .ant-table-column-sorter {
-      margin-top: 0.125rem;
-    }
-    .ant-table-column-sorter-up,
-    .ant-table-column-sorter-down {
-      font-size: ${({ theme }) => theme.fontSize['text-xs']}px;
-    }
+  }
+
+  /* Custom Sorter Icons */
+  .ant-table-column-sorter {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.275rem;
+    margin-top: 0.25rem;
+    gap: 0;
+  }
+
+  .ant-table-column-sorter-up,
+  .ant-table-column-sorter-down {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0.25rem;
+    line-height: 0;
+  }
+
+  /* Hide default icons */
+  .ant-table-column-sorter-up svg,
+  .ant-table-column-sorter-down svg {
+    display: none;
+  }
+
+  /* Default state - show both arrows using mask */
+  .ant-table-column-sorter-up::before,
+  .ant-table-column-sorter-down::before {
+    content: '';
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    background-color: ${({ theme }) =>
+      theme.colors.foregrounds.fgQuaternary400};
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .ant-table-column-sorter-up::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6-6 6 6'/%3E%3C/svg%3E");
+  }
+
+  .ant-table-column-sorter-down::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 15 6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  /* When ascending - hide up arrow, show only down arrow in brand color */
+  .ant-table-column-sorter-up.active {
+    display: none;
+  }
+
+  .ant-table-column-sorter-up.active + .ant-table-column-sorter-down::before {
+    margin-top: 0.25rem;
+    background-color: ${({ theme }) => theme.colors.Brand[500]};
+    mask-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.5V9.5M6 9.5L9.5 6M6 9.5L2.5 6' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  }
+
+  /* When descending - hide down arrow, show only up arrow in brand color */
+  .ant-table-column-sorter-down.active {
+    display: none;
+  }
+
+  .ant-table-column-sorter-down.active ~ .ant-table-column-sorter-up::before,
+  .ant-table-column-sorter-up:not(.active):has(
+      + .ant-table-column-sorter-down.active
+    )::before {
+    background-color: ${({ theme }) => theme.colors.Brand[500]};
+    mask-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 2.5V9.5M6 9.5L9.5 6M6 9.5L2.5 6' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    rotate: 180deg;
   }
 `;
