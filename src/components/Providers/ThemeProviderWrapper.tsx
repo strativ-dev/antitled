@@ -221,11 +221,9 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
         borderColor: colorPalette.borders.borderSecondary,
         cellFontSize: FONT_SIZE['text-sm'],
         headerColor: colorPalette.texts.textQuaternary500,
-        cellPaddingInline: 24,
-        cellPaddingInlineSM: 16,
-        cellPaddingInlineMD: 20,
         headerBg: colorPalette.backgrounds.bgSecondary,
         footerBg: colorPalette.backgrounds.bgPrimary,
+        selectionColumnWidth: 48,
       },
       Drawer: {
         paddingLG: SPACING['3xl'],

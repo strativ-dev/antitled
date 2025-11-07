@@ -28,11 +28,10 @@ const StyledTable = styled(AntdTable)<{
 
   .ant-table-cell {
     &.ant-table-selection-column {
-      padding-left: 1.5rem;
       padding-right: 0;
-      text-align: right;
     }
 
+    /* Remove header divider */
     &::before {
       display: none;
     }
@@ -89,13 +88,14 @@ const StyledTable = styled(AntdTable)<{
 
 
   .ant-table-tbody > tr > td:nth-of-type(2) {
-    padding-left: 0.75rem;
+    padding-left: 0.5rem;
   }
-  thead > tr > th:nth-of-type(2) {
-    padding-left: 0.75rem;
+  .ant-table-thead > tr > th:nth-of-type(2) {
+    padding-left: 0.5rem;
   }
 
   .ant-table-thead > tr > th {
+    padding-block: 0.5625rem;
   }
 
   .ant-table-title {
