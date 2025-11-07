@@ -6,21 +6,21 @@ export type TableProps<T = unknown> = AntdTableProps<T> & {
 };
 
 export const Table = <T extends object = object>(props: TableProps<T>) => {
-  const hasTableHeader = !!props.title;
-  const hasTableFooter = !!props.footer;
+  const hasHeader = !!props.title;
+  const hasFooter = !!props.footer;
 
   return (
     <StyledTable
       {...(props as AntdTableProps<unknown>)}
-      $hasTableHeader={hasTableHeader}
-      $hasTableFooter={hasTableFooter}
+      $hasHeader={hasHeader}
+      $hasFooter={hasFooter}
     />
   );
 };
 
 const StyledTable = styled(AntdTable)<{
-  $hasTableHeader?: boolean;
-  $hasTableFooter?: boolean;
+  $hasHeader?: boolean;
+  $hasFooter?: boolean;
 }>`
   box-shadow: ${({ theme }) => theme.shadows.xs};
   border-radius: ${({ theme }) => theme.radius.xl}px;
@@ -38,8 +38,8 @@ const StyledTable = styled(AntdTable)<{
   }
 
   thead > tr:first-child > *:last-child {
-    border-top-right-radius: ${({ theme, $hasTableHeader }) =>
-      $hasTableHeader ? 0 : theme.radius.xl}px;
+    border-top-right-radius: ${({ theme, $hasHeader }) =>
+      $hasHeader ? 0 : theme.radius.xl}px;
     border-right: 1px solid
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
@@ -49,8 +49,8 @@ const StyledTable = styled(AntdTable)<{
   }
 
   thead > tr:first-child > *:first-child {
-    border-top-left-radius: ${({ theme, $hasTableHeader }) =>
-      $hasTableHeader ? 0 : theme.radius.xl}px;
+    border-top-left-radius: ${({ theme, $hasHeader }) =>
+      $hasHeader ? 0 : theme.radius.xl}px;
     border-left: 1px solid
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
@@ -64,8 +64,8 @@ const StyledTable = styled(AntdTable)<{
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
 
-  ${({ $hasTableHeader }) =>
-    !$hasTableHeader &&
+  ${({ $hasHeader }) =>
+    !$hasHeader &&
     `
     tbody > tr:first-child > td:first-child {
       border-top-left-radius: 0.5rem;
@@ -75,8 +75,8 @@ const StyledTable = styled(AntdTable)<{
     }
   `}
 
-  ${({ $hasTableFooter }) =>
-    !$hasTableFooter &&
+  ${({ $hasFooter }) =>
+    !$hasFooter &&
     `
     tbody > tr:last-child > td:first-child {
       border-bottom-left-radius: 0.5rem;
