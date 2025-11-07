@@ -71,6 +71,7 @@ export const en = {
       Close: 'Close',
       Table: 'Table',
       Dropdown: 'Dropdown',
+      Avatar: 'Avatar',
     },
   },
 };

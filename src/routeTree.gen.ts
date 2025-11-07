@@ -33,6 +33,7 @@ import { Route as ComponentsCheckboxIndexRouteImport } from './routes/components
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index'
 import { Route as ComponentsButtonGroupIndexRouteImport } from './routes/components/button-group/index'
 import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index'
+import { Route as ComponentsAvatarIndexRouteImport } from './routes/components/avatar/index'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -159,6 +160,11 @@ const ComponentsBadgeIndexRoute = ComponentsBadgeIndexRouteImport.update({
   path: '/badge/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsAvatarIndexRoute = ComponentsAvatarIndexRouteImport.update({
+  id: '/avatar/',
+  path: '/avatar/',
+  getParentRoute: () => ComponentsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/avatar': typeof ComponentsAvatarIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
@@ -192,6 +199,7 @@ export interface FileRoutesByTo {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components': typeof ComponentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/components/avatar': typeof ComponentsAvatarIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute
   '/components/button': typeof ComponentsButtonIndexRoute
@@ -219,6 +227,7 @@ export interface FileRoutesById {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/avatar/': typeof ComponentsAvatarIndexRoute
   '/components/badge/': typeof ComponentsBadgeIndexRoute
   '/components/button-group/': typeof ComponentsButtonGroupIndexRoute
   '/components/button/': typeof ComponentsButtonIndexRoute
@@ -247,6 +256,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
     | '/components/button'
@@ -271,6 +281,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
+    | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
     | '/components/button'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar/'
     | '/components/badge/'
     | '/components/button-group/'
     | '/components/button/'
@@ -493,11 +505,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsBadgeIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/avatar/': {
+      id: '/components/avatar/'
+      path: '/avatar'
+      fullPath: '/components/avatar'
+      preLoaderRoute: typeof ComponentsAvatarIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
   }
 }
 
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute
+  ComponentsAvatarIndexRoute: typeof ComponentsAvatarIndexRoute
   ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute
   ComponentsButtonGroupIndexRoute: typeof ComponentsButtonGroupIndexRoute
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute
@@ -519,6 +539,7 @@ interface ComponentsRouteChildren {
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsAvatarIndexRoute: ComponentsAvatarIndexRoute,
   ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonGroupIndexRoute: ComponentsButtonGroupIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
