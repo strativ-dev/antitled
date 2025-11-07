@@ -29,6 +29,22 @@ const getFontSizes = (size?: AvatarSize) => {
   }
 };
 
+const getGap = (size?: AvatarSize) => {
+  switch (size) {
+    case 'xs':
+    case 'sm':
+    case 'md':
+      return 8;
+    case 'lg':
+      return 12;
+    case 'xl':
+    case '2xl':
+      return 16;
+    default:
+      return 8;
+  }
+};
+
 export default function AvatarLabelGroup({
   avatar,
   label,
@@ -42,7 +58,7 @@ export default function AvatarLabelGroup({
   }
 
   return (
-    <Flex gap={12} align='center'>
+    <Flex gap={getGap(size)} align='center'>
       <Avatar
         size={size}
         src={avatar}

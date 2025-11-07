@@ -34,6 +34,7 @@ import { Route as ComponentsButtonIndexRouteImport } from './routes/components/b
 import { Route as ComponentsButtonGroupIndexRouteImport } from './routes/components/button-group/index'
 import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index'
 import { Route as ComponentsAvatarIndexRouteImport } from './routes/components/avatar/index'
+import { Route as ComponentsAvatarLabelGroupIndexRouteImport } from './routes/components/avatar-label-group/index'
 
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
@@ -165,6 +166,12 @@ const ComponentsAvatarIndexRoute = ComponentsAvatarIndexRouteImport.update({
   path: '/avatar/',
   getParentRoute: () => ComponentsRoute,
 } as any)
+const ComponentsAvatarLabelGroupIndexRoute =
+  ComponentsAvatarLabelGroupIndexRouteImport.update({
+    id: '/avatar-label-group/',
+    path: '/avatar-label-group/',
+    getParentRoute: () => ComponentsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -174,6 +181,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute
   '/components/avatar': typeof ComponentsAvatarIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute
@@ -199,6 +207,7 @@ export interface FileRoutesByTo {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components': typeof ComponentsIndexRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute
   '/components/avatar': typeof ComponentsAvatarIndexRoute
   '/components/badge': typeof ComponentsBadgeIndexRoute
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute
@@ -227,6 +236,7 @@ export interface FileRoutesById {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute
   '/components/': typeof ComponentsIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/components/avatar-label-group/': typeof ComponentsAvatarLabelGroupIndexRoute
   '/components/avatar/': typeof ComponentsAvatarIndexRoute
   '/components/badge/': typeof ComponentsBadgeIndexRoute
   '/components/button-group/': typeof ComponentsButtonGroupIndexRoute
@@ -256,6 +266,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar-label-group'
     | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
@@ -281,6 +292,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
+    | '/components/avatar-label-group'
     | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
@@ -308,6 +320,7 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar-label-group/'
     | '/components/avatar/'
     | '/components/badge/'
     | '/components/button-group/'
@@ -512,11 +525,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsAvatarIndexRouteImport
       parentRoute: typeof ComponentsRoute
     }
+    '/components/avatar-label-group/': {
+      id: '/components/avatar-label-group/'
+      path: '/avatar-label-group'
+      fullPath: '/components/avatar-label-group'
+      preLoaderRoute: typeof ComponentsAvatarLabelGroupIndexRouteImport
+      parentRoute: typeof ComponentsRoute
+    }
   }
 }
 
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute
+  ComponentsAvatarLabelGroupIndexRoute: typeof ComponentsAvatarLabelGroupIndexRoute
   ComponentsAvatarIndexRoute: typeof ComponentsAvatarIndexRoute
   ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute
   ComponentsButtonGroupIndexRoute: typeof ComponentsButtonGroupIndexRoute
@@ -539,6 +560,7 @@ interface ComponentsRouteChildren {
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsAvatarLabelGroupIndexRoute: ComponentsAvatarLabelGroupIndexRoute,
   ComponentsAvatarIndexRoute: ComponentsAvatarIndexRoute,
   ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonGroupIndexRoute: ComponentsButtonGroupIndexRoute,
