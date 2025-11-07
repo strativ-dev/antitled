@@ -111,6 +111,22 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
               <Link to='/components/paginations'>{t('common.Pagination')}</Link>
             ),
           },
+          {
+            key: 'table',
+            label: <Link to='/components/table'>{t('common.Table')}</Link>,
+          },
+          {
+            key: 'avatar',
+            label: <Link to='/components/avatar'>{t('common.Avatar')}</Link>,
+          },
+          {
+            key: 'avatar-label-group',
+            label: (
+              <Link to='/components/avatar-label-group'>
+                Avatar Label Group
+              </Link>
+            ),
+          },
         ],
       },
     ];

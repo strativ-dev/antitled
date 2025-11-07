@@ -69,7 +69,9 @@ export const en = {
       Confirm: 'Confirm',
       Save: 'Save',
       Close: 'Close',
+      Table: 'Table',
       Dropdown: 'Dropdown',
+      Avatar: 'Avatar',
     },
   },
 };

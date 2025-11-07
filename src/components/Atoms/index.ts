@@ -19,3 +19,5 @@ export type { TabsProps, TabItem } from './Tabs';
 export { Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';
 export { CircleSpinner } from './CircleSpinner';
+export { Avatar } from './Avatar';
+export type { AvatarSize, AvatarStatus } from './Avatar';
