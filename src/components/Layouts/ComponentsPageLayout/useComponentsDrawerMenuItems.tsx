@@ -2,132 +2,130 @@ import { Link } from '@tanstack/react-router';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 
 import useAuthStore from '@/stores/useAuthStore';
+
+const sortMenuItems = (
+  items: Array<{
+    key: string;
+    path: string;
+    i18nKey?: string;
+    label?: string;
+  }>,
+  translate: (k?: string) => string
+) => {
+  return items
+    .map((it) => ({
+      ...it,
+      display: it.label ?? translate(it.i18nKey),
+    }))
+    .sort((a, b) =>
+      a.display.localeCompare(b.display, undefined, { sensitivity: 'base' })
+    )
+    .map((it) => ({
+      key: it.key,
+      label: (
+        <Link to={it.path}>
+          {it.i18nKey ? translate(it.i18nKey) : it.label}
+        </Link>
+      ),
+    }));
+};
 
 export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
   const { t } = useTranslation();
   const { user } = useAuthStore();
+  const translate = (k?: string) =>
+    k ? (t as (key: string) => string)(k) : '';
 
   const menuItems = useMemo(() => {
+    const atomsChildrenData: Array<{
+      key: string;
+      path: string;
+      i18nKey?: string;
+      label?: string;
+    }> = [
+      { key: 'button', path: '/components/button', i18nKey: 'common.Button' },
+      {
+        key: 'button-group',
+        path: '/components/button-group',
+        i18nKey: 'common.button_group',
+      },
+      { key: 'text', path: '/components/text', i18nKey: 'common.Text' },
+      { key: 'input', path: '/components/input', i18nKey: 'common.Input' },
+      {
+        key: 'input-number',
+        path: '/components/input-number',
+        i18nKey: 'common.Input Number',
+      },
+      { key: 'select', path: '/components/select', i18nKey: 'common.Select' },
+      {
+        key: 'dropdown',
+        path: '/components/dropdown',
+        i18nKey: 'common.Dropdown',
+      },
+      { key: 'modals', path: '/components/modals', i18nKey: 'common.Modal' },
+      { key: 'badge', path: '/components/badge', i18nKey: 'common.Badge' },
+      {
+        key: 'checkbox',
+        path: '/components/checkbox',
+        i18nKey: 'common.Checkbox',
+      },
+      { key: 'toggle', path: '/components/toggle', i18nKey: 'common.Toggle' },
+      {
+        key: 'tooltip',
+        path: '/components/tooltip',
+        i18nKey: 'common.Tooltip',
+      },
+      { key: 'tabs', path: '/components/tabs', i18nKey: 'common.Tabs' },
+      {
+        key: 'paginations',
+        path: '/components/paginations',
+        i18nKey: 'common.Pagination',
+      },
+      { key: 'table', path: '/components/table', i18nKey: 'common.Table' },
+      { key: 'avatar', path: '/components/avatar', i18nKey: 'common.Avatar' },
+    ];
+
+    const moleculesChildrenData: Array<{
+      key: string;
+      path: string;
+      i18nKey?: string;
+      label?: string;
+    }> = [
+      {
+        key: 'input-copy-text',
+        path: '/components/input-copy-text',
+        i18nKey: 'common.Input Copy Text',
+      },
+      {
+        key: 'input-phone-number',
+        path: '/components/input-phone-number',
+        i18nKey: 'common.Input Phone Number',
+      },
+      {
+        key: 'avatar-label-group',
+        path: '/components/avatar-label-group',
+        label: 'Avatar Label Group',
+      },
+    ];
+
     const items: ItemType<MenuItemType>[] = [
       {
         key: '',
         label: <Link to='/components'>{t('common.Component Overview')}</Link>,
       },
       {
-        key: 'general',
-        label: <StyledGroupName>{t('common.General')}</StyledGroupName>,
+        key: 'Atoms',
+        label: 'Atoms',
         type: 'group',
-        children: [
-          {
-            key: 'button',
-            label: <Link to='/components/button'>{t('common.Button')}</Link>,
-          },
-          {
-            key: 'button-group',
-            label: (
-              <Link to='/components/button-group'>
-                {t('common.button_group')}
-              </Link>
-            ),
-          },
-          {
-            key: 'text',
-            label: <Link to='/components/text'>{t('common.Text')}</Link>,
-          },
-          {
-            key: 'input',
-            label: <Link to='/components/input'>{t('common.Input')}</Link>,
-          },
-          {
-            key: 'input-number',
-            label: (
-              <Link to='/components/input-number'>
-                {t('common.Input Number')}
-              </Link>
-            ),
-          },
-          {
-            key: 'input-copy-text',
-            label: (
-              <Link to='/components/input-copy-text'>
-                {t('common.Input Copy Text')}
-              </Link>
-            ),
-          },
-          {
-            key: 'input-phone-number',
-            label: (
-              <Link to='/components/input-phone-number'>
-                {t('common.Input Phone Number')}
-              </Link>
-            ),
-          },
-          {
-            key: 'select',
-            label: <Link to='/components/select'>{t('common.Select')}</Link>,
-          },
-          {
-            key: 'dropdown',
-            label: (
-              <Link to='/components/dropdown'>{t('common.Dropdown')}</Link>
-            ),
-          },
-          {
-            key: 'tab',
-            label: <Link to='/components/tabs'>{t('common.Tabs')}</Link>,
-          },
-          {
-            key: 'modal',
-            label: <Link to='/components/modals'>{t('common.Modals')}</Link>,
-          },
-          {
-            key: 'badge',
-            label: <Link to='/components/badge'>{t('common.Badge')}</Link>,
-          },
-          {
-            key: 'checkbox',
-            label: (
-              <Link to='/components/checkbox'>{t('common.Checkbox')}</Link>
-            ),
-          },
-          {
-            key: 'toggle',
-            label: <Link to='/components/toggle'>{t('common.Toggle')}</Link>,
-          },
-          {
-            key: 'tooltip',
-            label: <Link to='/components/tooltip'>{t('common.Tooltip')}</Link>,
-          },
-          {
-            key: 'tabs',
-            label: <Link to='/components/tabs'>{t('common.Tabs')}</Link>,
-          },
-          {
-            key: 'paginations',
-            label: (
-              <Link to='/components/paginations'>{t('common.Pagination')}</Link>
-            ),
-          },
-          {
-            key: 'table',
-            label: <Link to='/components/table'>{t('common.Table')}</Link>,
-          },
-          {
-            key: 'avatar',
-            label: <Link to='/components/avatar'>{t('common.Avatar')}</Link>,
-          },
-          {
-            key: 'avatar-label-group',
-            label: (
-              <Link to='/components/avatar-label-group'>
-                Avatar Label Group
-              </Link>
-            ),
-          },
-        ],
+        children: sortMenuItems(atomsChildrenData, translate),
+      },
+      {
+        key: 'Molecules',
+        label: 'Molecules',
+        type: 'group',
+        children: sortMenuItems(moleculesChildrenData, translate),
       },
     ];
 
@@ -148,12 +146,9 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
     }
     return acc;
   }, [] as string[]);
+
   return {
     componentsMenuItem: menuItems,
     componentsMenuItemKeys: menuItemKeys,
   };
 };
-
-const StyledGroupName = styled.span`
-  /* color: ${({ theme }) => theme.colors['texts']['textDisabled']}; */
-`;

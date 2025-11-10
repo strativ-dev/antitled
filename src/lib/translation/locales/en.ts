@@ -65,6 +65,7 @@ export const en = {
       Pagination: 'Pagination',
       button_group: 'Button group',
       Modals: 'Modals',
+      Modal: 'Modal',
       Cancel: 'Cancel',
       Confirm: 'Confirm',
       Save: 'Save',
