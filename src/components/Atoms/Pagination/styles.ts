@@ -142,6 +142,7 @@ const getVariantStyles = (
 
       .ant-select-selection-item {
         color: ${({ theme }) => theme.colors.texts.textSecondary700};
+        font-weight: ${({ theme }) => theme.fontWeight.medium};
       }
     }
 

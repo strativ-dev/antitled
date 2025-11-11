@@ -7,6 +7,8 @@
 import { Route as rootRouteImport } from './routes/__root';
 import { Route as PublicLoginRouteImport } from './routes/_public/login';
 import { Route as ComponentsRouteImport } from './routes/components';
+import { Route as ComponentsAvatarLabelGroupIndexRouteImport } from './routes/components/avatar-label-group/index';
+import { Route as ComponentsAvatarIndexRouteImport } from './routes/components/avatar/index';
 import { Route as ComponentsBadgeIndexRouteImport } from './routes/components/badge/index';
 import { Route as ComponentsButtonGroupIndexRouteImport } from './routes/components/button-group/index';
 import { Route as ComponentsButtonIndexRouteImport } from './routes/components/button/index';
@@ -20,6 +22,7 @@ import { Route as ComponentsInputIndexRouteImport } from './routes/components/in
 import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index';
 import { Route as ComponentsPaginationsIndexRouteImport } from './routes/components/paginations/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
+import { Route as ComponentsTableIndexRouteImport } from './routes/components/table/index';
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
 import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index';
@@ -82,6 +85,11 @@ const ComponentsTextIndexRoute = ComponentsTextIndexRouteImport.update({
 const ComponentsTabsIndexRoute = ComponentsTabsIndexRouteImport.update({
   id: '/tabs/',
   path: '/tabs/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
+const ComponentsTableIndexRoute = ComponentsTableIndexRouteImport.update({
+  id: '/table/',
+  path: '/table/',
   getParentRoute: () => ComponentsRoute,
 } as any);
 const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
@@ -149,6 +157,17 @@ const ComponentsBadgeIndexRoute = ComponentsBadgeIndexRouteImport.update({
   path: '/badge/',
   getParentRoute: () => ComponentsRoute,
 } as any);
+const ComponentsAvatarIndexRoute = ComponentsAvatarIndexRouteImport.update({
+  id: '/avatar/',
+  path: '/avatar/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
+const ComponentsAvatarLabelGroupIndexRoute =
+  ComponentsAvatarLabelGroupIndexRouteImport.update({
+    id: '/avatar-label-group/',
+    path: '/avatar-label-group/',
+    getParentRoute: () => ComponentsRoute,
+  } as any);
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute;
@@ -158,6 +177,8 @@ export interface FileRoutesByFullPath {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
+  '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute;
+  '/components/avatar': typeof ComponentsAvatarIndexRoute;
   '/components/badge': typeof ComponentsBadgeIndexRoute;
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
@@ -170,6 +191,7 @@ export interface FileRoutesByFullPath {
   '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/toggle': typeof ComponentsToggleIndexRoute;
@@ -181,6 +203,8 @@ export interface FileRoutesByTo {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components': typeof ComponentsIndexRoute;
   '/dashboard': typeof DashboardIndexRoute;
+  '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute;
+  '/components/avatar': typeof ComponentsAvatarIndexRoute;
   '/components/badge': typeof ComponentsBadgeIndexRoute;
   '/components/button-group': typeof ComponentsButtonGroupIndexRoute;
   '/components/button': typeof ComponentsButtonIndexRoute;
@@ -193,6 +217,7 @@ export interface FileRoutesByTo {
   '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
   '/components/toggle': typeof ComponentsToggleIndexRoute;
@@ -207,6 +232,8 @@ export interface FileRoutesById {
   '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
+  '/components/avatar-label-group/': typeof ComponentsAvatarLabelGroupIndexRoute;
+  '/components/avatar/': typeof ComponentsAvatarIndexRoute;
   '/components/badge/': typeof ComponentsBadgeIndexRoute;
   '/components/button-group/': typeof ComponentsButtonGroupIndexRoute;
   '/components/button/': typeof ComponentsButtonIndexRoute;
@@ -219,6 +246,7 @@ export interface FileRoutesById {
   '/components/modals/': typeof ComponentsModalsIndexRoute;
   '/components/paginations/': typeof ComponentsPaginationsIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
+  '/components/table/': typeof ComponentsTableIndexRoute;
   '/components/tabs/': typeof ComponentsTabsIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
   '/components/toggle/': typeof ComponentsToggleIndexRoute;
@@ -234,6 +262,8 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar-label-group'
+    | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
     | '/components/button'
@@ -246,6 +276,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/table'
     | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
@@ -257,6 +288,8 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
+    | '/components/avatar-label-group'
+    | '/components/avatar'
     | '/components/badge'
     | '/components/button-group'
     | '/components/button'
@@ -269,6 +302,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/table'
     | '/components/tabs'
     | '/components/text'
     | '/components/toggle'
@@ -282,6 +316,8 @@ export interface FileRouteTypes {
     | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
+    | '/components/avatar-label-group/'
+    | '/components/avatar/'
     | '/components/badge/'
     | '/components/button-group/'
     | '/components/button/'
@@ -294,6 +330,7 @@ export interface FileRouteTypes {
     | '/components/modals/'
     | '/components/paginations/'
     | '/components/select/'
+    | '/components/table/'
     | '/components/tabs/'
     | '/components/text/'
     | '/components/toggle/'
@@ -386,6 +423,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsTabsIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/table/': {
+      id: '/components/table/';
+      path: '/table';
+      fullPath: '/components/table';
+      preLoaderRoute: typeof ComponentsTableIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
     '/components/select/': {
       id: '/components/select/';
       path: '/select';
@@ -470,11 +514,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComponentsBadgeIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
+    '/components/avatar/': {
+      id: '/components/avatar/';
+      path: '/avatar';
+      fullPath: '/components/avatar';
+      preLoaderRoute: typeof ComponentsAvatarIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
+    '/components/avatar-label-group/': {
+      id: '/components/avatar-label-group/';
+      path: '/avatar-label-group';
+      fullPath: '/components/avatar-label-group';
+      preLoaderRoute: typeof ComponentsAvatarLabelGroupIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
   }
 }
 
 interface ComponentsRouteChildren {
   ComponentsIndexRoute: typeof ComponentsIndexRoute;
+  ComponentsAvatarLabelGroupIndexRoute: typeof ComponentsAvatarLabelGroupIndexRoute;
+  ComponentsAvatarIndexRoute: typeof ComponentsAvatarIndexRoute;
   ComponentsBadgeIndexRoute: typeof ComponentsBadgeIndexRoute;
   ComponentsButtonGroupIndexRoute: typeof ComponentsButtonGroupIndexRoute;
   ComponentsButtonIndexRoute: typeof ComponentsButtonIndexRoute;
@@ -487,6 +547,7 @@ interface ComponentsRouteChildren {
   ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute;
   ComponentsPaginationsIndexRoute: typeof ComponentsPaginationsIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
+  ComponentsTableIndexRoute: typeof ComponentsTableIndexRoute;
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
   ComponentsToggleIndexRoute: typeof ComponentsToggleIndexRoute;
@@ -495,6 +556,8 @@ interface ComponentsRouteChildren {
 
 const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsIndexRoute: ComponentsIndexRoute,
+  ComponentsAvatarLabelGroupIndexRoute: ComponentsAvatarLabelGroupIndexRoute,
+  ComponentsAvatarIndexRoute: ComponentsAvatarIndexRoute,
   ComponentsBadgeIndexRoute: ComponentsBadgeIndexRoute,
   ComponentsButtonGroupIndexRoute: ComponentsButtonGroupIndexRoute,
   ComponentsButtonIndexRoute: ComponentsButtonIndexRoute,
@@ -507,6 +570,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
   ComponentsPaginationsIndexRoute: ComponentsPaginationsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
+  ComponentsTableIndexRoute: ComponentsTableIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,
   ComponentsToggleIndexRoute: ComponentsToggleIndexRoute,
