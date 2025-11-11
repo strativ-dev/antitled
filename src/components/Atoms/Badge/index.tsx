@@ -5,6 +5,8 @@ import { ComponentProps, useContext } from 'react';
 import { TagWrapper } from './styles';
 
 export type ExtendedVariant = 'solid' | 'outlined';
+export type TagShape = 'pill' | 'rect';
+
 export type ExtendedColor =
   | 'primary'
   | 'brand'
@@ -20,7 +22,6 @@ export type ExtendedColor =
   | 'pink'
   | 'orange';
 
-export type TagRadius = 'sm' | 'md' | 'full';
 export type TagSize = 'sm' | 'md' | 'lg';
 
 export type TagProps = Omit<
@@ -29,7 +30,7 @@ export type TagProps = Omit<
 > & {
   size?: TagSize;
   color?: ExtendedColor;
-  radius?: TagRadius;
+  shape?: TagShape;
   variant?: ExtendedVariant;
   bordered?: boolean;
 };
@@ -39,7 +40,7 @@ export const Badge = ({
   children,
   size = 'md',
   color = 'gray',
-  radius = 'full',
+  shape = 'pill',
   variant = 'solid',
   bordered = true,
   icon,
@@ -49,15 +50,17 @@ export const Badge = ({
   const prefixCls = getPrefixCls('tag');
 
   const iconOnly = !children && !!icon;
+  const labelOnly = !!children && !icon;
 
   return (
     <TagWrapper
       $size={size}
       $color={color}
-      $radius={radius}
+      $shape={shape}
       $variant={variant}
       $bordered={bordered}
-      $iconOnly={iconOnly}>
+      $iconOnly={iconOnly}
+      $labelOnly={labelOnly}>
       <AntTag
         {...rest}
         icon={icon}
