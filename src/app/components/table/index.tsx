@@ -71,7 +71,7 @@ export default function TablePage() {
             <Badge
               color='primary'
               variant='outlined'
-              radius='sm'
+              shape='rect'
               size='sm'
               icon={<Dot color={colors.utility['success-500']} />}>
               {status}
