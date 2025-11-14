@@ -72,6 +72,7 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
         i18nKey: 'common.Checkbox',
       },
       { key: 'toggle', path: '/components/toggle', i18nKey: 'common.Toggle' },
+      { key: 'slider', path: '/components/slider', i18nKey: 'common.Slider' },
       {
         key: 'tooltip',
         path: '/components/tooltip',

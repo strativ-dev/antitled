@@ -73,6 +73,7 @@ export const en = {
       Table: 'Table',
       Dropdown: 'Dropdown',
       Avatar: 'Avatar',
+      Slider: 'Slider',
     },
   },
 };
