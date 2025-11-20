@@ -22,6 +22,7 @@ import { Route as ComponentsInputIndexRouteImport } from './routes/components/in
 import { Route as ComponentsModalsIndexRouteImport } from './routes/components/modals/index';
 import { Route as ComponentsPaginationsIndexRouteImport } from './routes/components/paginations/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
+import { Route as ComponentsSliderIndexRouteImport } from './routes/components/slider/index';
 import { Route as ComponentsTableIndexRouteImport } from './routes/components/table/index';
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index';
 import { Route as ComponentsTextIndexRouteImport } from './routes/components/text/index';
@@ -90,6 +91,11 @@ const ComponentsTabsIndexRoute = ComponentsTabsIndexRouteImport.update({
 const ComponentsTableIndexRoute = ComponentsTableIndexRouteImport.update({
   id: '/table/',
   path: '/table/',
+  getParentRoute: () => ComponentsRoute,
+} as any);
+const ComponentsSliderIndexRoute = ComponentsSliderIndexRouteImport.update({
+  id: '/slider/',
+  path: '/slider/',
   getParentRoute: () => ComponentsRoute,
 } as any);
 const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/slider': typeof ComponentsSliderIndexRoute;
   '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
@@ -217,6 +224,7 @@ export interface FileRoutesByTo {
   '/components/modals': typeof ComponentsModalsIndexRoute;
   '/components/paginations': typeof ComponentsPaginationsIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/slider': typeof ComponentsSliderIndexRoute;
   '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
   '/components/text': typeof ComponentsTextIndexRoute;
@@ -246,6 +254,7 @@ export interface FileRoutesById {
   '/components/modals/': typeof ComponentsModalsIndexRoute;
   '/components/paginations/': typeof ComponentsPaginationsIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
+  '/components/slider/': typeof ComponentsSliderIndexRoute;
   '/components/table/': typeof ComponentsTableIndexRoute;
   '/components/tabs/': typeof ComponentsTabsIndexRoute;
   '/components/text/': typeof ComponentsTextIndexRoute;
@@ -276,6 +285,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/slider'
     | '/components/table'
     | '/components/tabs'
     | '/components/text'
@@ -302,6 +312,7 @@ export interface FileRouteTypes {
     | '/components/modals'
     | '/components/paginations'
     | '/components/select'
+    | '/components/slider'
     | '/components/table'
     | '/components/tabs'
     | '/components/text'
@@ -330,6 +341,7 @@ export interface FileRouteTypes {
     | '/components/modals/'
     | '/components/paginations/'
     | '/components/select/'
+    | '/components/slider/'
     | '/components/table/'
     | '/components/tabs/'
     | '/components/text/'
@@ -428,6 +440,13 @@ declare module '@tanstack/react-router' {
       path: '/table';
       fullPath: '/components/table';
       preLoaderRoute: typeof ComponentsTableIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
+    '/components/slider/': {
+      id: '/components/slider/';
+      path: '/slider';
+      fullPath: '/components/slider';
+      preLoaderRoute: typeof ComponentsSliderIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
     '/components/select/': {
@@ -547,6 +566,7 @@ interface ComponentsRouteChildren {
   ComponentsModalsIndexRoute: typeof ComponentsModalsIndexRoute;
   ComponentsPaginationsIndexRoute: typeof ComponentsPaginationsIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
+  ComponentsSliderIndexRoute: typeof ComponentsSliderIndexRoute;
   ComponentsTableIndexRoute: typeof ComponentsTableIndexRoute;
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute;
   ComponentsTextIndexRoute: typeof ComponentsTextIndexRoute;
@@ -570,6 +590,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsModalsIndexRoute: ComponentsModalsIndexRoute,
   ComponentsPaginationsIndexRoute: ComponentsPaginationsIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
+  ComponentsSliderIndexRoute: ComponentsSliderIndexRoute,
   ComponentsTableIndexRoute: ComponentsTableIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,
   ComponentsTextIndexRoute: ComponentsTextIndexRoute,

@@ -40,6 +40,7 @@ export const sv = {
       button_group: 'Knappgrupp',
       Dropdown: 'Dropdown',
       Pagination: 'Pagination',
+      Slider: 'Slider',
     },
   },
 };
