@@ -74,6 +74,7 @@ export const en = {
       Dropdown: 'Dropdown',
       Avatar: 'Avatar',
       Slider: 'Slider',
+      Progress: 'Progress',
     },
   },
 };

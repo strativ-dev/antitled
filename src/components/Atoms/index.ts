@@ -13,6 +13,7 @@ export { Modal } from './Modal';
 export { ModalTitle } from './Modal/ModalTitle';
 export { Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';
+export { Progress } from './Progress';
 export { Select } from './Select';
 export { StyledSimpleBar } from './StyledSimplebar';
 export { Tabs } from './Tabs';
