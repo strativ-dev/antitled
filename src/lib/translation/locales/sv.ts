@@ -41,6 +41,7 @@ export const sv = {
       Dropdown: 'Dropdown',
       Pagination: 'Pagination',
       Slider: 'Slider',
+      Progress: 'Progress',
     },
   },
 };

@@ -74,6 +74,11 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
       { key: 'toggle', path: '/components/toggle', i18nKey: 'common.Toggle' },
       { key: 'slider', path: '/components/slider', i18nKey: 'common.Slider' },
       {
+        key: 'progress',
+        path: '/components/progress',
+        i18nKey: 'common.Progress',
+      },
+      {
         key: 'tooltip',
         path: '/components/tooltip',
         i18nKey: 'common.Tooltip',
