@@ -1,4 +1,5 @@
 import { Col, Flex, Row, SliderSingleProps } from 'antd';
+import styled from 'styled-components';
 
 import Slider from '@/components/Atoms/Slider';
 
@@ -25,157 +26,214 @@ export default function Sliders() {
   return (
     <Flex vertical gap='16px'>
       <h2>Sliders</h2>
-
-      <Row gutter={32}>
-        <Col span={8}>
-          <h5>Draggable Track</h5>
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <h5>Draggable Track</h5>
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <h5>Graduated Slider</h5>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <h5>Graduated Slider</h5>
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <h5>Control Visibility of Tooltip</h5>
-        </Col>
-      </Row>
-
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider range={{ draggableTrack: true }} defaultValue={[0, 25]} />
-        </Col>
-        <Col span={8}>
-          <Slider range marks={marks2} defaultValue={[0, 25]} />
-        </Col>
-        <Col span={8}>
-          <Slider range defaultValue={[0, 25]} tooltip={{ open: true }} />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <h5>Control Visibility of Tooltip</h5>
+          </ColWrapper>
         </Col>
       </Row>
 
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider range={{ draggableTrack: true }} defaultValue={[0, 50]} />
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range={{ draggableTrack: true }} defaultValue={[0, 25]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider range marks={marks3} defaultValue={[0, 50]} />
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range marks={marks2} defaultValue={[0, 25]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider defaultValue={50} tooltip={{ open: true }} />
-        </Col>
-      </Row>
-
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider range={{ draggableTrack: true }} defaultValue={[0, 75]} />
-        </Col>
-        <Col span={8}>
-          <Slider range marks={marks4} defaultValue={[0, 75]} />
-        </Col>
-        <Col span={8}>
-          <Slider defaultValue={75} tooltip={{ open: true }} />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider range defaultValue={[0, 25]} tooltip={{ open: true }} />
+          </ColWrapper>
         </Col>
       </Row>
 
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider range={{ draggableTrack: true }} defaultValue={[0, 100]} />
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range={{ draggableTrack: true }} defaultValue={[0, 50]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider range marks={marks8} defaultValue={[0, 100]} />
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range marks={marks3} defaultValue={[0, 50]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider defaultValue={100} tooltip={{ open: true }} />
-        </Col>
-      </Row>
-
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider
-            range
-            defaultValue={[50, 75]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
-        </Col>
-        <Col span={8}>
-          <Slider
-            range
-            marks={marks9}
-            defaultValue={[50, 75]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
-        </Col>
-        <Col span={8}>
-          <Slider range defaultValue={[50, 75]} tooltip={{ open: true }} />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider defaultValue={50} tooltip={{ open: true }} />
+          </ColWrapper>
         </Col>
       </Row>
 
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider
-            range
-            defaultValue={[50, 100]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range={{ draggableTrack: true }} defaultValue={[0, 75]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider
-            range
-            marks={marks6}
-            defaultValue={[50, 100]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range marks={marks4} defaultValue={[0, 75]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider range defaultValue={[50, 100]} tooltip={{ open: true }} />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider defaultValue={75} tooltip={{ open: true }} />
+          </ColWrapper>
         </Col>
       </Row>
 
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider
-            range
-            defaultValue={[75, 100]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range={{ draggableTrack: true }} defaultValue={[0, 100]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider
-            range
-            marks={marks10}
-            defaultValue={[75, 100]}
-            onChange={onChange}
-            onChangeComplete={onChangeComplete}
-          />
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider range marks={marks8} defaultValue={[0, 100]} />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider range defaultValue={[75, 100]} tooltip={{ open: true }} />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider defaultValue={100} tooltip={{ open: true }} />
+          </ColWrapper>
         </Col>
       </Row>
 
-      <Row gutter={32}>
-        <Col span={8}>
-          <Slider marks={marks} defaultValue={37} />
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              defaultValue={[50, 75]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider
-            range
-            marks={marks}
-            defaultValue={[26, 37]}
-            included={false}
-          />
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              marks={marks9}
+              defaultValue={[50, 75]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
         </Col>
-        <Col span={8}>
-          <Slider
-            range
-            marks={marks}
-            defaultValue={[26, 37]}
-            tooltip={{ open: true }}
-          />
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider range defaultValue={[50, 75]} tooltip={{ open: true }} />
+          </ColWrapper>
+        </Col>
+      </Row>
+
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              defaultValue={[50, 100]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              marks={marks6}
+              defaultValue={[50, 100]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider range defaultValue={[50, 100]} tooltip={{ open: true }} />
+          </ColWrapper>
+        </Col>
+      </Row>
+
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              defaultValue={[75, 100]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              marks={marks10}
+              defaultValue={[75, 100]}
+              onChange={onChange}
+              onChangeComplete={onChangeComplete}
+            />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider range defaultValue={[75, 100]} tooltip={{ open: true }} />
+          </ColWrapper>
+        </Col>
+      </Row>
+
+      <Row gutter={[64, 32]}>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider marks={marks} defaultValue={37} />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={12} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              marks={marks}
+              defaultValue={[26, 37]}
+              included={false}
+            />
+          </ColWrapper>
+        </Col>
+        <Col xs={24} sm={24} md={24} lg={8}>
+          <ColWrapper>
+            <Slider
+              range
+              marks={marks}
+              defaultValue={[26, 37]}
+              tooltip={{ open: true }}
+            />
+          </ColWrapper>
         </Col>
       </Row>
     </Flex>
   );
 }
+const ColWrapper = styled(Flex)`
+  padding: 0 16px;
+  margin-top: 24px;
+`;

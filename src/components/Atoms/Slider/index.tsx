@@ -42,7 +42,7 @@ export const Slider = ({
 };
 const SliderTooltipStyle = createGlobalStyle`
   .custom-slider-tooltip .ant-tooltip-inner {
-    background-color: ${({ theme }) => theme.colors.foregrounds.fgWhite} !important;
+    background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimaryAlt} !important;
     color:  ${({ theme }) => theme.colors.texts.textSecondary700}  !important;
     width: auto !important;
     height: auto !important;
