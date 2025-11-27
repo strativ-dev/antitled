@@ -1,7 +1,8 @@
-import { DownOutlined, UserOutlined, SmileOutlined } from '@ant-design/icons';
+import { DownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 import {
-  DotsVertical,
+  AnnotationQuestion,
   Container,
+  DotsVertical,
   HomeLine,
   LayersTwo01,
   Lightning01,
@@ -12,20 +13,21 @@ import {
   User01,
   UserPlus01,
   Users03,
-  AnnotationQuestion,
 } from '@untitledui/icons';
 import { Flex, Space, type MenuProps } from 'antd';
+import { t } from 'i18next';
 import React, { useState } from 'react';
 
 import {
-  MenuLabel,
-  IconWrapper,
-  UserInfo,
   AvatarDropdownTrigger,
+  IconWrapper,
+  MenuLabel,
   StyledIcon,
+  UserInfo,
 } from '@/app/components/dropdown/styles';
 
 import { Button, Dropdown } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 import AvatarIcon from '@/assets/images/avatar-icon.svg';
 
@@ -213,8 +215,8 @@ const Dropdowns: React.FC = () => {
   };
 
   return (
-    <>
-      <h2>Dropdown Examples</h2>
+    <Flex vertical gap='large'>
+      <ComponentPageTitle title={t('common.Dropdown')} />
       <Space size={48} wrap>
         <Dropdown
           menu={{ items: items2 }}
@@ -267,7 +269,7 @@ const Dropdowns: React.FC = () => {
           </a>
         </Dropdown>
       </Space>
-    </>
+    </Flex>
   );
 };
 

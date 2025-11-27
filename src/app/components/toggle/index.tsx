@@ -1,7 +1,9 @@
 import { Flex } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
 
 import { Toggle } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function Toggles() {
   const [globalChecked, setGlobalChecked] = useState(true);
@@ -11,7 +13,7 @@ export default function Toggles() {
   };
   return (
     <>
-      <h2>Toggles</h2>
+      <ComponentPageTitle title={t('common.Toggle')} />
       <Flex align='center' gap='small' style={{ marginBottom: 24 }}>
         <Toggle checked={globalChecked} onChange={setGlobalChecked}>
           Toggle All

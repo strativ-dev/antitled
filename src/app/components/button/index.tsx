@@ -35,7 +35,7 @@ export default function Buttons() {
           <Button variant='primary' size='xl'>
             Primary
           </Button>
-          <Button variant='primary' size='xl' disabled>
+          <Button variant='primary' size='xl'>
             Primary Disabled
           </Button>
           <Button variant='primary' size='xl' icon={<HomeOutlined />}>

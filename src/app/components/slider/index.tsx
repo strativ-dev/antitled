@@ -1,7 +1,9 @@
 import { Col, Flex, Row, SliderSingleProps } from 'antd';
+import { t } from 'i18next';
 import styled from 'styled-components';
 
 import Slider from '@/components/Atoms/Slider';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function Sliders() {
   const onChange = (value: number | number[]) =>
@@ -25,21 +27,21 @@ export default function Sliders() {
 
   return (
     <Flex vertical gap='16px'>
-      <h2>Sliders</h2>
+      <ComponentPageTitle title={t('common.Slider')} />
       <Row gutter={[64, 32]}>
         <Col xs={24} sm={24} md={12} lg={8}>
           <ColWrapper>
-            <h5>Draggable Track</h5>
+            <h4>Draggable Track</h4>
           </ColWrapper>
         </Col>
         <Col xs={24} sm={24} md={12} lg={8}>
           <ColWrapper>
-            <h5>Graduated Slider</h5>
+            <h4>Graduated Slider</h4>
           </ColWrapper>
         </Col>
         <Col xs={24} sm={24} md={24} lg={8}>
           <ColWrapper>
-            <h5>Control Visibility of Tooltip</h5>
+            <h4>Control Visibility of Tooltip</h4>
           </ColWrapper>
         </Col>
       </Row>

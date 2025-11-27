@@ -1,12 +1,14 @@
 import { BellPlus, MessageTextCircle02, Plus } from '@untitledui/icons';
-import { Col, Row, Flex } from 'antd';
+import { Col, Flex, Row } from 'antd';
+import { t } from 'i18next';
 
 import { Badge } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function Badges() {
   return (
     <>
-      <h2>Badges</h2>
+      <ComponentPageTitle title={t('common.Badge')} />
 
       <Flex vertical gap='small'>
         <Flex vertical>
