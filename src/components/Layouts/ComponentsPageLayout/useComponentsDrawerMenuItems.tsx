@@ -90,6 +90,11 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
         i18nKey: 'common.Pagination',
       },
       { key: 'table', path: '/components/table', i18nKey: 'common.Table' },
+      {
+        key: 'radio-card',
+        path: '/components/radio-card',
+        label: 'Radio Card',
+      },
       { key: 'avatar', path: '/components/avatar', i18nKey: 'common.Avatar' },
     ];
 
