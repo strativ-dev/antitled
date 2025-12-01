@@ -10,7 +10,7 @@ import { Badge, Button, Pagination, Text, Tooltip } from '@/components/Atoms';
 import { Table, TableProps } from '@/components/Atoms/Table';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 import Dot from '@/components/Common/Dot';
-import AvatarLabelGroup from '@/components/Molecules/AvatarLabelGroup';
+import { AvatarLabelGroup } from '@/components/Molecules';
 
 type DataType = {
   id: string;

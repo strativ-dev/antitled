@@ -1,9 +1,8 @@
 import { Home01, Settings01, User01 } from '@untitledui/icons';
 import { Flex } from 'antd';
-import { useState } from 'react';
 import styled from 'styled-components';
 
-import { Text, Tabs, TabItem } from '@/components/Atoms';
+import { TabItem, Tabs, Text } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const basicItems: TabItem[] = [
@@ -111,11 +110,8 @@ const verticalItems: TabItem[] = [
 ];
 
 export default function TabsPage() {
-  const [activeKey, setActiveKey] = useState('1');
-
   const onChange = (key: string) => {
     console.log('Tab changed to:', key);
-    setActiveKey(key);
   };
 
   return (

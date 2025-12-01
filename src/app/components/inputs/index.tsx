@@ -4,14 +4,14 @@ import FormItem from 'antd/es/form/FormItem';
 import { useTranslation } from 'react-i18next';
 
 import {
-  Input,
-  Select,
-  InputNumber,
   Button,
+  Input,
+  InputNumber,
+  Select,
   TextArea,
 } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
-import InputPhoneNumber from '@/components/Molecules/InputPhoneNumber';
+import { InputPhoneNumber } from '@/components/Molecules';
 
 type InputsFormValues = {
   firstName: string;

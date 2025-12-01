@@ -1,8 +1,8 @@
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 
-import { InputCopyText } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
+import { InputCopyText } from '@/components/Molecules';
 
 export default function InputCopyTextPage() {
   const { t } = useTranslation();

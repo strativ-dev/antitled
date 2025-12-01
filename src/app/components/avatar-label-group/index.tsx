@@ -4,7 +4,7 @@ import { PIRATES } from '@/lib/dummy';
 
 import { Text } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
-import AvatarLabelGroup from '@/components/Molecules/AvatarLabelGroup';
+import { AvatarLabelGroup } from '@/components/Molecules';
 
 const Sizes = ['sm', 'md', 'lg', 'xl'] as const;
 

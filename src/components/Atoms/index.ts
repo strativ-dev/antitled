@@ -1,4 +1,3 @@
-export { InputCopyText } from '../Molecules/InputCopyText';
 export { Avatar } from './Avatar';
 export type { AvatarSize, AvatarStatus } from './Avatar';
 export { Badge } from './Badge';

@@ -16,12 +16,12 @@ type Props = {
   selectFormItemProps?: FormItemProps;
 };
 
-export default function InputPhoneNumber({
+export const InputPhoneNumber = ({
   selectProps,
   inputProps,
   selectFormItemProps = {},
   inputFormItemProps = {},
-}: Props) {
+}: Props) => {
   const theme = useTheme();
   const [selectedCountry, setSelectedCountry] = useState(COUNTRY_CODES[0]);
 
@@ -79,4 +79,4 @@ export default function InputPhoneNumber({
       />
     </FormItem>
   );
-}
+};

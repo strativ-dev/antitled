@@ -1164,6 +1164,7 @@ export const FONT_SIZE = {
 } as const;
 
 export const LINE_HEIGHT = {
+  'text-xxs': 14,
   'text-xs': 18,
   'text-sm': 20,
   'text-md': 24,

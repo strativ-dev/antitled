@@ -37,7 +37,7 @@ const AvatarGroup = ({ size, children, ...props }: GroupProps) => {
   // Clone children and pass the size prop to each Avatar
   const childrenWithSize = Children.map(children, (child) => {
     if (isValidElement(child)) {
-      return cloneElement(child, { size });
+      return cloneElement(child, { size } as any);
     }
     return child;
   });

@@ -45,14 +45,14 @@ const getGap = (size?: AvatarSize) => {
   }
 };
 
-export default function AvatarLabelGroup({
+export const AvatarLabelGroup = ({
   avatar,
   label,
   subtext,
   statusIcon,
   size,
   status,
-}: Props) {
+}: Props) => {
   if (!avatar && !label && !subtext) {
     return null;
   }
@@ -77,4 +77,4 @@ export default function AvatarLabelGroup({
       </Flex>
     </Flex>
   );
-}
+};

@@ -1,12 +1,12 @@
 import { Avatar, Col, Flex, Row } from 'antd';
 import { t } from 'i18next';
-import { useState } from 'react';
 
 import { Badge, CardRadioGroupItem, Checkbox } from '@/components/Atoms';
 import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export function SelectableCards() {
-  const [isCardSelected, setIsCardSelected] = useState<boolean>(true);
+  const isCardSelected = true;
+
   return (
     <Flex vertical gap='large'>
       <ComponentPageTitle title={t('common.Selectable_card')} />
