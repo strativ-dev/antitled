@@ -10,9 +10,11 @@ import {
   Plus,
 } from '@untitledui/icons';
 import { Flex, RadioChangeEvent } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
 
 import { Button, ButtonGroup } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 export default function ButtonGroups() {
   const [defaultSize, setDefaultSize] = useState<'sm' | 'md' | 'lg' | 'xl'>(
@@ -31,7 +33,7 @@ export default function ButtonGroups() {
 
   return (
     <Flex vertical gap='small'>
-      <h2>Button Group</h2>
+      <ComponentPageTitle title={t('common.button_group')} />
 
       <Flex vertical gap='small'>
         <h4>Variant: Default</h4>

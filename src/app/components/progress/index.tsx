@@ -1,4 +1,5 @@
 import { Flex } from 'antd';
+import { t } from 'i18next';
 
 import {
   CircleContainer,
@@ -8,11 +9,12 @@ import {
 } from './style';
 
 import { Progress } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 function ProgressBars() {
   return (
     <Flex vertical gap='large'>
-      <h4>Progress</h4>
+      <ComponentPageTitle title={t('common.Progress')} />
 
       <ProgressContainer>
         <SectionContainer vertical gap={24}>

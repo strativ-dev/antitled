@@ -75,6 +75,9 @@ export const en = {
       Avatar: 'Avatar',
       Slider: 'Slider',
       Progress: 'Progress',
+      Radio_card: 'Radio Card',
+      Card_radio_group: 'Card Radio Group',
+      Selectable_card: 'Selectable Card',
     },
   },
 };

@@ -42,6 +42,8 @@ export const sv = {
       Pagination: 'Pagination',
       Slider: 'Slider',
       Progress: 'Progress',
+      Radio_card: 'Card radio group',
+      Selectable_card: 'Selectable Card',
     },
   },
 };

@@ -1,7 +1,7 @@
 import { Flex } from 'antd';
 import styled from 'styled-components';
 
-export const SectionTitle = styled.h5`
+export const SectionTitle = styled.h4`
   margin: 0px;
 `;
 

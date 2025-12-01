@@ -1,7 +1,9 @@
-import { Row, Col, Divider, Flex } from 'antd';
+import { Col, Divider, Flex, Row } from 'antd';
+import { t } from 'i18next';
 import { useState } from 'react';
 
 import { Button, Checkbox } from '@/components/Atoms';
+import ComponentPageTitle from '@/components/Common/ComponentPageTitle';
 
 const groupOptions = ['Checkbox', 'Group Checkbox'];
 
@@ -20,8 +22,10 @@ export default function CheckboxesDemo() {
 
   return (
     <Flex style={{ padding: '2rem' }} vertical>
+      <ComponentPageTitle title={t('common.Checkbox')} />
+
       <Flex vertical>
-        <h2>Checkboxes</h2>
+        <h4>Default checkboxes</h4>
         <Row gutter={32}>
           <Col span={6}>
             <Flex gap='1rem' vertical>
@@ -85,7 +89,7 @@ export default function CheckboxesDemo() {
       <Divider />
 
       <Flex vertical>
-        <h2>Radio Checkboxes</h2>
+        <h4>Radio Checkboxes</h4>
         <Row gutter={32}>
           <Col span={6}>
             <Flex gap='1rem' vertical>
@@ -156,7 +160,7 @@ export default function CheckboxesDemo() {
       <Divider />
 
       <Flex vertical>
-        <h2>Checkbox Groups</h2>
+        <h4>Checkbox Groups</h4>
         <Row gutter={32}>
           <Col span={6}>
             <Flex gap='1rem' vertical>

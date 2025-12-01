@@ -14,6 +14,8 @@ export { ModalTitle } from './Modal/ModalTitle';
 export { Pagination } from './Pagination';
 export type { PaginationProps } from './Pagination';
 export { Progress } from './Progress';
+export { CardRadioGroup } from './RadioCard/CardRadioGroup';
+export { CardRadioGroupItem } from './RadioCard/CardRadioGroupItem';
 export { Select } from './Select';
 export { StyledSimpleBar } from './StyledSimplebar';
 export { Tabs } from './Tabs';
