@@ -23,11 +23,8 @@ export const getRadioGroupVariables = (
     --radio-body-padding: ${sizes.bodyPadding};
     --radio-border-default: ${theme.colors.borders.borderSecondary};
     --radio-border-selected: ${theme.colors.borders.borderBrand};
-    --radio-border-disabled: ${theme.colors.borders.borderDisabled};
+    --radio-border-disabled: ${theme.colors.borders.borderDisabledSubtle};
     --radio-background-disabled: ${theme.colors.backgrounds.bgDisabledSubtle};
-    --radio-color-disabled-extra: ${theme.colors.foregrounds.fgDisabled};
-    --radio-color-disabled-bg-extra: ${theme.colors.backgrounds
-      .bgDisabledSubtle};
     --radio-background: ${theme.colors.backgrounds.bgPrimary};
     --radio-border-radius: ${theme.radius['xl']}px;
     --radio-description-text-colors: ${theme.colors.texts.textTertiary600};
@@ -104,30 +101,6 @@ export const RadioGroupWrapper = styled.div<{
         align-items: center;
         gap: 0.5rem;
         flex-shrink: 0;
-
-        ${$disabled &&
-        css`
-          color: var(--radio-color-disabled-extra);
-
-          * {
-            color: var(--radio-color-disabled-extra) !important;
-            background-color: var(--radio-color-disabled-bg-extra) !important;
-            border-color: var(--radio-border-disabled) !important;
-          }
-        `}
-      }
-
-      .ant-card-extra {
-        ${$disabled &&
-        css`
-          color: var(--radio-color-disabled-extra);
-
-          * {
-            color: var(--radio-color-disabled-extra) !important;
-            background-color: var(--radio-color-disabled-bg-extra) !important;
-            border-color: var(--radio-border-disabled) !important;
-          }
-        `}
       }
 
       .ant-card-body {
@@ -154,17 +127,6 @@ export const RadioGroupWrapper = styled.div<{
         align-items: center;
         gap: 0.5rem;
         flex-shrink: 0;
-
-        ${$disabled &&
-        css`
-          color: var(--radio-color-disabled-extra);
-
-          * {
-            color: var(--radio-color-disabled-extra) !important;
-            background-color: var(--radio-color-disabled-bg-extra) !important;
-            border-color: var(--radio-border-disabled) !important;
-          }
-        `}
       }
 
       .radio-group-body-center {
@@ -182,20 +144,12 @@ export const RadioGroupWrapper = styled.div<{
         ${$disabled &&
         css`
           color: var(--radio-color-disabled-extra);
-
-          * {
-            color: var(--radio-color-disabled-extra) !important;
-            background-color: var(--radio-color-disabled-bg-extra) !important;
-            border-color: var(--radio-border-disabled) !important;
-          }
         `}
       }
 
       .ant-card-head-title,
       .radio-group-title-text {
-        color: ${$disabled
-          ? 'var(--radio-color-disabled-extra)'
-          : 'var(--radio-title-text-colors)'};
+        color: var(--radio-title-text-colors);
         font-weight: ${theme.fontWeight.semibold};
         font-size: ${$size === 'sm'
           ? `${theme.fontSize['text-md']}px`
@@ -212,9 +166,7 @@ export const RadioGroupWrapper = styled.div<{
       }
 
       .ant-card-meta-title {
-        color: ${$disabled
-          ? 'var(--radio-color-disabled-extra)'
-          : 'var(--radio-title-text-colors)'};
+        color: var(--radio-title-text-colors);
         font-weight: ${theme.fontWeight.medium};
         font-size: ${$size === 'sm'
           ? `${theme.fontSize['text-sm']}px`
@@ -222,9 +174,7 @@ export const RadioGroupWrapper = styled.div<{
       }
 
       .ant-card-meta-description {
-        color: ${$disabled
-          ? 'var(--radio-color-disabled-extra)'
-          : 'var(--radio-description-text-colors)'};
+        color: var(--radio-description-text-colors);
         font-size: ${$size === 'sm'
           ? `${theme.fontSize['text-sm']}px`
           : `${theme.fontSize['text-md']}px`};
@@ -232,9 +182,7 @@ export const RadioGroupWrapper = styled.div<{
       }
 
       .radio-group-description {
-        color: ${$disabled
-          ? 'var(--radio-color-disabled-extra)'
-          : 'var(--radio-description-text-colors)'};
+        color: var(--radio-description-text-colors);
         font-size: ${$size === 'sm'
           ? `${theme.fontSize['text-sm']}px`
           : `${theme.fontSize['text-md']}px`};

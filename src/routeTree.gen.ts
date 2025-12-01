@@ -24,6 +24,7 @@ import { Route as ComponentsPaginationsIndexRouteImport } from './routes/compone
 import { Route as ComponentsProgressIndexRouteImport } from './routes/components/progress/index';
 import { Route as ComponentsRadioCardIndexRouteImport } from './routes/components/radio-card/index';
 import { Route as ComponentsSelectIndexRouteImport } from './routes/components/select/index';
+import { Route as ComponentsSelectableCardIndexRouteImport } from './routes/components/selectable-card/index';
 import { Route as ComponentsSliderIndexRouteImport } from './routes/components/slider/index';
 import { Route as ComponentsTableIndexRouteImport } from './routes/components/table/index';
 import { Route as ComponentsTabsIndexRouteImport } from './routes/components/tabs/index';
@@ -100,6 +101,12 @@ const ComponentsSliderIndexRoute = ComponentsSliderIndexRouteImport.update({
   path: '/slider/',
   getParentRoute: () => ComponentsRoute,
 } as any);
+const ComponentsSelectableCardIndexRoute =
+  ComponentsSelectableCardIndexRouteImport.update({
+    id: '/selectable-card/',
+    path: '/selectable-card/',
+    getParentRoute: () => ComponentsRoute,
+  } as any);
 const ComponentsSelectIndexRoute = ComponentsSelectIndexRouteImport.update({
   id: '/select/',
   path: '/select/',
@@ -212,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/components/progress': typeof ComponentsProgressIndexRoute;
   '/components/radio-card': typeof ComponentsRadioCardIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/selectable-card': typeof ComponentsSelectableCardIndexRoute;
   '/components/slider': typeof ComponentsSliderIndexRoute;
   '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
@@ -241,6 +249,7 @@ export interface FileRoutesByTo {
   '/components/progress': typeof ComponentsProgressIndexRoute;
   '/components/radio-card': typeof ComponentsRadioCardIndexRoute;
   '/components/select': typeof ComponentsSelectIndexRoute;
+  '/components/selectable-card': typeof ComponentsSelectableCardIndexRoute;
   '/components/slider': typeof ComponentsSliderIndexRoute;
   '/components/table': typeof ComponentsTableIndexRoute;
   '/components/tabs': typeof ComponentsTabsIndexRoute;
@@ -273,6 +282,7 @@ export interface FileRoutesById {
   '/components/progress/': typeof ComponentsProgressIndexRoute;
   '/components/radio-card/': typeof ComponentsRadioCardIndexRoute;
   '/components/select/': typeof ComponentsSelectIndexRoute;
+  '/components/selectable-card/': typeof ComponentsSelectableCardIndexRoute;
   '/components/slider/': typeof ComponentsSliderIndexRoute;
   '/components/table/': typeof ComponentsTableIndexRoute;
   '/components/tabs/': typeof ComponentsTabsIndexRoute;
@@ -306,6 +316,7 @@ export interface FileRouteTypes {
     | '/components/progress'
     | '/components/radio-card'
     | '/components/select'
+    | '/components/selectable-card'
     | '/components/slider'
     | '/components/table'
     | '/components/tabs'
@@ -335,6 +346,7 @@ export interface FileRouteTypes {
     | '/components/progress'
     | '/components/radio-card'
     | '/components/select'
+    | '/components/selectable-card'
     | '/components/slider'
     | '/components/table'
     | '/components/tabs'
@@ -366,6 +378,7 @@ export interface FileRouteTypes {
     | '/components/progress/'
     | '/components/radio-card/'
     | '/components/select/'
+    | '/components/selectable-card/'
     | '/components/slider/'
     | '/components/table/'
     | '/components/tabs/'
@@ -472,6 +485,13 @@ declare module '@tanstack/react-router' {
       path: '/slider';
       fullPath: '/components/slider';
       preLoaderRoute: typeof ComponentsSliderIndexRouteImport;
+      parentRoute: typeof ComponentsRoute;
+    };
+    '/components/selectable-card/': {
+      id: '/components/selectable-card/';
+      path: '/selectable-card';
+      fullPath: '/components/selectable-card';
+      preLoaderRoute: typeof ComponentsSelectableCardIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
     };
     '/components/select/': {
@@ -607,6 +627,7 @@ interface ComponentsRouteChildren {
   ComponentsProgressIndexRoute: typeof ComponentsProgressIndexRoute;
   ComponentsRadioCardIndexRoute: typeof ComponentsRadioCardIndexRoute;
   ComponentsSelectIndexRoute: typeof ComponentsSelectIndexRoute;
+  ComponentsSelectableCardIndexRoute: typeof ComponentsSelectableCardIndexRoute;
   ComponentsSliderIndexRoute: typeof ComponentsSliderIndexRoute;
   ComponentsTableIndexRoute: typeof ComponentsTableIndexRoute;
   ComponentsTabsIndexRoute: typeof ComponentsTabsIndexRoute;
@@ -633,6 +654,7 @@ const ComponentsRouteChildren: ComponentsRouteChildren = {
   ComponentsProgressIndexRoute: ComponentsProgressIndexRoute,
   ComponentsRadioCardIndexRoute: ComponentsRadioCardIndexRoute,
   ComponentsSelectIndexRoute: ComponentsSelectIndexRoute,
+  ComponentsSelectableCardIndexRoute: ComponentsSelectableCardIndexRoute,
   ComponentsSliderIndexRoute: ComponentsSliderIndexRoute,
   ComponentsTableIndexRoute: ComponentsTableIndexRoute,
   ComponentsTabsIndexRoute: ComponentsTabsIndexRoute,

@@ -18,9 +18,11 @@ export function CardRadioGroups() {
     'defaultSelected3'
   );
 
+  const isChecked = (value: string) => defaultSelected === value;
+
   return (
     <Flex vertical gap='large'>
-      <ComponentPageTitle title={t('common.Radio_card')} />
+      <ComponentPageTitle title={t('common.Card_radio_group')} />
       <Row gutter={16}>
         <Col span={10}>
           <h2>Radio group item</h2>
@@ -39,237 +41,243 @@ export function CardRadioGroups() {
               </CardRadioGroupItem>
             </Flex>
             <Flex vertical gap='small'>
-              <h4>Default Simple card with extra </h4>
-              <CardRadioGroupItem
-                size='sm'
-                bodyRight={<Checkbox size='sm' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Small size with body right' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                bodyRight={<Checkbox size='md' checked />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with body right' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                bodyRight={
-                  <Badge shape='pill' color='brand'>
-                    Limited time only
-                  </Badge>
-                }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with body right' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='sm'
-                bodyLeft={<Checkbox size='sm' type='radio' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Small size with body left' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                bodyLeft={<Checkbox size='md' checked type='radio' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with body left' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                bodyLeft={
-                  <Badge shape='pill' color='indigo'>
-                    Limited time only
-                  </Badge>
-                }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with body left' />
-              </CardRadioGroupItem>
-            </Flex>
-            <Flex vertical gap='small'>
-              <h4>Default Simple card body left and right</h4>
-              <CardRadioGroupItem
-                size='sm'
-                bodyRight={
-                  <Badge shape='pill' color='orange' size='sm'>
-                    Limited time only
-                  </Badge>
-                }
-                bodyLeft={<Checkbox type='radio' checked size='sm' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with extra' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                bodyRight={
-                  <Badge shape='pill' color='orange'>
-                    Limited time only
-                  </Badge>
-                }
-                bodyLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size with extra' />
-              </CardRadioGroupItem>
-            </Flex>
-            <Flex vertical gap='small'>
-              <h4>Basic card with header </h4>
+              <h4>Basic card with header</h4>
               <CardRadioGroupItem
                 title='Small Size'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                size='sm'>
+                size='sm'
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
                 <CardRadioGroupItem.Meta title='Basic $10/month' />
               </CardRadioGroupItem>
               <CardRadioGroupItem
                 title='Default Size'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                size='md'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
-              </CardRadioGroupItem>
-            </Flex>
-            <Flex vertical gap='small'>
-              <h4>Basic card with header extra</h4>
-              <CardRadioGroupItem
-                title='Small size with header right'
-                headerRight={
-                  <Badge shape='rect' color='brand' size='sm'>
-                    Header Right
-                  </Badge>
-                }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                size='sm'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                title='Default size with header left'
-                headerLeft={<Checkbox checked />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                size='md'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                title='Default size with header left and right'
-                headerLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
-                headerRight={
-                  <Badge shape='rect' color='brand' size='md'>
-                    Header Right
-                  </Badge>
-                }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                size='md'>
+                size='md'
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
                 <CardRadioGroupItem.Meta title='Basic $10/month' />
               </CardRadioGroupItem>
             </Flex>
 
             <Flex vertical gap='small'>
-              <h4>Selected</h4>
-              <CardRadioGroupItem
-                size='sm'
-                isSelected={true}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Small size' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
-                isSelected={true}
-                bodyRight={
-                  <Flex>
-                    <Badge shape='pill' color='blue-light' size='sm'>
-                      Selected
+              <h4>Default Simple card with body extra</h4>
+
+              <Flex vertical gap='small'>
+                <h5>Checkbox</h5>
+
+                <CardRadioGroupItem
+                  bodyRight={<Checkbox />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyLeft={<Checkbox type='radio' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyLeft={<Checkbox type='radio' />}
+                  bodyRight={<Checkbox />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+              </Flex>
+
+              <Flex vertical gap='small'>
+                <h5>Badge</h5>
+
+                <CardRadioGroupItem
+                  bodyRight={
+                    <Badge shape='pill' color='brand'>
+                      Body right
                     </Badge>
-                    <Badge shape='rect' color='purple' size='sm'>
-                      Notification
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyLeft={
+                    <Badge shape='pill' color='indigo'>
+                      Body left
                     </Badge>
-                  </Flex>
-                }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                <CardRadioGroupItem.Meta title='Default size' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                title='Selected small size'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                isSelected={true}
-                headerLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
-                bodyLeft={<Checkbox checked type='radio' size='sm' />}
-                headerRight={<Checkbox size='sm' />}
-                bodyRight={
-                  <Badge shape='pill' color='brand' size='sm'>
-                    Limited time only
-                  </Badge>
-                }
-                size='sm'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                title='Selected default size'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                isSelected={true}
-                headerLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
-                bodyLeft={<Checkbox checked type='radio' />}
-                headerRight={<Checkbox />}
-                bodyRight={
-                  <Badge shape='pill' color='brand'>
-                    Limited time only
-                  </Badge>
-                }
-                size='md'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
-              </CardRadioGroupItem>
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyRight={
+                    <Badge shape='pill' color='pink'>
+                      Body right
+                    </Badge>
+                  }
+                  bodyLeft={
+                    <Badge shape='pill' color='orange'>
+                      Body left
+                    </Badge>
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <h5>Avater</h5>
+
+                <CardRadioGroupItem
+                  bodyLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyRight={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  bodyRight={<Avatar src='/assets/dummy/images/zoro-dp.webp' />}
+                  bodyLeft={<Avatar src='/assets/dummy/images/luffy-dp.png' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+              </Flex>
+
+              <Flex vertical gap='small'>
+                <h4>Basic card with header extra</h4>
+
+                <h5>Checkbox</h5>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={<Checkbox />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerLeft={<Checkbox type='radio' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={<Checkbox />}
+                  headerLeft={<Checkbox type='radio' />}
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic $10/month' />
+                </CardRadioGroupItem>
+
+                <h5>Badge</h5>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={
+                    <Badge shape='rect' color='blue-light'>
+                      Header right
+                    </Badge>
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerLeft={
+                    <Badge shape='rect' color='success'>
+                      Header left
+                    </Badge>
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={
+                    <Badge shape='rect' color='brand'>
+                      Header right
+                    </Badge>
+                  }
+                  headerLeft={
+                    <Badge shape='rect' color='orange'>
+                      Header left
+                    </Badge>
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <h5>Avater</h5>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={
+                    <Avatar src='/assets/dummy/images/luffy-dp.png' />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerLeft={
+                    <Avatar src='/assets/dummy/images/zoro-dp.webp' />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  title='Basic plan'
+                  headerRight={
+                    <Avatar src='/assets/dummy/images/nami-dp.webp' />
+                  }
+                  headerLeft={
+                    <Avatar src='/assets/dummy/images/sanji-dp.webp' />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan $10/month' />
+                </CardRadioGroupItem>
+              </Flex>
             </Flex>
             <Flex vertical gap='small'>
               <h4>Disable</h4>
               <CardRadioGroupItem
-                size='sm'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                disabled>
-                <CardRadioGroupItem.Meta title='Disable small size' />
+                disabled
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                <CardRadioGroupItem.Meta title='Basic plan $10/month' />
               </CardRadioGroupItem>
 
               <CardRadioGroupItem
-                size='md'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                disabled>
-                <CardRadioGroupItem.Meta title='Disable default size' />
+                disabled
+                bodyLeft={<Checkbox disabled type='radio' />}
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                <CardRadioGroupItem.Meta title='Basic plan $10/month' />
               </CardRadioGroupItem>
               <CardRadioGroupItem
-                size='sm'
-                bodyLeft={<Checkbox size='sm' type='radio' />}
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                disabled>
-                <CardRadioGroupItem.Meta title='Disable small size' />
-              </CardRadioGroupItem>
-              <CardRadioGroupItem
-                size='md'
+                disabled
                 bodyRight={
                   <Badge shape='pill' color='indigo'>
-                    Limited time only
+                    Body right
                   </Badge>
                 }
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                disabled>
-                <CardRadioGroupItem.Meta title='Disable default size' />
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                <CardRadioGroupItem.Meta title='Basic plan $10/month' />
               </CardRadioGroupItem>
               <CardRadioGroupItem
-                title='Disable small size with title'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                isSelected={true}
-                headerRight={<Checkbox />}
                 disabled
-                size='sm'>
-                <CardRadioGroupItem.Meta title='Basic $10/month' />
+                title='Basic plan'
+                headerRight={<Checkbox disabled />}
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                <CardRadioGroupItem.Meta title='Basic plan $10/month' />
               </CardRadioGroupItem>
               <CardRadioGroupItem
-                title='Disable default size with title'
-                description='Includes up to 10 users, 20 GB individual data and access to all features.'
-                isSelected={true}
                 disabled
-                headerLeft={<Checkbox />}
-                headerRight={<Checkbox />}
-                bodyLeft={<Checkbox type='radio' checked />}
-                bodyRight={
-                  <Badge shape='pill' color='indigo'>
-                    Limited time only
-                  </Badge>
-                }
-                size='md'>
+                title='Basic plan'
+                headerLeft={<Checkbox disabled />}
+                description='Includes up to 10 users, 20 GB individual data and access to all features.'>
                 <CardRadioGroupItem.Meta title='Basic $10/month' />
               </CardRadioGroupItem>
             </Flex>
@@ -285,36 +293,40 @@ export function CardRadioGroups() {
                 <CardRadioGroupItem
                   size='sm'
                   value='smallSelected1'
+                  bodyRight={
+                    <Badge shape='pill' color='indigo' size='sm'>
+                      Body right
+                    </Badge>
+                  }
+                  bodyLeft={<Avatar src='/assets/dummy/images/luffy-dp.png' />}
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Small size' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
 
                 <CardRadioGroupItem
                   size='sm'
                   value='smallSelected2'
-                  bodyLeft={<Checkbox size='sm' type='radio' />}
+                  bodyRight={
+                    <Badge shape='pill' color='purple' size='sm'>
+                      Body right
+                    </Badge>
+                  }
+                  bodyLeft={<Avatar src='/assets/dummy/images/zoro-dp.webp' />}
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Small size with body left' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
 
                 <CardRadioGroupItem
-                  size='sm'
+                  size='md'
                   value='smallSelected3'
-                  bodyRight={<Checkbox size='sm' />}
-                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Small size with body right' />
-                </CardRadioGroupItem>
-                <CardRadioGroupItem
-                  size='sm'
-                  value='smallSelected4'
                   bodyRight={
-                    <Badge shape='pill' color='orange' size='sm'>
-                      Limited time only
+                    <Badge shape='pill' color='pink' size='sm'>
+                      Body right
                     </Badge>
                   }
-                  bodyLeft={<Checkbox type='radio' checked size='sm' />}
+                  bodyLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with extra' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
               </CardRadioGroup>
             </Flex>
@@ -326,57 +338,53 @@ export function CardRadioGroups() {
                 <CardRadioGroupItem
                   size='md'
                   value='defaultSelected1'
+                  bodyRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected1')}
+                    />
+                  }
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
                 <CardRadioGroupItem
                   size='md'
                   value='defaultSelected2'
                   bodyRight={
-                    <Badge shape='pill' color='orange'>
-                      Limited time only
-                    </Badge>
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected2')}
+                    />
                   }
-                  bodyLeft={<Avatar src='/assets/dummy/images/nami-dp.webp' />}
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with extra' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
                 <CardRadioGroupItem
                   size='md'
                   value='defaultSelected3'
-                  bodyRight={<Checkbox size='md' checked />}
-                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with body right' />
-                </CardRadioGroupItem>
-                <CardRadioGroupItem
-                  size='md'
-                  value='defaultSelected4'
                   bodyRight={
-                    <Badge shape='pill' color='brand'>
-                      Limited time only
-                    </Badge>
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected3')}
+                    />
                   }
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with body right' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
 
                 <CardRadioGroupItem
                   size='md'
-                  value='defaultSelected5'
-                  bodyLeft={<Checkbox size='md' checked type='radio' />}
-                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with body left' />
-                </CardRadioGroupItem>
-                <CardRadioGroupItem
-                  size='md'
-                  value='defaultSelected6'
-                  bodyLeft={
-                    <Badge shape='pill' color='indigo'>
-                      Limited time only
-                    </Badge>
+                  value='defaultSelected4'
+                  disabled
+                  bodyRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected4')}
+                      disabled
+                    />
                   }
                   description='Includes up to 10 users, 20 GB individual data and access to all features.'>
-                  <CardRadioGroupItem.Meta title='Default size with body left' />
+                  <CardRadioGroupItem.Meta title='Basic plan' />
                 </CardRadioGroupItem>
               </CardRadioGroup>
             </Flex>
