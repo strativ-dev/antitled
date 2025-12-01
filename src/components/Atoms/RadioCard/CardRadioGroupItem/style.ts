@@ -45,16 +45,16 @@ export const RadioGroupWrapper = styled.div<{
 
     .radio-group-card {
       width: 100%;
-
       overflow: hidden;
-      border: ${$disabled
-        ? $isSelected
-          ? '0.125rem solid var(--radio-border-disabled)'
-          : '0.0625rem solid var(--radio-border-disabled)'
+      border: 0.0625rem solid;
+      border-color: ${$disabled
+        ? 'var(--radio-border-disabled)'
         : $isSelected
-          ? '0.125rem solid var(--radio-border-selected)'
-          : '0.0625rem solid var(--radio-border-default)'};
-
+          ? 'var(--radio-border-selected)'
+          : 'var(--radio-border-default)'};
+      box-shadow: ${$isSelected
+        ? `inset 0 0 0 0.0625rem ${$disabled ? 'var(--radio-border-disabled)' : 'var(--radio-border-selected)'}`
+        : 'none'};
       border-radius: var(--radio-border-radius);
       background: ${$disabled
         ? 'var(--radio-background-disabled)'
@@ -62,15 +62,12 @@ export const RadioGroupWrapper = styled.div<{
       cursor: ${$disabled ? 'not-allowed' : 'pointer'};
 
       &:hover {
-        border: ${$disabled
-          ? $isSelected
-            ? '0.125rem solid var(--radio-border-disabled)'
-            : '0.0625rem solid var(--radio-border-disabled)'
+        border-color: ${$disabled
+          ? 'var(--radio-border-disabled)'
           : $isSelected
-            ? '0.125rem solid var(--radio-border-selected)'
-            : '0.0625rem solid var(--radio-border-default)'};
+            ? 'var(--radio-border-selected)'
+            : 'var(--radio-border-default)'};
       }
-
       &:focus-visible {
         outline: none;
         box-shadow: ${$disabled
@@ -80,13 +77,15 @@ export const RadioGroupWrapper = styled.div<{
 
       .ant-card-head {
         padding: var(--radio-head-padding);
-        border-bottom: ${$disabled
-          ? $isSelected
-            ? '0.125rem solid var(--radio-border-disabled)'
-            : '0.0625rem solid var(--radio-border-disabled)'
+        border-bottom: 0.0625rem solid;
+        box-shadow: ${$isSelected
+          ? `inset 0 -0.0625rem 0 0 ${$disabled ? 'var(--radio-border-disabled)' : 'var(--radio-border-selected)'}`
+          : 'none'};
+        border-bottom-color: ${$disabled
+          ? 'var(--radio-border-disabled)'
           : $isSelected
-            ? '0.125rem solid var(--radio-border-selected)'
-            : '0.0625rem solid var(--radio-border-default)'};
+            ? 'var(--radio-border-selected)'
+            : 'var(--radio-border-default)'};
       }
 
       .radio-group-header-content {

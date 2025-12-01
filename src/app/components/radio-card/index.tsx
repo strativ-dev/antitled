@@ -388,6 +388,68 @@ export function CardRadioGroups() {
                 </CardRadioGroupItem>
               </CardRadioGroup>
             </Flex>
+            <Flex vertical gap='small'>
+              <h4>Default size with header</h4>
+              <CardRadioGroup
+                value={defaultSelected}
+                onChange={setDefaultSelected}>
+                <CardRadioGroupItem
+                  size='md'
+                  title='Basic plan'
+                  value='defaultSelected1'
+                  headerRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected1')}
+                    />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan' />
+                </CardRadioGroupItem>
+                <CardRadioGroupItem
+                  size='md'
+                  title='Basic plan'
+                  value='defaultSelected2'
+                  headerRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected2')}
+                    />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan' />
+                </CardRadioGroupItem>
+                <CardRadioGroupItem
+                  size='md'
+                  title='Basic plan'
+                  value='defaultSelected3'
+                  headerRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected3')}
+                    />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan' />
+                </CardRadioGroupItem>
+
+                <CardRadioGroupItem
+                  size='md'
+                  value='defaultSelected4'
+                  disabled
+                  title='Basic plan'
+                  headerRight={
+                    <Checkbox
+                      size='md'
+                      checked={isChecked('defaultSelected4')}
+                      disabled
+                    />
+                  }
+                  description='Includes up to 10 users, 20 GB individual data and access to all features.'>
+                  <CardRadioGroupItem.Meta title='Basic plan' />
+                </CardRadioGroupItem>
+              </CardRadioGroup>
+            </Flex>
           </Flex>
         </Col>
       </Row>
