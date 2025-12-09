@@ -1,5 +1,5 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Link, Outlet, useLocation, useNavigate } from '@tanstack/react-router';
+import { Menu02, Menu03 } from '@untitledui/icons';
 import { Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
@@ -82,9 +82,9 @@ const DashboardLayout = withAuth(() => {
             color='default'
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined style={{ fontSize: '20px' }} />
+                <Menu02 style={{ fontSize: '20px' }} />
               ) : (
-                <MenuFoldOutlined style={{ fontSize: '20px' }} />
+                <Menu03 style={{ fontSize: '20px' }} />
               )
             }
             onClick={() => setCollapsed(!collapsed)}

@@ -1,4 +1,3 @@
-import { DownOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 import {
   AnnotationQuestion,
   Container,
@@ -13,6 +12,8 @@ import {
   User01,
   UserPlus01,
   Users03,
+  Download01,
+  FaceSmile,
 } from '@untitledui/icons';
 import { Flex, Space, type MenuProps } from 'antd';
 import { t } from 'i18next';
@@ -180,7 +181,7 @@ const items3: MenuProps['items'] = [
   {
     key: '2',
     label: <a href='https://www.antgroup.com'>2nd menu item (disabled)</a>,
-    icon: <SmileOutlined />,
+    icon: <FaceSmile />,
     disabled: true,
   },
   {
@@ -225,7 +226,7 @@ const Dropdowns: React.FC = () => {
           <a onClick={(e) => e.preventDefault()}>
             <Space>
               Click me
-              <DownOutlined />
+              <Download01 />
             </Space>
           </a>
         </Dropdown>
@@ -245,10 +246,7 @@ const Dropdowns: React.FC = () => {
           </Button>
         </Dropdown>
 
-        <Dropdown.Button
-          menu={{ items }}
-          placement='bottom'
-          icon={<UserOutlined />}>
+        <Dropdown.Button menu={{ items }} placement='bottom' icon={<User01 />}>
           Dropdown
         </Dropdown.Button>
 

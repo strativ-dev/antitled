@@ -20,7 +20,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
-          'icons-vendor': ['@ant-design/icons'],
+          'icons-vendor': ['@untitledui/icons'],
           'i18n-vendor': ['i18next', 'react-i18next'],
           'utility-vendor': ['@tanstack/react-query', 'axios', 'zustand'],
         },

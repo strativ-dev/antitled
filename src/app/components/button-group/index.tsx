@@ -1,4 +1,4 @@
-import { DownloadOutlined } from '@ant-design/icons';
+import { Download01 } from '@untitledui/icons';
 import {
   ArrowLeft,
   ArrowRight,
@@ -169,21 +169,14 @@ export default function ButtonGroups() {
         <Button variant='link' size={defaultSize}>
           Link
         </Button>
+        <Button variant='primary' icon={<Download01 />} size={defaultSize} />
         <Button
           variant='primary'
-          icon={<DownloadOutlined />}
-          size={defaultSize}
-        />
-        <Button
-          variant='primary'
-          icon={<DownloadOutlined />}
+          icon={<Download01 />}
           size={defaultSize}
           color='destructive'
         />
-        <Button
-          variant='primary'
-          icon={<DownloadOutlined />}
-          size={defaultSize}>
+        <Button variant='primary' icon={<Download01 />} size={defaultSize}>
           Download
         </Button>
       </Flex>

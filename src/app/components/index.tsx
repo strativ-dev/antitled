@@ -1,4 +1,4 @@
-import { WarningOutlined } from '@ant-design/icons';
+import { AlertTriangle } from '@untitledui/icons';
 import { Flex } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -26,7 +26,7 @@ export default function ComponentsPage() {
         <Text size='text-lg'>{t('features.components.welcome_text_2')}</Text>
 
         <Flex gap={40} align='center'>
-          <WarningOutlined style={{ color: '#F04438', fontSize: 72 }} />
+          <AlertTriangle style={{ color: '#F04438', fontSize: 72 }} />
           <Text size='text-lg' color='textErrorPrimary600'>
             {t('features.components.disclaimer_text')}
           </Text>
