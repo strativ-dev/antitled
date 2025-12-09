@@ -76,17 +76,7 @@ const DropdownWrapper = styled.div`
 
 const StyledMenuWrapper = styled.div`
   .ant-dropdown-menu {
-    background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
-    border: none;
     padding: 0.75rem !important;
-    box-shadow:
-      0px 1px 2px 0px ${({ theme }) => theme.colors['effects']['shadowXs']},
-      0px -2px 0px 0px ${({ theme }) =>
-          theme.colors['effects']['shadowSkeumorphicInner']} inset,
-      0px 0px 0px 1px
-        ${({ theme }) =>
-          theme.colors['effects']['shadowSkeumorphicInnerBorder']}
-        inset;
   }
 `;
 
@@ -94,7 +84,8 @@ const GlobalDropdownStyles = createGlobalStyle`
   .ant-dropdown {
     .ant-dropdown-menu {
       background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
-      border: none;
+      border: ${({ theme }) => (theme.mode === 'light' ? 'none' : '1px solid')};
+      border-color: ${({ theme }) => theme.colors.borders.borderTertiary};
       box-shadow:
         0px 1px 2px 0px ${({ theme }) => theme.colors['effects']['shadowXs']},
         0px -2px 0px 0px ${({ theme }) =>
