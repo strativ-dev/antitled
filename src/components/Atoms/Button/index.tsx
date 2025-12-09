@@ -1,6 +1,6 @@
 import { Button as AntButton, ConfigProvider } from 'antd';
 import clsx from 'clsx';
-import { ComponentProps, memo, useContext } from 'react';
+import { ComponentProps, Ref, useContext } from 'react';
 import styled from 'styled-components';
 
 import { ButtonSpinner } from '@/components/Atoms/Button/ButtonSpinner';
@@ -24,6 +24,7 @@ export type ButtonProps = Omit<AntButtonProps, 'size' | 'color' | 'variant'> & {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   variant?: ExtendedVariant;
   color?: ExtendedColor;
+  ref?: Ref<HTMLButtonElement | HTMLAnchorElement>;
 };
 
 const getButtonVariant = (variant?: ButtonProps['variant']) => {
@@ -79,56 +80,57 @@ const getButtonColor = (color?: ExtendedColor): AntButtonProps['color'] => {
   return color as AntButtonProps['color'];
 };
 
-export const Button = memo<ButtonProps>(
-  ({
-    className,
-    size = 'md',
-    color,
-    block,
-    variant = 'primary',
-    loading,
-    ...rest
-  }) => {
-    const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-    const prefixCls = getPrefixCls('btn');
+export const Button = ({
+  className,
+  size = 'md',
+  color,
+  block,
+  variant = 'primary',
+  loading,
+  ref,
+  ...rest
+}: ButtonProps) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('btn');
 
-    // set default color to default when secondary/outlined/tertiary/text variant is used
-    if (
-      !color &&
-      ['secondary', 'tertiary', 'outlined', 'text'].includes(variant)
-    ) {
-      color = 'gray';
-    } else if (!color) {
-      color = 'primary';
-    }
-
-    if (loading) {
-      if (typeof loading === 'object' && !loading?.icon) {
-        loading = { ...loading, icon: <ButtonSpinner $color={color} /> };
-      } else if (loading === true) {
-        loading = { icon: <ButtonSpinner $color={color} /> };
-      }
-    }
-
-    return (
-      <ButtonWrapper $size={size} $block={block} $isIconButton={!rest.children}>
-        <AntButton
-          {...rest}
-          block={block}
-          color={getButtonColor(color)}
-          variant={getButtonVariant(variant)}
-          loading={loading}
-          className={clsx(
-            {
-              [`${prefixCls}-${size}`]: size,
-            },
-            className
-          )}
-        />
-      </ButtonWrapper>
-    );
+  // set default color to default when secondary/outlined/tertiary/text variant is used
+  if (
+    !color &&
+    ['secondary', 'tertiary', 'outlined', 'text'].includes(variant)
+  ) {
+    color = 'gray';
+  } else if (!color) {
+    color = 'primary';
   }
-);
+
+  if (loading) {
+    if (typeof loading === 'object' && !loading?.icon) {
+      loading = { ...loading, icon: <ButtonSpinner $color={color} /> };
+    } else if (loading === true) {
+      loading = { icon: <ButtonSpinner $color={color} /> };
+    }
+  }
+
+  return (
+    <ButtonWrapper $size={size} $block={block} $isIconButton={!rest.children}>
+      <AntButton
+        {...rest}
+        size={undefined}
+        ref={ref}
+        block={block}
+        color={getButtonColor(color)}
+        variant={getButtonVariant(variant)}
+        loading={loading}
+        className={clsx(
+          {
+            [`${prefixCls}-${size}`]: size,
+          },
+          className
+        )}
+      />
+    </ButtonWrapper>
+  );
+};
 
 const ButtonWrapper = styled.div<{
   $size?: ButtonProps['size'];
@@ -210,7 +212,7 @@ const ButtonWrapper = styled.div<{
   }
 
   .ant-btn-variant-solid {
-    border: none;
+    border: none !important;
 
     color: ${({ theme }) => theme.colors['texts']['textWhite']};
 
@@ -231,14 +233,14 @@ const ButtonWrapper = styled.div<{
     &.ant-btn-color-primary {
       &:not(:disabled):not(.ant-btn-disabled):hover {
         background-color: ${({ theme }) =>
-          theme.colors.backgrounds['bgBrandSolidHover']};
+          theme.colors.backgrounds['bgBrandSolidHover']} !important;
       }
     }
 
     &.ant-btn-color-dangerous {
       &:not(:disabled):not(.ant-btn-disabled):hover {
         background-color: ${({ theme }) =>
-          theme.colors.backgrounds['bgErrorSolidHover']};
+          theme.colors.backgrounds['bgErrorSolidHover']} !important;
       }
     }
 
@@ -246,7 +248,7 @@ const ButtonWrapper = styled.div<{
     &.ant-btn-color-green {
       &:not(:disabled):not(.ant-btn-disabled):hover {
         background-color: ${({ theme }) =>
-          theme.colors.backgrounds['bgSuccessSolidHover']};
+          theme.colors.backgrounds['bgSuccessSolidHover']} !important;
       }
     }
 
@@ -254,7 +256,7 @@ const ButtonWrapper = styled.div<{
     &.ant-btn-color-orange {
       &:not(:disabled):not(.ant-btn-disabled):hover {
         background-color: ${({ theme }) =>
-          theme.colors.backgrounds['bgWarningSolidHover']};
+          theme.colors.backgrounds['bgWarningSolidHover']} !important;
       }
     }
 
@@ -308,17 +310,33 @@ const ButtonWrapper = styled.div<{
       background-color: ${({ theme }) =>
         theme.colors.backgrounds.bgPrimaryHover};
       color: ${({ theme }) => theme.colors.texts.textSecondaryHover};
-      border-color: ${({ theme }) => theme.colors.borders.borderPrimary};
+      border: none !important;
     }
   }
 
   .ant-btn-color-default.ant-btn-variant-outlined {
-    box-shadow:
+    /* box-shadow:
       0px 1px 2px 0px rgba(10, 13, 18, 0.05),
       0px -2px 0px 0px rgba(10, 13, 18, 0.05) inset,
-      0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset;
+      0px 0px 0px 1px rgba(10, 13, 18, 0.18) inset; */
+    box-shadow:
+      0px 1px 2px 0px
+        ${({ theme }) =>
+          theme.mode === 'dark'
+            ? 'rgba(255, 255, 255, 0.05)'
+            : 'rgba(10, 13, 18, 0.05)'},
+      0px -2px 0px 0px ${({ theme }) =>
+          theme.mode === 'dark'
+            ? 'rgba(255, 255, 255, 0.05)'
+            : 'rgba(10, 13, 18, 0.05)'} inset,
+      0px 0px 0px 1px
+        ${({ theme }) =>
+          theme.mode === 'dark'
+            ? 'rgba(255, 255, 255, 0.18)'
+            : 'rgba(10, 13, 18, 0.18)'}
+        inset;
 
-    border-width: ${({ theme }) => (theme.mode === 'dark' ? '1px' : '0')};
+    border-width: 0 !important;
   }
 
   .ant-btn-variant-outlined {
@@ -377,7 +395,7 @@ const ButtonWrapper = styled.div<{
     }
 
     &:not(:disabled):not(.ant-btn-disabled):hover {
-      text-decoration: underline;
+      /* text-decoration: underline; */
     }
 
     &:disabled,

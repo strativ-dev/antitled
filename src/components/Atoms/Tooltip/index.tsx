@@ -1,10 +1,10 @@
 import { HelpCircle } from '@untitledui/icons';
-import { Tooltip as AntdTooltip } from 'antd';
 import type { TooltipProps as AntdTooltipProps } from 'antd';
+import { Tooltip as AntdTooltip } from 'antd';
 import React, { ReactNode, useMemo } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { TextVariant, TextColorVariant } from '@/config/styles';
+import { TextColorVariant, TextVariant } from '@/config/styles';
 
 export type TooltipProps = {
   title: ReactNode;
@@ -66,7 +66,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       color={theme.colors.backgrounds.bgPrimarySolid}
       title={tooltipContent}
       styles={{
-        body: {
+        container: {
           borderRadius: theme.radius['md'],
           minHeight: hasSubtitle ? 'auto' : '2.375rem',
         },

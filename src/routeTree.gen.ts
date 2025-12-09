@@ -32,7 +32,6 @@ import { Route as ComponentsTextIndexRouteImport } from './routes/components/tex
 import { Route as ComponentsToggleIndexRouteImport } from './routes/components/toggle/index';
 import { Route as ComponentsTooltipIndexRouteImport } from './routes/components/tooltip/index';
 import { Route as DashboardRouteImport } from './routes/dashboard';
-import { Route as DashboardAntdDemosRouteImport } from './routes/dashboard/antd-demos';
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index';
 import { Route as IndexRouteImport } from './routes/index';
 
@@ -60,11 +59,6 @@ const ComponentsIndexRoute = ComponentsIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ComponentsRoute,
-} as any);
-const DashboardAntdDemosRoute = DashboardAntdDemosRouteImport.update({
-  id: '/antd-demos',
-  path: '/antd-demos',
-  getParentRoute: () => DashboardRoute,
 } as any);
 const PublicLoginRoute = PublicLoginRouteImport.update({
   id: '/_public/login',
@@ -200,7 +194,6 @@ export interface FileRoutesByFullPath {
   '/components': typeof ComponentsRouteWithChildren;
   '/dashboard': typeof DashboardRouteWithChildren;
   '/login': typeof PublicLoginRoute;
-  '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
   '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute;
@@ -230,7 +223,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute;
   '/login': typeof PublicLoginRoute;
-  '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components': typeof ComponentsIndexRoute;
   '/dashboard': typeof DashboardIndexRoute;
   '/components/avatar-label-group': typeof ComponentsAvatarLabelGroupIndexRoute;
@@ -263,7 +255,6 @@ export interface FileRoutesById {
   '/components': typeof ComponentsRouteWithChildren;
   '/dashboard': typeof DashboardRouteWithChildren;
   '/_public/login': typeof PublicLoginRoute;
-  '/dashboard/antd-demos': typeof DashboardAntdDemosRoute;
   '/components/': typeof ComponentsIndexRoute;
   '/dashboard/': typeof DashboardIndexRoute;
   '/components/avatar-label-group/': typeof ComponentsAvatarLabelGroupIndexRoute;
@@ -297,7 +288,6 @@ export interface FileRouteTypes {
     | '/components'
     | '/dashboard'
     | '/login'
-    | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
     | '/components/avatar-label-group'
@@ -327,7 +317,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/login'
-    | '/dashboard/antd-demos'
     | '/components'
     | '/dashboard'
     | '/components/avatar-label-group'
@@ -359,7 +348,6 @@ export interface FileRouteTypes {
     | '/components'
     | '/dashboard'
     | '/_public/login'
-    | '/dashboard/antd-demos'
     | '/components/'
     | '/dashboard/'
     | '/components/avatar-label-group/'
@@ -430,13 +418,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/components/';
       preLoaderRoute: typeof ComponentsIndexRouteImport;
       parentRoute: typeof ComponentsRoute;
-    };
-    '/dashboard/antd-demos': {
-      id: '/dashboard/antd-demos';
-      path: '/antd-demos';
-      fullPath: '/dashboard/antd-demos';
-      preLoaderRoute: typeof DashboardAntdDemosRouteImport;
-      parentRoute: typeof DashboardRoute;
     };
     '/_public/login': {
       id: '/_public/login';
@@ -668,12 +649,10 @@ const ComponentsRouteWithChildren = ComponentsRoute._addFileChildren(
 );
 
 interface DashboardRouteChildren {
-  DashboardAntdDemosRoute: typeof DashboardAntdDemosRoute;
   DashboardIndexRoute: typeof DashboardIndexRoute;
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
-  DashboardAntdDemosRoute: DashboardAntdDemosRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 };
 
