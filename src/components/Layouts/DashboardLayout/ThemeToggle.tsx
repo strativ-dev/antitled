@@ -27,8 +27,9 @@ export default function ThemeToggle() {
 
   return (
     <Switch
-      checkedChildren={<Moon01 size={12} />}
-      unCheckedChildren={<Sun size={12} />}
+      size='small'
+      checkedChildren={<Moon01 size={12} style={{ marginTop: '.225rem' }} />}
+      unCheckedChildren={<Sun size={12} style={{ marginTop: '.225rem' }} />}
       checked={isDark}
       onChange={toggleTheme}
       title={`Theme: ${theme === 'light' ? 'Light' : 'Dark'}`}

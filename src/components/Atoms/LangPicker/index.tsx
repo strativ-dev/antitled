@@ -1,29 +1,44 @@
-import { Select, Typography } from 'antd';
-import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import { Wrapper } from './styles';
+import { LabelWrapper, StyledSelect, Wrapper } from './styles';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LANGUAGE_OPTIONS } from '@/lib/utils/constants';
 
-export const LangPicker: FC = () => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'common',
-  });
+import SwedenFlag from '@/assets/images/sweden-flag-circular.svg';
+import UkFlag from '@/assets/images/uk-flag-circular.svg';
 
+const options = [
+  {
+    label: (
+      <LabelWrapper>
+        <img src={UkFlag} alt='UK' width={16} height={16} />
+        En
+      </LabelWrapper>
+    ),
+    value: LANGUAGE_OPTIONS.en,
+  },
+  {
+    label: (
+      <LabelWrapper>
+        <img src={SwedenFlag} alt='Sweden' width={16} height={16} />
+        Sv
+      </LabelWrapper>
+    ),
+    value: LANGUAGE_OPTIONS.sv,
+  },
+];
+
+export const LangPicker = () => {
   const { language, handleChange } = useLanguage();
 
   return (
-    <Wrapper className="lang-picker">
-      <Typography.Text>{t('choose_language')}</Typography.Text>
-      <Select
-        defaultValue={language}
-        style={{ width: 65 }}
-        onChange={handleChange}
-        options={Object.values(LANGUAGE_OPTIONS).map((value) => ({
-          label: value,
-          value,
-        }))}
+    <Wrapper className='lang-picker'>
+      <StyledSelect
+        variant='borderless'
+        value={language}
+        onChange={(value) =>
+          handleChange(value as keyof typeof LANGUAGE_OPTIONS)
+        }
+        options={options}
+        popupMatchSelectWidth={false}
       />
     </Wrapper>
   );

@@ -8,8 +8,7 @@ import { HeaderUserNav } from './HeaderUserNav';
 import MenuItems from './MenuItems';
 import StrativLogo from '@/assets/logo.svg?react';
 
-import { Button } from '@/components/Atoms';
-import { LangPicker } from '@/components/Atoms/LangPicker';
+import { Button, LangPicker } from '@/components/Atoms';
 import { withAuth } from '@/components/Hoc/withAuth';
 import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
