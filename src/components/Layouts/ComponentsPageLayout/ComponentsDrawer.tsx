@@ -78,13 +78,13 @@ const StyledSider = styled(Sider)`
   position: relative;
   z-index: 2;
   position: sticky;
-  top: ${HEADER_HEIGHT};
+  top: ${HEADER_HEIGHT}px;
   height: calc(100vh - ${HEADER_HEIGHT}px);
   overflow: auto;
   scrollbar-color: scrollbarColor;
   scrollbar-width: thin;
   background-color: ${({ theme }) => theme.colors['backgrounds']['bgPrimary']};
-  padding-inline: 0.5rem;
+  padding-inline: 0.5rem !important;
 
   .ant-menu-item-group-title {
     padding-inline-start: 0.875rem;
@@ -95,8 +95,8 @@ const StyledSider = styled(Sider)`
   }
 
   .ant-menu-item {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    /* padding-left: 1.5rem !important; */
+    /* padding-right: 1.5rem !important; */
     font-weight: 400;
 
     span {
