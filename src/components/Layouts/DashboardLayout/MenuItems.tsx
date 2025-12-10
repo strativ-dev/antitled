@@ -31,10 +31,6 @@ const MenuItems = () => {
       icon: <Home01 />,
       label: t('dashboard'),
     },
-    {
-      key: 'dashboard/antd-demos',
-      label: t('Overview'),
-    },
   ];
 
   const transform = (items: typeof ITEMS) => {
