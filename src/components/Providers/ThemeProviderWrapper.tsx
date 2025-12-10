@@ -4,9 +4,12 @@ import { ThemeProvider } from 'styled-components';
 
 import {
   FONT_SIZE,
+  FONT_SIZE_IN_REM,
   FONT_WEIGHT,
   LINE_HEIGHT,
+  LINE_HEIGHT_IN_REM,
   RADIUS,
+  RADIUS_IN_REM,
   SHADOWS,
   SPACING,
 } from '@/config/styles';
@@ -271,10 +274,10 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
   const extendedTheme = {
     ...globalToken,
     colors: colorPalette,
-    fontSize: FONT_SIZE,
+    fontSize: FONT_SIZE_IN_REM,
     fontWeight: FONT_WEIGHT,
-    lineHeight: LINE_HEIGHT,
-    radius: RADIUS,
+    lineHeight: LINE_HEIGHT_IN_REM,
+    radius: RADIUS_IN_REM,
     shadows: SHADOWS,
     spacing: SPACING,
     mode: themeMode,

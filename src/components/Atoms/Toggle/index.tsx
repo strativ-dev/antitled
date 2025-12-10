@@ -115,7 +115,7 @@ const ToggleWrapper = styled.label<{
         ? theme.fontSize['text-xs']
         : $size === 'sm'
           ? theme.fontSize['text-sm']
-          : theme.fontSize['text-md']}px;
+          : theme.fontSize['text-md']};
       font-weight: ${theme.fontWeight.medium};
       color: ${theme.colors.texts.textSecondary700};
     }
@@ -125,7 +125,7 @@ const ToggleWrapper = styled.label<{
         ? theme.fontSize['text-xs']
         : $size === 'sm'
           ? theme.fontSize['text-sm']
-          : theme.fontSize['text-md']}px;
+          : theme.fontSize['text-md']};
       color: ${theme.colors.texts.textTertiary600};
       font-weight: ${theme.fontWeight.regular};
     }

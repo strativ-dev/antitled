@@ -2,7 +2,7 @@ import { Checkbox as AntCheckbox, ConfigProvider } from 'antd';
 import type { CheckboxProps as AntdCheckboxProps } from 'antd/es/checkbox';
 import type { CheckboxGroupProps as AntdCheckboxGroupProps } from 'antd/es/checkbox/Group';
 import clsx from 'clsx';
-import { useContext, ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import styled, { DefaultTheme, css } from 'styled-components';
 
 import CheckIcon from '@/assets/images/check-icon.svg';
@@ -249,7 +249,7 @@ const CheckboxWrapper = styled.label<{
         }
       `}
 
-  
+
 
       .ant-checkbox-indeterminate .ant-checkbox-inner {
         background-color: var(--checkbox-color);
@@ -280,7 +280,7 @@ const CheckboxWrapper = styled.label<{
       .checkbox-label {
         font-size: ${$size === 'sm'
           ? theme.fontSize['text-sm']
-          : theme.fontSize['text-md']}px;
+          : theme.fontSize['text-md']};
         font-weight: ${({ theme }) => theme.fontWeight['medium']};
       }
       .ant-checkbox-input:focus-visible + .ant-checkbox-inner {
@@ -292,7 +292,7 @@ const CheckboxWrapper = styled.label<{
       .checkbox-supporting-text {
         font-size: ${$size === 'sm'
           ? theme.fontSize['text-xs']
-          : theme.fontSize['text-sm']}px;
+          : theme.fontSize['text-sm']};
 
         font-weight: ${({ theme }) => theme.fontWeight['regular']};
         color: var(--text-tertiary);

@@ -26,7 +26,7 @@ export const getRadioGroupVariables = (
     --radio-border-disabled: ${theme.colors.borders.borderDisabledSubtle};
     --radio-background-disabled: ${theme.colors.backgrounds.bgDisabledSubtle};
     --radio-background: ${theme.colors.backgrounds.bgPrimary};
-    --radio-border-radius: ${theme.radius['xl']}px;
+    --radio-border-radius: ${theme.radius['xl']};
     --radio-description-text-colors: ${theme.colors.texts.textTertiary600};
     --radio-title-text-colors: ${theme.colors.texts.textSecondary700};
     --radio-inner-shadow: 0 0 0 0.125rem ${theme.colors.foregrounds.fgWhite};
@@ -153,7 +153,7 @@ export const RadioGroupWrapper = styled.div<{
         font-size: ${$size === 'sm'
           ? `${theme.fontSize['text-md']}px`
           : `${theme.fontSize['text-lg']}px`};
-        line-height: ${theme.lineHeight['text-md']}px;
+        line-height: ${theme.lineHeight['text-md']};
       }
 
       .ant-card-meta {
@@ -186,7 +186,7 @@ export const RadioGroupWrapper = styled.div<{
           ? `${theme.fontSize['text-sm']}px`
           : `${theme.fontSize['text-md']}px`};
         font-weight: ${theme.fontWeight.regular};
-        line-height: ${theme.lineHeight['text-sm']}px;
+        line-height: ${theme.lineHeight['text-sm']};
         margin-top: 0.25rem;
       }
     }

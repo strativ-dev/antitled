@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
   .ant-select-single.ant-select-sm,
   .ant-select-multiple.ant-select-sm {
     .ant-select-selector  {
-      font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+      font-size: ${({ theme }) => theme.fontSize['text-sm']};
     }
   }
 
@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
   .ant-select-multiple.ant-select-sm,
   .ant-select-multiple.ant-select-lg {
     .ant-select-selection-overflow .ant-select-selection-item {
-    border-radius: ${({ theme }) => theme.radius.sm}px;
+    border-radius: ${({ theme }) => theme.radius.sm};
   }
   }
 
@@ -53,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
 
   .ant-select-selection-item-content {
     align-content: center;
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     font-weight: 500;
   }
 
@@ -62,7 +62,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .ant-select-dropdown .ant-select-item-option {
-    font-size: ${({ theme }) => theme.fontSize['text-md']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-md']};
   }
 
   .ant-select-dropdown {
@@ -81,7 +81,7 @@ const GlobalStyles = createGlobalStyle`
   .ant-form-item .ant-form-item-explain-error
   {
     margin-top: 4px;
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
   }
 
   .ant-form-item .ant-form-item-extra {
@@ -101,7 +101,7 @@ const GlobalStyles = createGlobalStyle`
       display: inline-block;
       margin-inline-start: 4px;
       color: ${({ theme }) => theme.colors.texts.textBrandSecondary700};
-      font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+      font-size: ${({ theme }) => theme.fontSize['text-sm']};
       content: '*';
       visibility: visible;
     }

@@ -147,7 +147,7 @@ const ButtonWrapper = styled.div<{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: ${({ theme }) => theme.radius['md']}px;
+    border-radius: ${({ theme }) => theme.radius['md']};
     width: ${({ $block }) => ($block ? '100%' : 'auto')};
     position: relative;
   }
@@ -159,45 +159,45 @@ const ButtonWrapper = styled.div<{
   }
 
   .ant-btn-xs {
-    font-size: ${({ theme }) => theme.fontSize['text-xs']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-xs']};
     font-weight: ${({ theme }) => theme.fontWeight['regular']};
-    line-height: ${({ theme }) => theme.lineHeight['text-sm']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-sm']};
     height: 2rem;
     padding: 0rem 0.75rem;
     width: var(--button-width);
   }
 
   .ant-btn-sm {
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-    line-height: ${({ theme }) => theme.lineHeight['text-sm']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-sm']};
     padding: 0.5rem 0.75rem;
     height: 2.25rem;
     width: var(--button-width);
   }
 
   .ant-btn-md {
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-    line-height: ${({ theme }) => theme.lineHeight['text-sm']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-sm']};
     padding: 0rem 0.875rem;
     height: 2.5rem;
     width: var(--button-width);
   }
 
   .ant-btn-lg {
-    font-size: ${({ theme }) => theme.fontSize['text-md']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-md']};
     font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-    line-height: ${({ theme }) => theme.lineHeight['text-md']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-md']};
     padding: 0rem 1rem;
     height: 2.75rem;
     width: var(--button-width);
   }
 
   .ant-btn-xl {
-    font-size: ${({ theme }) => theme.fontSize['text-md']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-md']};
     font-weight: ${({ theme }) => theme.fontWeight['semibold']};
-    line-height: ${({ theme }) => theme.lineHeight['text-md']}px;
+    line-height: ${({ theme }) => theme.lineHeight['text-md']};
     height: 3rem;
     padding: 0rem 1.125rem;
     width: var(--button-width);
@@ -386,7 +386,7 @@ const ButtonWrapper = styled.div<{
     text-decoration-color: currentColor;
     padding: 0;
     height: auto;
-    border-radius: ${({ theme }) => theme.radius['xs']}px;
+    border-radius: ${({ theme }) => theme.radius['xs']};
 
     &.ant-btn-color-primary {
       &:not(:disabled):not(.ant-btn-disabled):hover {

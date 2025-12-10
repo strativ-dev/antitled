@@ -78,7 +78,7 @@ const StyledSider = styled(Sider)`
   position: relative;
   z-index: 2;
   position: sticky;
-  top: ${HEADER_HEIGHT}px;
+  top: ${HEADER_HEIGHT};
   height: calc(100vh - ${HEADER_HEIGHT}px);
   overflow: auto;
   scrollbar-color: scrollbarColor;
@@ -88,8 +88,8 @@ const StyledSider = styled(Sider)`
 
   .ant-menu-item-group-title {
     padding-inline-start: 0.875rem;
-    margin-inline: ${({ theme }) => theme.spacing['lg']}px;
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    margin-inline: ${({ theme }) => theme.spacing['lg']};
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     border-bottom: ${({ theme }) =>
       `1px solid ${theme.colors['borders']['borderSecondary']}`};
   }

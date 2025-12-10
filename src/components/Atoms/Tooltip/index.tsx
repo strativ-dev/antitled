@@ -4,12 +4,12 @@ import { Tooltip as AntdTooltip } from 'antd';
 import React, { ReactNode, useMemo } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { TextColorVariant, TextVariant } from '@/config/styles';
+import { TextColorVariant, TextSizeVariant } from '@/config/styles';
 
 export type TooltipProps = {
   title: ReactNode;
   subtitle?: ReactNode;
-  fontSize?: TextVariant;
+  fontSize?: TextSizeVariant;
   color?: TextColorVariant;
   children?: ReactNode;
   arrow?: 'show' | 'hide' | 'center';
@@ -78,12 +78,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
 };
 
 const StyledTooltipContent = styled.span<{
-  $fontSize: TextVariant;
+  $fontSize: TextSizeVariant;
   $color?: TextColorVariant;
   $hasSubtitle: boolean;
 }>`
   display: inline-block;
-  font-size: ${({ $fontSize, theme }) => theme.fontSize[$fontSize]}px;
+  font-size: ${({ $fontSize, theme }) => theme.fontSize[$fontSize]};
   padding: 0.25rem 0.5rem;
   color: ${({ $color, theme }) =>
     $color ? theme.colors.texts[$color] : theme.colors.texts.textWhite};

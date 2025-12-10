@@ -51,7 +51,7 @@ export const StyledAvatarGroup = styled(AntdAvatar.Group)`
 
   .ant-avatar-string {
     font-size: ${({ theme, size }) =>
-      theme.fontSize[getGroupAvatarTextSize(size as number)]}px;
+      theme.fontSize[getGroupAvatarTextSize(size as number)]};
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
     color: ${({ theme }) => theme.colors.texts.textTertiary600};
   }

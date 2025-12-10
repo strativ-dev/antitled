@@ -83,6 +83,6 @@ const StyledCopyButton = styled.button`
   gap: 0.375rem;
   border: 1px solid ${({ theme }) => theme.colors.borders.borderPrimary};
   padding-inline: 0.75rem;
-  border-top-right-radius: ${({ theme }) => theme.radius.md}px;
-  border-bottom-right-radius: ${({ theme }) => theme.radius.md}px;
+  border-top-right-radius: ${({ theme }) => theme.radius.md};
+  border-bottom-right-radius: ${({ theme }) => theme.radius.md};
 `;

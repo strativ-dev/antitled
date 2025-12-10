@@ -1163,6 +1163,22 @@ export const FONT_SIZE = {
   'display-2xl': 72,
 } as const;
 
+const getFontSizesInRem = () => {
+  const fontSizesInRem: Record<keyof typeof FONT_SIZE, string> = {} as Record<
+    keyof typeof FONT_SIZE,
+    string
+  >;
+  for (const key in FONT_SIZE) {
+    const sizeInPx = FONT_SIZE[key as keyof typeof FONT_SIZE];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    fontSizesInRem[key as keyof typeof FONT_SIZE] = `${sizeInRem}rem`;
+  }
+  return fontSizesInRem;
+};
+
+export const FONT_SIZE_IN_REM = getFontSizesInRem();
+export type FontSizeInRem = typeof FONT_SIZE_IN_REM;
+
 export const LINE_HEIGHT = {
   'text-xxs': 14,
   'text-xs': 18,
@@ -1178,6 +1194,20 @@ export const LINE_HEIGHT = {
   'display-2xl': 90,
 } as const;
 
+export const getLineHeightsInRem = () => {
+  const lineHeightsInRem: Record<keyof typeof LINE_HEIGHT, string> =
+    {} as Record<keyof typeof LINE_HEIGHT, string>;
+  for (const key in LINE_HEIGHT) {
+    const sizeInPx = LINE_HEIGHT[key as keyof typeof LINE_HEIGHT];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    lineHeightsInRem[key as keyof typeof LINE_HEIGHT] = `${sizeInRem}rem`;
+  }
+  return lineHeightsInRem;
+};
+
+export const LINE_HEIGHT_IN_REM = getLineHeightsInRem();
+export type LineHeightInRem = typeof LINE_HEIGHT_IN_REM;
+
 export const RADIUS = {
   none: 0,
   xxs: 2,
@@ -1191,6 +1221,22 @@ export const RADIUS = {
   '4xl': 24,
   full: 9999,
 } as const;
+
+export const getRadiusInRem = () => {
+  const radiusInRem: Record<keyof typeof RADIUS, string> = {} as Record<
+    keyof typeof RADIUS,
+    string
+  >;
+  for (const key in RADIUS) {
+    const sizeInPx = RADIUS[key as keyof typeof RADIUS];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    radiusInRem[key as keyof typeof RADIUS] = `${sizeInRem}rem`;
+  }
+  return radiusInRem;
+};
+
+export const RADIUS_IN_REM = getRadiusInRem();
+export type RadiusInRem = typeof RADIUS_IN_REM;
 
 export const SHADOWS = {
   xs: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',

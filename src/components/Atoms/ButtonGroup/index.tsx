@@ -1,5 +1,5 @@
-import { Radio } from 'antd';
 import type { RadioChangeEvent, RadioGroupProps } from 'antd';
+import { Radio } from 'antd';
 import React from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 
@@ -91,7 +91,7 @@ const StyledButton = styled(Radio.Button)<{
     padding: ${({ $hasIcon, $hasLabel }) =>
       $hasIcon && !$hasLabel ? '0.625rem 0.75rem' : '0.625rem 1rem'};
     font-weight: ${({ theme }) => theme.fontWeight.semibold};
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     color: var(--button-group-text-color) !important;
     background-color: var(--button-group-bg) !important;
     border-width: ${({ theme }) => (theme.mode === 'dark' ? '0.0625rem' : '0')};

@@ -1,4 +1,4 @@
-import { Tabs as AntTabs, TabsProps as AntTabProps } from 'antd';
+import { TabsProps as AntTabProps, Tabs as AntTabs } from 'antd';
 import { memo } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -212,7 +212,7 @@ const getVariantStyles = (
           padding: 0.125rem;
           background-color: ${({ theme }) =>
             theme.colors.backgrounds.bgSecondaryAlt};
-          border-radius: ${({ theme }) => theme.radius.lg}px;
+          border-radius: ${({ theme }) => theme.radius.lg};
           border: 1px solid
             ${({ theme }) => theme.colors.borders.borderSecondary};
 
@@ -258,7 +258,7 @@ const getVariantStyles = (
         .ant-tabs-nav {
           background-color: ${({ theme }) =>
             theme.colors.backgrounds.bgSecondaryAlt};
-          border-radius: ${({ theme }) => theme.radius.md}px;
+          border-radius: ${({ theme }) => theme.radius.md};
           border: 1px solid ${({ theme }) => theme.colors.borders.borderPrimary};
 
           &::before {
@@ -267,7 +267,8 @@ const getVariantStyles = (
         }
 
         .ant-tabs-tab {
-          border-radius: ${({ theme }) => theme.radius.md - 1}px !important;
+          border-radius: ${({ theme }) =>
+            `calc(${theme.radius.md} - 1px)`} !important;
           border: 1px solid transparent !important;
 
           &:hover {

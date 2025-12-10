@@ -174,7 +174,7 @@ const StyledIconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: ${({ theme }) => theme.radius.lg}px;
+  border-radius: ${({ theme }) => theme.radius.lg};
   background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
   border: 2px solid ${({ theme }) => theme.colors.borders.borderPrimary};
 `;

@@ -112,7 +112,7 @@ const StyledModal = styled(AntModal)<{
     $bordered ? '1.25' : '0'}rem;
 
   .ant-modal-container {
-    border-radius: ${({ theme }) => theme.radius['2xl']}px;
+    border-radius: ${({ theme }) => theme.radius['2xl']};
     padding: 0;
   }
 

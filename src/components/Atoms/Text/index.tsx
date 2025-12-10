@@ -88,13 +88,13 @@ type WrapperProps = {
 };
 
 const Wrapper = styled.span<WrapperProps>`
-  font-size: ${({ $size, theme }) => theme.fontSize[$size]}px;
+  font-size: ${({ $size, theme }) => theme.fontSize[$size]};
   font-weight: ${({ $weight, theme }) => theme.fontWeight[$weight]};
-  line-height: ${({ $lineHeight, theme }) => theme.lineHeight[$lineHeight]}px;
+  line-height: ${({ $lineHeight, theme }) => theme.lineHeight[$lineHeight]};
   color: ${({ $color, theme }) =>
     theme.colors.texts[$color as TextColorVariant] ?? $color};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding }) => $padding};
   display: inline-block;
-  line-height: ${({ $size, theme }) => theme.lineHeight[$size]}px;
+  line-height: ${({ $size, theme }) => theme.lineHeight[$size]};
 `;
