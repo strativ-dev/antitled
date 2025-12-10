@@ -105,11 +105,11 @@ export default function Tooltips() {
               color={theme.colors.foregrounds.fgQuaternary400}
             />
           </Tooltip>
-          <Text weight='medium'>Left</Text>
+          <Text variant='text-md-medium'>Left</Text>
         </Flex>
 
         <Flex align='center' gap={8}>
-          <Text weight='medium'>Right</Text>
+          <Text variant='text-md-medium'>Right</Text>
           <Tooltip
             subtitle={subtitle}
             placement='right'
@@ -129,11 +129,11 @@ export default function Tooltips() {
               color={theme.colors.foregrounds.fgQuaternary400}
             />
           </Tooltip>
-          <Text weight='medium'>Top</Text>
+          <Text variant='text-md-medium'>Top</Text>
         </Flex>
 
         <Flex vertical align='center' gap={8}>
-          <Text weight='medium'>Bottom</Text>
+          <Text variant='text-md-medium'>Bottom</Text>
           <Tooltip
             subtitle={subtitle}
             placement='bottom'
@@ -147,10 +147,10 @@ export default function Tooltips() {
             placement='topLeft'
             title={'I am at top left'}
           />
-          <Text weight='medium'>Top Left</Text>
+          <Text variant='text-md-medium'>Top Left</Text>
         </Flex>
         <Flex vertical align='center' gap={8}>
-          <Text weight='medium'>Bottom Left</Text>
+          <Text variant='text-md-medium'>Bottom Left</Text>
           <Tooltip
             subtitle={subtitle}
             placement='bottomLeft'
@@ -163,10 +163,10 @@ export default function Tooltips() {
             placement='topRight'
             title={'I am at top right'}
           />
-          <Text weight='medium'>Top Right</Text>
+          <Text variant='text-md-medium'>Top Right</Text>
         </Flex>
         <Flex vertical align='center' gap={8}>
-          <Text weight='medium'>Bottom Right</Text>
+          <Text variant='text-md-medium'>Bottom Right</Text>
           <Tooltip
             subtitle={subtitle}
             placement='bottomRight'
@@ -179,7 +179,7 @@ export default function Tooltips() {
             placement='leftTop'
             title={'I am at left top'}
           />
-          <Text weight='medium'>Left Top</Text>
+          <Text variant='text-md-medium'>Left Top</Text>
         </Flex>
         <Flex align='center' gap={8}>
           <Tooltip
@@ -187,10 +187,10 @@ export default function Tooltips() {
             placement='leftBottom'
             title={'I am at left bottom'}
           />
-          <Text weight='medium'>Left Bottom</Text>
+          <Text variant='text-md-medium'>Left Bottom</Text>
         </Flex>
         <Flex align='center' gap={8}>
-          <Text weight='medium'>Right Top</Text>
+          <Text variant='text-md-medium'>Right Top</Text>
           <Tooltip
             subtitle={subtitle}
             placement='rightTop'
@@ -198,7 +198,7 @@ export default function Tooltips() {
           />
         </Flex>
         <Flex align='center' gap={8}>
-          <Text weight='medium'>Right Bottom</Text>
+          <Text variant='text-md-medium'>Right Bottom</Text>
           <Tooltip
             subtitle={subtitle}
             placement='rightBottom'

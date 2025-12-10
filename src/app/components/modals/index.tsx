@@ -62,54 +62,54 @@ export default function ModalsPage() {
         onOk={onClose}
         bordered>
         <>
-          <Text size='display-lg'>Modal Content</Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='display-lg-regular'>Modal Content</Text>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here. Additional
             information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
-          <Text size='text-lg' color='textTertiary600'>
+          <Text variant='text-lg-regular' color='textTertiary600'>
             Additional information about the modal can go here.
           </Text>
         </>
@@ -134,9 +134,9 @@ export default function ModalsPage() {
         width={420}
         okButtonProps={{ block: true }}
         cancelButtonProps={{ block: true }}>
-        <Text weight='semibold'>Blog post published</Text>
+        <Text variant='text-md-semibold'>Blog post published</Text>
 
-        <Text color='textTertiary600' size='text-sm'>
+        <Text variant='text-sm-regular' color='textTertiary600'>
           This blog post has been published. Team members will be able to edit
           this post and republish changes.
         </Text>
@@ -158,8 +158,8 @@ export default function ModalsPage() {
         width={400}
         okButtonProps={{ block: true, color: 'destructive' }}
         cancelButtonProps={{ block: true }}>
-        <Text weight='semibold'>Delete blog post</Text>
-        <Text color='textTertiary600' size='text-sm'>
+        <Text variant='text-md-semibold'>Delete blog post</Text>
+        <Text color='textTertiary600' variant='text-sm-regular'>
           Are you sure you want to delete this post? This action cannot be
           undone.
         </Text>

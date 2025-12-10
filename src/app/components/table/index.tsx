@@ -179,7 +179,7 @@ export default function TablePage() {
   const TableTitle = useMemo(() => {
     return (
       <Flex align='center' gap={24} justify='space-between'>
-        <Text size='text-md' weight='semibold'>
+        <Text variant='text-md-semibold'>
           Strawhat Crew{' '}
           <Badge color='brand' size='sm' style={{ marginLeft: '.375rem' }}>
             10 members
@@ -198,7 +198,7 @@ export default function TablePage() {
     <>
       <ComponentPageTitle title='Table Component' />
       <Flex vertical gap={24}>
-        <Text size='text-lg' weight='medium' as='h2'>
+        <Text variant='text-lg-semibold' as='h2'>
           Table with Pagination and Row Selection
         </Text>
         <Flex vertical gap={16}>
@@ -224,7 +224,7 @@ export default function TablePage() {
             align='end'
           />
         </Flex>
-        <Text size='text-lg' weight='semibold' as='h2' margin='2rem 0 0 0'>
+        <Text variant='text-lg-semibold' as='h2' margin='2rem 0 0 0'>
           Table with header and footer
         </Text>
         <Flex vertical gap={16}>

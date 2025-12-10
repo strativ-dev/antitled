@@ -20,9 +20,9 @@ export type TabsProps = Omit<AntTabProps, 'size'> & {
 export type TabItem = NonNullable<AntTabProps['items']>[number];
 
 export const Tabs = memo<TabsProps>(
-  ({ size = 'md', variant = 'underline', tabPosition, ...props }) => {
+  ({ size = 'md', variant = 'underline', tabPlacement, ...props }) => {
     const orientation =
-      tabPosition === 'left' || tabPosition === 'right'
+      tabPlacement === 'start' || tabPlacement === 'end'
         ? 'vertical'
         : 'horizontal';
 
@@ -33,7 +33,7 @@ export const Tabs = memo<TabsProps>(
         $orientation={orientation}>
         <AntTabs
           {...props}
-          tabPosition={tabPosition}
+          tabPlacement={tabPlacement}
           type={variant === 'underline' ? 'line' : 'card'}
         />
       </StyledTabsWrapper>
