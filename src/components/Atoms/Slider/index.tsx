@@ -41,7 +41,7 @@ export const Slider = ({
   );
 };
 const SliderTooltipStyle = createGlobalStyle`
-  .custom-slider-tooltip .ant-tooltip-inner {
+  .custom-slider-tooltip .ant-tooltip-container {
     background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimaryAlt} !important;
     color:  ${({ theme }) => theme.colors.texts.textSecondary700}  !important;
     width: auto !important;
@@ -55,7 +55,7 @@ const SliderTooltipStyle = createGlobalStyle`
     border: 0.0625rem solid ${({ theme }) => theme.colors.borders.borderSecondaryAlt} !important;
 
   }
- 
+
   .custom-slider-tooltip .ant-tooltip-arrow {
     display: none !important;
   }
