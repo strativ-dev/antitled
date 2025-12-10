@@ -48,6 +48,7 @@ export const StyledInput = styled(AntdInputNumber)<{
   $removeAffixLeftBorder?: boolean;
   $removeAffixRightBorder?: boolean;
 }>`
+  z-index: 3 !important;
   width: ${({ $fullWidth }) => ($fullWidth ? '100%' : 'auto')};
   ${({ $removeAffixLeftBorder }) =>
     $removeAffixLeftBorder &&

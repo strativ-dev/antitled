@@ -1,4 +1,4 @@
-import { Col, Row } from 'antd';
+import { Col, Row, Space } from 'antd';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -43,36 +43,44 @@ export default function InputNumberPage() {
           <InputNumber size='sm' type='number' fullWidth defaultValue={0} />
         </Col>
         <Col span={6}>
-          <InputNumber
-            size='md'
-            addonAfter={selectCurrencyAfter}
-            removeAffixRightBorder={true}
-            prefix={selectedCurrency.symbol}
-            fullWidth
-            defaultValue={34}
-          />
+          <Space.Compact style={{ isolation: 'isolate' }}>
+            <InputNumber
+              size='md'
+              removeAffixRightBorder={true}
+              prefix={selectedCurrency.symbol}
+              fullWidth
+              defaultValue={34}
+              style={{ zIndex: 1 }}
+            />
+            {selectCurrencyAfter}
+          </Space.Compact>
         </Col>
         <Col span={6}>
-          <InputNumber
-            size='lg'
-            addonAfter={selectCurrencyAfter}
-            removeAffixRightBorder={true}
-            prefix={selectedCurrency.symbol}
-            type='number'
-            fullWidth
-            disabled
-          />
+          <Space.Compact style={{ isolation: 'isolate' }}>
+            <InputNumber
+              size='lg'
+              removeAffixRightBorder={true}
+              prefix={selectedCurrency.symbol}
+              type='number'
+              fullWidth
+              disabled
+              style={{ zIndex: 1 }}
+            />
+            {selectCurrencyAfter}
+          </Space.Compact>
         </Col>
-        <Col span={6}>
-          <InputNumber
-            size='lg'
-            addonAfter={selectCurrencyAfter}
-            removeAffixRightBorder={true}
-            prefix={selectedCurrency.symbol}
-            type='number'
-            fullWidth
-            status='error'
-          />
+        <Col span={6} style={{ isolation: 'isolate' }}>
+          <Space.Compact>
+            <InputNumber
+              size='lg'
+              removeAffixRightBorder={true}
+              prefix={selectedCurrency.symbol}
+              type='number'
+              fullWidth
+              status='error'
+            />
+            {selectCurrencyAfter}
+          </Space.Compact>
         </Col>
       </Row>
     </>
