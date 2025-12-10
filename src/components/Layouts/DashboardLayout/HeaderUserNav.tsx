@@ -1,10 +1,10 @@
-import { UserOutlined } from '@ant-design/icons';
+import { User01 } from '@untitledui/icons';
 import { Avatar, Dropdown, MenuProps } from 'antd';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import useAuthStore from '@/stores/useAuthStore';
 import { useLogoutMutation } from '@/services/authentication';
+import useAuthStore from '@/stores/useAuthStore';
 
 export const HeaderUserNav = () => {
   const { t } = useTranslation('translation', {
@@ -33,13 +33,12 @@ export const HeaderUserNav = () => {
   }, [logout, t, user?.name]);
 
   return (
-    <Dropdown menu={menuItems} trigger={['click']} placement="bottomRight">
+    <Dropdown menu={menuItems} trigger={['click']} placement='bottomRight'>
       <a
         onClick={(event) => {
           event.preventDefault();
-        }}
-      >
-        <Avatar src={user?.avatar} icon={<UserOutlined />} size="large" />
+        }}>
+        <Avatar src={user?.avatar} icon={<User01 />} size='large' />
       </a>
     </Dropdown>
   );

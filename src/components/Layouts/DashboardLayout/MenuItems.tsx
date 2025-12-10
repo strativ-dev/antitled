@@ -1,5 +1,6 @@
-import { HomeOutlined } from '@ant-design/icons';
+import { Home01 } from '@untitledui/icons';
 import { MenuProps } from 'antd';
+import { ReactNode } from 'react';
 import { useAccessContext } from 'react-access-boundary-v2';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +12,7 @@ type ITEM_GROUP = {
 };
 
 type ITEM = {
-  icon?: JSX.Element;
+  icon?: ReactNode;
   key: string;
   label: string;
   permission?: string | string[];
@@ -27,12 +28,8 @@ const MenuItems = () => {
   const ITEMS: (ITEM | ITEM_GROUP)[] = [
     {
       key: 'dashboard',
-      icon: <HomeOutlined />,
+      icon: <Home01 />,
       label: t('dashboard'),
-    },
-    {
-      key: 'dashboard/antd-demos',
-      label: t('Overview'),
     },
   ];
 

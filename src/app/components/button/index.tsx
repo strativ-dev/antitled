@@ -1,4 +1,4 @@
-import { HomeOutlined } from '@ant-design/icons';
+import { Home01 } from '@untitledui/icons';
 import { Flex } from 'antd';
 import { useTranslation } from 'react-i18next';
 
@@ -38,10 +38,10 @@ export default function Buttons() {
           <Button variant='primary' size='xl'>
             Primary Disabled
           </Button>
-          <Button variant='primary' size='xl' icon={<HomeOutlined />}>
+          <Button variant='primary' size='xl' icon={<Home01 />}>
             Primary
           </Button>
-          <Button variant='primary' size='xl' icon={<HomeOutlined />} />
+          <Button variant='primary' size='xl' icon={<Home01 />} />
         </Flex>
         {/* Secondary */}
         <h4 style={{ margin: 0 }}>Secondary</h4>
@@ -61,10 +61,10 @@ export default function Buttons() {
           <Button variant='secondary' size='xl' disabled>
             Secondary
           </Button>
-          <Button variant='secondary' size='xl' icon={<HomeOutlined />}>
+          <Button variant='secondary' size='xl' icon={<Home01 />}>
             Secondary
           </Button>
-          <Button variant='secondary' size='xl' icon={<HomeOutlined />} />
+          <Button variant='secondary' size='xl' icon={<Home01 />} />
         </Flex>
         {/* Tertiary */}
         <h4 style={{ margin: 0 }}>Tertiary</h4>
@@ -84,10 +84,10 @@ export default function Buttons() {
           <Button variant='tertiary' size='xl' disabled>
             Tertiary
           </Button>
-          <Button variant='tertiary' size='xl' icon={<HomeOutlined />}>
+          <Button variant='tertiary' size='xl' icon={<Home01 />}>
             Tertiary
           </Button>
-          <Button variant='tertiary' size='xl' icon={<HomeOutlined />} />
+          <Button variant='tertiary' size='xl' icon={<Home01 />} />
         </Flex>
         {/* Link */}
         <h4 style={{ margin: 0 }}>Link</h4>
@@ -107,10 +107,10 @@ export default function Buttons() {
           <Button variant='link' size='xl' disabled>
             Link Disabled
           </Button>
-          <Button variant='link' size='xl' icon={<HomeOutlined />}>
+          <Button variant='link' size='xl' icon={<Home01 />}>
             Link
           </Button>
-          <Button variant='link' size='xl' icon={<HomeOutlined />} />
+          <Button variant='link' size='xl' icon={<Home01 />} />
         </Flex>
 
         <h4 style={{ margin: 0 }}>Link Gray</h4>
@@ -130,15 +130,10 @@ export default function Buttons() {
           <Button variant='link' size='xl' color='gray' disabled>
             Link Disabled
           </Button>
-          <Button variant='link' size='xl' icon={<HomeOutlined />} color='gray'>
+          <Button variant='link' size='xl' icon={<Home01 />} color='gray'>
             Link
           </Button>
-          <Button
-            variant='link'
-            size='xl'
-            icon={<HomeOutlined />}
-            color='default'
-          />
+          <Button variant='link' size='xl' icon={<Home01 />} color='default' />
         </Flex>
 
         {/* Primary color destructive */}
@@ -166,14 +161,14 @@ export default function Buttons() {
             variant='primary'
             size='xl'
             color='destructive'
-            icon={<HomeOutlined />}>
+            icon={<Home01 />}>
             primary
           </Button>
           <Button
             variant='primary'
             size='xl'
             color='destructive'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
           />
         </Flex>
         {/* Secondary */}
@@ -194,14 +189,14 @@ export default function Buttons() {
           <Button
             variant='secondary'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'>
             Secondary
           </Button>
           <Button
             variant='secondary'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'
           />
         </Flex>
@@ -229,14 +224,14 @@ export default function Buttons() {
           <Button
             variant='tertiary'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'>
             Tertiary
           </Button>
           <Button
             variant='tertiary'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'
           />
         </Flex>
@@ -258,14 +253,14 @@ export default function Buttons() {
           <Button
             variant='link'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'>
             Link
           </Button>
           <Button
             variant='link'
             size='xl'
-            icon={<HomeOutlined />}
+            icon={<Home01 />}
             color='destructive'
           />
         </Flex>

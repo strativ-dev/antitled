@@ -1,5 +1,5 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Link, Outlet, useLocation, useNavigate } from '@tanstack/react-router';
+import { Menu02, Menu03 } from '@untitledui/icons';
 import { Flex, Layout, Menu, theme } from 'antd';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
@@ -8,8 +8,7 @@ import { HeaderUserNav } from './HeaderUserNav';
 import MenuItems from './MenuItems';
 import StrativLogo from '@/assets/logo.svg?react';
 
-import { Button } from '@/components/Atoms';
-import { LangPicker } from '@/components/Atoms/LangPicker';
+import { Button, LangPicker } from '@/components/Atoms';
 import { withAuth } from '@/components/Hoc/withAuth';
 import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
 
@@ -82,9 +81,9 @@ const DashboardLayout = withAuth(() => {
             color='default'
             icon={
               collapsed ? (
-                <MenuUnfoldOutlined style={{ fontSize: '20px' }} />
+                <Menu02 style={{ fontSize: '20px' }} />
               ) : (
-                <MenuFoldOutlined style={{ fontSize: '20px' }} />
+                <Menu03 style={{ fontSize: '20px' }} />
               )
             }
             onClick={() => setCollapsed(!collapsed)}

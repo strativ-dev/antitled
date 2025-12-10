@@ -12,7 +12,7 @@ export default function AvatarLabelGroupPage() {
   return (
     <>
       <ComponentPageTitle title='AvatarLabelGroup Component' />
-      <Text size='text-lg' weight='medium' margin='2rem 0 0 0'>
+      <Text variant='text-lg-medium' margin='2rem 0 0 0'>
         Avatar Label Group with status
       </Text>
       <Row gutter={[32, 32]}>
@@ -32,7 +32,7 @@ export default function AvatarLabelGroupPage() {
         ))}
       </Row>
 
-      <Text size='text-lg' weight='medium' margin='2rem 0 0 0'>
+      <Text variant='text-lg-medium' margin='2rem 0 0 0'>
         Avatar Label Group with status
       </Text>
       <Row gutter={[32, 32]}>

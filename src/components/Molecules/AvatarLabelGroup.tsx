@@ -16,16 +16,16 @@ const getFontSizes = (size?: AvatarSize) => {
   switch (size) {
     case 'xs':
     case 'sm':
-      return { title: 'text-sm', subtitle: 'text-xs' } as const;
+      return { title: 'text-sm-medium', subtitle: 'text-xs-regular' } as const;
     case 'md':
-      return { title: 'text-sm', subtitle: 'text-sm' } as const;
+      return { title: 'text-sm-medium', subtitle: 'text-sm-regular' } as const;
     case 'lg':
-      return { title: 'text-md', subtitle: 'text-md' } as const;
+      return { title: 'text-md-medium', subtitle: 'text-md-regular' } as const;
     case 'xl':
     case '2xl':
-      return { title: 'text-lg', subtitle: 'text-md' } as const;
+      return { title: 'text-lg-medium', subtitle: 'text-md-regular' } as const;
     default:
-      return { title: 'text-sm', subtitle: 'text-sm' } as const;
+      return { title: 'text-sm-medium', subtitle: 'text-sm-regular' } as const;
   }
 };
 
@@ -68,10 +68,8 @@ export const AvatarLabelGroup = ({
         status={status}
       />
       <Flex vertical>
-        <Text size={getFontSizes(size).title} weight='medium'>
-          {label}
-        </Text>
-        <Text size={getFontSizes(size).subtitle} color='textTertiary600'>
+        <Text variant={getFontSizes(size).title}>{label}</Text>
+        <Text variant={getFontSizes(size).subtitle} color='textTertiary600'>
           {subtext}
         </Text>
       </Flex>

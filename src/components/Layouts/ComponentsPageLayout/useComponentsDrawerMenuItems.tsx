@@ -96,7 +96,7 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
         i18nKey: 'common.Radio_card',
       },
       {
-        key: 'selectable-card ',
+        key: 'selectable-card',
         path: '/components/selectable-card',
         i18nKey: 'common.Selectable_card',
       },

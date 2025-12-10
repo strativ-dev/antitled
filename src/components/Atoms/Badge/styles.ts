@@ -2,9 +2,9 @@ import styled, { DefaultTheme } from 'styled-components';
 
 import {
   ExtendedColor,
-  TagShape,
   ExtendedVariant,
   TagProps,
+  TagShape,
   TagSize,
 } from './index';
 
@@ -104,32 +104,32 @@ const ICON_ONLY_SIZES = (theme: DefaultTheme): Record<TagSize, string> => ({
     height: 1.375rem;
     width: 1.375rem;
     padding: 0.3125rem;
-    font-size: ${theme.fontSize['text-xs']}px;  `,
+    font-size: ${theme.fontSize['text-xs']};  `,
   md: `
     height: 1.5rem;
     width: 1.5rem;
     padding: 0.375rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
   lg: `
     height: 1.75rem;
     width: 1.75rem;
     padding: 0.5rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
 });
 
 const LABEL_ONLY_SIZES = (theme: DefaultTheme): Record<TagSize, string> => ({
   sm: `
     height: 1.375rem;
     padding: 0 0.5rem;
-    font-size: ${theme.fontSize['text-xs']}px;  `,
+    font-size: ${theme.fontSize['text-xs']};  `,
   md: `
     height: 1.5rem;
     padding: 0 0.625rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
   lg: `
     height: 1.75rem;
     padding: 0 0.875rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
 });
 
 const ICON_LABEL_SIZES = (theme: DefaultTheme): Record<TagSize, string> => ({
@@ -138,19 +138,19 @@ const ICON_LABEL_SIZES = (theme: DefaultTheme): Record<TagSize, string> => ({
     padding-left: 0.5rem;
     padding-right: 0.375rem;
     gap: 0.25rem;
-    font-size: ${theme.fontSize['text-xs']}px;  `,
+    font-size: ${theme.fontSize['text-xs']};  `,
   md: `
     height: 1.5rem;
     padding-left: 0.625rem;
     padding-right: 0.5rem;
     gap: 0.375rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
   lg: `
     height: 1.75rem;
     padding-left: 0.75rem;
     padding-right: 0.625rem;
     gap: 0.375rem;
-    font-size: ${theme.fontSize['text-sm']}px;  `,
+    font-size: ${theme.fontSize['text-sm']};  `,
 });
 
 export const TagWrapper = styled.div<{
@@ -200,7 +200,7 @@ export const TagWrapper = styled.div<{
       ${getVariantStyles()}
       ${sizeStyles}
       font-weight: ${theme.fontWeight.medium};
-      border-radius: ${radiusValue}px;
+      border-radius: ${radiusValue};
       gap: 0.25rem;
     `;
     }}

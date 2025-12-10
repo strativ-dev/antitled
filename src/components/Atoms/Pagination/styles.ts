@@ -18,15 +18,15 @@ const getNextPrevButtonStyle = (
 ) => {
   if (variant === 'button-group') {
     return css`
-      border-top-left-radius: ${!isNext ? theme.radius.md : 0}px;
-      border-bottom-left-radius: ${!isNext ? theme.radius.md : 0}px;
-      border-top-right-radius: ${isNext ? theme.radius.md : 0}px;
-      border-bottom-right-radius: ${isNext ? theme.radius.md : 0}px;
+      border-top-left-radius: ${!isNext ? theme.radius.md : 0};
+      border-bottom-left-radius: ${!isNext ? theme.radius.md : 0};
+      border-top-right-radius: ${isNext ? theme.radius.md : 0};
+      border-bottom-right-radius: ${isNext ? theme.radius.md : 0};
     `;
   }
 
   return css`
-    border-radius: ${theme.radius.md}px;
+    border-radius: ${theme.radius.md};
   `;
 };
 
@@ -50,7 +50,7 @@ const getVariantStyles = (
       border: none;
       background: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
       margin: 0;
-      font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+      font-size: ${({ theme }) => theme.fontSize['text-sm']};
       line-height: ${itemSize};
       color: ${({ theme }) => theme.colors.texts.textQuaternary500};
       transition: all 0.2s ease;
@@ -96,13 +96,13 @@ const getVariantStyles = (
     }
 
     .ant-pagination-prev {
-      border-top-left-radius: ${({ theme }) => theme.radius.md}px;
-      border-bottom-left-radius: ${({ theme }) => theme.radius.md}px;
+      border-top-left-radius: ${({ theme }) => theme.radius.md};
+      border-bottom-left-radius: ${({ theme }) => theme.radius.md};
     }
 
     .ant-pagination-next {
-      border-top-right-radius: ${({ theme }) => theme.radius.md}px;
-      border-bottom-right-radius: ${({ theme }) => theme.radius.md}px;
+      border-top-right-radius: ${({ theme }) => theme.radius.md};
+      border-bottom-right-radius: ${({ theme }) => theme.radius.md};
     }
 
     .ant-pagination-jump-prev,
@@ -113,7 +113,7 @@ const getVariantStyles = (
 
       .ant-pagination-item-container {
         .ant-pagination-item-ellipsis {
-          font-size: ${({ theme }) => theme.fontSize['text-xxs']}px;
+          font-size: ${({ theme }) => theme.fontSize['text-xxs']};
           color: ${({ theme }) => theme.colors.texts.textQuaternary500};
         }
       }
@@ -121,7 +121,7 @@ const getVariantStyles = (
 
     .ant-pagination-options {
       .ant-pagination-options-quick-jumper {
-        font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+        font-size: ${({ theme }) => theme.fontSize['text-sm']};
         font-weight: ${({ theme }) => theme.fontWeight.medium};
         color: ${({ theme }) => theme.colors.texts.textSecondary700};
 
@@ -135,7 +135,7 @@ const getVariantStyles = (
     }
 
     .ant-select-single {
-      font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+      font-size: ${({ theme }) => theme.fontSize['text-sm']};
       font-weight: ${({ theme }) => theme.fontWeight.medium};
       color: ${({ theme }) => theme.colors.texts.textSecondary700};
       height: ${itemSize};
@@ -169,22 +169,22 @@ const getVariantStyles = (
 
       .ant-pagination-item {
         border-radius: ${({ theme }) =>
-          buttonType === 'square' ? theme.radius.md : 9999}px;
+          buttonType === 'square' ? theme.radius.md : 9999};
 
         a {
           border-radius: ${({ theme }) =>
-            buttonType === 'square' ? theme.radius.md : 9999}px;
+            buttonType === 'square' ? theme.radius.md : 9999};
         }
       }
 
       .ant-pagination-prev {
-        border-top-right-radius: ${({ theme }) => theme.radius.md}px;
-        border-bottom-right-radius: ${({ theme }) => theme.radius.md}px;
+        border-top-right-radius: ${({ theme }) => theme.radius.md};
+        border-bottom-right-radius: ${({ theme }) => theme.radius.md};
       }
 
       .ant-pagination-next {
-        border-top-left-radius: ${({ theme }) => theme.radius.md}px;
-        border-bottom-left-radius: ${({ theme }) => theme.radius.md}px;
+        border-top-left-radius: ${({ theme }) => theme.radius.md};
+        border-bottom-left-radius: ${({ theme }) => theme.radius.md};
       }
     `;
   }
@@ -259,8 +259,8 @@ export const PaginationButton = styled.div<{
   align-items: center;
   gap: ${({ $iconOnly }) => ($iconOnly ? '0' : '0.25rem')};
   font-weight: ${({ theme }) => theme.fontWeight.semibold};
-  font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
-  line-height: ${({ theme }) => theme.lineHeight['text-sm']}px;
+  font-size: ${({ theme }) => theme.fontSize['text-sm']};
+  line-height: ${({ theme }) => theme.lineHeight['text-sm']};
   color: ${({ theme }) => theme.colors.texts.textTertiary600};
 
   padding: ${({ $iconOnly }) => ($iconOnly ? '0' : '0 0.75rem')};

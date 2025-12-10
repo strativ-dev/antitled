@@ -1,4 +1,5 @@
 import { CheckDone02, Copy01 } from '@untitledui/icons';
+import { Space } from 'antd';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled, { useTheme } from 'styled-components';
@@ -14,11 +15,11 @@ const getCopyTextSize = (size: Props['size'] = 'md') => {
   switch (size) {
     case 'sm':
     case 'md':
-      return 'text-sm';
+      return 'text-sm-medium';
     case 'lg':
-      return 'text-md';
+      return 'text-md-medium';
     default:
-      return 'text-sm';
+      return 'text-sm-medium';
   }
 };
 
@@ -48,8 +49,7 @@ export const InputCopyText = ({ size, value }: Props) => {
         <Text
           as='span'
           color={isCopied ? 'textSuccessPrimary600' : 'textSecondary700'}
-          size={getCopyTextSize(size)}
-          weight='medium'
+          variant={getCopyTextSize(size)}
           style={{ cursor: 'pointer' }}>
           {isCopied ? t('common.Copied') : t('common.Copy')}
         </Text>
@@ -68,7 +68,10 @@ export const InputCopyText = ({ size, value }: Props) => {
   }, [isCopied]);
 
   return (
-    <Input size={size} readOnly addonAfter={copyTextAfter} value={value} />
+    <Space.Compact>
+      <Input size={size} readOnly value={value} />
+      {copyTextAfter}
+    </Space.Compact>
   );
 };
 
@@ -77,5 +80,9 @@ const StyledCopyButton = styled.button`
   display: flex;
   align-items: center;
   cursor: pointer;
-  gap: 6px;
+  gap: 0.375rem;
+  border: 1px solid ${({ theme }) => theme.colors.borders.borderPrimary};
+  padding-inline: 0.75rem;
+  border-top-right-radius: ${({ theme }) => theme.radius.md};
+  border-bottom-right-radius: ${({ theme }) => theme.radius.md};
 `;

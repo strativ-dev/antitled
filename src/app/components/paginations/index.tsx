@@ -16,12 +16,12 @@ export default function PaginationPage() {
       <Flex vertical gap={48}>
         {/* Minimal Variant - Medium */}
         <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Variant: Minimal - Medium
           </Text>
           <Flex vertical gap={24}>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Basic (10 total pages)
               </Text>
               <Pagination
@@ -34,7 +34,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 With many pages (50 pages)
               </Text>
               <Pagination
@@ -49,7 +49,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Disabled state
               </Text>
               <Pagination
@@ -67,12 +67,12 @@ export default function PaginationPage() {
 
         {/* Minimal Variant - Small */}
         <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Variant: Minimal - Small
           </Text>
           <Flex vertical gap={24}>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Basic (10 total pages)
               </Text>
               <Pagination
@@ -84,7 +84,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 With many pages (50 pages)
               </Text>
               <Pagination
@@ -100,12 +100,12 @@ export default function PaginationPage() {
 
         {/* Button Group Variant - Medium */}
         <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Variant: Button Group - Size: Medium (Default)
           </Text>
           <Flex vertical gap={24}>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Basic (10 total pages)
               </Text>
               <Pagination
@@ -119,7 +119,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 With many pages (50 pages)
               </Text>
               <Pagination
@@ -131,7 +131,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Disabled state
               </Text>
               <Pagination
@@ -148,7 +148,7 @@ export default function PaginationPage() {
 
         {/* Button Group Variant - Small */}
         <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Variant: Button Group - Small
           </Text>
           <Flex vertical gap={24}>
@@ -180,12 +180,12 @@ export default function PaginationPage() {
 
         {/* Alignment Examples */}
         <PaginationWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Alignment Options
           </Text>
           <Flex vertical gap={24}>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Start (Default)
               </Text>
               <Pagination
@@ -197,7 +197,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 Center
               </Text>
               <Pagination
@@ -209,7 +209,7 @@ export default function PaginationPage() {
               />
             </div>
             <div>
-              <Text size='text-sm' weight='medium' margin='0 0 12px 0'>
+              <Text variant='text-sm-semibold' margin='0 0 12px 0'>
                 End
               </Text>
               <Pagination

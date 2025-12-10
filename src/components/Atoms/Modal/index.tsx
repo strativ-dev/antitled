@@ -111,8 +111,8 @@ const StyledModal = styled(AntModal)<{
   --simplebar-padding-block: ${({ $bordered }) =>
     $bordered ? '1.25' : '0'}rem;
 
-  .ant-modal-content {
-    border-radius: ${({ theme }) => theme.radius['2xl']}px;
+  .ant-modal-container {
+    border-radius: ${({ theme }) => theme.radius['2xl']};
     padding: 0;
   }
 

@@ -44,8 +44,6 @@
     "**/routeTree.gen.ts": true
   },
   "files.exclude": {
-    "**/node_modules": true,
-    "**/dist": true,
     "**/.git": true
   },
   "cSpell.words": ["antitled"]

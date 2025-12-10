@@ -84,19 +84,19 @@ const StyledSider = styled(Sider)`
   scrollbar-color: scrollbarColor;
   scrollbar-width: thin;
   background-color: ${({ theme }) => theme.colors['backgrounds']['bgPrimary']};
-  padding-inline: 0.5rem;
+  padding-inline: 0.5rem !important;
 
   .ant-menu-item-group-title {
     padding-inline-start: 0.875rem;
-    margin-inline: ${({ theme }) => theme.spacing['lg']}px;
-    font-size: ${({ theme }) => theme.fontSize['text-sm']}px;
+    margin-inline: ${({ theme }) => theme.spacing['lg']};
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     border-bottom: ${({ theme }) =>
       `1px solid ${theme.colors['borders']['borderSecondary']}`};
   }
 
   .ant-menu-item {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    /* padding-left: 1.5rem !important; */
+    /* padding-right: 1.5rem !important; */
     font-weight: 400;
 
     span {

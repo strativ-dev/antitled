@@ -9,15 +9,32 @@ import styled from 'styled-components';
 import {
   LineHeightVariant,
   TextColorVariant,
+  TextSizeVariant,
   TextVariant,
   WeightVariant,
 } from '@/config/styles';
 
+/**
+ * Parse variant string like 'text-md-semibold' into size and weight
+ */
+const parseVariant = (
+  variant: TextVariant
+): {
+  size: TextSizeVariant;
+  weight: WeightVariant;
+  lineHeight: LineHeightVariant;
+} => {
+  // Split from the last hyphen to get weight
+  const lastHyphenIndex = variant.lastIndexOf('-');
+  const size = variant.slice(0, lastHyphenIndex) as TextSizeVariant;
+  const weight = variant.slice(lastHyphenIndex + 1) as WeightVariant;
+  const lineHeight = variant.slice(0, lastHyphenIndex) as LineHeightVariant;
+  return { size, weight, lineHeight };
+};
+
 type PolymorphicTextProps<C extends ElementType = 'span'> = {
-  size?: TextVariant;
-  weight?: WeightVariant;
-  lineHeight?: LineHeightVariant;
-  color?: TextColorVariant;
+  variant?: TextVariant;
+  color?: TextColorVariant | (string & {});
   children: ReactNode;
   as?: C;
   className?: string;
@@ -29,9 +46,7 @@ type PolymorphicTextProps<C extends ElementType = 'span'> = {
 export type TextProps = PolymorphicTextProps;
 
 export const Text = <C extends ElementType = 'span'>({
-  size = 'text-md',
-  weight = 'regular',
-  lineHeight,
+  variant = 'text-md-regular',
   color = 'textPrimary900',
   children,
   as,
@@ -43,6 +58,7 @@ export const Text = <C extends ElementType = 'span'>({
   ...props
 }: PolymorphicTextProps<C>) => {
   const Component = as || 'span';
+  const { size, weight, lineHeight } = parseVariant(variant);
 
   return (
     <Wrapper
@@ -63,21 +79,22 @@ export const Text = <C extends ElementType = 'span'>({
 };
 
 type WrapperProps = {
-  $size: TextVariant;
+  $size: TextSizeVariant;
   $weight: WeightVariant;
-  $lineHeight?: LineHeightVariant;
-  $color: TextColorVariant;
+  $lineHeight: LineHeightVariant;
+  $color: string;
   $margin?: string;
   $padding?: string;
 };
 
 const Wrapper = styled.span<WrapperProps>`
-  font-size: ${({ $size, theme }) => theme.fontSize[$size]}px;
+  font-size: ${({ $size, theme }) => theme.fontSize[$size]};
   font-weight: ${({ $weight, theme }) => theme.fontWeight[$weight]};
-  color: ${({ $color, theme }) => theme.colors.texts[$color]};
+  line-height: ${({ $lineHeight, theme }) => theme.lineHeight[$lineHeight]};
+  color: ${({ $color, theme }) =>
+    theme.colors.texts[$color as TextColorVariant] ?? $color};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding }) => $padding};
   display: inline-block;
-  line-height: ${({ $lineHeight, $size, theme }) =>
-    $lineHeight ? theme.lineHeight[$lineHeight] : theme.lineHeight[$size]}px;
+  line-height: ${({ $size, theme }) => theme.lineHeight[$size]};
 `;

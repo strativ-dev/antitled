@@ -3,10 +3,10 @@ import 'styled-components';
 
 import {
   ColorPalette,
-  FontSize,
+  FontSizeInRem,
   FontWeight,
-  LineHeight,
-  Radius,
+  LineHeightInRem,
+  RadiusInRem,
   Shadow,
   Spacing,
 } from '@/config/styles';
@@ -16,10 +16,10 @@ declare module 'styled-components' {
     mode?: 'dark' | 'light' | 'system';
     colors: ColorPalette;
     shadows: Shadow;
-    fontSize: FontSize;
+    fontSize: FontSizeInRem;
     fontWeight: FontWeight;
-    lineHeight: LineHeight;
-    radius: Radius;
+    lineHeight: LineHeightInRem;
+    radius: RadiusInRem;
     spacing: Spacing;
     isCompact: boolean;
   }

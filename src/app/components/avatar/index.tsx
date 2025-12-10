@@ -11,7 +11,7 @@ export default function AvatarPage() {
     <>
       <ComponentPageTitle title='Avatar Component' />
       <Flex vertical gap={32}>
-        <Text size='text-lg' weight='medium' as='h2'>
+        <Text variant='text-lg-medium' as='h2'>
           <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>,{' '}
           <code>xl</code>, <code>2xl</code>
         </Text>
@@ -28,7 +28,7 @@ export default function AvatarPage() {
             size='2xl'
             src='/assets/dummy/images/luffyy-dp.png'
             alt='Avatar 2XL'>
-            <Text size='display-xs' weight='semibold' color='textQuaternary500'>
+            <Text variant='display-xs-semibold' color='textQuaternary500'>
               {createInitials('Monkey D. Luffy')}
             </Text>
           </Avatar>
@@ -69,19 +69,15 @@ export default function AvatarPage() {
             size='2xl'
             src='/assets/dummy/images/namii-dp.webp'
             alt='Avatar 2XL'>
-            <Text size='display-xs' weight='semibold' color='textQuaternary500'>
+            <Text variant='display-xs-semibold' color='textQuaternary500'>
               {createInitials('Nami Cat Burglar')}
             </Text>
           </Avatar>
         </Flex>
 
-        <Text size='text-lg' weight='medium' as='h2'>
+        <Text variant='text-lg-medium' as='h2'>
           Avatar Group
-          <Text
-            style={{ display: 'block' }}
-            size='text-lg'
-            weight='medium'
-            as='h2'>
+          <Text style={{ display: 'block' }} variant='text-lg-medium' as='h2'>
             <code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>,{' '}
             <code>xl</code>, <code>2xl</code>
           </Text>

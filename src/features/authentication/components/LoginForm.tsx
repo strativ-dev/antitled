@@ -1,4 +1,4 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Lock03, User01 } from '@untitledui/icons';
 import { Button, Form, Input } from 'antd';
 import { useTranslation } from 'react-i18next';
 
@@ -27,36 +27,32 @@ export const LoginForm = ({ loading, onFinish }: LoginFormProps) => {
       <FormTitle>{t('authentication')}</FormTitle>
       <Form
         form={form}
-        name="login"
+        name='login'
         initialValues={{
           email: 'john@mail.com',
           password: 'changeme',
         }}
         onFinish={onFinish}
-        size="large"
-      >
+        size='large'>
         <Form.Item
-          name="email"
+          name='email'
           rules={[
             { required: true, message: t('please_input_your_email') },
             { type: 'email', message: t('please_input_your_email') },
-          ]}
-        >
-          <Input prefix={<UserOutlined />} placeholder={t('email')} />
+          ]}>
+          <Input prefix={<User01 />} placeholder={t('email')} />
         </Form.Item>
 
         <Form.Item
-          name="password"
-          rules={[{ required: true, message: t('please_input_your_password') }]}
-        >
-          <Input.Password
-            prefix={<LockOutlined />}
-            placeholder={t('password')}
-          />
+          name='password'
+          rules={[
+            { required: true, message: t('please_input_your_password') },
+          ]}>
+          <Input.Password prefix={<Lock03 />} placeholder={t('password')} />
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" block loading={loading}>
+          <Button type='primary' htmlType='submit' block loading={loading}>
             {t('log_in')}
           </Button>
         </Form.Item>

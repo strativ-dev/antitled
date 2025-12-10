@@ -895,27 +895,27 @@ export const COLOR_MODES = {
     effects: {
       focusRing: COLORS['Brand']['500'],
       focusRingError: COLORS['Error']['500'],
-      shadowXs: COLORS['Base']['transparent'],
-      shadowSm01: COLORS['Base']['transparent'],
-      shadowSm02: COLORS['Base']['transparent'],
-      shadowMd01: COLORS['Base']['transparent'],
-      shadowMd02: COLORS['Base']['transparent'],
-      shadowLg01: COLORS['Base']['transparent'],
-      shadowLg02: COLORS['Base']['transparent'],
-      shadowLg03: COLORS['Base']['transparent'],
-      shadowXl01: COLORS['Base']['transparent'],
-      shadowXl02: COLORS['Base']['transparent'],
-      shadowXl03: COLORS['Base']['transparent'],
-      shadow2xl01: COLORS['Base']['transparent'],
-      shadow2xl02: COLORS['Base']['transparent'],
-      shadow3xl01: COLORS['Base']['transparent'],
-      shadow3xl02: COLORS['Base']['transparent'],
-      shadowSkeumorphicInner: 'rgba(12, 14, 18, 0.05)',
-      shadowSkeumorphicInnerBorder: 'rgba(12, 14, 18, 0.18)',
-      shadowMainCentreMd: COLORS['Base']['transparent'],
-      shadowMainCentreLg: COLORS['Base']['transparent'],
-      shadowOverlayLg: COLORS['Base']['transparent'],
-      shadowGridMd: COLORS['Base']['transparent'],
+      shadowXs: 'rgba(0, 0, 0, 0.7)',
+      shadowSm01: 'rgba(0, 0, 0, 0.6)',
+      shadowSm02: 'rgba(0, 0, 0, 0.5)',
+      shadowMd01: 'rgba(0, 0, 0, 0.5)',
+      shadowMd02: 'rgba(0, 0, 0, 0.4)',
+      shadowLg01: 'rgba(0, 0, 0, 0.4)',
+      shadowLg02: 'rgba(0, 0, 0, 0.3)',
+      shadowLg03: 'rgba(0, 0, 0, 0.35)',
+      shadowXl01: 'rgba(0, 0, 0, 0.4)',
+      shadowXl02: 'rgba(0, 0, 0, 0.3)',
+      shadowXl03: 'rgba(0, 0, 0, 0.35)',
+      shadow2xl01: 'rgba(0, 0, 0, 0.5)',
+      shadow2xl02: 'rgba(0, 0, 0, 0.35)',
+      shadow3xl01: 'rgba(0, 0, 0, 0.45)',
+      shadow3xl02: 'rgba(0, 0, 0, 0.35)',
+      shadowSkeumorphicInner: 'rgba(255, 255, 255, 0.05)',
+      shadowSkeumorphicInnerBorder: 'rgba(255, 255, 255, 0.12)',
+      shadowMainCentreMd: 'rgba(0, 0, 0, 0.45)',
+      shadowMainCentreLg: 'rgba(0, 0, 0, 0.5)',
+      shadowOverlayLg: 'rgba(0, 0, 0, 0.6)',
+      shadowGridMd: 'rgba(0, 0, 0, 0.4)',
     },
     alpha: {
       alphaWhite10: 'rgba(12, 14, 18, 0.1)',
@@ -1163,6 +1163,22 @@ export const FONT_SIZE = {
   'display-2xl': 72,
 } as const;
 
+const getFontSizesInRem = () => {
+  const fontSizesInRem: Record<keyof typeof FONT_SIZE, string> = {} as Record<
+    keyof typeof FONT_SIZE,
+    string
+  >;
+  for (const key in FONT_SIZE) {
+    const sizeInPx = FONT_SIZE[key as keyof typeof FONT_SIZE];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    fontSizesInRem[key as keyof typeof FONT_SIZE] = `${sizeInRem}rem`;
+  }
+  return fontSizesInRem;
+};
+
+export const FONT_SIZE_IN_REM = getFontSizesInRem();
+export type FontSizeInRem = typeof FONT_SIZE_IN_REM;
+
 export const LINE_HEIGHT = {
   'text-xxs': 14,
   'text-xs': 18,
@@ -1178,6 +1194,20 @@ export const LINE_HEIGHT = {
   'display-2xl': 90,
 } as const;
 
+export const getLineHeightsInRem = () => {
+  const lineHeightsInRem: Record<keyof typeof LINE_HEIGHT, string> =
+    {} as Record<keyof typeof LINE_HEIGHT, string>;
+  for (const key in LINE_HEIGHT) {
+    const sizeInPx = LINE_HEIGHT[key as keyof typeof LINE_HEIGHT];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    lineHeightsInRem[key as keyof typeof LINE_HEIGHT] = `${sizeInRem}rem`;
+  }
+  return lineHeightsInRem;
+};
+
+export const LINE_HEIGHT_IN_REM = getLineHeightsInRem();
+export type LineHeightInRem = typeof LINE_HEIGHT_IN_REM;
+
 export const RADIUS = {
   none: 0,
   xxs: 2,
@@ -1191,6 +1221,22 @@ export const RADIUS = {
   '4xl': 24,
   full: 9999,
 } as const;
+
+export const getRadiusInRem = () => {
+  const radiusInRem: Record<keyof typeof RADIUS, string> = {} as Record<
+    keyof typeof RADIUS,
+    string
+  >;
+  for (const key in RADIUS) {
+    const sizeInPx = RADIUS[key as keyof typeof RADIUS];
+    const sizeInRem = sizeInPx / 16; // Assuming base font size is 16px
+    radiusInRem[key as keyof typeof RADIUS] = `${sizeInRem}rem`;
+  }
+  return radiusInRem;
+};
+
+export const RADIUS_IN_REM = getRadiusInRem();
+export type RadiusInRem = typeof RADIUS_IN_REM;
 
 export const SHADOWS = {
   xs: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
@@ -1239,7 +1285,10 @@ export type Shadow = typeof SHADOWS;
 export type Spacing = typeof SPACING;
 export type FontWeight = typeof FONT_WEIGHT;
 
-export type TextVariant = keyof typeof FONT_SIZE;
+export type TextSizeVariant = keyof typeof FONT_SIZE;
+// Combined text variant: size-weight (e.g., 'text-md-semibold', 'display-lg-bold')
+export type TextVariant = `${TextSizeVariant}-${WeightVariant}`;
+
 export type WeightVariant = keyof typeof FONT_WEIGHT;
 export type LineHeightVariant = keyof typeof LINE_HEIGHT;
 
@@ -1270,3 +1319,80 @@ type MakeFlexible<T> = {
 
 export type ColorPalette = MakeFlexible<typeof COLOR_PALLETTE>;
 // export type ColorPalette = any;
+
+// ============================================================================
+// TYPOGRAPHY HELPER
+// ============================================================================
+
+/**
+ * Typography helper for styled-components
+ *
+ * Usage:
+ *   ${typography('text-md-semibold')}
+ *   ${typography('display-lg-bold')}
+ *   ${typography('text-sm')}  // defaults to 'regular' weight
+ *
+ * Or with separate arguments:
+ *   ${typography('text-md', 'semibold')}
+ *   ${typography('display-lg', 'bold')}
+ */
+export const typography = (
+  variant: TextVariant | TextSizeVariant,
+  weight?: WeightVariant
+): string => {
+  let size: TextSizeVariant;
+  let fontWeight: WeightVariant;
+
+  // Check if variant contains weight (e.g., 'text-md-semibold')
+  const parts = variant.split('-');
+
+  if (parts.length === 3) {
+    // Format: 'text-md-semibold' or 'display-lg-bold'
+    size = `${parts[0]}-${parts[1]}` as TextSizeVariant;
+    fontWeight = parts[2] as WeightVariant;
+  } else if (parts.length === 2) {
+    // Format: 'text-md' or 'display-lg' (size only)
+    size = variant as TextSizeVariant;
+    fontWeight = weight || 'regular';
+  } else {
+    // Fallback
+    size = 'text-md';
+    fontWeight = 'regular';
+  }
+
+  const fontSize = FONT_SIZE[size];
+  const lineHeight = LINE_HEIGHT[size];
+  const fontWeightValue = FONT_WEIGHT[fontWeight];
+
+  return `
+    font-size: ${fontSize}px;
+    line-height: ${lineHeight}px;
+    font-weight: ${fontWeightValue};
+  `;
+};
+
+/**
+ * Get individual typography values (useful for inline styles or non-styled-components)
+ */
+export const getTypographyValues = (
+  variant: TextVariant | TextSizeVariant,
+  weight?: WeightVariant
+) => {
+  const parts = variant.split('-');
+  let size: TextSizeVariant;
+  let fontWeight: WeightVariant;
+
+  if (parts.length === 3) {
+    size = `${parts[0]}-${parts[1]}` as TextSizeVariant;
+    fontWeight = parts[2] as WeightVariant;
+  } else {
+    size = variant as TextSizeVariant;
+    fontWeight = weight || 'regular';
+  }
+
+  return {
+    fontSize: FONT_SIZE[size],
+    lineHeight: LINE_HEIGHT[size],
+    fontWeight: FONT_WEIGHT[fontWeight],
+  };
+};

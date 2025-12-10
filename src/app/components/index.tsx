@@ -1,4 +1,4 @@
-import { WarningOutlined } from '@ant-design/icons';
+import { AlertTriangle } from '@untitledui/icons';
 import { Flex } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -18,16 +18,18 @@ export default function ComponentsPage() {
           alt='Antitled Cover'
           style={{ objectFit: 'contain', maxWidth: 900 }}
         />
-        <Text size='display-md' weight='regular'>
-          Note:
+        <Text variant='display-md-regular'>Note:</Text>
+        <Text variant='text-lg-regular'>
+          {t('features.components.welcome_text_1')}
         </Text>
-        <Text size='text-lg'>{t('features.components.welcome_text_1')}</Text>
 
-        <Text size='text-lg'>{t('features.components.welcome_text_2')}</Text>
+        <Text variant='text-lg-regular'>
+          {t('features.components.welcome_text_2')}
+        </Text>
 
         <Flex gap={40} align='center'>
-          <WarningOutlined style={{ color: '#F04438', fontSize: 72 }} />
-          <Text size='text-lg' color='textErrorPrimary600'>
+          <AlertTriangle style={{ color: '#F04438', fontSize: 72 }} />
+          <Text variant='text-lg-regular' color='textErrorPrimary600'>
             {t('features.components.disclaimer_text')}
           </Text>
         </Flex>

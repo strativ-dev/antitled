@@ -120,7 +120,7 @@ export default function TabsPage() {
       <Flex vertical gap={48}>
         {/* Horizontal Tabs - Button Brand Variant */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Horizontal Tabs - Button Brand
           </Text>
           <Tabs
@@ -134,7 +134,7 @@ export default function TabsPage() {
 
         {/* Vertical Tabs - Button Brand Variant */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Vertical Tabs - Button Brand
           </Text>
           <Tabs
@@ -143,13 +143,13 @@ export default function TabsPage() {
             onChange={onChange}
             variant='button-brand'
             size='sm'
-            tabPosition='left'
+            tabPlacement='start'
           />
         </TabsWrapper>
 
         {/* Horizontal Tabs - Button Gray */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Horizontal Tabs - Button Gray
           </Text>
           <Tabs
@@ -162,7 +162,7 @@ export default function TabsPage() {
         </TabsWrapper>
         {/* Vertical Tabs - Button Gray */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Vertical Tabs - Button Gray
           </Text>
           <Tabs
@@ -171,13 +171,13 @@ export default function TabsPage() {
             onChange={onChange}
             variant='button-gray'
             size='sm'
-            tabPosition='left'
+            tabPlacement='start'
           />
         </TabsWrapper>
 
         {/* Horizontal Tabs - Underlined */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Horizontal Tabs - Underline (Default)
           </Text>
           <Tabs
@@ -190,7 +190,7 @@ export default function TabsPage() {
         </TabsWrapper>
         {/* Vertical Tabs - Underlined */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Vertical Tabs - Underline (Default)
           </Text>
           <Tabs
@@ -199,13 +199,13 @@ export default function TabsPage() {
             onChange={onChange}
             variant='underline'
             size='sm'
-            tabPosition='left'
+            tabPlacement='start'
           />
         </TabsWrapper>
 
         {/* Horizontal Tabs - Button Bordered */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Horizontal Tabs - Button Bordered
           </Text>
           <Tabs
@@ -219,14 +219,14 @@ export default function TabsPage() {
 
         {/* Vertical Tabs - Button Bordered */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Vertical Tabs - Button Bordered
           </Text>
           <Tabs
             items={verticalItems.slice(0, 6)}
             defaultActiveKey='1'
             onChange={onChange}
-            tabPosition='left'
+            tabPlacement='start'
             variant='button-bordered'
             size='sm'
           />
@@ -234,7 +234,7 @@ export default function TabsPage() {
 
         {/* Horizontal Tabs - Button Minimal */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Horizontal Tabs - Button Minimal
           </Text>
           <Tabs
@@ -247,7 +247,7 @@ export default function TabsPage() {
         </TabsWrapper>
         {/* Vertical Tabs - Button Minimal */}
         <TabsWrapper>
-          <Text size='text-lg' weight='semibold' as='h2' margin='0 0 24px 0'>
+          <Text variant='text-lg-semibold' as='h2' margin='0 0 24px 0'>
             Vertical Tabs - Button Minimal
           </Text>
           <Tabs
@@ -256,7 +256,7 @@ export default function TabsPage() {
             onChange={onChange}
             variant='button-minimal'
             size='sm'
-            tabPosition='left'
+            tabPlacement='start'
           />
         </TabsWrapper>
       </Flex>

@@ -23,7 +23,7 @@ const StyledTable = styled(AntdTable)<{
   $hasFooter?: boolean;
 }>`
   box-shadow: ${({ theme }) => theme.shadows.xs};
-  border-radius: ${({ theme }) => theme.radius.xl}px;
+  border-radius: ${({ theme }) => theme.radius.xl};
   border-color: transparent;
 
   .ant-table-cell {
@@ -39,7 +39,7 @@ const StyledTable = styled(AntdTable)<{
 
   thead > tr:first-child > *:last-child {
     border-top-right-radius: ${({ theme, $hasHeader }) =>
-      $hasHeader ? 0 : theme.radius.xl}px;
+      $hasHeader ? 0 : theme.radius.xl};
     border-right: 1px solid
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }
@@ -50,7 +50,7 @@ const StyledTable = styled(AntdTable)<{
 
   thead > tr:first-child > *:first-child {
     border-top-left-radius: ${({ theme, $hasHeader }) =>
-      $hasHeader ? 0 : theme.radius.xl}px;
+      $hasHeader ? 0 : theme.radius.xl};
     border-left: 1px solid
       ${({ theme }) => theme.colors.borders.borderSecondary};
   }

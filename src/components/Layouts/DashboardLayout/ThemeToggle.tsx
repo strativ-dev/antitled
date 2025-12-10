@@ -1,4 +1,4 @@
-import { MoonOutlined, SunOutlined } from '@ant-design/icons';
+import { Moon01, Sun } from '@untitledui/icons';
 import { Switch } from 'antd';
 import { useEffect } from 'react';
 
@@ -27,8 +27,9 @@ export default function ThemeToggle() {
 
   return (
     <Switch
-      checkedChildren={<MoonOutlined />}
-      unCheckedChildren={<SunOutlined />}
+      size='small'
+      checkedChildren={<Moon01 size={12} style={{ marginTop: '.225rem' }} />}
+      unCheckedChildren={<Sun size={12} style={{ marginTop: '.225rem' }} />}
       checked={isDark}
       onChange={toggleTheme}
       title={`Theme: ${theme === 'light' ? 'Light' : 'Dark'}`}

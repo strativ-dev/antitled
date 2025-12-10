@@ -8,6 +8,7 @@ export { CircleSpinner } from './CircleSpinner';
 export { Dropdown } from './Dropdown';
 export { Input } from './Input';
 export { InputNumber } from './InputNumber';
+export { LangPicker } from './LangPicker';
 export { Modal } from './Modal';
 export { ModalTitle } from './Modal/ModalTitle';
 export { Pagination } from './Pagination';

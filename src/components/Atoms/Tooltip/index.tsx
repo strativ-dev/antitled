@@ -1,15 +1,15 @@
 import { HelpCircle } from '@untitledui/icons';
-import { Tooltip as AntdTooltip } from 'antd';
 import type { TooltipProps as AntdTooltipProps } from 'antd';
+import { Tooltip as AntdTooltip } from 'antd';
 import React, { ReactNode, useMemo } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { TextVariant, TextColorVariant } from '@/config/styles';
+import { TextColorVariant, TextSizeVariant } from '@/config/styles';
 
 export type TooltipProps = {
   title: ReactNode;
   subtitle?: ReactNode;
-  fontSize?: TextVariant;
+  fontSize?: TextSizeVariant;
   color?: TextColorVariant;
   children?: ReactNode;
   arrow?: 'show' | 'hide' | 'center';
@@ -66,7 +66,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       color={theme.colors.backgrounds.bgPrimarySolid}
       title={tooltipContent}
       styles={{
-        body: {
+        container: {
           borderRadius: theme.radius['md'],
           minHeight: hasSubtitle ? 'auto' : '2.375rem',
         },
@@ -78,12 +78,12 @@ export const Tooltip: React.FC<TooltipProps> = ({
 };
 
 const StyledTooltipContent = styled.span<{
-  $fontSize: TextVariant;
+  $fontSize: TextSizeVariant;
   $color?: TextColorVariant;
   $hasSubtitle: boolean;
 }>`
   display: inline-block;
-  font-size: ${({ $fontSize, theme }) => theme.fontSize[$fontSize]}px;
+  font-size: ${({ $fontSize, theme }) => theme.fontSize[$fontSize]};
   padding: 0.25rem 0.5rem;
   color: ${({ $color, theme }) =>
     $color ? theme.colors.texts[$color] : theme.colors.texts.textWhite};

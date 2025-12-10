@@ -1,7 +1,35 @@
 import styled from 'styled-components';
 
+import { typography } from '@/config/styles';
+
+import { Select } from '@/components/Atoms/Select';
+
 export const Wrapper = styled.div`
-  & > .ant-typography {
-    padding-right: 0.625rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledSelect = styled(Select)`
+  .ant-select-selector {
+    padding: 0 !important;
+    height: auto !important;
   }
+
+  .ant-select-selection-item {
+    display: flex;
+    align-items: center;
+    padding-right: 0 !important;
+    font-weight: 500;
+  }
+
+  .ant-select-arrow {
+    color: ${({ theme }) => theme.colors.texts.textPrimary900};
+  }
+`;
+
+export const LabelWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  ${typography('text-sm-regular')}
 `;
