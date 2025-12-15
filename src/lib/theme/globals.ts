@@ -106,6 +106,22 @@ const GlobalStyles = createGlobalStyle`
       visibility: visible;
     }
   }
+
+  .ant-dropdown {
+    .ant-dropdown-menu {
+      background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
+      border: ${({ theme }) => (theme.mode === 'light' ? 'none' : '1px solid')};
+      border-color: ${({ theme }) => theme.colors.borders.borderTertiary};
+      box-shadow:
+        0px 1px 2px 0px ${({ theme }) => theme.colors['effects']['shadowXs']},
+        0px -2px 0px 0px ${({ theme }) =>
+          theme.colors['effects']['shadowSkeumorphicInner']} inset,
+        0px 0px 0px 1px
+          ${({ theme }) =>
+            theme.colors['effects']['shadowSkeumorphicInnerBorder']}
+          inset;
+    }
+  }
 `;
 
 export default GlobalStyles;

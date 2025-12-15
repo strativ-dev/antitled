@@ -1,6 +1,6 @@
 import { Dropdown as AntDropdown } from 'antd';
 import { ComponentProps, ReactNode } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 type AntDropdownProps = ComponentProps<typeof AntDropdown>;
 type AntDropdownButtonProps = ComponentProps<typeof AntDropdown.Button>;
@@ -50,7 +50,6 @@ function DropdownButtonBase(props: DropdownButtonProps) {
 
   return (
     <>
-      <GlobalDropdownStyles />
       <AntDropdown.Button
         {...rest}
         popupRender={(menu) => (popupRender ? popupRender(menu) : menu)}
@@ -77,23 +76,5 @@ const DropdownWrapper = styled.div`
 const StyledMenuWrapper = styled.div`
   .ant-dropdown-menu {
     padding: 0.75rem !important;
-  }
-`;
-
-const GlobalDropdownStyles = createGlobalStyle`
-  .ant-dropdown {
-    .ant-dropdown-menu {
-      background-color: ${({ theme }) => theme.colors.backgrounds.bgPrimary};
-      border: ${({ theme }) => (theme.mode === 'light' ? 'none' : '1px solid')};
-      border-color: ${({ theme }) => theme.colors.borders.borderTertiary};
-      box-shadow:
-        0px 1px 2px 0px ${({ theme }) => theme.colors['effects']['shadowXs']},
-        0px -2px 0px 0px ${({ theme }) =>
-          theme.colors['effects']['shadowSkeumorphicInner']} inset,
-        0px 0px 0px 1px
-          ${({ theme }) =>
-            theme.colors['effects']['shadowSkeumorphicInnerBorder']}
-          inset;
-    }
   }
 `;
