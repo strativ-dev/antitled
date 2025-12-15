@@ -30,16 +30,26 @@ export const useAuthStore = create<AuthState>()(
       (set) => ({
         user: null,
         permissions: [],
-        setUser: (user: AuthState['user']) => set({ user }),
+        setUser: (user: AuthState['user']) => set({ user }, false, 'setUser'),
         setPermissions: (permissions: AuthState['permissions']) =>
-          set({ permissions }),
+          set({ permissions }, false, 'setPermissions'),
         accessToken: null,
         refreshToken: null,
         setAccessToken: (accessToken: AuthState['accessToken']) =>
-          set({ accessToken }),
+          set({ accessToken }, false, 'setAccessToken'),
         setRefreshToken: (refreshToken: AuthState['refreshToken']) =>
-          set({ refreshToken }),
-        clear: () => set({ user: null, permissions: [], accessToken: null }),
+          set({ refreshToken }, false, 'setRefreshToken'),
+        clear: () =>
+          set(
+            {
+              user: null,
+              permissions: [],
+              accessToken: null,
+              refreshToken: null,
+            },
+            false,
+            'clear'
+          ),
       }),
       { name: 'authStore' }
     ),

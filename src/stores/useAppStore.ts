@@ -44,18 +44,22 @@ const useAppStore = create<AppState>()(
       (set) => ({
         language: LANGUAGE_OPTIONS.en,
         colorPalette: COLOR_PALLETTE,
-        setLanguage: (language) => set({ language }),
+        setLanguage: (language) => set({ language }, false, 'setLanguage'),
         theme: 'system',
         setTheme: (theme: 'light' | 'dark') => {
-          set((state) => ({
-            theme,
-            colorPalette: getThemeColorPalette(theme, state.colorPalette),
-          }));
+          set(
+            (state) => ({
+              theme,
+              colorPalette: getThemeColorPalette(theme, state.colorPalette),
+            }),
+            false,
+            'setTheme'
+          );
         },
       }),
       { name: 'appStore' }
     ),
-    { store: 'AppStore', name: 'App Store' }
+    { store: 'AppStore', name: '' }
   )
 );
 
