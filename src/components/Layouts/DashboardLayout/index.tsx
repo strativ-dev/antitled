@@ -60,7 +60,7 @@ const DashboardLayout = withAuth(() => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ height: '100vh' }}>
+        style={{ height: '100dvh' }}>
         <Flex justify='center' align='center'>
           <StrativLogo height={40} width={40} />
         </Flex>
@@ -117,7 +117,10 @@ export default DashboardLayout;
 
 const StyledLayout = styled(Layout)`
   background-color: ${({ theme }) => theme.colors.backgrounds['bgPrimary']};
+  height: 100%;
+  min-height: 100dvh;
 `;
+
 export const StyledHeader = styled(Layout.Header)`
   display: flex;
   justify-content: space-between;

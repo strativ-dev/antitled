@@ -3,7 +3,7 @@ import { Flex } from 'antd';
 import styled from 'styled-components';
 
 export const MenuLabel = styled(Flex)`
-  font-size: ${({ theme }) => theme.fontSize['display-sm']};
+  font-size: ${({ theme }) => theme.fontSize['text-md']};
   color: ${({ theme }) => theme.colors.texts.textSecondary700};
   align-items: center;
 `;
@@ -39,7 +39,7 @@ export const UserInfo = styled(Flex)`
   }
 
   .user-email {
-    font-size: ${({ theme }) => theme.fontSize['display-xs']};
+    font-size: ${({ theme }) => theme.fontSize['text-sm']};
     color: ${({ theme }) => theme.colors.texts.textTertiary600};
   }
 `;

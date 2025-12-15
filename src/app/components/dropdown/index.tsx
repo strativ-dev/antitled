@@ -2,6 +2,8 @@ import {
   AnnotationQuestion,
   Container,
   DotsVertical,
+  Download01,
+  FaceSmile,
   HomeLine,
   LayersTwo01,
   Lightning01,
@@ -12,8 +14,6 @@ import {
   User01,
   UserPlus01,
   Users03,
-  Download01,
-  FaceSmile,
 } from '@untitledui/icons';
 import { Flex, Space, type MenuProps } from 'antd';
 import { t } from 'i18next';
@@ -38,7 +38,7 @@ const items: MenuProps['items'] = [
     label: (
       <UserInfo>
         <img src={AvatarIcon} alt='User avatar' />
-        <Space direction='vertical' size={2}>
+        <Space orientation='vertical' size={2}>
           <span className='user-name'>Olivia Rhye</span>
           <span className='user-email'>olivia@untitledui.com</span>
         </Space>
