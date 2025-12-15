@@ -2,9 +2,9 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { message } from 'antd';
 
-import { authenticatedAxiosInstance, publicAxiosInstance } from './api';
+import { authenticatedAxiosInstance, publicAxiosInstance } from './api.service';
 import useErrorNotification from '@/hooks/useErrorNotification';
-import { endpoints } from '@/lib/config/endpoints';
+import { ENDPOINTS, QUERY_KEYS } from '@/services/constants';
 import { useAuthStore } from '@/stores/useAuthStore';
 
 type UseLoginMutationPayload = {
@@ -19,7 +19,7 @@ type UseLoginMutationResponse = {
 
 const loginMutation = (payload: UseLoginMutationPayload) => {
   return publicAxiosInstance.post<UseLoginMutationResponse>(
-    endpoints.LOGIN,
+    ENDPOINTS.auth.login,
     payload
   );
 };
@@ -45,12 +45,12 @@ export const useLoginMutation = () => {
 };
 
 const myProfileQuery = () => {
-  return authenticatedAxiosInstance.get(endpoints.MY_PROFILE);
+  return authenticatedAxiosInstance.get(ENDPOINTS.auth.myProfile);
 };
 
 export const useMyProfileQuery = ({ isEnabled }: { isEnabled: boolean }) => {
   const query = useQuery({
-    queryKey: ['my-profile'],
+    queryKey: [QUERY_KEYS.auth.myProfile],
     queryFn: () => myProfileQuery().then((res) => res.data),
     enabled: isEnabled,
   });

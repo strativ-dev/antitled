@@ -3,7 +3,7 @@ import {
   LoginCard,
   LoginWrapper,
 } from '@/features/authentication/styles/login-styles';
-import { useLoginMutation } from '@/services/authentication';
+import { useLoginMutation } from '@/services/authentication.service';
 
 const Login = () => {
   const loginMutation = useLoginMutation();

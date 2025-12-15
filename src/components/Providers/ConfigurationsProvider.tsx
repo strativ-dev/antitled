@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { useMyProfileQuery } from '@/services/authentication';
+import { useMyProfileQuery } from '@/services/authentication.service';
 import useAuthStore from '@/stores/useAuthStore';
 
 type ConfigurationsProviderProps = {

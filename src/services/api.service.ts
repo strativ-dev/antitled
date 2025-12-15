@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { t } from 'i18next';
 
-import { endpoints } from '@/lib/config/endpoints';
+import { ENDPOINTS } from '@/services/constants';
 import useAuthStore from '@/stores/useAuthStore';
 
 export const publicAxiosInstance = axios.create({
@@ -46,13 +46,13 @@ authenticatedAxiosInstance.interceptors.response.use(
       refreshToken
     ) {
       // if refresh token is invalid or expired
-      if (originalRequest.url?.includes(endpoints.REFRESH_TOKEN)) {
+      if (originalRequest.url?.includes(ENDPOINTS.auth.refreshToken)) {
         return Promise.reject(error);
       }
 
       try {
         const response = await authenticatedAxiosInstance.post(
-          endpoints.REFRESH_TOKEN,
+          ENDPOINTS.auth.refreshToken,
           {
             refreshToken: refreshToken,
           }

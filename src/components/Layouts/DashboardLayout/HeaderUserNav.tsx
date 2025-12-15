@@ -3,7 +3,7 @@ import { Avatar, Dropdown, MenuProps } from 'antd';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useLogoutMutation } from '@/services/authentication';
+import { useLogoutMutation } from '@/services/authentication.service';
 import useAuthStore from '@/stores/useAuthStore';
 
 export const HeaderUserNav = () => {
