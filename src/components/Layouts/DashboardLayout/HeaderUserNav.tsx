@@ -22,7 +22,7 @@ export const HeaderUserNav = () => {
       items: [
         {
           key: 'profile',
-          label: user?.name,
+          label: user?.name ?? 'My Profile',
           disabled: true,
         },
         {
