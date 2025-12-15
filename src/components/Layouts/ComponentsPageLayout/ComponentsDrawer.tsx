@@ -3,7 +3,7 @@ import { Layout, Menu } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { HEADER_HEIGHT } from '@/lib/utils/constants';
+import { LAYOUT } from '@/lib/utils/constants';
 
 import { StyledSimpleBar } from '@/components/Atoms';
 import { useComponentsDrawerMenuItems } from '@/components/Layouts/ComponentsPageLayout/useComponentsDrawerMenuItems';
@@ -53,7 +53,7 @@ const ComponentsDrawer: FC = () => {
       <StyledSimpleBar
         autoHide
         style={{
-          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+          height: `calc(100dvh - ${LAYOUT.headerHeight})`,
           padding: '0 1rem',
           paddingBottom: '2rem',
         }}>
@@ -78,8 +78,8 @@ const StyledSider = styled(Sider)`
   position: relative;
   z-index: 2;
   position: sticky;
-  top: ${HEADER_HEIGHT}px;
-  height: calc(100vh - ${HEADER_HEIGHT}px);
+  top: ${LAYOUT.headerHeight};
+  height: calc(100dvh - ${LAYOUT.headerHeight});
   overflow: auto;
   scrollbar-color: scrollbarColor;
   scrollbar-width: thin;

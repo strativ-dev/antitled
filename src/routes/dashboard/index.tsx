@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { Text } from '@/components/Atoms';
+
 export const Route = createFileRoute('/dashboard/')({
   component: RouteComponent,
 });
@@ -7,7 +9,9 @@ export const Route = createFileRoute('/dashboard/')({
 function RouteComponent() {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Text variant='display-sm-medium' as='h1'>
+        Dashboard
+      </Text>
     </div>
   );
 }

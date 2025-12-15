@@ -28,7 +28,7 @@ const MenuItems = () => {
   const ITEMS: (ITEM | ITEM_GROUP)[] = [
     {
       key: 'dashboard',
-      icon: <Home01 />,
+      icon: <Home01 size={20} />,
       label: t('dashboard'),
     },
   ];

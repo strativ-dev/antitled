@@ -1,10 +1,12 @@
-import { User01 } from '@untitledui/icons';
-import { Avatar, Dropdown, MenuProps } from 'antd';
+import { MenuProps } from 'antd';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { createInitials } from '@/lib/utils/helpers';
 import { useLogoutMutation } from '@/services/authentication.service';
 import useAuthStore from '@/stores/useAuthStore';
+
+import { Avatar, Dropdown, Text } from '@/components/Atoms';
 
 export const HeaderUserNav = () => {
   const { t } = useTranslation('translation', {
@@ -33,13 +35,10 @@ export const HeaderUserNav = () => {
   }, [logout, t, user?.name]);
 
   return (
-    <Dropdown menu={menuItems} trigger={['click']} placement='bottomRight'>
-      <a
-        onClick={(event) => {
-          event.preventDefault();
-        }}>
-        <Avatar src={user?.avatar} icon={<User01 />} size='large' />
-      </a>
+    <Dropdown menu={menuItems} trigger={['click']}>
+      <Avatar src={user?.avatar} style={{ cursor: 'pointer' }}>
+        <Text color='textQuaternary500'>{createInitials('User Name')}</Text>
+      </Avatar>
     </Dropdown>
   );
 };

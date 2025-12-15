@@ -1,4 +1,4 @@
-import { LabelWrapper, StyledSelect, Wrapper } from './styles';
+import { LabelWrapper, StyledSelect } from './styles';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LANGUAGE_OPTIONS } from '@/lib/utils/constants';
 
@@ -30,7 +30,7 @@ export const LangPicker = () => {
   const { language, handleChange } = useLanguage();
 
   return (
-    <Wrapper className='lang-picker'>
+    <>
       <StyledSelect
         variant='borderless'
         value={language}
@@ -40,6 +40,6 @@ export const LangPicker = () => {
         options={options}
         popupMatchSelectWidth={false}
       />
-    </Wrapper>
+    </>
   );
 };

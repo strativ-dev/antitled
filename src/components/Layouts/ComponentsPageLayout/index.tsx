@@ -2,7 +2,7 @@ import { Link, Outlet } from '@tanstack/react-router';
 import { Flex, Layout } from 'antd';
 import styled from 'styled-components';
 
-import { HEADER_HEIGHT } from '@/lib/utils/constants';
+import { LAYOUT } from '@/lib/utils/constants';
 
 import ComponentsDrawer from '@/components/Layouts/ComponentsPageLayout/ComponentsDrawer';
 import ThemeToggle from '@/components/Layouts/DashboardLayout/ThemeToggle';
@@ -13,7 +13,7 @@ const { Header, Content } = Layout;
 
 export default function ComponentsPageLayout() {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100dvh' }}>
       <StyledHeader>
         <div>
           <BrandLink to='/'>
@@ -51,8 +51,8 @@ const StyledHeader = styled(Header)`
   justify-content: space-between;
   box-shadow: ${({ theme }) => theme.shadows['xs']};
 
-  height: ${HEADER_HEIGHT}px;
-  line-height: ${HEADER_HEIGHT}px;
+  height: ${LAYOUT.headerHeight};
+  line-height: ${LAYOUT.headerHeight};
 `;
 
 const BrandLink = styled(Link)`
@@ -72,7 +72,7 @@ const BrandLogo = styled.img`
 `;
 
 const StyledContent = styled(Content)`
-  padding: ${HEADER_HEIGHT + 24}px 2rem;
+  padding: calc(${LAYOUT.headerHeight} + 2rem) 2rem;
   min-height: 280px;
   background: ${({ theme }) => theme.colors['backgrounds']['bgPrimary']};
 `;

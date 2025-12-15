@@ -3,7 +3,11 @@ export const LANGUAGE_OPTIONS = {
   sv: 'sv',
 } as const;
 
-export const HEADER_HEIGHT = 64;
+export const LAYOUT = {
+  headerHeight: '4.5rem',
+  siderCollapsedWidth: '4rem',
+  siderWidth: '17.625rem',
+};
 
 export const COUNTRY_CODES = [
   { name: 'Sweden', code: 'SE', phone: '+46' },

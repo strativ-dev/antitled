@@ -25,6 +25,16 @@ export const StyledSelect = styled(Select)`
   .ant-select-arrow {
     color: ${({ theme }) => theme.colors.texts.textPrimary900};
   }
+
+  .ant-select-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-select-suffix {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const LabelWrapper = styled.span`
