@@ -7,7 +7,8 @@ type Props = {
   isCollapsed?: boolean;
 };
 
-export default function SiderLogo({ isCollapsed }: Props) {
+// Currently, the logo does not change based on the collapsed state. If needed in the future, the commented code can be re-enabled.
+export default function SiderLogo({ isCollapsed: _isCollapsed }: Props) {
   // const { mode } = useTheme();
   // const ThemedLogo =
   //   mode === 'dark' ? StrativLogoWithTextDark : StrativLogoWithText;

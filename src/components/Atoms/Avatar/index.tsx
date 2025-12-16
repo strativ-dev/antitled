@@ -1,13 +1,15 @@
 import { Avatar as AntdAvatar } from 'antd';
 import { Children, cloneElement, isValidElement } from 'react';
 
-import { getSize, StatusDot } from './helpers';
+import { getSize } from './helpers';
 import {
   BadgeContainer,
   StyledAvatarGroup,
   StyledAvatarWrapper,
 } from './styles';
 import { GroupProps, Props } from './types';
+
+import StatusDot from '@/components/Atoms/Avatar/StatusDot';
 
 const AvatarRoot = ({
   size,

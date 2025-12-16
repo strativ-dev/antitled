@@ -153,7 +153,7 @@ export default function TablePage() {
         },
       },
     ];
-  }, [colors.foregrounds.fgQuaternary400]);
+  }, [colors]);
 
   // Calculate paginated data
   const paginatedData = useMemo(() => {
