@@ -1,9 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import useAuthStore from '@/stores/useAuthStore';
 
 const sortMenuItems = (
   items: Array<{
@@ -32,11 +30,12 @@ const sortMenuItems = (
     }));
 };
 
-export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
+export const useComponentsDrawerMenuItems = () => {
   const { t } = useTranslation();
-  const { user } = useAuthStore();
-  const translate = (k?: string) =>
-    k ? (t as (key: string) => string)(k) : '';
+  const translate = useCallback(
+    (k?: string) => (k ? (t as (key: string) => string)(k) : ''),
+    [t]
+  );
 
   const menuItems = useMemo(() => {
     const atomsChildrenData: Array<{
@@ -146,7 +145,7 @@ export const useComponentsDrawerMenuItems = (collapsed: boolean) => {
     ];
 
     return items;
-  }, [collapsed, user, t]);
+  }, [t, translate]);
 
   const menuItemKeys = menuItems.reduce((acc, item) => {
     if (item && 'children' in item && item.children) {

@@ -44,6 +44,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     return {
       pointAtCenter: true,
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [arrow, showCenteredArrow]);
 
   const tooltipTrigger = children || helperIcon || (

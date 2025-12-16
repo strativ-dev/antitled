@@ -1,24 +1,17 @@
 import { QueryClient } from '@tanstack/react-query';
-import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { createRootRouteWithContext } from '@tanstack/react-router';
 import 'simplebar-react/dist/simplebar.min.css';
 
 import NotFound from '@/app/not-found';
 import { AuthStoreType } from '@/stores/useAuthStore';
 
 import { ErrorFallback } from '@/components/ErrorBoundary/ErrorFallback';
+import RootLayout from '@/components/Layouts/RootLayout';
 
 type RouterContext = {
   auth: AuthStoreType & { isAuthenticated: boolean };
   queryClient: QueryClient;
 };
-
-const RootLayout = () => (
-  <>
-    <Outlet />
-    <TanStackRouterDevtools />
-  </>
-);
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: RootLayout,

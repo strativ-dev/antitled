@@ -370,6 +370,7 @@ const CheckboxGroupWrapper = styled.div<{
   }}
 `;
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const Checkbox = Object.assign(CheckboxBase, {
   Group: CheckboxGroupBase,
 });

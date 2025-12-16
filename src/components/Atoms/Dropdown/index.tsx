@@ -18,6 +18,7 @@ export type DropdownButtonProps = Omit<
   popupRender?: (originNode: ReactNode) => ReactNode;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 function DropdownBase(props: DropdownProps) {
   const {
     className,
@@ -45,6 +46,7 @@ function DropdownBase(props: DropdownProps) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 function DropdownButtonBase(props: DropdownButtonProps) {
   const { popupRender, ...rest } = props;
 

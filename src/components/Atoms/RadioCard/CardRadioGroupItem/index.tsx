@@ -23,6 +23,7 @@ export type RadioGroupItemProps = Omit<CardProps, 'size'> & {
 
 export type RadioGroupMetaProps = React.ComponentProps<typeof Card.Meta>;
 
+// eslint-disable-next-line react-refresh/only-export-components
 function CardRadioGroupItems(props: RadioGroupItemProps) {
   const {
     className,
@@ -82,6 +83,7 @@ function CardRadioGroupItems(props: RadioGroupItemProps) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 function RadioGroupMeta(props: RadioGroupMetaProps) {
   return <Card.Meta {...props} />;
 }

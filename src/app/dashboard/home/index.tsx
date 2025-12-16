@@ -9,6 +9,7 @@ const dashboardStats = {
   revenue: 5678,
   orders: 90,
 };
+
 const DashboardHome = () => {
   const { t } = useTranslation('translation', {
     keyPrefix: 'pages.dashboard',

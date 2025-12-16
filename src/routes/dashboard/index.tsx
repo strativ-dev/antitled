@@ -1,17 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { Text } from '@/components/Atoms';
+import DashboardHome from '@/app/dashboard/home';
 
 export const Route = createFileRoute('/dashboard/')({
-  component: RouteComponent,
+  component: DashboardHome,
 });
-
-function RouteComponent() {
-  return (
-    <div>
-      <Text variant='display-sm-medium' as='h1'>
-        Dashboard
-      </Text>
-    </div>
-  );
-}

@@ -1,6 +1,6 @@
 import { CheckDone02, Copy01 } from '@untitledui/icons';
 import { Space } from 'antd';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled, { useTheme } from 'styled-components';
 
@@ -30,10 +30,10 @@ export const InputCopyText = ({ size, value }: Props) => {
 
   const theme = useTheme();
 
-  const onClickCopy = () => {
+  const onClickCopy = useCallback(() => {
     navigator.clipboard.writeText(value);
     setIsCopied(true);
-  };
+  }, [value]);
 
   const copyTextAfter = useMemo(() => {
     return (
@@ -55,7 +55,7 @@ export const InputCopyText = ({ size, value }: Props) => {
         </Text>
       </StyledCopyButton>
     );
-  }, [t, size, isCopied, theme, value]);
+  }, [t, size, isCopied, theme, onClickCopy]);
 
   useEffect(() => {
     // after 3 seconds set isCopied to false

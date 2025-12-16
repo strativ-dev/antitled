@@ -15,7 +15,7 @@ const ComponentsDrawer: FC = () => {
   const location = useLocation();
 
   const { componentsMenuItem, componentsMenuItemKeys } =
-    useComponentsDrawerMenuItems(collapsed);
+    useComponentsDrawerMenuItems();
 
   useEffect(() => {
     const handleResize = () => {
