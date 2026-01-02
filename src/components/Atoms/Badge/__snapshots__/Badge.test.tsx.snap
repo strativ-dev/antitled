@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Badge snapshots > matches snapshot for an outlined badge with icon and label 1`] = `
+<div>
+  <div
+    class="css-dev-only-do-not-override-dbp7pc ant-app css-var-_r_3_"
+  >
+    <div
+      class="sc-bRKDuR kjOHxn"
+    >
+      <div
+        class="ant-tag-lg"
+        data-testid="antd-tag"
+      >
+        <span
+          data-testid="tag-icon"
+        >
+          <span
+            data-testid="outlined-icon"
+          >
+            +
+          </span>
+        </span>
+        Synced
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Badge snapshots > matches snapshot for the default solid badge > 
+      {
+        "hasStyledWrapper": true,
+        "iconPresent": false,
+        "sizeClassApplied": true,
+        "textContent": "Active",
+      }
+     1`] = `
+{
+  "hasStyledWrapper": true,
+  "iconPresent": false,
+  "sizeClassApplied": true,
+  "textContent": "Active",
+}
+`;

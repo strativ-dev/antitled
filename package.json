@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "fix-lint": "pnpm eslint --fix"
@@ -73,6 +73,9 @@
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
       "prettier --write"
+    ],
+    "src/**/*.{test,spec}.{js,jsx,ts,tsx}": [
+      "pnpm vitest run --passWithNoTests --coverage=false"
     ]
   }
 }
