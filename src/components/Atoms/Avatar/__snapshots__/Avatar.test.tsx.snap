@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Avatar snapshots > matches snapshot for Avatar with custom status icon 1`] = `
+<div>
+  <div
+    class="css-dev-only-do-not-override-dbp7pc ant-app css-var-_r_6_"
+  >
+    <div
+      class="sc-bRKDuR ibBZLN"
+    >
+      <div
+        data-size="48"
+        data-testid="antd-avatar"
+      >
+        EF
+      </div>
+      <div
+        class="sc-fhHczv jfUmyV"
+      >
+        <span
+          data-testid="custom-icon"
+        >
+          !
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots > matches snapshot for Avatar with status dot 1`] = `
+<div>
+  <div
+    class="css-dev-only-do-not-override-dbp7pc ant-app css-var-_r_5_"
+  >
+    <div
+      class="sc-bRKDuR ibBZLN"
+    >
+      <div
+        data-size="40"
+        data-testid="antd-avatar"
+      >
+        CD
+      </div>
+      <div
+        class="sc-fhHczv jfUmyV"
+      >
+        <div
+          data-size="13.333333333333334"
+          data-status="online"
+          data-testid="status-dot"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots > matches snapshot for Avatar.Group with children 1`] = `
+<div>
+  <div
+    class="css-dev-only-do-not-override-dbp7pc ant-app css-var-_r_7_"
+  >
+    <div
+      class="sc-hvigdm hOkDsa"
+      data-size="32"
+      data-testid="antd-avatar-group"
+    >
+      <div
+        class="sc-bRKDuR ibBZLN"
+      >
+        <div
+          data-size="32"
+          data-testid="antd-avatar"
+        >
+          GH
+        </div>
+      </div>
+      <div
+        class="sc-bRKDuR ibBZLN"
+      >
+        <div
+          data-size="32"
+          data-testid="antd-avatar"
+        >
+          IJ
+        </div>
+        <div
+          class="sc-fhHczv jfUmyV"
+        >
+          <div
+            data-size="10.666666666666666"
+            data-status="away"
+            data-testid="status-dot"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots > matches snapshot for default Avatar 1`] = `
+<div>
+  <div
+    class="css-dev-only-do-not-override-dbp7pc ant-app css-var-_r_4_"
+  >
+    <div
+      class="sc-bRKDuR ibBZLN"
+    >
+      <div
+        data-size="40"
+        data-testid="antd-avatar"
+      >
+        AB
+      </div>
+    </div>
+  </div>
+</div>
+`;
