@@ -25,16 +25,22 @@ const ThemeProviderWrapper = ({ children }: ThemeProviderWrapperProps) => {
 
   // Handle initial system theme detection
   useEffect(() => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return;
+    }
+
     if (themeMode === 'system') {
-      const systemIsDark = window.matchMedia(
-        '(prefers-color-scheme: dark)'
-      ).matches;
+      const matchMedia = window.matchMedia?.('(prefers-color-scheme: dark)');
+      const systemIsDark = matchMedia?.matches ?? false;
       setTheme(systemIsDark ? 'dark' : 'light');
       return;
     }
 
     // Update HTML element
     const htmlElement = document.documentElement;
+    if (!htmlElement) {
+      return;
+    }
     if (themeMode === 'dark') {
       htmlElement.classList.add('dark');
       htmlElement.classList.remove('light');
