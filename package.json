@@ -73,9 +73,6 @@
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
       "prettier --write"
-    ],
-    "src/**/*.{test,spec}.{js,jsx,ts,tsx}": [
-      "pnpm vitest run --passWithNoTests --coverage=false"
     ]
   }
 }
