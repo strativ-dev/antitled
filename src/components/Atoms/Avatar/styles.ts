@@ -10,8 +10,6 @@ export const StyledAvatarWrapper = styled.div`
     border: none;
     position: relative;
 
-    background: ${({ theme }) => theme.colors.backgrounds.bgTertiary};
-
     &::after {
       content: '';
       position: absolute;

@@ -1,5 +1,6 @@
 import { User01 } from '@untitledui/icons';
 import { Flex } from 'antd';
+import styled from 'styled-components';
 
 import { Avatar, AvatarSize, AvatarStatus, Text } from '@/components/Atoms';
 
@@ -62,7 +63,7 @@ export const AvatarLabelGroup = ({
       <Avatar
         size={size}
         src={avatar}
-        icon={<User01 />}
+        icon={<UserIcon />}
         alt={label ?? 'Person Avatar'}
         statusIcon={statusIcon}
         status={status}
@@ -76,3 +77,8 @@ export const AvatarLabelGroup = ({
     </Flex>
   );
 };
+
+const UserIcon = styled(User01)`
+  width: 80%;
+  max-width: 2rem;
+`;

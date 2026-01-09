@@ -13,7 +13,7 @@ export default function AvatarLabelGroupPage() {
     <>
       <ComponentPageTitle title='AvatarLabelGroup Component' />
       <Text variant='text-lg-medium' margin='2rem 0 0 0'>
-        Avatar Label Group with status
+        Avatar Label Group without status
       </Text>
       <Row gutter={[32, 32]}>
         {PIRATES.slice(0, 4).map((pirate, index) => (
@@ -24,7 +24,7 @@ export default function AvatarLabelGroupPage() {
             style={{ display: 'flex', alignItems: 'center' }}>
             <AvatarLabelGroup
               size={Sizes[index]}
-              avatar={pirate.avatar}
+              avatar={undefined}
               label={pirate.name}
               subtext={pirate.email}
             />
